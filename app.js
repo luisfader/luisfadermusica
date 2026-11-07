@@ -298,6 +298,100 @@
   seek.addEventListener("change", () => { if(audio.duration) audio.currentTime = seek.value/1000*audio.duration; seeking = false; });
   window.addEventListener("resize", () => { if(!player.hidden) document.body.style.setProperty("--player-h", player.offsetHeight + "px"); });
 
+
+  /* ---------- Espectro (Web Audio, como Winamp) ----------
+     Analiza la música real que suena. Solo funciona si el MP3 está en el mismo
+     dominio que el portal (luisfader.github.io); si no, se oculta y el audio
+     sigue sonando normal. Se dibuja solo mientras hay música. */
+  const spec = $("#p-spec"), sctx = spec.getContext("2d");
+  const reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let actx = null, analyser = null, freq = null, specOn = false, raf = 0, lastDraw = 0;
+  let bars = [], peaks = [], peakHold = [], ranges = [], grad = null, gradFor = "", specW = 0, specH = 0;
+  function specReady(){
+    if(analyser) return true;
+    let same = false;
+    try{ same = new URL(audio.src, location.href).origin === location.origin; }catch(e){}
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if(!same || !AC) return false;
+    try{
+      actx = new AC();
+      const src = actx.createMediaElementSource(audio);
+      analyser = actx.createAnalyser();
+      analyser.fftSize = 1024; analyser.smoothingTimeConstant = .72;
+      analyser.minDecibels = -88; analyser.maxDecibels = -18;
+      src.connect(analyser); analyser.connect(actx.destination);
+      freq = new Uint8Array(analyser.frequencyBinCount);
+    }catch(e){ analyser = null; return false; }
+    return true;
+  }
+  function specSize(){
+    const r = spec.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    specW = Math.max(1, Math.round(r.width * dpr)); specH = Math.max(1, Math.round(r.height * dpr));
+    spec.width = specW; spec.height = specH;
+    const n = Math.max(12, Math.min(32, Math.round(r.width / 7)));
+    bars = new Array(n).fill(0); peaks = new Array(n).fill(0); peakHold = new Array(n).fill(0);
+    /* bandas en escala logarítmica, de 40 Hz a 15 kHz */
+    const binHz = (actx ? actx.sampleRate : 44100) / (analyser ? analyser.fftSize : 1024);
+    const maxBin = freq ? freq.length - 1 : 511;
+    ranges = [];
+    for(let i = 0; i < n; i++){
+      const f0 = 40 * Math.pow(15000/40, i/n), f1 = 40 * Math.pow(15000/40, (i+1)/n);
+      const a = Math.min(maxBin, Math.max(1, Math.floor(f0/binHz))), b = Math.min(maxBin, Math.max(a+1, Math.ceil(f1/binHz)));
+      ranges.push([a, b]);
+    }
+    gradFor = "";
+  }
+  function specColor(){
+    const accent = current.d ? current.d.accent : "#d0607e";
+    if(gradFor === accent && grad) return;
+    grad = sctx.createLinearGradient(0, specH, 0, 0);
+    grad.addColorStop(0, accent); grad.addColorStop(.7, accent); grad.addColorStop(1, "#f1ebdf");
+    gradFor = accent;
+  }
+  function specFrame(t){
+    raf = 0;
+    if(!specOn) return;
+    raf = requestAnimationFrame(specFrame);
+    if(reduceMotion && t - lastDraw < 66) return;
+    lastDraw = t;
+    analyser.getByteFrequencyData(freq);
+    specColor();
+    const n = bars.length, gap = Math.max(1, Math.round(specW/n*0.22)), bw = (specW - gap*(n+1)) / n;
+    const seg = Math.max(2, Math.round(specH/14)), segGap = Math.max(1, Math.round(seg/2)), step = seg + segGap;
+    const paused = audio.paused;
+    sctx.clearRect(0, 0, specW, specH);
+    let alive = false;
+    for(let i = 0; i < n; i++){
+      let v = 0;
+      if(!paused){ const [a,b] = ranges[i]; for(let k = a; k < b; k++) if(freq[k] > v) v = freq[k]; }
+      v = v / 255;
+      bars[i] = v > bars[i] ? v : Math.max(0, bars[i] - 0.06);
+      if(bars[i] >= peaks[i]){ peaks[i] = bars[i]; peakHold[i] = 18; }
+      else if(peakHold[i] > 0) peakHold[i]--;
+      else peaks[i] = Math.max(0, peaks[i] - 0.015);
+      if(bars[i] > 0 || peaks[i] > 0) alive = true;
+      const x = Math.round(gap + i*(bw+gap)), w = Math.max(1, Math.round(bw));
+      const segs = Math.floor(bars[i] * specH / step);
+      sctx.fillStyle = grad;
+      for(let s2 = 0; s2 < segs; s2++) sctx.fillRect(x, specH - (s2+1)*step + segGap, w, seg);
+      if(peaks[i] > 0.02){
+        sctx.fillStyle = "#f1ebdf";
+        sctx.fillRect(x, Math.max(0, Math.round(specH - peaks[i]*specH)), w, Math.max(1, Math.round(seg/1.5)));
+      }
+    }
+    if(paused && !alive){ specOn = false; cancelAnimationFrame(raf); raf = 0; }
+  }
+  function specStart(){
+    if(!specReady()){ spec.hidden = true; return; }
+    if(spec.hidden){ spec.hidden = false; document.body.style.setProperty("--player-h", player.offsetHeight + "px"); specSize(); }
+    if(actx.state === "suspended") actx.resume().catch(()=>{});
+    specOn = true;
+    if(!raf) raf = requestAnimationFrame(specFrame);
+  }
+  audio.addEventListener("play", specStart);
+  audio.addEventListener("pause", () => { if(analyser && specOn && !raf) raf = requestAnimationFrame(specFrame); });
+  window.addEventListener("resize", () => { if(!spec.hidden) specSize(); });
+
   /* ---------- Aplicar idioma ---------- */
   function applyLang(l, save){
     L = l; T = S[L];
