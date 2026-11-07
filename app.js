@@ -25,13 +25,11 @@
       title:"Luis Fader — bandas sonoras de sus novelas",
       desc:"Las bandas sonoras de las novelas de Luis Fader en un solo lugar: Mendoza, la fortaleza turquesa, el horizonte después de la catástrofe, Verdegrado y Sinea.",
       skip:"Ir a las bandas sonoras", name:"Luis Fader", tagline:"bandas sonoras de sus novelas",
-      navSections:"Secciones", navSoundtracks:"Bandas sonoras", navNovels:"Todas las novelas", langPick:"Idioma del sitio",
+      navSections:"Secciones", navSoundtracks:"Bandas sonoras", langPick:"Idioma del sitio",
       listen:"Escuchar", openSite:"Abrir el sitio de la banda sonora", read:"Leer la novela", readIn:l=>"Leer la novela "+l, alsoIn:l=>"También "+l,
       tune:"Sintonizá una novela",
       soundtracksH:"Las bandas sonoras",
       soundtracksP:"Cada novela tiene su propio sitio, con la escena de cada pista y las letras. Desde acá podés escucharlas todas sin cambiar de página.",
-      novelsH:"Todas las novelas", filterLang:"Filtrar por idioma", all:"Todas", withMusic:"Con banda sonora", hasMusic:"con banda sonora",
-      novelsP:(n,k)=>n+" novelas publicadas en Litmir, en "+k+" idiomas. Las que tienen banda sonora están marcadas. Tocá una portada para leerla.",
       footName:"Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.", footLitmir:"Litmir, la biblioteca de sus novelas",
       prev:"Pista anterior", next:"Pista siguiente", pause:"Pausar", play:"Reproducir", seek:"Posición en la pista", scene:"Ver la escena",
       error:"Esta pista no se pudo cargar desde su sitio. Probá abriendo el sitio de la banda sonora.",
@@ -43,13 +41,11 @@
       title:"Луис Фадер — саундтреки к его романам",
       desc:"Саундтреки к романам Луиса Фадера в одном месте: Мендоса, бирюзовая крепость, горизонт после катастрофы, Вердеград и Синея.",
       skip:"К саундтрекам", name:"Луис Фадер", tagline:"саундтреки к его романам",
-      navSections:"Разделы", navSoundtracks:"Саундтреки", navNovels:"Все романы", langPick:"Язык сайта",
+      navSections:"Разделы", navSoundtracks:"Саундтреки", langPick:"Язык сайта",
       listen:"Слушать", openSite:"Открыть сайт саундтрека", read:"Читать роман", readIn:l=>"Читать роман "+l, alsoIn:l=>"Также "+l,
       tune:"Настройтесь на роман",
       soundtracksH:"Саундтреки",
       soundtracksP:"У каждого романа свой сайт: со сценой к каждому треку и текстами песен. Здесь можно слушать всё, не уходя со страницы.",
-      novelsH:"Все романы", filterLang:"Фильтр по языку", all:"Все", withMusic:"С саундтреком", hasMusic:"с саундтреком",
-      novelsP:(n,k)=>ruPlural(n,"роман опубликован","романа опубликовано","романов опубликовано")+" на Litmir, на "+k+" языках. Романы с саундтреком отмечены. Нажмите на обложку, чтобы читать.",
       footName:"Луис Фадер. В русских книгах — Роберт Фадер, в итальянских — Роберто Фадер.", footLitmir:"Litmir — библиотека его романов",
       prev:"Предыдущий трек", next:"Следующий трек", pause:"Пауза", play:"Воспроизвести", seek:"Позиция в треке", scene:"Открыть сцену",
       error:"Не удалось загрузить трек с его сайта. Попробуйте открыть сайт саундтрека.",
@@ -61,13 +57,11 @@
       title:"Luis Fader — soundtracks to his novels",
       desc:"The soundtracks to Luis Fader's novels in one place: Mendoza, the turquoise fortress, the horizon after the catastrophe, Verdegrad and Sinea.",
       skip:"Skip to the soundtracks", name:"Luis Fader", tagline:"soundtracks to his novels",
-      navSections:"Sections", navSoundtracks:"Soundtracks", navNovels:"All novels", langPick:"Site language",
+      navSections:"Sections", navSoundtracks:"Soundtracks", langPick:"Site language",
       listen:"Listen", openSite:"Open the soundtrack site", read:"Read the novel", readIn:l=>"Read the novel "+l, alsoIn:l=>"Also "+l,
       tune:"Tune in to a novel",
       soundtracksH:"The soundtracks",
       soundtracksP:"Each novel has its own site, with the scene behind every track and the lyrics. Here you can listen to all of them without leaving the page.",
-      novelsH:"All novels", filterLang:"Filter by language", all:"All", withMusic:"With soundtrack", hasMusic:"with soundtrack",
-      novelsP:(n,k)=>n+" novels published on Litmir, in "+k+" languages. Those with a soundtrack are marked. Tap a cover to read it.",
       footName:"Luis Fader. Robert Fader in Russian, Roberto Fader in Italian.", footLitmir:"Litmir, the library of his novels",
       prev:"Previous track", next:"Next track", pause:"Pause", play:"Play", seek:"Position in track", scene:"See the scene",
       error:"This track couldn't be loaded from its site. Try opening the soundtrack site.",
@@ -205,31 +199,6 @@
     play(d, t);
   });
 
-  /* ---------- Pared de novelas ---------- */
-  const withMusic = new Set();
-  D.worlds.forEach(w => Object.values(w.novel.v).forEach(s => withMusic.add(s)));
-  const counts = {};
-  D.wall.forEach(n => counts[n.lang] = (counts[n.lang]||0)+1);
-  const wallLangs = Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
-  const fil = $("#filters");
-  let wallFilter = "";
-  function renderFilters(){
-    const opts = [["",T.all],["*",T.withMusic]].concat(wallLangs.map(l => [l, langName(l)+" ("+counts[l]+")"]));
-    fil.innerHTML = opts.map(([v,lab]) => '<button type="button" aria-pressed="'+(v===wallFilter)+'" data-l="'+v+'">'+esc(lab)+'</button>').join("");
-    $("#universo-p").textContent = T.novelsP(D.wall.length, wallLangs.length);
-  }
-  function renderWall(){
-    const list = D.wall.filter(n => !wallFilter || (wallFilter==="*" ? withMusic.has(n.slug) : n.lang===wallFilter));
-    $("#wall").innerHTML = list.map(n =>
-      '<li><a href="'+LITMIR+esc(n.slug)+'"><img src="'+esc(n.img)+'" alt="" loading="lazy" width="200" height="300">'+
-      '<span lang="'+esc(n.lang)+'">'+esc(n.title)+'</span><small>'+esc(langName(n.lang))+(withMusic.has(n.slug) ? ', <span class="sound">'+esc(T.hasMusic)+'</span>' : '')+'</small></a></li>').join("");
-  }
-  fil.addEventListener("click", e => {
-    const b = e.target.closest("button"); if(!b) return;
-    wallFilter = b.dataset.l;
-    fil.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x===b ? "true" : "false"));
-    renderWall();
-  });
 
   /* ---------- Reproductor ---------- */
   const audio = $("#audio"), player = $("#player"), seek = $("#p-seek");
@@ -407,7 +376,7 @@
       b.setAttribute("aria-label", w.title + (w.tr && w.tr[L] ? " ("+w.tr[L]+")" : ""));
     });
     if(cur >= 0) tune(cur, false);
-    renderWorlds(); renderFilters(); renderWall(); playerText();
+    renderWorlds(); playerText();
     if(audioFailed) $("#p-error").textContent = T.error;
     if(save){
       try{ localStorage.setItem("fader-lang", L); }catch(e){}
