@@ -22,6 +22,7 @@
   <a class="brand" href="#"><b data-i18n="name">Luis Fader</b> <span data-i18n="tagline">bandas sonoras de sus novelas</span></a>
   <div class="top-right">
     <nav data-i18n-aria="navSections" aria-label="Secciones">
+      <a href="#mezclas" data-i18n="navMixes">Mezclas</a>
       <a href="#bandas" data-i18n="navSoundtracks">Bandas sonoras</a>
     </nav>
     <div class="langs" role="group" data-i18n-aria="langPick" aria-label="Idioma del sitio" id="langs">
@@ -56,6 +57,15 @@
 </section>
 
 <main>
+  <section class="block" id="mezclas" aria-labelledby="mezclas-t">
+    <div class="block-head">
+      <h2 id="mezclas-t" data-i18n="mixesH">Mezclas por ánimo</h2>
+      <p data-i18n="mixesP">Canciones de distintas novelas, juntas según lo que te hacen sentir. Nunca suenan dos seguidas de la misma novela.</p>
+      <button type="button" class="btn primary shuffle" id="shuffle-all" data-i18n="shuffleAll">Todo al azar</button>
+    </div>
+    <div id="mixes" class="mixes"></div>
+  </section>
+
   <section class="block" id="bandas" aria-labelledby="bandas-t">
     <div class="block-head">
       <h2 id="bandas-t" data-i18n="soundtracksH">Las bandas sonoras</h2>

@@ -24,6 +24,7 @@ Cada pista se reproduce desde el sitio de su novela, aunque el visitante nunca s
 ## Cómo funciona
 
 - Acá no hay MP3: el reproductor toma cada pista del sitio de su novela. Si se agrega una canción a uno de esos sitios, hay que sumarla también en `data.js`.
+- Mezclas por ánimo: cada pista tiene una letra en el campo `mood` de su disco (A amor, L lluvia y nostalgia, F lucha y adrenalina, M misterio y penumbra, E esperanza y amanecer). Las mezclas se arman solas a partir de eso y nunca ponen dos canciones seguidas de la misma novela. Para mover una canción de mezcla, cambiá su letra. «Todo al azar» mezcla las 103 de otra forma cada vez.
 - `data.js` tiene los mundos, los discos con sus pistas. Los textos de cada mundo van en los tres idiomas (`es`, `ru`, `en`), y `novel.v` dice qué versión de la novela hay en Litmir para cada idioma.
 - El reproductor muestra un espectro real (Web Audio), en el color de cada novela. Solo funciona porque el portal y las bandas sonoras están en el mismo dominio, luisfader.github.io; desde otro dominio se oculta solo y la música suena igual.
 - `app.js` tiene los textos de la interfaz en los tres idiomas (objeto `S`).

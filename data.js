@@ -1,5 +1,7 @@
 /* Generado a partir de los sitios de cada banda sonora (noviembre de 2026).
-   Las pistas se reproducen desde el sitio de cada novela: acá no hay MP3. */
+   Las pistas se reproducen desde el sitio de cada novela: acá no hay MP3.
+   Cada disco tiene «mood»: una letra por pista (A amor, L lluvia, F lucha, M misterio, E esperanza)
+   que decide en qué mezcla va. */
 window.PORTAL={
  "worlds": [
   {
@@ -146,7 +148,8 @@ window.PORTAL={
        "s": "Malbec y empanadas en la finca"
       }
      ],
-     "pending": 0
+     "pending": 0,
+     "mood": "LLAEELEMEEAFAAAMAE"
     }
    ],
    "tr": {
@@ -212,7 +215,8 @@ window.PORTAL={
        "v": "Natalia"
       }
      ],
-     "pending": 0
+     "pending": 0,
+     "mood": "ELL"
     },
     {
      "name": {
@@ -288,7 +292,8 @@ window.PORTAL={
        "s": "Lo que no se puede arreglar"
       }
      ],
-     "pending": 0
+     "pending": 0,
+     "mood": "AFFEEFFFAL"
     },
     {
      "name": {
@@ -340,7 +345,8 @@ window.PORTAL={
        "s": "Donde el «nunca más» suena a «tal vez»"
       }
      ],
-     "pending": 9
+     "pending": 9,
+     "mood": "LLMMAM"
     }
    ],
    "tr": {
@@ -513,7 +519,8 @@ window.PORTAL={
        "v": "Оксана"
       }
      ],
-     "pending": 0
+     "pending": 0,
+     "mood": "MEAFFEELFMLALLEFFEE"
     }
    ],
    "tr": {
@@ -673,7 +680,8 @@ window.PORTAL={
        "s": "Вне глав"
       }
      ],
-     "pending": 0
+     "pending": 0,
+     "mood": "EMMMAAMMAFMLLLLLLAEA"
     }
    ],
    "tr": {
@@ -834,7 +842,8 @@ window.PORTAL={
        "s": "Il ponte di Sinea"
       }
      ],
-     "pending": 0
+     "pending": 0,
+     "mood": "ALMEMEMAMMEAFFLELLLA"
     }
    ],
    "tr": {
@@ -924,13 +933,91 @@ window.PORTAL={
        "v": "La città triste"
       }
      ],
-     "pending": 0
+     "pending": 0,
+     "mood": "EAEFFEF"
     }
    ],
    "tr": {
     "es": "La ciudad triste",
     "ru": "Грустный город",
     "en": "The Sad City"
+   }
+  }
+ ],
+ "mixes": [
+  {
+   "code": "A",
+   "id": "amor",
+   "color": "#e07a95",
+   "name": {
+    "es": "Amor",
+    "ru": "Любовь",
+    "en": "Love"
+   },
+   "desc": {
+    "es": "Encuentros, bailes y abrazos.",
+    "ru": "Встречи, танцы и объятия.",
+    "en": "Meetings, dances and embraces."
+   }
+  },
+  {
+   "code": "L",
+   "id": "lluvia",
+   "color": "#7ea6d8",
+   "name": {
+    "es": "Lluvia y nostalgia",
+    "ru": "Дождь и ностальгия",
+    "en": "Rain and longing"
+   },
+   "desc": {
+    "es": "Despedidas, recuerdos y días grises.",
+    "ru": "Прощания, воспоминания и серые дни.",
+    "en": "Farewells, memories and grey days."
+   }
+  },
+  {
+   "code": "F",
+   "id": "lucha",
+   "color": "#ea7f4c",
+   "name": {
+    "es": "Lucha y adrenalina",
+    "ru": "Борьба и драйв",
+    "en": "Fight and adrenaline"
+   },
+   "desc": {
+    "es": "Rap, persecuciones e himnos para levantarse.",
+    "ru": "Рэп, погони и гимны, чтобы подняться.",
+    "en": "Rap, chases and anthems to rise up to."
+   }
+  },
+  {
+   "code": "M",
+   "id": "misterio",
+   "color": "#a990e2",
+   "name": {
+    "es": "Misterio y penumbra",
+    "ru": "Тайна и полумрак",
+    "en": "Mystery and twilight"
+   },
+   "desc": {
+    "es": "Fortalezas, leyendas y presentimientos.",
+    "ru": "Крепости, легенды и предчувствия.",
+    "en": "Fortresses, legends and forebodings."
+   }
+  },
+  {
+   "code": "E",
+   "id": "esperanza",
+   "color": "#e8c45c",
+   "name": {
+    "es": "Esperanza y amanecer",
+    "ru": "Надежда и рассвет",
+    "en": "Hope and sunrise"
+   },
+   "desc": {
+    "es": "Mañanas, caminos y ganas de empezar de nuevo.",
+    "ru": "Утро, дороги и желание начать заново.",
+    "en": "Mornings, roads and the urge to start over."
    }
   }
  ]

@@ -25,7 +25,9 @@
       desc:"Las bandas sonoras de las novelas de Luis Fader en un solo lugar: Mendoza, la fortaleza turquesa, el horizonte después de la catástrofe, Verdegrado y Sinea.",
       skip:"Ir a las bandas sonoras", name:"Luis Fader", tagline:"bandas sonoras de sus novelas",
       navSections:"Secciones", navSoundtracks:"Bandas sonoras", langPick:"Idioma del sitio",
-      listen:"Escuchar", seeTracks:"Ver todas las pistas",
+      listen:"Escuchar", seeTracks:"Ver todas las pistas", navMixes:"Mezclas",
+      mixesH:"Mezclas por ánimo", mixesP:"Canciones de distintas novelas, juntas según lo que te hacen sentir. Nunca suenan dos seguidas de la misma novela.",
+      shuffleAll:"Todo al azar", playMix:n=>"Escuchar la mezcla «"+n+"»", novels:n=>n+(n===1?" novela":" novelas"), mixOf:(m,w)=>m+", de "+w,
       tune:"Sintonizá una novela",
       soundtracksH:"Las bandas sonoras",
       soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
@@ -41,7 +43,9 @@
       desc:"Саундтреки к романам Луиса Фадера в одном месте: Мендоса, бирюзовая крепость, горизонт после катастрофы, Вердеград и Синея.",
       skip:"К саундтрекам", name:"Луис Фадер", tagline:"саундтреки к его романам",
       navSections:"Разделы", navSoundtracks:"Саундтреки", langPick:"Язык сайта",
-      listen:"Слушать", seeTracks:"Все треки",
+      listen:"Слушать", seeTracks:"Все треки", navMixes:"Миксы",
+      mixesH:"Миксы по настроению", mixesP:"Песни из разных романов, собранные по настроению. Две песни из одного романа подряд не звучат.",
+      shuffleAll:"Всё вперемешку", playMix:n=>"Слушать микс «"+n+"»", novels:n=>ruPlural(n,"роман","романа","романов"), mixOf:(m,w)=>m+": «"+w+"»",
       tune:"Настройтесь на роман",
       soundtracksH:"Саундтреки",
       soundtracksP:"Все песни каждого романа — в том порядке, в каком они звучат в книге. Нажмите на трек, чтобы слушать.",
@@ -57,7 +61,9 @@
       desc:"The soundtracks to Luis Fader's novels in one place: Mendoza, the turquoise fortress, the horizon after the catastrophe, Verdegrad and Sinea.",
       skip:"Skip to the soundtracks", name:"Luis Fader", tagline:"soundtracks to his novels",
       navSections:"Sections", navSoundtracks:"Soundtracks", langPick:"Site language",
-      listen:"Listen", seeTracks:"See all tracks",
+      listen:"Listen", seeTracks:"See all tracks", navMixes:"Mixes",
+      mixesH:"Mood mixes", mixesP:"Songs from different novels, grouped by how they feel. Two songs from the same novel never play back to back.",
+      shuffleAll:"Shuffle everything", playMix:n=>"Play the "+n+" mix", novels:n=>n+(n===1?" novel":" novels"), mixOf:(m,w)=>m+", from "+w,
       tune:"Tune in to a novel",
       soundtracksH:"The soundtracks",
       soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
@@ -103,6 +109,37 @@
   const discs = [];
   D.worlds.forEach(w => w.discs.forEach(d => { d.world = w; d.accent = w.accent; discs.push(d); }));
 
+  /* ---------- Listas de reproducción ----------
+     Cada disco es una lista; cada mezcla junta pistas de varias novelas.
+     En las mezclas nunca suenan dos seguidas de la misma novela. */
+  const queues = {};
+  discs.forEach((d,k) => queues["d"+k] = d.tracks.map((_,t) => ({d, t})));
+  function interleave(items, random){
+    const groups = new Map();
+    items.forEach(it => { const id = it.d.world.id; if(!groups.has(id)) groups.set(id, []); groups.get(id).push(it); });
+    const out = []; let last = null;
+    while(out.length < items.length){
+      let best = null;
+      groups.forEach((g, id) => {
+        if(!g.length) return;
+        if(id === last && [...groups.values()].some((h,j) => h.length && [...groups.keys()][j] !== last)) return;
+        if(!best || g.length > best[1].length || (random && g.length === best[1].length && Math.random() < .5)) best = [id, g];
+      });
+      out.push(best[1].shift()); last = best[0];
+    }
+    return out;
+  }
+  const allItems = () => discs.flatMap(d => d.tracks.map((_,t) => ({d, t})));
+  D.mixes.forEach(m => {
+    queues["m:"+m.id] = interleave(allItems().filter(it => it.d.mood[it.t] === m.code), false);
+  });
+  function shuffled(){
+    const a = allItems();
+    for(let i = a.length-1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]] = [a[j],a[i]]; }
+    return interleave(a, true);
+  }
+  const mixOfKey = k => k && k.startsWith("m:") ? D.mixes.find(m => "m:"+m.id === k) : null;
+
   /* ---------- Dial ---------- */
   const dial = $("#dial"), needle = dial.querySelector(".needle");
   const layers = document.querySelectorAll(".layer");
@@ -146,13 +183,13 @@
     $("#hero-count").textContent = tx(w.kind) + ". " + T.tracks(countTracks(w)) + ", " + inLang(w.lang) + ".";
     if(fromUser){ try{ history.replaceState(null,"",location.search+"#"+w.id); }catch(e){} }
   }
-  $("#hero-play").addEventListener("click", () => play(D.worlds[cur].discs[0], 0));
+  $("#hero-play").addEventListener("click", () => start("d"+discs.indexOf(D.worlds[cur].discs[0]), 0));
   /* «Ver todas las pistas» baja a la novela sintonizada y abre su primer disco */
   $("#hero-tracks").addEventListener("click", () => { const d = document.querySelector("#m-"+D.worlds[cur].id+" .disc"); if(d) d.open = true; });
 
   /* ---------- Mundos ---------- */
   const trackList = d => '<ol>' + d.tracks.map((t,k) =>
-      '<li><button type="button" class="track" data-d="'+discs.indexOf(d)+'" data-t="'+k+'">'+
+      '<li><button type="button" class="track" data-q="d'+discs.indexOf(d)+'" data-i="'+k+'" data-d="'+discs.indexOf(d)+'" data-t="'+k+'">'+
       '<span class="n">'+(k+1)+'</span>'+
       '<span class="tt" lang="'+esc(d.world.lang)+'">'+esc(t.t)+(t.o||t.s ? '<small>'+esc(t.o || t.s)+'</small>' : '')+'</span>'+
       '<span class="du">'+esc(t.d||"")+'</span></button></li>').join("") + '</ol>' +
@@ -180,17 +217,43 @@
     markCurrent();
   }
 
+  /* ---------- Mezclas ---------- */
+  const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 19 12 7 19.5z"/></svg>';
+  function renderMixes(){
+    const open = new Set([...document.querySelectorAll("#mixes .disc[open]")].map(x => x.dataset.disc));
+    $("#mixes").innerHTML = D.mixes.map(m => {
+      const q = queues["m:"+m.id], key = "m:"+m.id;
+      const per = D.worlds.map(w => [w, q.filter(it => it.d.world === w).length]).filter(x => x[1]);
+      const most = Math.max(...per.map(x => x[1]));
+      const bars = per.map(([w,n]) => '<span style="background:'+w.accent+';height:'+Math.max(18, Math.round(n/most*100))+'%"></span>').join("");
+      const info = [T.tracks(q.length), minutes(q.map(it => it.d.tracks[it.t])), T.novels(per.length)].filter(Boolean).join(", ");
+      const rows = q.map((it,k) => { const t = it.d.tracks[it.t], w = it.d.world;
+        return '<li><button type="button" class="track" data-q="'+key+'" data-i="'+k+'" data-d="'+discs.indexOf(it.d)+'" data-t="'+it.t+'">'+
+          '<span class="n">'+(k+1)+'</span>'+
+          '<span class="tt"><span lang="'+esc(w.lang)+'">'+esc(t.t)+'</span><small class="from" style="--w:'+w.accent+'" lang="'+esc(w.lang)+'">'+esc(w.title)+'</small></span>'+
+          '<span class="du">'+esc(t.d||"")+'</span></button></li>'; }).join("");
+      return '<article class="mix" style="--m:'+m.color+'">'+
+        '<button type="button" class="mix-play" data-mix="'+key+'" aria-label="'+esc(T.playMix(tx(m.name)))+'">'+PLAY_SVG+'</button>'+
+        '<details class="disc" data-disc="'+key+'"'+(open.has(key)?' open':'')+'><summary><span class="mbars" aria-hidden="true">'+bars+'</span>'+
+        '<span><span class="d-name">'+esc(tx(m.name))+'</span><span class="d-info">'+esc(tx(m.desc))+' '+esc(info)+'.</span></span></summary><ol>'+rows+'</ol></details>'+
+        '</article>';
+    }).join("");
+    markCurrent();
+  }
+  $("#mixes").addEventListener("click", e => { const b = e.target.closest(".mix-play"); if(b) start(b.dataset.mix, 0); });
+  $("#shuffle-all").addEventListener("click", () => start("azar", 0));
+
   document.addEventListener("click", e => {
     const b = e.target.closest(".track"); if(!b) return;
-    const d = discs[+b.dataset.d], t = +b.dataset.t;
-    if(current.d===d && current.t===t){ toggle(); return; }
-    play(d, t);
+    const q = b.dataset.q, i = +b.dataset.i;
+    if(current.qk===q && current.i===i){ toggle(); return; }
+    start(q, i);
   });
 
 
   /* ---------- Reproductor ---------- */
   const audio = $("#audio"), player = $("#player"), seek = $("#p-seek");
-  const current = {d:null, t:-1};
+  const current = {d:null, t:-1, qk:null, q:null, i:-1};
   const ICON_PAUSE = '<path d="M8 5v14M16 5v14"/>', ICON_PLAY = '<path d="M7 4.5 19 12 7 19.5z"/>';
 
   function markCurrent(){
@@ -199,11 +262,18 @@
   }
   function playerText(){
     if(!current.d) return;
-    const d = current.d, name = tx(d.name);
-    $("#p-sub").textContent = name + (name !== d.world.title ? ", " + d.world.title : "");
+    const d = current.d, name = tx(d.name), m = mixOfKey(current.qk);
+    $("#p-sub").textContent = m ? T.mixOf(tx(m.name), d.world.title)
+      : current.qk === "azar" ? T.mixOf(T.shuffleAll, d.world.title)
+      : name + (name !== d.world.title ? ", " + d.world.title : "");
     $("#p-toggle").setAttribute("aria-label", audio.paused ? T.play : T.pause);
   }
-  function play(d, t){
+  function start(key, i){
+    current.qk = key; current.q = key === "azar" ? shuffled() : queues[key]; current.i = i;
+    play();
+  }
+  function play(){
+    const it = current.q[current.i], d = it.d, t = it.t;
     current.d = d; current.t = t;
     const tr = d.tracks[t];
     $("#p-error").textContent = "";
@@ -219,7 +289,7 @@
     markCurrent();
     if("mediaSession" in navigator){
       try{
-        navigator.mediaSession.metadata = new MediaMetadata({title:tr.t, artist:"Luis Fader", album:tx(d.name),
+        navigator.mediaSession.metadata = new MediaMetadata({title:tr.t, artist:"Luis Fader", album:(mixOfKey(current.qk) ? tx(mixOfKey(current.qk).name) : tx(d.name)),
           artwork:[{src:new URL(d.cover, location.href).href, sizes:"560x560", type:"image/jpeg"}]});
         navigator.mediaSession.setActionHandler("previoustrack", prev);
         navigator.mediaSession.setActionHandler("nexttrack", next);
@@ -227,8 +297,8 @@
     }
   }
   function toggle(){ if(!current.d) return; audio.paused ? audio.play().catch(()=>{}) : audio.pause(); }
-  function next(){ if(!current.d) return; const d = current.d; play(d, (current.t+1) % d.tracks.length); }
-  function prev(){ if(!current.d) return; if(audio.currentTime > 4){ audio.currentTime = 0; return; } const d = current.d; play(d, (current.t-1+d.tracks.length) % d.tracks.length); }
+  function next(){ if(!current.q) return; current.i = (current.i+1) % current.q.length; play(); }
+  function prev(){ if(!current.q) return; if(audio.currentTime > 4){ audio.currentTime = 0; return; } current.i = (current.i-1+current.q.length) % current.q.length; play(); }
 
   $("#p-toggle").addEventListener("click", toggle);
   $("#p-next").addEventListener("click", next);
@@ -363,7 +433,7 @@
       b.setAttribute("aria-label", w.title + (w.tr && w.tr[L] ? " ("+w.tr[L]+")" : ""));
     });
     if(cur >= 0) tune(cur, false);
-    renderWorlds(); playerText();
+    renderWorlds(); renderMixes(); playerText();
     if(audioFailed) $("#p-error").textContent = T.error;
     if(save){
       try{ localStorage.setItem("fader-lang", L); }catch(e){}
