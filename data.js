@@ -1,7 +1,8 @@
 /* Generado a partir de los sitios de cada banda sonora (noviembre de 2026).
    Las pistas se reproducen desde el sitio de cada novela: acá no hay MP3.
    Cada disco tiene «mood»: una letra por pista (A amor, L lluvia, F lucha, M misterio, E esperanza)
-   que decide en qué mezcla va. */
+   que decide en qué mezcla va.
+   «voice»: S si la pista tiene voz (canción), i si es instrumental. */
 window.PORTAL={
  "worlds": [
   {
@@ -149,7 +150,8 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "LLAEELEMEEAFAAAMAE"
+     "mood": "LLAEELEMEEAFAAAMAE",
+     "voice": "iiiiiiiiiiiiiiiiii"
     }
    ],
    "tr": {
@@ -216,7 +218,8 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "ELL"
+     "mood": "ELL",
+     "voice": "SSS"
     },
     {
      "name": {
@@ -293,7 +296,8 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "AFFEEFFFAL"
+     "mood": "AFFEEFFFAL",
+     "voice": "SSSSSSSSSS"
     },
     {
      "name": {
@@ -346,7 +350,8 @@ window.PORTAL={
       }
      ],
      "pending": 9,
-     "mood": "LLMMAM"
+     "mood": "LLMMAM",
+     "voice": "SSSSSS"
     }
    ],
    "tr": {
@@ -520,7 +525,8 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "MEAFFEELFMLALLEFFEE"
+     "mood": "MEAFFEELFMLALLEFFEE",
+     "voice": "SSSSSSSSSiSSSSSSSSS"
     }
    ],
    "tr": {
@@ -681,7 +687,8 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "EMMMAAMMAFMLLLLLLAEA"
+     "mood": "EMMMAAMMAFMLLLLLLAEA",
+     "voice": "iiiiiSSiSiSSSSSiSiSS"
     }
    ],
    "tr": {
@@ -843,7 +850,8 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "ALMEMEMAMMEAFFLELLLA"
+     "mood": "ALMEMEMAMMEAFFLELLLA",
+     "voice": "SSiiSiiSiiiSSSSSSiSi"
     }
    ],
    "tr": {
@@ -934,7 +942,8 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "EAEFFEF"
+     "mood": "EAEFFEF",
+     "voice": "SSSSSSS"
     }
    ],
    "tr": {

@@ -76,7 +76,14 @@ button{font:inherit;color:inherit}
 .block-head p{margin:0;color:var(--muted)}
 
 /* Mezclas */
-.block-head .shuffle{margin-top:1.25rem}
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-top:1.25rem}
+.vf{display:inline-flex;gap:.15rem;padding:.2rem;border:1px solid var(--rule);border-radius:999px;font-family:var(--sans)}
+.vf button{border:0;background:none;color:var(--muted);font-size:1rem;padding:.45rem 1rem;border-radius:999px;cursor:pointer}
+.vf button:hover{color:var(--paper)}
+.vf button[aria-pressed="true"]{background:var(--paper);color:var(--night);font-weight:500}
+.track .du{display:inline-flex;align-items:baseline;gap:.4rem}
+.voc svg{width:.85rem;height:.85rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;vertical-align:-1px;opacity:.8}
+.mix-play:disabled,.btn:disabled{opacity:.35;cursor:default;filter:none}
 .block-head .shuffle::before{content:none}
 .mixes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr));gap:.75rem 1.5rem;align-items:start}
 .mix{--w:var(--m);display:grid;grid-template-columns:auto minmax(0,1fr);gap:.75rem;align-items:start}

@@ -26,8 +26,8 @@
       skip:"Ir a las bandas sonoras", name:"Luis Fader", tagline:"bandas sonoras de sus novelas",
       navSections:"Secciones", navSoundtracks:"Bandas sonoras", langPick:"Idioma del sitio",
       listen:"Escuchar", seeTracks:"Ver todas las pistas", navMixes:"Mezclas",
-      mixesH:"Mezclas por ánimo", mixesP:"Canciones de distintas novelas, juntas según lo que te hacen sentir. Nunca suenan dos seguidas de la misma novela.",
-      shuffleAll:"Todo al azar", playMix:n=>"Escuchar la mezcla «"+n+"»", novels:n=>n+(n===1?" novela":" novelas"), mixOf:(m,w)=>m+", de "+w,
+      mixesH:"Mezclas por ánimo", mixesP:"Canciones de distintas novelas, juntas según lo que te hacen sentir. Las novelas se van alternando siempre que se puede.",
+      shuffleAll:"Todo al azar", vfLabel:"Qué escuchar", vfAll:"Todo", vfSong:"Canciones", vfInst:"Instrumental", vfNone:"No hay pistas de este tipo en este disco.", sung:"Con voz", playMix:n=>"Escuchar la mezcla «"+n+"»", novels:n=>n+(n===1?" novela":" novelas"), mixOf:(m,w)=>m+", de "+w,
       tune:"Sintonizá una novela",
       soundtracksH:"Las bandas sonoras",
       soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
@@ -44,8 +44,8 @@
       skip:"К саундтрекам", name:"Луис Фадер", tagline:"саундтреки к его романам",
       navSections:"Разделы", navSoundtracks:"Саундтреки", langPick:"Язык сайта",
       listen:"Слушать", seeTracks:"Все треки", navMixes:"Миксы",
-      mixesH:"Миксы по настроению", mixesP:"Песни из разных романов, собранные по настроению. Две песни из одного романа подряд не звучат.",
-      shuffleAll:"Всё вперемешку", playMix:n=>"Слушать микс «"+n+"»", novels:n=>ruPlural(n,"роман","романа","романов"), mixOf:(m,w)=>m+": «"+w+"»",
+      mixesH:"Миксы по настроению", mixesP:"Песни из разных романов, собранные по настроению. Романы по возможности чередуются.",
+      shuffleAll:"Всё вперемешку", vfLabel:"Что слушать", vfAll:"Всё", vfSong:"Песни", vfInst:"Инструментал", vfNone:"В этом альбоме нет таких треков.", sung:"С вокалом", playMix:n=>"Слушать микс «"+n+"»", novels:n=>ruPlural(n,"роман","романа","романов"), mixOf:(m,w)=>m+": «"+w+"»",
       tune:"Настройтесь на роман",
       soundtracksH:"Саундтреки",
       soundtracksP:"Все песни каждого романа — в том порядке, в каком они звучат в книге. Нажмите на трек, чтобы слушать.",
@@ -62,8 +62,8 @@
       skip:"Skip to the soundtracks", name:"Luis Fader", tagline:"soundtracks to his novels",
       navSections:"Sections", navSoundtracks:"Soundtracks", langPick:"Site language",
       listen:"Listen", seeTracks:"See all tracks", navMixes:"Mixes",
-      mixesH:"Mood mixes", mixesP:"Songs from different novels, grouped by how they feel. Two songs from the same novel never play back to back.",
-      shuffleAll:"Shuffle everything", playMix:n=>"Play the "+n+" mix", novels:n=>n+(n===1?" novel":" novels"), mixOf:(m,w)=>m+", from "+w,
+      mixesH:"Mood mixes", mixesP:"Songs from different novels, grouped by how they feel. The novels take turns whenever possible.",
+      shuffleAll:"Shuffle everything", vfLabel:"What to play", vfAll:"Everything", vfSong:"Songs", vfInst:"Instrumental", vfNone:"No tracks of this kind on this album.", sung:"With vocals", playMix:n=>"Play the "+n+" mix", novels:n=>n+(n===1?" novel":" novels"), mixOf:(m,w)=>m+", from "+w,
       tune:"Tune in to a novel",
       soundtracksH:"The soundtracks",
       soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
@@ -112,6 +112,11 @@
   /* ---------- Listas de reproducción ----------
      Cada disco es una lista; cada mezcla junta pistas de varias novelas.
      En las mezclas nunca suenan dos seguidas de la misma novela. */
+  /* Qué escuchar: "all" (todo), "song" (solo canciones con voz) o "inst" (solo instrumental) */
+  let VF = "all";
+  try{ const v = localStorage.getItem("fader-voice"); if(["all","song","inst"].includes(v)) VF = v; }catch(e){}
+  const isSong = it => it.d.voice[it.t] === "S";
+  const keep = it => VF === "all" || (VF === "song") === isSong(it);
   const queues = {};
   discs.forEach((d,k) => queues["d"+k] = d.tracks.map((_,t) => ({d, t})));
   function interleave(items, random){
@@ -130,11 +135,15 @@
     return out;
   }
   const allItems = () => discs.flatMap(d => d.tracks.map((_,t) => ({d, t})));
-  D.mixes.forEach(m => {
-    queues["m:"+m.id] = interleave(allItems().filter(it => it.d.mood[it.t] === m.code), false);
-  });
+  const mixItems = {};
+  D.mixes.forEach(m => { mixItems["m:"+m.id] = allItems().filter(it => it.d.mood[it.t] === m.code); });
+  /* La lista que suena, ya filtrada; las mezclas se intercalan después de filtrar */
+  function getQueue(key){
+    if(mixItems[key]) return interleave(mixItems[key].filter(keep), false);
+    return (queues[key] || []).filter(keep);
+  }
   function shuffled(){
-    const a = allItems();
+    const a = allItems().filter(keep);
     for(let i = a.length-1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]] = [a[j],a[i]]; }
     return interleave(a, true);
   }
@@ -181,21 +190,31 @@
     $("#hero-blurb").textContent = tx(w.blurb);
     $("#hero-tracks").href = "#m-" + w.id;
     $("#hero-count").textContent = tx(w.kind) + ". " + T.tracks(countTracks(w)) + ", " + inLang(w.lang) + ".";
+    heroState();
     if(fromUser){ try{ history.replaceState(null,"",location.search+"#"+w.id); }catch(e){} }
   }
-  $("#hero-play").addEventListener("click", () => start("d"+discs.indexOf(D.worlds[cur].discs[0]), 0));
+  const heroDisc = () => D.worlds[cur].discs.find(d => getQueue("d"+discs.indexOf(d)).length);
+  $("#hero-play").addEventListener("click", () => { const d = heroDisc(); if(d) start("d"+discs.indexOf(d), 0); });
+  function heroState(){ $("#hero-play").disabled = !heroDisc(); }
   /* «Ver todas las pistas» baja a la novela sintonizada y abre su primer disco */
   $("#hero-tracks").addEventListener("click", () => { const d = document.querySelector("#m-"+D.worlds[cur].id+" .disc"); if(d) d.open = true; });
 
   /* ---------- Mundos ---------- */
-  const trackList = d => '<ol>' + d.tracks.map((t,k) =>
-      '<li><button type="button" class="track" data-q="d'+discs.indexOf(d)+'" data-i="'+k+'" data-d="'+discs.indexOf(d)+'" data-t="'+k+'">'+
+  const MIC = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></svg>';
+  const dur = (it, t) => '<span class="du">'+(isSong(it) ? '<span class="voc" role="img" aria-label="'+esc(T.sung)+'" title="'+esc(T.sung)+'">'+MIC+'</span>' : '')+esc(t.d||"")+'</span>';
+  const trackList = d => {
+    const key = "d"+discs.indexOf(d), q = getQueue(key);
+    if(!q.length) return '<p class="pending">'+esc(T.vfNone)+'</p>';
+    return '<ol>' + q.map((it,k) => { const t = d.tracks[it.t];
+      return '<li><button type="button" class="track" data-q="'+key+'" data-i="'+k+'" data-d="'+discs.indexOf(d)+'" data-t="'+it.t+'">'+
       '<span class="n">'+(k+1)+'</span>'+
       '<span class="tt" lang="'+esc(d.world.lang)+'">'+esc(t.t)+(t.o||t.s ? '<small>'+esc(t.o || t.s)+'</small>' : '')+'</span>'+
-      '<span class="du">'+esc(t.d||"")+'</span></button></li>').join("") + '</ol>' +
-      (d.pending ? '<p class="pending">'+esc(T.pending(d.pending))+'</p>' : '');
+      dur(it, t)+'</button></li>'; }).join("") + '</ol>' +
+      (d.pending && VF !== "inst" ? '<p class="pending">'+esc(T.pending(d.pending))+'</p>' : '');
+  };
   const discBlock = (d, open) => {
-    const info = [T.tracks(d.tracks.length), minutes(d.tracks)].filter(Boolean).join(", ");
+    const q = getQueue("d"+discs.indexOf(d)), tracks = q.map(it => d.tracks[it.t]);
+    const info = [T.tracks(tracks.length), minutes(tracks)].filter(Boolean).join(", ");
     const name = tx(d.name);
     return '<details class="disc" data-disc="'+discs.indexOf(d)+'"'+(open?' open':'')+'><summary><img src="'+esc(d.cover)+'" alt="" loading="lazy" width="48" height="48">'+
       '<span><span class="d-name">'+esc(name)+'</span><span class="d-info">'+esc(info)+(d.note ? '. '+esc(tx(d.note)) : '')+'</span></span></summary>'+trackList(d)+'</details>';
@@ -209,7 +228,7 @@
         '<img class="world-cover" src="'+esc(w.discs[0].cover)+'" alt="'+esc(T.cover(w.title))+'" loading="lazy" width="560" height="840">'+
         '<div class="w-head"><h3 lang="'+w.lang+'">'+esc(w.title)+'</h3>'+
         (tr ? '<p class="es">'+esc(tr)+'</p>' : '')+
-        '<p class="meta"><b>'+esc(tx(w.place))+'</b>. '+esc(w.author)+', '+esc(inLang(w.lang))+'. '+esc(T.tracks(countTracks(w)))+'.</p></div>'+
+        '<p class="meta"><b>'+esc(tx(w.place))+'</b>. '+esc(w.author)+', '+esc(inLang(w.lang))+'. '+esc(T.tracks(w.discs.reduce((a,d)=>a+getQueue("d"+discs.indexOf(d)).length,0)))+'.</p></div>'+
         '<p class="desc">'+esc(tx(w.blurb))+'</p>'+
         '<div class="discs">'+w.discs.map(d=>discBlock(d, open.has(String(discs.indexOf(d))))).join("")+'</div>'+
         '</article>';
@@ -222,20 +241,20 @@
   function renderMixes(){
     const open = new Set([...document.querySelectorAll("#mixes .disc[open]")].map(x => x.dataset.disc));
     $("#mixes").innerHTML = D.mixes.map(m => {
-      const q = queues["m:"+m.id], key = "m:"+m.id;
+      const key = "m:"+m.id, q = getQueue(key);
       const per = D.worlds.map(w => [w, q.filter(it => it.d.world === w).length]).filter(x => x[1]);
-      const most = Math.max(...per.map(x => x[1]));
+      const most = Math.max(1, ...per.map(x => x[1]));
       const bars = per.map(([w,n]) => '<span style="background:'+w.accent+';height:'+Math.max(18, Math.round(n/most*100))+'%"></span>').join("");
       const info = [T.tracks(q.length), minutes(q.map(it => it.d.tracks[it.t])), T.novels(per.length)].filter(Boolean).join(", ");
       const rows = q.map((it,k) => { const t = it.d.tracks[it.t], w = it.d.world;
         return '<li><button type="button" class="track" data-q="'+key+'" data-i="'+k+'" data-d="'+discs.indexOf(it.d)+'" data-t="'+it.t+'">'+
           '<span class="n">'+(k+1)+'</span>'+
           '<span class="tt"><span lang="'+esc(w.lang)+'">'+esc(t.t)+'</span><small class="from" style="--w:'+w.accent+'" lang="'+esc(w.lang)+'">'+esc(w.title)+'</small></span>'+
-          '<span class="du">'+esc(t.d||"")+'</span></button></li>'; }).join("");
+          dur(it, t)+'</button></li>'; }).join("");
       return '<article class="mix" style="--m:'+m.color+'">'+
-        '<button type="button" class="mix-play" data-mix="'+key+'" aria-label="'+esc(T.playMix(tx(m.name)))+'">'+PLAY_SVG+'</button>'+
+        '<button type="button" class="mix-play" data-mix="'+key+'" aria-label="'+esc(T.playMix(tx(m.name)))+'"'+(q.length?'':' disabled')+'>'+PLAY_SVG+'</button>'+
         '<details class="disc" data-disc="'+key+'"'+(open.has(key)?' open':'')+'><summary><span class="mbars" aria-hidden="true">'+bars+'</span>'+
-        '<span><span class="d-name">'+esc(tx(m.name))+'</span><span class="d-info">'+esc(tx(m.desc))+' '+esc(info)+'.</span></span></summary><ol>'+rows+'</ol></details>'+
+        '<span><span class="d-name">'+esc(tx(m.name))+'</span><span class="d-info">'+esc(tx(m.desc))+' '+esc(info)+'.</span></span></summary>'+(q.length ? '<ol>'+rows+'</ol>' : '<p class="pending">'+esc(T.vfNone)+'</p>')+'</details>'+
         '</article>';
     }).join("");
     markCurrent();
@@ -269,7 +288,9 @@
     $("#p-toggle").setAttribute("aria-label", audio.paused ? T.play : T.pause);
   }
   function start(key, i){
-    current.qk = key; current.q = key === "azar" ? shuffled() : queues[key]; current.i = i;
+    const q = key === "azar" ? shuffled() : getQueue(key);
+    if(!q.length) return;
+    current.qk = key; current.q = q; current.i = i;
     play();
   }
   function play(){
@@ -297,8 +318,8 @@
     }
   }
   function toggle(){ if(!current.d) return; audio.paused ? audio.play().catch(()=>{}) : audio.pause(); }
-  function next(){ if(!current.q) return; current.i = (current.i+1) % current.q.length; play(); }
-  function prev(){ if(!current.q) return; if(audio.currentTime > 4){ audio.currentTime = 0; return; } current.i = (current.i-1+current.q.length) % current.q.length; play(); }
+  function next(){ if(!current.q || !current.q.length) return; current.i = (current.i+1) % current.q.length; play(); }
+  function prev(){ if(!current.q || !current.q.length) return; if(audio.currentTime > 4){ audio.currentTime = 0; return; } current.i = (current.i-1+current.q.length) % current.q.length; play(); }
 
   $("#p-toggle").addEventListener("click", toggle);
   $("#p-next").addEventListener("click", next);
@@ -418,6 +439,29 @@
   audio.addEventListener("pause", () => { if(analyser && specOn && !raf) raf = requestAnimationFrame(specFrame); });
   window.addEventListener("resize", () => { if(!spec.hidden) specSize(); });
 
+
+  /* ---------- Qué escuchar: todo, canciones o instrumental ---------- */
+  function renderVF(){
+    document.querySelectorAll(".vf").forEach(g => {
+      g.setAttribute("aria-label", T.vfLabel);
+      g.innerHTML = [["all",T.vfAll],["song",T.vfSong],["inst",T.vfInst]].map(([v,lab]) =>
+        '<button type="button" data-vf="'+v+'" aria-pressed="'+(v===VF)+'">'+esc(lab)+'</button>').join("");
+    });
+  }
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".vf button"); if(!b || b.dataset.vf === VF) return;
+    VF = b.dataset.vf;
+    try{ localStorage.setItem("fader-voice", VF); }catch(e){}
+    renderWorlds(); renderMixes(); renderVF(); heroState();
+    /* La lista que está sonando se rearma con el nuevo filtro; la canción actual termina normal */
+    if(current.qk){
+      const q = current.qk === "azar" ? current.q.filter(keep) : getQueue(current.qk);
+      const i = q.findIndex(it => it.d === current.d && it.t === current.t);
+      current.q = q; current.i = i >= 0 ? i : -1;
+      markCurrent();
+    }
+  });
+
   /* ---------- Aplicar idioma ---------- */
   function applyLang(l, save){
     L = l; T = S[L];
@@ -433,7 +477,7 @@
       b.setAttribute("aria-label", w.title + (w.tr && w.tr[L] ? " ("+w.tr[L]+")" : ""));
     });
     if(cur >= 0) tune(cur, false);
-    renderWorlds(); renderMixes(); playerText();
+    renderWorlds(); renderMixes(); renderVF(); playerText();
     if(audioFailed) $("#p-error").textContent = T.error;
     if(save){
       try{ localStorage.setItem("fader-lang", L); }catch(e){}
