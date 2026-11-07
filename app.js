@@ -1,7 +1,6 @@
 (function(){
   "use strict";
   const D = window.PORTAL;
-  const LITMIR = "https://luisfader.github.io/litmir/#/";
   const UI_LANGS = ["es","ru","en"];
   const SHORT = {misterio:"Misterio",corazonada:"Corazonada",horizonte:"Горизонт",volny:"Волны",onde:"Onde",momento:"Città"};
 
@@ -26,13 +25,13 @@
       desc:"Las bandas sonoras de las novelas de Luis Fader en un solo lugar: Mendoza, la fortaleza turquesa, el horizonte después de la catástrofe, Verdegrado y Sinea.",
       skip:"Ir a las bandas sonoras", name:"Luis Fader", tagline:"bandas sonoras de sus novelas",
       navSections:"Secciones", navSoundtracks:"Bandas sonoras", langPick:"Idioma del sitio",
-      listen:"Escuchar", openSite:"Abrir el sitio de la banda sonora", read:"Leer la novela", readIn:l=>"Leer la novela "+l, alsoIn:l=>"También "+l,
+      listen:"Escuchar", seeTracks:"Ver todas las pistas",
       tune:"Sintonizá una novela",
       soundtracksH:"Las bandas sonoras",
-      soundtracksP:"Cada novela tiene su propio sitio, con la escena de cada pista y las letras. Desde acá podés escucharlas todas sin cambiar de página.",
-      footName:"Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.", footLitmir:"Litmir, la biblioteca de sus novelas",
-      prev:"Pista anterior", next:"Pista siguiente", pause:"Pausar", play:"Reproducir", seek:"Posición en la pista", scene:"Ver la escena",
-      error:"Esta pista no se pudo cargar desde su sitio. Probá abriendo el sitio de la banda sonora.",
+      soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
+      footName:"Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.",
+      prev:"Pista anterior", next:"Pista siguiente", pause:"Pausar", play:"Reproducir", seek:"Posición en la pista",
+      error:"Esta pista no se pudo cargar. Probá con otra o volvé a intentar en un rato.",
       cover:t=>"Portada de "+t,
       tracks:n=>n+(n===1?" pista":" pistas"), min:"min",
       pending:n=>(n===1?"Una canción más todavía sin grabar.":n+" canciones más todavía sin grabar.")+" Sus letras ya están en el sitio."
@@ -42,13 +41,13 @@
       desc:"Саундтреки к романам Луиса Фадера в одном месте: Мендоса, бирюзовая крепость, горизонт после катастрофы, Вердеград и Синея.",
       skip:"К саундтрекам", name:"Луис Фадер", tagline:"саундтреки к его романам",
       navSections:"Разделы", navSoundtracks:"Саундтреки", langPick:"Язык сайта",
-      listen:"Слушать", openSite:"Открыть сайт саундтрека", read:"Читать роман", readIn:l=>"Читать роман "+l, alsoIn:l=>"Также "+l,
+      listen:"Слушать", seeTracks:"Все треки",
       tune:"Настройтесь на роман",
       soundtracksH:"Саундтреки",
-      soundtracksP:"У каждого романа свой сайт: со сценой к каждому треку и текстами песен. Здесь можно слушать всё, не уходя со страницы.",
-      footName:"Луис Фадер. В русских книгах — Роберт Фадер, в итальянских — Роберто Фадер.", footLitmir:"Litmir — библиотека его романов",
-      prev:"Предыдущий трек", next:"Следующий трек", pause:"Пауза", play:"Воспроизвести", seek:"Позиция в треке", scene:"Открыть сцену",
-      error:"Не удалось загрузить трек с его сайта. Попробуйте открыть сайт саундтрека.",
+      soundtracksP:"Все песни каждого романа — в том порядке, в каком они звучат в книге. Нажмите на трек, чтобы слушать.",
+      footName:"Луис Фадер. В русских книгах — Роберт Фадер, в итальянских — Роберто Фадер.",
+      prev:"Предыдущий трек", next:"Следующий трек", pause:"Пауза", play:"Воспроизвести", seek:"Позиция в треке",
+      error:"Не удалось загрузить трек. Выберите другой или попробуйте позже.",
       cover:t=>"Обложка: "+t,
       tracks:n=>ruPlural(n,"трек","трека","треков"), min:"мин",
       pending:n=>"Ещё "+ruPlural(n,"песня пока не записана","песни пока не записаны","песен пока не записаны")+". Их тексты уже есть на сайте."
@@ -58,13 +57,13 @@
       desc:"The soundtracks to Luis Fader's novels in one place: Mendoza, the turquoise fortress, the horizon after the catastrophe, Verdegrad and Sinea.",
       skip:"Skip to the soundtracks", name:"Luis Fader", tagline:"soundtracks to his novels",
       navSections:"Sections", navSoundtracks:"Soundtracks", langPick:"Site language",
-      listen:"Listen", openSite:"Open the soundtrack site", read:"Read the novel", readIn:l=>"Read the novel "+l, alsoIn:l=>"Also "+l,
+      listen:"Listen", seeTracks:"See all tracks",
       tune:"Tune in to a novel",
       soundtracksH:"The soundtracks",
-      soundtracksP:"Each novel has its own site, with the scene behind every track and the lyrics. Here you can listen to all of them without leaving the page.",
-      footName:"Luis Fader. Robert Fader in Russian, Roberto Fader in Italian.", footLitmir:"Litmir, the library of his novels",
-      prev:"Previous track", next:"Next track", pause:"Pause", play:"Play", seek:"Position in track", scene:"See the scene",
-      error:"This track couldn't be loaded from its site. Try opening the soundtrack site.",
+      soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
+      footName:"Luis Fader. Robert Fader in Russian, Roberto Fader in Italian.",
+      prev:"Previous track", next:"Next track", pause:"Pause", play:"Play", seek:"Position in track",
+      error:"This track couldn't be loaded. Try another one, or try again later.",
       cover:t=>"Cover of "+t,
       tracks:n=>n+(n===1?" track":" tracks"), min:"min",
       pending:n=>(n===1?"One more song":n+" more songs")+" not recorded yet. The lyrics are already on the site."
@@ -99,14 +98,6 @@
   const minutes = tracks => { const t = tracks.reduce((a,x)=>a+secs(x.d),0); return t ? Math.round(t/60) + " " + T.min : ""; };
   const countTracks = w => w.discs.reduce((a,d)=>a+d.tracks.length,0);
 
-  /* Versión de la novela para el idioma elegido, y las demás */
-  function novelLinks(w){
-    const v = w.novel.v, mine = v[L], main = mine || v[w.novel.orig];
-    const first = { slug: main, label: mine ? T.read : T.readIn(inLang(w.novel.orig)) };
-    const rest = Object.keys(v).filter(k => v[k] !== main && k !== L)
-      .map(k => ({ slug: v[k], label: T.alsoIn(inLang(k)) }));
-    return [first].concat(rest);
-  }
 
   /* Todos los discos en una sola lista, para el reproductor */
   const discs = [];
@@ -151,13 +142,13 @@
     const h = $("#hero-title"); h.textContent = w.title; h.lang = w.lang;
     $("#hero-tr").textContent = tx(w.tr && w.tr[L]);
     $("#hero-blurb").textContent = tx(w.blurb);
-    $("#hero-site").href = w.discs[0].url;
-    const nl = novelLinks(w)[0], nv = $("#hero-novel");
-    nv.href = LITMIR + nl.slug; nv.textContent = nl.label;
+    $("#hero-tracks").href = "#m-" + w.id;
     $("#hero-count").textContent = tx(w.kind) + ". " + T.tracks(countTracks(w)) + ", " + inLang(w.lang) + ".";
     if(fromUser){ try{ history.replaceState(null,"",location.search+"#"+w.id); }catch(e){} }
   }
   $("#hero-play").addEventListener("click", () => play(D.worlds[cur].discs[0], 0));
+  /* «Ver todas las pistas» baja a la novela sintonizada y abre su primer disco */
+  $("#hero-tracks").addEventListener("click", () => { const d = document.querySelector("#m-"+D.worlds[cur].id+" .disc"); if(d) d.open = true; });
 
   /* ---------- Mundos ---------- */
   const trackList = d => '<ol>' + d.tracks.map((t,k) =>
@@ -176,16 +167,13 @@
   function renderWorlds(){
     const open = new Set([...document.querySelectorAll(".disc[open]")].map(x => x.dataset.disc));
     $("#worlds").innerHTML = D.worlds.map(w => {
-      const links = novelLinks(w);
       const tr = w.tr && w.tr[L];
       return '<article class="world" id="m-'+w.id+'" style="--w:'+w.accent+'">'+
         '<img class="world-cover" src="'+esc(w.discs[0].cover)+'" alt="'+esc(T.cover(w.title))+'" loading="lazy" width="560" height="840">'+
-        '<div class="w-head"><h3 lang="'+w.lang+'"><a href="'+esc(w.discs[0].url)+'">'+esc(w.title)+'</a></h3>'+
+        '<div class="w-head"><h3 lang="'+w.lang+'">'+esc(w.title)+'</h3>'+
         (tr ? '<p class="es">'+esc(tr)+'</p>' : '')+
         '<p class="meta"><b>'+esc(tx(w.place))+'</b>. '+esc(w.author)+', '+esc(inLang(w.lang))+'. '+esc(T.tracks(countTracks(w)))+'.</p></div>'+
         '<p class="desc">'+esc(tx(w.blurb))+'</p>'+
-        '<ul class="links"><li><a href="'+esc(w.discs[0].url)+'">'+esc(T.openSite)+'</a></li>'+
-          links.map(x => '<li><a href="'+LITMIR+esc(x.slug)+'">'+esc(x.label)+'</a></li>').join("")+'</ul>'+
         '<div class="discs">'+w.discs.map(d=>discBlock(d, open.has(String(discs.indexOf(d))))).join("")+'</div>'+
         '</article>';
     }).join("");
@@ -227,7 +215,6 @@
     $("#p-cover").src = d.cover;
     const pt = $("#p-title"); pt.textContent = tr.t; pt.lang = d.world.lang;
     playerText();
-    $("#p-site").href = d.url;
     $("#p-dur").textContent = tr.d || "0:00";
     markCurrent();
     if("mediaSession" in navigator){

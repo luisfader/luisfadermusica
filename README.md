@@ -1,6 +1,6 @@
 # Luis Fader — bandas sonoras de sus novelas
 
-Portal a todos los sitios con la música de las novelas de Luis Fader.
+Reproductor con la música de las novelas de Luis Fader. Todo se escucha acá: el sitio no tiene enlaces que lleven a otras páginas.
 
 Arriba hay un dial: cada estación es una novela, y al sintonizarla la página toma la imagen y el color de ese mundo. Más abajo están todas las pistas, que se escuchan sin salir del portal,.
 
@@ -8,7 +8,9 @@ El sitio está en castellano, ruso e inglés. El idioma se elige arriba a la der
 
 Dirección: https://luisfader.github.io/luisfadermusica/ (se puede entrar directo a una novela con `#misterio`, `#corazonada`, `#horizonte`, `#volny`, `#onde` o `#momento`).
 
-## Qué sitios reúne
+## De dónde sale la música
+
+Cada pista se reproduce desde el sitio de su novela, aunque el visitante nunca sale del portal:
 
 | Novela | Idioma | Sitio |
 |---|---|---|

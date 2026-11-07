@@ -31,7 +31,6 @@ window.PORTAL={
       "ru": "El misterio de los Fader",
       "en": "El misterio de los Fader"
      },
-     "url": "https://luisfader.github.io/misteriofader/",
      "cover": "img/mundos/misteriofader.jpg",
      "tracks": [
       {
@@ -153,13 +152,6 @@ window.PORTAL={
    "tr": {
     "ru": "Тайна семьи Фадер",
     "en": "The Fader Mystery"
-   },
-   "novel": {
-    "orig": "es",
-    "v": {
-     "es": "el-misterio-de-los-fader",
-     "ru": "tajna-semi-fader"
-    }
    }
   },
   {
@@ -191,7 +183,6 @@ window.PORTAL={
       "ru": "Песни Натальи",
       "en": "Natalia's songs"
      },
-     "url": "https://luisfader.github.io/corazonada/",
      "cover": "img/mundos/corazonada.jpg",
      "note": {
       "es": "Voz de Natalia, versos de Oxana",
@@ -229,7 +220,6 @@ window.PORTAL={
       "ru": "Proyecto R: Nuestra Utopía",
       "en": "Proyecto R: Nuestra Utopía"
      },
-     "url": "https://luisfader.github.io/corazonada/proyecto-r/",
      "cover": "img/mundos/proyector.jpg",
      "note": {
       "es": "Rap y nu metal argentino",
@@ -306,7 +296,6 @@ window.PORTAL={
       "ru": "Antitango: Milonga del fin del mundo",
       "en": "Antitango: Milonga del fin del mundo"
      },
-     "url": "https://luisfader.github.io/corazonada/antitango/",
      "cover": "img/mundos/antitango.jpg",
      "note": {
       "es": "Tango y rap de antes de la Gran Catástrofe, el grupo favorito de Natalia",
@@ -357,14 +346,6 @@ window.PORTAL={
    "tr": {
     "ru": "Предчувствие",
     "en": "The Foreboding"
-   },
-   "novel": {
-    "orig": "es",
-    "v": {
-     "es": "la-corazonada",
-     "ru": "predchuvstvie",
-     "en": "the-foreboding"
-    }
    }
   },
   {
@@ -396,7 +377,6 @@ window.PORTAL={
       "ru": "Сияющий горизонт",
       "en": "Сияющий горизонт"
      },
-     "url": "https://luisfader.github.io/horizonte/",
      "cover": "img/mundos/horizonte.jpg",
      "tracks": [
       {
@@ -539,12 +519,6 @@ window.PORTAL={
    "tr": {
     "es": "El horizonte brillante",
     "en": "The Shining Horizon"
-   },
-   "novel": {
-    "orig": "ru",
-    "v": {
-     "ru": "siyayushchij-gorizont"
-    }
    }
   },
   {
@@ -576,7 +550,6 @@ window.PORTAL={
       "ru": "Волны любви. Крепость в полумраке",
       "en": "Волны любви. Крепость в полумраке"
      },
-     "url": "https://luisfader.github.io/volny/",
      "cover": "img/mundos/volny.jpg",
      "tracks": [
       {
@@ -707,12 +680,6 @@ window.PORTAL={
     "es": "Olas de amor: la fortaleza en penumbra",
     "ru": "Крепость в полумраке",
     "en": "Waves of Love: The Fortress in Twilight"
-   },
-   "novel": {
-    "orig": "ru",
-    "v": {
-     "ru": "volny-lyubvi-krepost"
-    }
    }
   },
   {
@@ -744,7 +711,6 @@ window.PORTAL={
       "ru": "Onde d'amore",
       "en": "Onde d'amore"
      },
-     "url": "https://luisfader.github.io/ondedamore/",
      "cover": "img/mundos/ondedamore.jpg",
      "tracks": [
       {
@@ -875,14 +841,6 @@ window.PORTAL={
     "es": "Ondas de amor",
     "ru": "Волны любви",
     "en": "Waves of Love"
-   },
-   "novel": {
-    "orig": "it",
-    "v": {
-     "it": "onde-d-amore",
-     "es": "ondas-de-amor",
-     "ru": "volny-lyubvi"
-    }
    }
   },
   {
@@ -914,7 +872,6 @@ window.PORTAL={
       "ru": "Momento musicale",
       "en": "Momento musicale"
      },
-     "url": "https://luisfader.github.io/momentomusicale/",
      "cover": "img/mundos/momentomusicale.jpg",
      "tracks": [
       {
@@ -974,13 +931,6 @@ window.PORTAL={
     "es": "La ciudad triste",
     "ru": "Грустный город",
     "en": "The Sad City"
-   },
-   "novel": {
-    "orig": "it",
-    "v": {
-     "it": "la-citta-triste",
-     "ru": "grustnyj-gorod"
-    }
    }
   }
  ]
