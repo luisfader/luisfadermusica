@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Luis Fader — bandas sonoras de sus novelas</title>
 <meta name="description" content="Las bandas sonoras de las novelas de Luis Fader en un solo lugar: Mendoza, la fortaleza turquesa, el horizonte después de la catástrofe, Verdegrado y Sinea. Escuchalas acá o entrá al sitio de cada una.">
-<meta property="og:title" content="Luis Fader — bandas sonoras de sus novelas">
-<meta property="og:description" content="Sintonizá una novela y escuchá su música.">
+<meta property="og:title" content="Luis Fader — bandas sonoras, саундтреки, soundtracks">
+<meta property="og:description" content="Sintonizá una novela y escuchá su música. Настройтесь на роман и слушайте его музыку. Tune in to a novel and hear its music.">
 <meta property="og:image" content="img/mundos/misteriofader-fondo.jpg">
 <meta name="theme-color" content="#191527">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23191527'/%3E%3Cpath d='M6 22h20M9 22V12M13 22V8M17 22v-9M21 22V10' stroke='%23f1ebdf' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
@@ -16,14 +16,21 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a class="skip" href="#bandas">Ir a las bandas sonoras</a>
+<a class="skip" href="#bandas" data-i18n="skip">Ir a las bandas sonoras</a>
 
 <header class="top">
-  <a class="brand" href="#">Luis Fader <span>bandas sonoras de sus novelas</span></a>
-  <nav aria-label="Secciones">
-    <a href="#bandas">Bandas sonoras</a>
-    <a href="#universo">Todas las novelas</a>
-  </nav>
+  <a class="brand" href="#"><b data-i18n="name">Luis Fader</b> <span data-i18n="tagline">bandas sonoras de sus novelas</span></a>
+  <div class="top-right">
+    <nav data-i18n-aria="navSections" aria-label="Secciones">
+      <a href="#bandas" data-i18n="navSoundtracks">Bandas sonoras</a>
+      <a href="#universo" data-i18n="navNovels">Todas las novelas</a>
+    </nav>
+    <div class="langs" role="group" data-i18n-aria="langPick" aria-label="Idioma del sitio" id="langs">
+      <button type="button" data-ui="es" lang="es" aria-pressed="true">Español</button>
+      <button type="button" data-ui="ru" lang="ru" aria-pressed="false">Русский</button>
+      <button type="button" data-ui="en" lang="en" aria-pressed="false">English</button>
+    </div>
+  </div>
 </header>
 
 <section class="hero" aria-labelledby="hero-title">
@@ -31,18 +38,18 @@
   <div class="hero-inner">
     <p class="place" id="hero-place"></p>
     <h1 id="hero-title"></h1>
-    <p class="es" id="hero-es"></p>
+    <p class="es" id="hero-tr"></p>
     <p class="blurb" id="hero-blurb"></p>
     <div class="actions">
-      <button class="btn primary" id="hero-play" type="button">Escuchar</button>
-      <a class="btn" id="hero-site" href="#">Abrir el sitio de la banda sonora</a>
+      <button class="btn primary" id="hero-play" type="button" data-i18n="listen">Escuchar</button>
+      <a class="btn" id="hero-site" href="#" data-i18n="openSite">Abrir el sitio de la banda sonora</a>
       <a class="btn quiet" id="hero-novel" href="#">Leer la novela</a>
     </div>
     <p class="count" id="hero-count"></p>
   </div>
 
   <div class="radio">
-    <p class="radio-hint" id="dial-label">Sintonizá una novela</p>
+    <p class="radio-hint" id="dial-label" data-i18n="tune">Sintonizá una novela</p>
     <div class="dial" role="radiogroup" aria-labelledby="dial-label" id="dial">
       <div class="scale" aria-hidden="true"></div>
       <div class="needle" aria-hidden="true"></div>
@@ -53,8 +60,8 @@
 <main>
   <section class="block" id="bandas" aria-labelledby="bandas-t">
     <div class="block-head">
-      <h2 id="bandas-t">Las bandas sonoras</h2>
-      <p>Cada novela tiene su propio sitio, con la escena de cada pista y las letras. Desde acá podés escucharlas todas sin cambiar de página.</p>
+      <h2 id="bandas-t" data-i18n="soundtracksH">Las bandas sonoras</h2>
+      <p data-i18n="soundtracksP">Cada novela tiene su propio sitio, con la escena de cada pista y las letras. Desde acá podés escucharlas todas sin cambiar de página.</p>
     </div>
     <div id="worlds"></div>
   </section>
@@ -62,17 +69,17 @@
 
   <section class="block" id="universo" aria-labelledby="universo-t">
     <div class="block-head">
-      <h2 id="universo-t">Todas las novelas</h2>
+      <h2 id="universo-t" data-i18n="novelsH">Todas las novelas</h2>
       <p id="universo-p">Todas las novelas publicadas en Litmir. Tocá una portada para leerla.</p>
     </div>
-    <div class="filters" role="group" aria-label="Filtrar por idioma" id="filters"></div>
+    <div class="filters" role="group" data-i18n-aria="filterLang" aria-label="Filtrar por idioma" id="filters"></div>
     <ul class="wall" id="wall"></ul>
   </section>
 </main>
 
 <footer class="foot">
-  <p>Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.</p>
-  <p><a href="https://luisfader.github.io/litmir/">Litmir, la biblioteca de sus novelas</a></p>
+  <p data-i18n="footName">Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.</p>
+  <p><a href="https://luisfader.github.io/litmir/" data-i18n="footLitmir">Litmir, la biblioteca de sus novelas</a></p>
 </footer>
 
 <div class="player" id="player" hidden>
@@ -82,16 +89,16 @@
     <p class="p-sub" id="p-sub"></p>
   </div>
   <div class="p-controls">
-    <button type="button" id="p-prev" aria-label="Pista anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14M18 5 9 12l9 7z"/></svg></button>
+    <button type="button" id="p-prev" data-i18n-aria="prev" aria-label="Pista anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5v14M18 5 9 12l9 7z"/></svg></button>
     <button type="button" id="p-toggle" class="p-main" aria-label="Pausar"><svg viewBox="0 0 24 24" aria-hidden="true" id="p-icon"><path d="M8 5v14M16 5v14"/></svg></button>
-    <button type="button" id="p-next" aria-label="Pista siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 5v14M6 5l9 7-9 7z"/></svg></button>
+    <button type="button" id="p-next" data-i18n-aria="next" aria-label="Pista siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 5v14M6 5l9 7-9 7z"/></svg></button>
   </div>
   <div class="p-progress">
     <span id="p-cur">0:00</span>
-    <input type="range" id="p-seek" min="0" max="1000" value="0" aria-label="Posición en la pista">
+    <input type="range" id="p-seek" min="0" max="1000" value="0" data-i18n-aria="seek" aria-label="Posición en la pista">
     <span id="p-dur">0:00</span>
   </div>
-  <a class="p-site" id="p-site" href="#">Ver la escena</a>
+  <a class="p-site" id="p-site" href="#" data-i18n="scene">Ver la escena</a>
   <p class="p-error" id="p-error" role="status"></p>
   <audio id="audio" preload="none"></audio>
 </div>

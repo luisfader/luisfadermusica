@@ -6,22 +6,31 @@ window.PORTAL={
    "id": "misterio",
    "repo": "misteriofader",
    "title": "El misterio de los Fader",
-   "es": null,
    "lang": "es",
    "author": "Luis Fader",
    "accent": "#d0607e",
-   "place": "Moscú y Mendoza",
-   "blurb": "Luis se hace rico de golpe, lleva a Natalia de Moscú a Mendoza y esa misma noche ella sale coronada reina de la Vendimia. Un maletín con hidromiel viaja por las acequias, un zorro lo abre y las uvas empiezan a brillar.",
-   "kind": "Música instrumental, en el orden en que suena en la novela",
-   "novels": [
-    [
-     "el-misterio-de-los-fader",
-     "Leer la novela"
-    ]
-   ],
+   "place": {
+    "es": "Moscú y Mendoza",
+    "ru": "Москва и Мендоса",
+    "en": "Moscow and Mendoza"
+   },
+   "blurb": {
+    "es": "Luis se hace rico de golpe, lleva a Natalia de Moscú a Mendoza y esa misma noche ella sale coronada reina de la Vendimia. Un maletín con hidromiel viaja por las acequias, un zorro lo abre y las uvas empiezan a brillar.",
+    "ru": "Луис внезапно богатеет, увозит Наталью из Москвы в Мендосу, и в тот же вечер её коронуют королевой Вендимии. Чемоданчик с медовухой плывёт по арыкам, лис открывает его, и виноград начинает светиться.",
+    "en": "Luis suddenly becomes rich and takes Natalia from Moscow to Mendoza, where that same night she is crowned queen of the Vendimia, the grape harvest festival. A briefcase of mead drifts down the irrigation channels, a fox opens it and the grapes begin to glow."
+   },
+   "kind": {
+    "es": "Música instrumental, en el orden en que suena en la novela",
+    "ru": "Инструментальная музыка в том порядке, в каком она звучит в романе",
+    "en": "Instrumental music, in the order it plays in the novel"
+   },
    "discs": [
     {
-     "name": "El misterio de los Fader",
+     "name": {
+      "es": "El misterio de los Fader",
+      "ru": "El misterio de los Fader",
+      "en": "El misterio de los Fader"
+     },
      "url": "https://luisfader.github.io/misteriofader/",
      "cover": "img/mundos/misteriofader.jpg",
      "tracks": [
@@ -140,35 +149,55 @@ window.PORTAL={
      ],
      "pending": 0
     }
-   ]
+   ],
+   "tr": {
+    "ru": "Тайна семьи Фадер",
+    "en": "The Fader Mystery"
+   },
+   "novel": {
+    "orig": "es",
+    "v": {
+     "es": "el-misterio-de-los-fader",
+     "ru": "tajna-semi-fader"
+    }
+   }
   },
   {
    "id": "corazonada",
    "repo": "corazonada",
    "title": "La Corazonada",
-   "es": null,
    "lang": "es",
    "author": "Luis Fader",
    "accent": "#46c4b8",
-   "place": "La fortaleza turquesa",
-   "blurb": "En la fortaleza turquesa, Natalia tocaba el violín. Un día Oxana le mostró un poema y Natalia descubrió que también sabía cantar. Además, los discos de las dos bandas que suenan en la novela.",
-   "kind": "Canciones de Natalia y dos bandas de la novela",
-   "novels": [
-    [
-     "la-corazonada",
-     "Leer la novela"
-    ],
-    [
-     "mundo-turquesa",
-     "En portugués"
-    ]
-   ],
+   "place": {
+    "es": "La fortaleza turquesa",
+    "ru": "Бирюзовая крепость",
+    "en": "The turquoise fortress"
+   },
+   "blurb": {
+    "es": "En la fortaleza turquesa, Natalia tocaba el violín. Un día Oxana le mostró un poema y Natalia descubrió que también sabía cantar. Además, los discos de las dos bandas que suenan en la novela.",
+    "ru": "В бирюзовой крепости Наталья играла на скрипке. Однажды Оксана показала ей стихотворение, и Наталья поняла, что умеет и петь. А ещё здесь альбомы двух групп, которые звучат в романе.",
+    "en": "In the turquoise fortress, Natalia played the violin. One day Oxana showed her a poem, and Natalia discovered she could sing too. Plus the albums of the two bands heard in the novel."
+   },
+   "kind": {
+    "es": "Canciones de Natalia y dos bandas de la novela",
+    "ru": "Песни Натальи и две группы из романа",
+    "en": "Natalia's songs and two bands from the novel"
+   },
    "discs": [
     {
-     "name": "Las canciones de Natalia",
+     "name": {
+      "es": "Las canciones de Natalia",
+      "ru": "Песни Натальи",
+      "en": "Natalia's songs"
+     },
      "url": "https://luisfader.github.io/corazonada/",
      "cover": "img/mundos/corazonada.jpg",
-     "note": "Voz de Natalia, versos de Oxana",
+     "note": {
+      "es": "Voz de Natalia, versos de Oxana",
+      "ru": "Поёт Наталья, стихи Оксаны",
+      "en": "Sung by Natalia, words by Oxana"
+     },
      "tracks": [
       {
        "t": "Mañana siempre es mejor",
@@ -195,10 +224,18 @@ window.PORTAL={
      "pending": 0
     },
     {
-     "name": "Proyecto R: Nuestra Utopía",
+     "name": {
+      "es": "Proyecto R: Nuestra Utopía",
+      "ru": "Proyecto R: Nuestra Utopía",
+      "en": "Proyecto R: Nuestra Utopía"
+     },
      "url": "https://luisfader.github.io/corazonada/proyecto-r/",
      "cover": "img/mundos/proyector.jpg",
-     "note": "Rap y nu metal argentino",
+     "note": {
+      "es": "Rap y nu metal argentino",
+      "ru": "Аргентинский рэп и ню-метал",
+      "en": "Argentine rap and nu metal"
+     },
      "tracks": [
       {
        "t": "La lucha de a dos",
@@ -264,10 +301,18 @@ window.PORTAL={
      "pending": 0
     },
     {
-     "name": "Antitango: Milonga del fin del mundo",
+     "name": {
+      "es": "Antitango: Milonga del fin del mundo",
+      "ru": "Antitango: Milonga del fin del mundo",
+      "en": "Antitango: Milonga del fin del mundo"
+     },
      "url": "https://luisfader.github.io/corazonada/antitango/",
      "cover": "img/mundos/antitango.jpg",
-     "note": "Tango y rap de antes de la Gran Catástrofe, el grupo favorito de Natalia",
+     "note": {
+      "es": "Tango y rap de antes de la Gran Catástrofe, el grupo favorito de Natalia",
+      "ru": "Танго и рэп из времён до Великой катастрофы, любимая группа Натальи",
+      "en": "Tango and rap from before the Great Catastrophe, Natalia's favourite band"
+     },
      "tracks": [
       {
        "t": "Tu amor es de mentira",
@@ -308,28 +353,49 @@ window.PORTAL={
      ],
      "pending": 9
     }
-   ]
+   ],
+   "tr": {
+    "ru": "Предчувствие",
+    "en": "The Foreboding"
+   },
+   "novel": {
+    "orig": "es",
+    "v": {
+     "es": "la-corazonada",
+     "ru": "predchuvstvie",
+     "en": "the-foreboding"
+    }
+   }
   },
   {
    "id": "horizonte",
    "repo": "horizonte",
    "title": "Сияющий горизонт",
-   "es": "El horizonte brillante",
    "lang": "ru",
    "author": "Роберт Фадер",
    "accent": "#ee9a5c",
-   "place": "Un búnker después de la catástrofe",
-   "blurb": "Después de la catástrofe nuclear, el mundo se quedó callado. Oxana vive en un búnker y canta para unas paredes de hormigón cubiertas con las partituras de su marido.",
-   "kind": "Las canciones de Oxana, de la novela musical",
-   "novels": [
-    [
-     "siyayushchij-gorizont",
-     "Leer la novela"
-    ]
-   ],
+   "place": {
+    "es": "Un búnker después de la catástrofe",
+    "ru": "Бункер после катастрофы",
+    "en": "A bunker after the catastrophe"
+   },
+   "blurb": {
+    "es": "Después de la catástrofe nuclear, el mundo se quedó callado. Oxana vive en un búnker y canta para unas paredes de hormigón cubiertas con las partituras de su marido.",
+    "ru": "После ядерной катастрофы мир замолчал. Оксана живёт в бункере и поёт для бетонных стен, покрытых нотами мужа.",
+    "en": "After the nuclear catastrophe, the world fell silent. Oxana lives in a bunker and sings to concrete walls covered in her husband's sheet music."
+   },
+   "kind": {
+    "es": "Las canciones de Oxana, de la novela musical",
+    "ru": "Песни Оксаны из романа-мюзикла",
+    "en": "Oxana's songs from the musical novel"
+   },
    "discs": [
     {
-     "name": "Сияющий горизонт",
+     "name": {
+      "es": "Сияющий горизонт",
+      "ru": "Сияющий горизонт",
+      "en": "Сияющий горизонт"
+     },
      "url": "https://luisfader.github.io/horizonte/",
      "cover": "img/mundos/horizonte.jpg",
      "tracks": [
@@ -469,28 +535,47 @@ window.PORTAL={
      ],
      "pending": 0
     }
-   ]
+   ],
+   "tr": {
+    "es": "El horizonte brillante",
+    "en": "The Shining Horizon"
+   },
+   "novel": {
+    "orig": "ru",
+    "v": {
+     "ru": "siyayushchij-gorizont"
+    }
+   }
   },
   {
    "id": "volny",
    "repo": "volny",
    "title": "Волны любви",
-   "es": "Olas de amor: la fortaleza en penumbra",
    "lang": "ru",
    "author": "Роберт Фадер",
    "accent": "#c99ae0",
-   "place": "Verdegrado",
-   "blurb": "Luis viaja por primera vez a casa de Natalia, en la vieja y tranquila Verdegrado. Calles verdes, la leyenda de una fortaleza antigua y una música que acompaña cada capítulo.",
-   "kind": "Música y canciones, con la escena de cada pista",
-   "novels": [
-    [
-     "volny-lyubvi-krepost",
-     "Leer la novela"
-    ]
-   ],
+   "place": {
+    "es": "Verdegrado",
+    "ru": "Вердеград",
+    "en": "Verdegrad"
+   },
+   "blurb": {
+    "es": "Luis viaja por primera vez a casa de Natalia, en la vieja y tranquila Verdegrado. Calles verdes, la leyenda de una fortaleza antigua y una música que acompaña cada capítulo.",
+    "ru": "Луис впервые едет к Наталье домой, в тихий старинный Вердеград. Прогулки по зелёным улицам, легенда о древней крепости и музыка, которая звучит в каждой главе.",
+    "en": "Luis travels to Natalia's home for the first time, in quiet old Verdegrad. Green streets, the legend of an ancient fortress and music that accompanies every chapter."
+   },
+   "kind": {
+    "es": "Música y canciones, con la escena de cada pista",
+    "ru": "Музыка и песни со сценой к каждому треку",
+    "en": "Music and songs, with the scene behind each track"
+   },
    "discs": [
     {
-     "name": "Волны любви. Крепость в полумраке",
+     "name": {
+      "es": "Волны любви. Крепость в полумраке",
+      "ru": "Волны любви. Крепость в полумраке",
+      "en": "Волны любви. Крепость в полумраке"
+     },
      "url": "https://luisfader.github.io/volny/",
      "cover": "img/mundos/volny.jpg",
      "tracks": [
@@ -617,36 +702,48 @@ window.PORTAL={
      ],
      "pending": 0
     }
-   ]
+   ],
+   "tr": {
+    "es": "Olas de amor: la fortaleza en penumbra",
+    "ru": "Крепость в полумраке",
+    "en": "Waves of Love: The Fortress in Twilight"
+   },
+   "novel": {
+    "orig": "ru",
+    "v": {
+     "ru": "volny-lyubvi-krepost"
+    }
+   }
   },
   {
    "id": "onde",
    "repo": "ondedamore",
    "title": "Onde d'amore",
-   "es": "Olas de amor",
    "lang": "it",
    "author": "Roberto Fader",
    "accent": "#72b9f2",
-   "place": "Sinea",
-   "blurb": "En Sinea todo empieza en un café chiquito: una mirada, un dibujo, una mano sobre la mesa, y el tiempo que se detiene. Es la misma historia de amor que «Волны любви», contada en italiano.",
-   "kind": "La banda sonora en italiano, con escenas y letras",
-   "novels": [
-    [
-     "onde-d-amore",
-     "Leer la novela"
-    ],
-    [
-     "ondas-de-amor",
-     "En castellano"
-    ],
-    [
-     "volny-lyubvi",
-     "En ruso"
-    ]
-   ],
+   "place": {
+    "es": "Sinea",
+    "ru": "Синея",
+    "en": "Sinea"
+   },
+   "blurb": {
+    "es": "En Sinea todo empieza en un café chiquito: una mirada, un dibujo, una mano sobre la mesa, y el tiempo que se detiene. Es la misma historia de amor que «Волны любви», contada en italiano.",
+    "ru": "В Синее всё начинается в маленьком кафе: взгляд, рисунок, рука на столе, и время останавливается. Это та же история любви, что и «Волны любви», только по-итальянски.",
+    "en": "In Sinea it all begins in a tiny café: a glance, a drawing, a hand on the table, and time stands still. It is the same love story as «Волны любви», told in Italian."
+   },
+   "kind": {
+    "es": "La banda sonora en italiano, con escenas y letras",
+    "ru": "Саундтрек на итальянском, со сценами и текстами песен",
+    "en": "The Italian soundtrack, with scenes and lyrics"
+   },
    "discs": [
     {
-     "name": "Onde d'amore",
+     "name": {
+      "es": "Onde d'amore",
+      "ru": "Onde d'amore",
+      "en": "Onde d'amore"
+     },
      "url": "https://luisfader.github.io/ondedamore/",
      "cover": "img/mundos/ondedamore.jpg",
      "tracks": [
@@ -773,32 +870,50 @@ window.PORTAL={
      ],
      "pending": 0
     }
-   ]
+   ],
+   "tr": {
+    "es": "Ondas de amor",
+    "ru": "Волны любви",
+    "en": "Waves of Love"
+   },
+   "novel": {
+    "orig": "it",
+    "v": {
+     "it": "onde-d-amore",
+     "es": "ondas-de-amor",
+     "ru": "volny-lyubvi"
+    }
+   }
   },
   {
    "id": "momento",
    "repo": "momentomusicale",
    "title": "La città triste",
-   "es": "La ciudad triste",
    "lang": "it",
    "author": "Roberto Fader",
    "accent": "#f2c14e",
-   "place": "Sinea, sin sonrisas",
-   "blurb": "En Sinea, el nuevo presidente prohíbe sonreír. Franco y Chiara deciden devolverle la alegría a la gente. Cuando empieza una canción, la ciudad gris vuelve a tener color.",
-   "kind": "Momento musicale: canciones en italiano",
-   "novels": [
-    [
-     "la-citta-triste",
-     "Leer la novela"
-    ],
-    [
-     "grustnyj-gorod",
-     "En ruso"
-    ]
-   ],
+   "place": {
+    "es": "Sinea, sin sonrisas",
+    "ru": "Синея без улыбок",
+    "en": "Sinea without smiles"
+   },
+   "blurb": {
+    "es": "En Sinea, el nuevo presidente prohíbe sonreír. Franco y Chiara deciden devolverle la alegría a la gente. Cuando empieza una canción, la ciudad gris vuelve a tener color.",
+    "ru": "В Синее новый президент запрещает улыбаться. Франко и Кьяра решают вернуть людям радость. Когда звучит песня, серый город снова обретает цвет.",
+    "en": "In Sinea, the new president bans smiling. Franco and Chiara decide to give people their joy back. When a song starts, the grey city gets its colour back."
+   },
+   "kind": {
+    "es": "Momento musicale: canciones en italiano",
+    "ru": "Momento musicale: песни на итальянском",
+    "en": "Momento musicale: songs in Italian"
+   },
    "discs": [
     {
-     "name": "Momento musicale",
+     "name": {
+      "es": "Momento musicale",
+      "ru": "Momento musicale",
+      "en": "Momento musicale"
+     },
      "url": "https://luisfader.github.io/momentomusicale/",
      "cover": "img/mundos/momentomusicale.jpg",
      "tracks": [
@@ -854,7 +969,19 @@ window.PORTAL={
      ],
      "pending": 0
     }
-   ]
+   ],
+   "tr": {
+    "es": "La ciudad triste",
+    "ru": "Грустный город",
+    "en": "The Sad City"
+   },
+   "novel": {
+    "orig": "it",
+    "v": {
+     "it": "la-citta-triste",
+     "ru": "grustnyj-gorod"
+    }
+   }
   }
  ],
  "wall": [

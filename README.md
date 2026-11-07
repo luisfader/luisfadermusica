@@ -4,6 +4,8 @@ Portal a todos los sitios con la música de las novelas de Luis Fader.
 
 Arriba hay un dial: cada estación es una novela, y al sintonizarla la página toma la imagen y el color de ese mundo. Más abajo están todas las pistas, que se escuchan sin salir del portal, y la pared con todas las novelas publicadas en Litmir.
 
+El sitio está en castellano, ruso e inglés. El idioma se elige arriba a la derecha y queda guardado; también se puede abrir directo con `?lang=es`, `?lang=ru` o `?lang=en`. Sin elección previa, toma el idioma del navegador.
+
 Dirección: https://luisfader.github.io/luisfadermusica/ (se puede entrar directo a una novela con `#misterio`, `#corazonada`, `#horizonte`, `#volny`, `#onde` o `#momento`).
 
 ## Qué sitios reúne
@@ -20,7 +22,8 @@ Dirección: https://luisfader.github.io/luisfadermusica/ (se puede entrar direct
 ## Cómo funciona
 
 - Acá no hay MP3: el reproductor toma cada pista del sitio de su novela. Si se agrega una canción a uno de esos sitios, hay que sumarla también en `data.js`.
-- `data.js` tiene los mundos, los discos con sus pistas y la lista de novelas de Litmir para la pared.
+- `data.js` tiene los mundos, los discos con sus pistas y la lista de novelas de Litmir para la pared. Los textos de cada mundo van en los tres idiomas (`es`, `ru`, `en`), y `novel.v` dice qué versión de la novela hay en Litmir para cada idioma.
+- `app.js` tiene los textos de la interfaz en los tres idiomas (objeto `S`).
 - `img/mundos/` tiene las portadas y fondos de cada banda sonora; `img/universo/` las portadas de las novelas, copiadas de Litmir en tamaño chico.
 - Para sumar una banda sonora nueva: agregá su entrada en `worlds` dentro de `data.js`, su portada `img/mundos/<repo>.jpg` y su fondo `img/mundos/<repo>-fondo.jpg`. Si querés que tenga estación propia en el dial, sumá un nombre corto en `SHORT` dentro de `app.js`.
 
