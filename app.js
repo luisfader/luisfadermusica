@@ -14,7 +14,6 @@
   /* Todos los discos en una sola lista, para el reproductor */
   const discs = [];
   D.worlds.forEach(w => w.discs.forEach(d => { d.world = w; d.accent = w.accent; discs.push(d); }));
-  D.archive.forEach(a => { a.disc.world = a; a.disc.accent = "#f1ebdf"; discs.push(a.disc); });
 
   /* ---------- Dial ---------- */
   const dial = $("#dial"), needle = dial.querySelector(".needle");
@@ -90,12 +89,6 @@
       '</article>';
   }).join("");
 
-  $("#archive").innerHTML = D.archive.map(a =>
-    '<article class="rec"><img src="'+esc(a.disc.cover)+'" alt="" loading="lazy" width="560" height="560">'+
-    '<h3 lang="'+a.lang+'"><a href="'+esc(a.disc.url)+'">'+esc(a.title)+'</a></h3>'+
-    '<p class="es">'+esc(a.es)+'</p><p class="note">'+esc(a.note)+'</p>'+
-    (a.novels.length ? '<ul class="links">'+novelLinks(a)+'</ul>' : '')+
-    discBlock(a.disc,false)+'</article>').join("");
 
   document.addEventListener("click", e => {
     const b = e.target.closest(".track"); if(!b) return;
@@ -107,7 +100,6 @@
   /* ---------- Pared de novelas ---------- */
   const withMusic = new Set();
   D.worlds.forEach(w => w.novels.forEach(n => withMusic.add(n[0])));
-  D.archive.forEach(a => a.novels.forEach(n => withMusic.add(n[0])));
   const counts = {};
   D.wall.forEach(n => counts[n.lang] = (counts[n.lang]||0)+1);
   const langs = Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);

@@ -104,14 +104,6 @@ button{font:inherit;color:inherit}
 .track[aria-current="true"] .n::after{content:"";display:inline-block;width:.6rem;height:.7rem;background:currentColor;clip-path:polygon(0 0,100% 50%,0 100%)}
 .pending{font-family:var(--sans);font-size:.9rem;color:var(--muted);padding:.25rem 1rem .75rem;margin:0}
 
-/* Archivo */
-.archive{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.5rem}
-.rec{--w:var(--paper);border-top:1px solid var(--rule);padding-top:1.25rem}
-.rec img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;margin-bottom:1rem}
-.rec h3{margin:0;font-size:1.4rem;line-height:1.15}
-.rec .es{font-size:1rem;margin:.2rem 0 .5rem}
-.rec p.note{margin:0 0 .75rem;color:var(--muted);font-size:1rem}
-.rec .disc{margin-top:.5rem}
 
 /* Pared de novelas */
 .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}

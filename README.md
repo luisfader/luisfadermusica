@@ -2,7 +2,7 @@
 
 Portal a todos los sitios con la música de las novelas de Luis Fader.
 
-Arriba hay un dial: cada estación es una novela, y al sintonizarla la página toma la imagen y el color de ese mundo. Más abajo están todas las pistas, que se escuchan sin salir del portal, las primeras grabaciones y la pared con todas las novelas publicadas en Litmir.
+Arriba hay un dial: cada estación es una novela, y al sintonizarla la página toma la imagen y el color de ese mundo. Más abajo están todas las pistas, que se escuchan sin salir del portal, y la pared con todas las novelas publicadas en Litmir.
 
 Dirección: https://luisfader.github.io/luisfadermusica/ (se puede entrar directo a una novela con `#misterio`, `#corazonada`, `#horizonte`, `#volny`, `#onde` o `#momento`).
 
@@ -16,8 +16,6 @@ Dirección: https://luisfader.github.io/luisfadermusica/ (se puede entrar direct
 | Волны любви. Крепость в полумраке | ruso | [volny](https://luisfader.github.io/volny/) |
 | Onde d'amore | italiano | [ondedamore](https://luisfader.github.io/ondedamore/) |
 | La città triste (Momento musicale) | italiano | [momentomusicale](https://luisfader.github.io/momentomusicale/) |
-
-Primeras grabaciones: [animaitaliana](https://luisfader.github.io/animaitaliana/), [violoncello](https://luisfader.github.io/violoncello/) y [musica](https://luisfader.github.io/musica/) (Тайна пирамид).
 
 ## Cómo funciona
 
