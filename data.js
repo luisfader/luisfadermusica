@@ -921,7 +921,7 @@ window.PORTAL={
    ],
    "tr": {
     "es": "Presentimiento",
-    "ru": "Предчувствие",
+    "ru": "Второй сезон",
     "en": "Foreboding",
     "it": "Presentimento"
    }
