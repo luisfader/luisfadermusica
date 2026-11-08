@@ -83,6 +83,10 @@ button{font:inherit;color:inherit}
 .seg button[aria-pressed="true"],.vf button[aria-pressed="true"]{background:var(--paper);color:var(--night);font-weight:500}
 .track .du{display:inline-flex;align-items:baseline;gap:.4rem}
 .voc svg{width:.85rem;height:.85rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;vertical-align:-1px;opacity:.8}
+.tag{display:inline-flex;align-items:center;gap:.25rem;font-family:var(--sans);font-size:.72rem;letter-spacing:.02em;line-height:1;padding:.22rem .5rem;border-radius:999px;margin-top:.35rem;white-space:nowrap;width:max-content}
+.tag svg{width:.8rem;height:.8rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tag.song{color:#f3c27a;background:rgba(243,194,122,.14);border:1px solid rgba(243,194,122,.35)}
+.tag.inst{color:#9fc3d6;background:rgba(159,195,214,.10);border:1px solid rgba(159,195,214,.28)}
 .mix-play:disabled,.btn:disabled{opacity:.35;cursor:default;filter:none}
 .block-head .shuffle::before{content:none}
 .mixes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr));gap:.75rem 1.5rem;align-items:start}
