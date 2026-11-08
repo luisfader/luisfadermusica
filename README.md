@@ -6,7 +6,7 @@ Arriba hay un dial: cada estación es una novela, y al sintonizarla la página t
 
 El sitio está en castellano, ruso, inglés e italiano. El idioma se elige arriba a la derecha y queda guardado; también se puede abrir directo con `?lang=es`, `?lang=ru`, `?lang=en` o `?lang=it`. Sin elección previa, toma el idioma del navegador.
 
-Dirección: https://luisfader.github.io/luisfadermusica/ (se puede entrar directo a una novela con `#misterio`, `#corazonada`, `#horizonte`, `#volny`, `#onde`, `#momento` o `#maschera`).
+Dirección: https://luisfader.github.io/luisfadermusica/ (se puede entrar directo a una novela con `#misterio`, `#corazonada`, `#horizonte`, `#volny`, `#predchuvstvie`, `#onde`, `#momento` o `#maschera`).
 
 ## De dónde sale la música
 
@@ -18,6 +18,7 @@ Cada pista se reproduce desde el sitio de su novela, aunque el visitante nunca s
 | La Corazonada (con Proyecto R y Antitango) | castellano | [corazonada](https://luisfader.github.io/corazonada/) |
 | Сияющий горизонт | ruso | [horizonte](https://luisfader.github.io/horizonte/) |
 | Волны любви. Крепость в полумраке | ruso | [volny](https://luisfader.github.io/volny/) |
+| Предчувствие 2.2 | ruso | [predchuvstvie](https://luisfader.github.io/predchuvstvie/) |
 | Onde d'amore | italiano | [ondedamore](https://luisfader.github.io/ondedamore/) |
 | Ondas de amor | castellano | en este mismo portal (`audio/ondasdeamor/`) |
 | La città triste (Momento musicale) | italiano | [momentomusicale](https://luisfader.github.io/momentomusicale/) |
@@ -26,7 +27,7 @@ Cada pista se reproduce desde el sitio de su novela, aunque el visitante nunca s
 ## Cómo funciona
 
 - Casi todas las pistas se reproducen desde el sitio de su novela. La excepción es *Ondas de amor*, cuyas canciones en castellano viven acá, en `audio/ondasdeamor/`. Si se agrega una canción a uno de esos sitios, hay que sumarla también en `data.js`.
-- Mezclas por ánimo: cada pista tiene una letra en el campo `mood` de su disco (A amor, L lluvia y nostalgia, F lucha y adrenalina, M misterio y penumbra, E esperanza y amanecer). Las mezclas se arman solas a partir de eso y nunca ponen dos canciones seguidas de la misma novela. Para mover una canción de mezcla, cambiá su letra. «Todo al azar» mezcla las 126 de otra forma cada vez.
+- Mezclas por ánimo: cada pista tiene una letra en el campo `mood` de su disco (A amor, L lluvia y nostalgia, F lucha y adrenalina, M misterio y penumbra, E esperanza y amanecer). Las mezclas se arman solas a partir de eso y nunca ponen dos canciones seguidas de la misma novela. Para mover una canción de mezcla, cambiá su letra. «Todo al azar» mezcla las 137 de otra forma cada vez.
 - Qué escuchar: «Todo», «Canciones» o «Instrumental». Cada disco tiene `voice` con una letra por pista (S con voz, i instrumental). El filtro vale para las mezclas, el azar y los discos, y queda guardado en el navegador.
 - Letras: el botón «Letra» del reproductor abre un panel con la letra de lo que suena, que baja sola al ritmo de la canción. Las letras están en `letras/<novela>/<archivo>.txt` (mismo nombre que el MP3) y se cargan recién al abrirlas; si hay traducción, va como `<archivo>.ru.txt`, `<archivo>.en.txt` o `<archivo>.it.txt` y aparece cuando la página está en ese idioma. En `data.js`, `ly` marca que la pista tiene letra y `lyt` qué traducciones hay.
 - `data.js` tiene los mundos, los discos con sus pistas. Los textos de cada mundo van en los cuatro idiomas (`es`, `ru`, `en`, `it`), y `novel.v` dice qué versión de la novela hay en Litmir para cada idioma.

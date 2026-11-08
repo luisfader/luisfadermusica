@@ -805,6 +805,122 @@ window.PORTAL={
    }
   },
   {
+   "id": "predchuvstvie",
+   "repo": "predchuvstvie",
+   "title": "Предчувствие",
+   "lang": "ru",
+   "author": "Роберт Фадер",
+   "accent": "#d9893b",
+   "place": {
+    "es": "Las Tierras Baldías",
+    "ru": "Пустоши",
+    "en": "The Wastelands",
+    "it": "Le Terre Desolate"
+   },
+   "blurb": {
+    "es": "Tras la Guerra, Natalia, desterrada, encuentra en el desierto el búnker de Roberto: sus cartas atadas con una cinta y el violín de la pequeña Lucía. Del cielo caen ultimátums y los viejos enemigos tienen que unirse contra los ejércitos de acero.",
+    "ru": "После Войны изгнанная Наталья находит в пустыне бункер Роберта: его письма, перевязанные лентой, и скрипку маленькой Люсии. С неба сыплются ультиматумы, и бывшим врагам приходится объединиться против стальных армий.",
+    "en": "After the War, the exiled Natalia finds Roberto's bunker in the desert: his letters tied with a ribbon and little Lucía's violin. Ultimatums rain from the sky, and old enemies must unite against armies of steel.",
+    "it": "Dopo la Guerra, Natalia, esiliata, trova nel deserto il bunker di Roberto: le sue lettere legate con un nastro e il violino della piccola Lucía. Dal cielo piovono ultimatum e i vecchi nemici devono unirsi contro gli eserciti d'acciaio."
+   },
+   "kind": {
+    "es": "Canciones, en el orden en que suenan en la novela",
+    "ru": "Песни в том порядке, в каком они звучат в романе",
+    "en": "Songs, in the order they play in the novel",
+    "it": "Canzoni, nell'ordine in cui risuonano nel romanzo"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "Предчувствие 2.2",
+      "ru": "Предчувствие 2.2",
+      "en": "Предчувствие 2.2",
+      "it": "Предчувствие 2.2"
+     },
+     "cover": "img/mundos/predchuvstvie.jpg",
+     "tracks": [
+      {
+       "t": "В пустыне",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/01-v-pustyne.mp3",
+       "d": "3:07",
+       "s": "Изгнанная Наталья одна в пустыне"
+      },
+      {
+       "t": "Простые смертные",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/02-prostye-smertnye.mp3",
+       "d": "2:17",
+       "s": "Стальные ангелы и бумажные перемирия"
+      },
+      {
+       "t": "Мы вернёмся",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/03-my-vernyomsya.mp3",
+       "d": "4:02",
+       "s": "Возвращение"
+      },
+      {
+       "t": "Обещание любви (Вечерняя магия)",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/04-obeshchanie-lyubvi.mp3",
+       "d": "2:30",
+       "s": "Бункер забытых писем"
+      },
+      {
+       "t": "Облака на горизонте",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/05-oblaka-na-gorizonte.mp3",
+       "d": "3:05",
+       "s": "Ультиматум с небес"
+      },
+      {
+       "t": "Справедливые",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/06-spravedlivye.mp3",
+       "d": "3:24",
+       "s": "Союз и Сила"
+      },
+      {
+       "t": "Романтический хаос",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/07-romanticheskij-haos.mp3",
+       "d": "3:14",
+       "s": "Игры власти и крови",
+       "v": "Оксана",
+       "ly": 1
+      },
+      {
+       "t": "Divino encanto",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/08-divino-encanto.mp3",
+       "d": "3:33",
+       "s": "Лучи страсти"
+      },
+      {
+       "t": "Almas rebeldes",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/09-almas-rebeldes.mp3",
+       "d": "4:17",
+       "s": "Мощные удары"
+      },
+      {
+       "t": "Motivación 38",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/10-motivacion-38.mp3",
+       "d": "2:57",
+       "s": "Голос скрипки и рёв стали"
+      },
+      {
+       "t": "Empezar de nuevo",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/11-empezar-de-nuevo.mp3",
+       "d": "3:54",
+       "s": "Последний Совет"
+      }
+     ],
+     "pending": 0,
+     "mood": "MMEAMFAAFFE",
+     "voice": "SSSSSSSSSSS"
+    }
+   ],
+   "tr": {
+    "es": "Presentimiento",
+    "ru": "Предчувствие",
+    "en": "Foreboding",
+    "it": "Presentimento"
+   }
+  },
+  {
    "id": "onde",
    "repo": "ondedamore",
    "title": "Onde d'amore",
