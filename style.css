@@ -175,7 +175,7 @@ button{font:inherit;color:inherit}
   .mbars{width:2.4rem;height:2.4rem}
   .disc summary{gap:.75rem;padding:.7rem .75rem}
   .hero-inner{padding-top:11.5rem}
-  .station{font-size:.78rem;min-height:4rem}
+  .station{font-size:.72rem;min-height:4rem;padding-inline:.05rem}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

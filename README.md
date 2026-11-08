@@ -19,11 +19,12 @@ Cada pista se reproduce desde el sitio de su novela, aunque el visitante nunca s
 | Сияющий горизонт | ruso | [horizonte](https://luisfader.github.io/horizonte/) |
 | Волны любви. Крепость в полумраке | ruso | [volny](https://luisfader.github.io/volny/) |
 | Onde d'amore | italiano | [ondedamore](https://luisfader.github.io/ondedamore/) |
+| Ondas de amor | castellano | en este mismo portal (`audio/ondasdeamor/`) |
 | La città triste (Momento musicale) | italiano | [momentomusicale](https://luisfader.github.io/momentomusicale/) |
 
 ## Cómo funciona
 
-- Acá no hay MP3: el reproductor toma cada pista del sitio de su novela. Si se agrega una canción a uno de esos sitios, hay que sumarla también en `data.js`.
+- Casi todas las pistas se reproducen desde el sitio de su novela. La excepción es *Ondas de amor*, cuyas canciones en castellano viven acá, en `audio/ondasdeamor/`. Si se agrega una canción a uno de esos sitios, hay que sumarla también en `data.js`.
 - Mezclas por ánimo: cada pista tiene una letra en el campo `mood` de su disco (A amor, L lluvia y nostalgia, F lucha y adrenalina, M misterio y penumbra, E esperanza y amanecer). Las mezclas se arman solas a partir de eso y nunca ponen dos canciones seguidas de la misma novela. Para mover una canción de mezcla, cambiá su letra. «Todo al azar» mezcla las 103 de otra forma cada vez.
 - Qué escuchar: «Todo», «Canciones» o «Instrumental». Cada disco tiene `voice` con una letra por pista (S con voz, i instrumental). El filtro vale para las mezclas, el azar y los discos, y queda guardado en el navegador.
 - `data.js` tiene los mundos, los discos con sus pistas. Los textos de cada mundo van en los tres idiomas (`es`, `ru`, `en`), y `novel.v` dice qué versión de la novela hay en Litmir para cada idioma.

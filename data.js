@@ -861,6 +861,65 @@ window.PORTAL={
    }
   },
   {
+   "id": "ondas",
+   "repo": "ondasdeamor",
+   "title": "Ondas de amor",
+   "lang": "es",
+   "author": "Roberto Fader",
+   "accent": "#f07ad0",
+   "place": {
+    "es": "Sinea, bajo la tormenta",
+    "ru": "Синея, под грозой",
+    "en": "Sinea, in the storm"
+   },
+   "tr": {
+    "ru": "Волны любви",
+    "en": "Waves of Love"
+   },
+   "blurb": {
+    "es": "En un café chiquito de Sinea, Luis le regala a Natalia el dibujo de un zorro, y del papel sale un zorro que habla con tonada mendocina. Las canciones de Natalia, esta vez en castellano. Por ahora, las dos de la noche de tormenta.",
+    "ru": "В маленьком кафе Синеи Луис дарит Наталье рисунок лиса, и с бумаги выходит лис, который говорит с мендосским акцентом. Песни Натальи, на этот раз на испанском. Пока что две песни грозовой ночи.",
+    "en": "In a tiny café in Sinea, Luis gives Natalia a drawing of a fox, and out of the paper steps a fox who talks with a Mendoza accent. Natalia's songs, this time in Spanish. For now, the two songs of the stormy night."
+   },
+   "kind": {
+    "es": "Las canciones de Natalia en castellano",
+    "ru": "Песни Натальи на испанском",
+    "en": "Natalia's songs in Spanish"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "Ondas de amor",
+      "ru": "Ondas de amor",
+      "en": "Ondas de amor"
+     },
+     "cover": "img/mundos/ondasdeamor.jpg",
+     "note": {
+      "es": "Capítulo 22, «Lluvia secreta»",
+      "ru": "Глава 22, «Тайный дождь»",
+      "en": "Chapter 22, «Secret Rain»"
+     },
+     "tracks": [
+      {
+       "t": "En medio de la tormenta",
+       "src": "audio/ondasdeamor/01-en-medio-de-la-tormenta.mp3",
+       "d": "3:27",
+       "s": "Sin colectivo, caminando bajo el chaparrón"
+      },
+      {
+       "t": "Lluvia secreta",
+       "src": "audio/ondasdeamor/02-lluvia-secreta.mp3",
+       "d": "4:22",
+       "s": "Sola en la plaza, frente a la torre"
+      }
+     ],
+     "pending": 0,
+     "mood": "AL",
+     "voice": "SS"
+    }
+   ]
+  },
+  {
    "id": "momento",
    "repo": "momentomusicale",
    "title": "La città triste",
