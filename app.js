@@ -1,22 +1,23 @@
 (function(){
   "use strict";
   const D = window.PORTAL;
-  const UI_LANGS = ["es","ru","en"];
+  const UI_LANGS = ["es","ru","en","it"];
   const SHORT = {misterio:"Misterio",corazonada:"Corazonada",horizonte:"Горизонт",volny:"Волны",onde:"Onde", ondas:"Ondas",momento:"Città"};
 
-  /* Nombres de idiomas: [castellano, ruso, inglés] */
+  /* Nombres de idiomas: [castellano, ruso, inglés, italiano] */
   const LN = {
-    es:["castellano","испанский","Spanish"], ru:["ruso","русский","Russian"], it:["italiano","итальянский","Italian"],
-    pt:["portugués","португальский","Portuguese"], cs:["checo","чешский","Czech"], en:["inglés","английский","English"],
-    fr:["francés","французский","French"], tr:["turco","турецкий","Turkish"], sr:["serbio","сербский","Serbian"],
-    eo:["esperanto","эсперанто","Esperanto"], isv:["intereslavo","межславянский","Interslavic"], de:["alemán","немецкий","German"],
-    vo:["volapük","волапюк","Volapük"], ia:["interlingua","интерлингва","Interlingua"], ld:["láadan","лаадан","Láadan"], pl:["polaco","польский","Polish"]
+    es:["castellano","испанский","Spanish","spagnolo"], ru:["ruso","русский","Russian","russo"], it:["italiano","итальянский","Italian","italiano"],
+    pt:["portugués","португальский","Portuguese","portoghese"], cs:["checo","чешский","Czech","ceco"], en:["inglés","английский","English","inglese"],
+    fr:["francés","французский","French","francese"], tr:["turco","турецкий","Turkish","turco"], sr:["serbio","сербский","Serbian","serbo"],
+    eo:["esperanto","эсперанто","Esperanto","esperanto"], isv:["intereslavo","межславянский","Interslavic","interslavo"], de:["alemán","немецкий","German","tedesco"],
+    vo:["volapük","волапюк","Volapük","volapük"], ia:["interlingua","интерлингва","Interlingua","interlingua"], ld:["láadan","лаадан","Láadan","láadan"], pl:["polaco","польский","Polish","polacco"]
   };
   /* «en castellano», «на испанском», «in Spanish» */
   const IN = {
     es:{es:"en castellano",ru:"en ruso",it:"en italiano",en:"en inglés",pt:"en portugués"},
     ru:{es:"на испанском",ru:"на русском",it:"на итальянском",en:"на английском",pt:"на португальском"},
-    en:{es:"in Spanish",ru:"in Russian",it:"in Italian",en:"in English",pt:"in Portuguese"}
+    en:{es:"in Spanish",ru:"in Russian",it:"in Italian",en:"in English",pt:"in Portuguese"},
+    it:{es:"in spagnolo",ru:"in russo",it:"in italiano",en:"in inglese",pt:"in portoghese"}
   };
 
   const S = {
@@ -76,6 +77,25 @@
       cover:t=>"Cover of "+t,
       tracks:n=>n+(n===1?" track":" tracks"), min:"min",
       pending:n=>(n===1?"One more song":n+" more songs")+" not recorded yet. The lyrics are already on the site."
+    },
+    it:{
+      title:"Luis Fader — le colonne sonore dei suoi romanzi",
+      desc:"Le colonne sonore dei romanzi di Luis Fader in un solo posto: Mendoza, la fortezza turchese, l'orizzonte dopo la catastrofe, Verdegrado e Sinea.",
+      skip:"Vai alle colonne sonore", name:"Luis Fader", tagline:"le colonne sonore dei suoi romanzi",
+      navSections:"Sezioni", navSoundtracks:"Colonne sonore", langPick:"Lingua del sito",
+      listen:"Ascolta", seeTracks:"Tutti i brani", navMixes:"Mix",
+      mixesH:"Mix per stato d'animo", mixesP:"Canzoni di romanzi diversi, riunite in base a quello che ti fanno provare. I romanzi si alternano ogni volta che si può.",
+      shuffleAll:"Tutto in ordine casuale", specStyle:"Cambia lo stile dello spettro", specModes:["Barre","Onde","Oscilloscopio","Aurora"], vfLabel:"Cosa ascoltare", vfAll:"Tutto", vfSong:"Canzoni", vfInst:"Strumentali", vfNone:"In questo album non ci sono brani di questo tipo.", sung:"Con la voce", playMix:n=>"Ascolta il mix «"+n+"»", novels:n=>n+(n===1?" romanzo":" romanzi"), mixOf:(m,w)=>m+", da "+w,
+      tune:"Sintonizzati su un romanzo",
+      soundtracksH:"Le colonne sonore",
+      soundtracksP:"Tutte le canzoni di ogni romanzo, nell'ordine in cui risuonano nel libro. Tocca un brano per ascoltarlo.",
+      footName:"Luis Fader. Robert Fader in russo, Roberto Fader in italiano.",
+      lyrics:"Testo", lyricsClose:"Chiudi il testo", lyOrig:"Originale", lyTr:"Traduzione", lyInst:"Questo brano è strumentale.", lyNone:"Il testo di questa canzone non è ancora disponibile.", lyLoading:"Caricamento del testo…", lyError:"Non è stato possibile caricare il testo. Riprova tra poco.",
+      prev:"Brano precedente", next:"Brano successivo", pause:"Pausa", play:"Riproduci", seek:"Posizione nel brano",
+      error:"Non è stato possibile caricare questo brano. Provane un altro o riprova più tardi.",
+      cover:t=>"Copertina di "+t,
+      tracks:n=>n+(n===1?" brano":" brani"), min:"min",
+      pending:n=>(n===1?"Un'altra canzone non è ancora stata registrata.":"Altre "+n+" canzoni non sono ancora state registrate.")+" I testi sono già sul sito."
     }
   };
   function ruPlural(n,one,few,many){
@@ -95,7 +115,7 @@
     if(!l){ try{ l = localStorage.getItem("fader-lang"); }catch(e){} }
     if(!l){
       const nav = (navigator.languages || [navigator.language || ""]).map(x => String(x).toLowerCase());
-      l = nav.find(x => /^(ru|uk|be|kk)/.test(x)) ? "ru" : nav.find(x => x.startsWith("es")) ? "es" : nav.find(x => x.startsWith("en")) ? "en" : "es";
+      l = nav.find(x => /^(ru|uk|be|kk)/.test(x)) ? "ru" : nav.find(x => x.startsWith("es")) ? "es" : nav.find(x => x.startsWith("en")) ? "en" : nav.find(x => x.startsWith("it")) ? "it" : "es";
     }
     return UI_LANGS.includes(l) ? l : "es";
   }

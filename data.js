@@ -16,24 +16,28 @@ window.PORTAL={
    "place": {
     "es": "Moscú y Mendoza",
     "ru": "Москва и Мендоса",
-    "en": "Moscow and Mendoza"
+    "en": "Moscow and Mendoza",
+    "it": "Mosca e Mendoza"
    },
    "blurb": {
     "es": "Luis por fin lleva a Natalia de Moscú a Mendoza, y esa misma noche ella sale coronada reina de la Vendimia. Un maletín con hidromiel viaja por las acequias, un zorro lo abre y las uvas empiezan a brillar.",
     "ru": "Луис наконец везёт Наталью из Москвы в Мендосу, и в тот же вечер её коронуют королевой Вендимии. Чемоданчик с медовухой плывёт по арыкам, лис открывает его, и виноград начинает светиться.",
-    "en": "Luis finally takes Natalia from Moscow to Mendoza, where that same night she is crowned queen of the Vendimia, the grape harvest festival. A briefcase of mead drifts down the irrigation channels, a fox opens it and the grapes begin to glow."
+    "en": "Luis finally takes Natalia from Moscow to Mendoza, where that same night she is crowned queen of the Vendimia, the grape harvest festival. A briefcase of mead drifts down the irrigation channels, a fox opens it and the grapes begin to glow.",
+    "it": "Luis porta finalmente Natalia da Mosca a Mendoza, e quella stessa notte lei viene incoronata regina della Vendimia, la festa della vendemmia. Una valigetta di idromele scivola lungo i canali d'irrigazione, una volpe la apre e l'uva comincia a brillare."
    },
    "kind": {
     "es": "Música instrumental, en el orden en que suena en la novela",
     "ru": "Инструментальная музыка в том порядке, в каком она звучит в романе",
-    "en": "Instrumental music, in the order it plays in the novel"
+    "en": "Instrumental music, in the order it plays in the novel",
+    "it": "Musica strumentale, nell'ordine in cui risuona nel romanzo"
    },
    "discs": [
     {
      "name": {
       "es": "El misterio de los Fader",
       "ru": "El misterio de los Fader",
-      "en": "El misterio de los Fader"
+      "en": "El misterio de los Fader",
+      "it": "El misterio de los Fader"
      },
      "cover": "img/mundos/misteriofader.jpg",
      "tracks": [
@@ -157,7 +161,8 @@ window.PORTAL={
    ],
    "tr": {
     "ru": "Тайна семьи Фадер",
-    "en": "The Fader Mystery"
+    "en": "The Fader Mystery",
+    "it": "Il mistero dei Fader"
    }
   },
   {
@@ -170,30 +175,35 @@ window.PORTAL={
    "place": {
     "es": "La fortaleza turquesa",
     "ru": "Бирюзовая крепость",
-    "en": "The turquoise fortress"
+    "en": "The turquoise fortress",
+    "it": "La fortezza turchese"
    },
    "blurb": {
     "es": "En la fortaleza turquesa, Natalia tocaba el violín. Un día Oxana le mostró un poema y Natalia descubrió que también sabía cantar. Además, los discos de las dos bandas que suenan en la novela.",
     "ru": "В бирюзовой крепости Наталья играла на скрипке. Однажды Оксана показала ей стихотворение, и Наталья поняла, что умеет и петь. А ещё здесь альбомы двух групп, которые звучат в романе.",
-    "en": "In the turquoise fortress, Natalia played the violin. One day Oxana showed her a poem, and Natalia discovered she could sing too. Plus the albums of the two bands heard in the novel."
+    "en": "In the turquoise fortress, Natalia played the violin. One day Oxana showed her a poem, and Natalia discovered she could sing too. Plus the albums of the two bands heard in the novel.",
+    "it": "Nella fortezza turchese, Natalia suonava il violino. Un giorno Oxana le mostrò una poesia e Natalia scoprì di saper anche cantare. In più, gli album delle due band che si ascoltano nel romanzo."
    },
    "kind": {
     "es": "Canciones de Natalia y dos bandas de la novela",
     "ru": "Песни Натальи и две группы из романа",
-    "en": "Natalia's songs and two bands from the novel"
+    "en": "Natalia's songs and two bands from the novel",
+    "it": "Le canzoni di Natalia e due band del romanzo"
    },
    "discs": [
     {
      "name": {
       "es": "Las canciones de Natalia",
       "ru": "Песни Натальи",
-      "en": "Natalia's songs"
+      "en": "Natalia's songs",
+      "it": "Le canzoni di Natalia"
      },
      "cover": "img/mundos/corazonada.jpg",
      "note": {
       "es": "Voz de Natalia, versos de Oxana",
       "ru": "Поёт Наталья, стихи Оксаны",
-      "en": "Sung by Natalia, words by Oxana"
+      "en": "Sung by Natalia, words by Oxana",
+      "it": "Voce di Natalia, versi di Oxana"
      },
      "tracks": [
       {
@@ -229,13 +239,15 @@ window.PORTAL={
      "name": {
       "es": "Proyecto R: Nuestra Utopía",
       "ru": "Proyecto R: Nuestra Utopía",
-      "en": "Proyecto R: Nuestra Utopía"
+      "en": "Proyecto R: Nuestra Utopía",
+      "it": "Proyecto R: Nuestra Utopía"
      },
      "cover": "img/mundos/proyector.jpg",
      "note": {
       "es": "Rap y nu metal argentino",
       "ru": "Аргентинский рэп и ню-метал",
-      "en": "Argentine rap and nu metal"
+      "en": "Argentine rap and nu metal",
+      "it": "Rap e nu metal argentino"
      },
      "tracks": [
       {
@@ -352,13 +364,15 @@ window.PORTAL={
      "name": {
       "es": "Antitango: Milonga del fin del mundo",
       "ru": "Antitango: Milonga del fin del mundo",
-      "en": "Antitango: Milonga del fin del mundo"
+      "en": "Antitango: Milonga del fin del mundo",
+      "it": "Antitango: Milonga del fin del mundo"
      },
      "cover": "img/mundos/antitango.jpg",
      "note": {
       "es": "Tango y rap de antes de la Gran Catástrofe, el grupo favorito de Natalia",
       "ru": "Танго и рэп из времён до Великой катастрофы, любимая группа Натальи",
-      "en": "Tango and rap from before the Great Catastrophe, Natalia's favourite band"
+      "en": "Tango and rap from before the Great Catastrophe, Natalia's favourite band",
+      "it": "Tango e rap di prima della Grande Catastrofe, il gruppo preferito di Natalia"
      },
      "tracks": [
       {
@@ -409,7 +423,8 @@ window.PORTAL={
    ],
    "tr": {
     "ru": "Предчувствие",
-    "en": "The Foreboding"
+    "en": "The Foreboding",
+    "it": "Il presentimento"
    }
   },
   {
@@ -422,24 +437,28 @@ window.PORTAL={
    "place": {
     "es": "Un búnker después de la catástrofe",
     "ru": "Бункер после катастрофы",
-    "en": "A bunker after the catastrophe"
+    "en": "A bunker after the catastrophe",
+    "it": "Un bunker dopo la catastrofe"
    },
    "blurb": {
     "es": "Después de la catástrofe nuclear, el mundo se quedó callado. Oxana vive en un búnker y canta para unas paredes de hormigón cubiertas con las partituras de su marido.",
     "ru": "После ядерной катастрофы мир замолчал. Оксана живёт в бункере и поёт для бетонных стен, покрытых нотами мужа.",
-    "en": "After the nuclear catastrophe, the world fell silent. Oxana lives in a bunker and sings to concrete walls covered in her husband's sheet music."
+    "en": "After the nuclear catastrophe, the world fell silent. Oxana lives in a bunker and sings to concrete walls covered in her husband's sheet music.",
+    "it": "Dopo la catastrofe nucleare, il mondo è rimasto in silenzio. Oxana vive in un bunker e canta per pareti di cemento coperte dagli spartiti di suo marito."
    },
    "kind": {
     "es": "Las canciones de Oxana, de la novela musical",
     "ru": "Песни Оксаны из романа-мюзикла",
-    "en": "Oxana's songs from the musical novel"
+    "en": "Oxana's songs from the musical novel",
+    "it": "Le canzoni di Oxana, dal romanzo musicale"
    },
    "discs": [
     {
      "name": {
       "es": "Сияющий горизонт",
       "ru": "Сияющий горизонт",
-      "en": "Сияющий горизонт"
+      "en": "Сияющий горизонт",
+      "it": "Сияющий горизонт"
      },
      "cover": "img/mundos/horizonte.jpg",
      "tracks": [
@@ -602,7 +621,8 @@ window.PORTAL={
    ],
    "tr": {
     "es": "El horizonte brillante",
-    "en": "The Shining Horizon"
+    "en": "The Shining Horizon",
+    "it": "L'orizzonte splendente"
    }
   },
   {
@@ -615,24 +635,28 @@ window.PORTAL={
    "place": {
     "es": "Verdegrado",
     "ru": "Вердеград",
-    "en": "Verdegrad"
+    "en": "Verdegrad",
+    "it": "Verdegrado"
    },
    "blurb": {
     "es": "Luis viaja por primera vez a casa de Natalia, en la vieja y tranquila Verdegrado. Calles verdes, la leyenda de una fortaleza antigua y una música que acompaña cada capítulo.",
     "ru": "Луис впервые едет к Наталье домой, в тихий старинный Вердеград. Прогулки по зелёным улицам, легенда о древней крепости и музыка, которая звучит в каждой главе.",
-    "en": "Luis travels to Natalia's home for the first time, in quiet old Verdegrad. Green streets, the legend of an ancient fortress and music that accompanies every chapter."
+    "en": "Luis travels to Natalia's home for the first time, in quiet old Verdegrad. Green streets, the legend of an ancient fortress and music that accompanies every chapter.",
+    "it": "Luis va per la prima volta a casa di Natalia, nella vecchia e tranquilla Verdegrado. Strade verdi, la leggenda di un'antica fortezza e una musica che accompagna ogni capitolo."
    },
    "kind": {
     "es": "Música y canciones, con la escena de cada pista",
     "ru": "Музыка и песни со сценой к каждому треку",
-    "en": "Music and songs, with the scene behind each track"
+    "en": "Music and songs, with the scene behind each track",
+    "it": "Musica e canzoni, con la scena di ogni brano"
    },
    "discs": [
     {
      "name": {
       "es": "Волны любви. Крепость в полумраке",
       "ru": "Волны любви. Крепость в полумраке",
-      "en": "Волны любви. Крепость в полумраке"
+      "en": "Волны любви. Крепость в полумраке",
+      "it": "Волны любви. Крепость в полумраке"
      },
      "cover": "img/mundos/volny.jpg",
      "tracks": [
@@ -776,7 +800,8 @@ window.PORTAL={
    "tr": {
     "es": "Olas de amor: la fortaleza en penumbra",
     "ru": "Крепость в полумраке",
-    "en": "Waves of Love: The Fortress in Twilight"
+    "en": "Waves of Love: The Fortress in Twilight",
+    "it": "Onde d'amore: la fortezza nella penombra"
    }
   },
   {
@@ -789,24 +814,28 @@ window.PORTAL={
    "place": {
     "es": "Sinea",
     "ru": "Синея",
-    "en": "Sinea"
+    "en": "Sinea",
+    "it": "Sinea"
    },
    "blurb": {
     "es": "En Sinea todo empieza en un café chiquito: una mirada, un dibujo, una mano sobre la mesa, y el tiempo que se detiene. Es la misma historia de amor que «Волны любви», contada en italiano.",
     "ru": "В Синее всё начинается в маленьком кафе: взгляд, рисунок, рука на столе, и время останавливается. Это та же история любви, что и «Волны любви», только по-итальянски.",
-    "en": "In Sinea it all begins in a tiny café: a glance, a drawing, a hand on the table, and time stands still. It is the same love story as «Волны любви», told in Italian."
+    "en": "In Sinea it all begins in a tiny café: a glance, a drawing, a hand on the table, and time stands still. It is the same love story as «Волны любви», told in Italian.",
+    "it": "A Sinea tutto comincia in un piccolo caffè: uno sguardo, un disegno, una mano sul tavolo, e il tempo che si ferma. È la stessa storia d'amore di «Волны любви», raccontata in italiano."
    },
    "kind": {
     "es": "La banda sonora en italiano, con escenas y letras",
     "ru": "Саундтрек на итальянском, со сценами и текстами песен",
-    "en": "The Italian soundtrack, with scenes and lyrics"
+    "en": "The Italian soundtrack, with scenes and lyrics",
+    "it": "La colonna sonora in italiano, con scene e testi"
    },
    "discs": [
     {
      "name": {
       "es": "Onde d'amore",
       "ru": "Onde d'amore",
-      "en": "Onde d'amore"
+      "en": "Onde d'amore",
+      "it": "Onde d'amore"
      },
      "cover": "img/mundos/ondedamore.jpg",
      "tracks": [
@@ -958,28 +987,33 @@ window.PORTAL={
    "place": {
     "es": "Sinea, bajo la tormenta",
     "ru": "Синея, под грозой",
-    "en": "Sinea, in the storm"
+    "en": "Sinea, in the storm",
+    "it": "Sinea, sotto il temporale"
    },
    "tr": {
     "ru": "Волны любви",
-    "en": "Waves of Love"
+    "en": "Waves of Love",
+    "it": "Onde d'amore"
    },
    "blurb": {
     "es": "En un café chiquito de Sinea, Natalia recibe un regalo de él: el dibujo de un zorro. Y del papel sale un zorro que habla con tonada mendocina. De ahí a la hora salvaje, a las parras de Mendoza y a una noche de tormenta. Las canciones de Natalia, esta vez en castellano.",
     "ru": "В маленьком кафе Синеи Наталья получает от него подарок — рисунок лиса. И с бумаги выходит лис, который говорит с мендосским акцентом. Дальше — дикий час, виноградники Мендосы и грозовая ночь. Песни Натальи, на этот раз на испанском.",
-    "en": "In a tiny café in Sinea, Natalia gets a gift from him: a drawing of a fox. And out of the paper steps a fox who talks with a Mendoza accent. From there to the wild hour, the vineyards of Mendoza and a stormy night. Natalia's songs, this time in Spanish."
+    "en": "In a tiny café in Sinea, Natalia gets a gift from him: a drawing of a fox. And out of the paper steps a fox who talks with a Mendoza accent. From there to the wild hour, the vineyards of Mendoza and a stormy night. Natalia's songs, this time in Spanish.",
+    "it": "In un piccolo caffè di Sinea, Natalia riceve un regalo da lui: il disegno di una volpe. E dal foglio esce una volpe che parla con l'accento di Mendoza. Da lì all'ora selvaggia, alle vigne di Mendoza e a una notte di temporale. Le canzoni di Natalia, questa volta in spagnolo."
    },
    "kind": {
     "es": "Las canciones de Natalia en castellano",
     "ru": "Песни Натальи на испанском",
-    "en": "Natalia's songs in Spanish"
+    "en": "Natalia's songs in Spanish",
+    "it": "Le canzoni di Natalia in spagnolo"
    },
    "discs": [
     {
      "name": {
       "es": "Ondas de amor",
       "ru": "Ondas de amor",
-      "en": "Ondas de amor"
+      "en": "Ondas de amor",
+      "it": "Ondas de amor"
      },
      "cover": "img/mundos/ondasdeamor.jpg",
      "tracks": [
@@ -1043,24 +1077,28 @@ window.PORTAL={
    "place": {
     "es": "Sinea, sin sonrisas",
     "ru": "Синея без улыбок",
-    "en": "Sinea without smiles"
+    "en": "Sinea without smiles",
+    "it": "Sinea, senza sorrisi"
    },
    "blurb": {
     "es": "En Sinea, el nuevo presidente prohíbe sonreír. Franco y Chiara deciden devolverle la alegría a la gente. Cuando empieza una canción, la ciudad gris vuelve a tener color.",
     "ru": "В Синее новый президент запрещает улыбаться. Франко и Кьяра решают вернуть людям радость. Когда звучит песня, серый город снова обретает цвет.",
-    "en": "In Sinea, the new president bans smiling. Franco and Chiara decide to give people their joy back. When a song starts, the grey city gets its colour back."
+    "en": "In Sinea, the new president bans smiling. Franco and Chiara decide to give people their joy back. When a song starts, the grey city gets its colour back.",
+    "it": "A Sinea, il nuovo presidente vieta di sorridere. Franco e Chiara decidono di restituire la gioia alla gente. Quando comincia una canzone, la città grigia ritrova i suoi colori."
    },
    "kind": {
     "es": "Momento musicale: canciones en italiano",
     "ru": "Momento musicale: песни на итальянском",
-    "en": "Momento musicale: songs in Italian"
+    "en": "Momento musicale: songs in Italian",
+    "it": "Momento musicale: canzoni in italiano"
    },
    "discs": [
     {
      "name": {
       "es": "Momento musicale",
       "ru": "Momento musicale",
-      "en": "Momento musicale"
+      "en": "Momento musicale",
+      "it": "Momento musicale"
      },
      "cover": "img/mundos/momentomusicale.jpg",
      "tracks": [
@@ -1141,12 +1179,14 @@ window.PORTAL={
    "name": {
     "es": "Amor",
     "ru": "Любовь",
-    "en": "Love"
+    "en": "Love",
+    "it": "Amore"
    },
    "desc": {
     "es": "Encuentros, bailes y abrazos.",
     "ru": "Встречи, танцы и объятия.",
-    "en": "Meetings, dances and embraces."
+    "en": "Meetings, dances and embraces.",
+    "it": "Incontri, balli e abbracci."
    }
   },
   {
@@ -1156,12 +1196,14 @@ window.PORTAL={
    "name": {
     "es": "Lluvia y nostalgia",
     "ru": "Дождь и ностальгия",
-    "en": "Rain and longing"
+    "en": "Rain and longing",
+    "it": "Pioggia e nostalgia"
    },
    "desc": {
     "es": "Despedidas, recuerdos y días grises.",
     "ru": "Прощания, воспоминания и серые дни.",
-    "en": "Farewells, memories and grey days."
+    "en": "Farewells, memories and grey days.",
+    "it": "Addii, ricordi e giorni grigi."
    }
   },
   {
@@ -1171,12 +1213,14 @@ window.PORTAL={
    "name": {
     "es": "Lucha y adrenalina",
     "ru": "Борьба и драйв",
-    "en": "Fight and adrenaline"
+    "en": "Fight and adrenaline",
+    "it": "Lotta e adrenalina"
    },
    "desc": {
     "es": "Rap, persecuciones e himnos para levantarse.",
     "ru": "Рэп, погони и гимны, чтобы подняться.",
-    "en": "Rap, chases and anthems to rise up to."
+    "en": "Rap, chases and anthems to rise up to.",
+    "it": "Rap, inseguimenti e inni per rialzarsi."
    }
   },
   {
@@ -1186,12 +1230,14 @@ window.PORTAL={
    "name": {
     "es": "Misterio y penumbra",
     "ru": "Тайна и полумрак",
-    "en": "Mystery and twilight"
+    "en": "Mystery and twilight",
+    "it": "Mistero e penombra"
    },
    "desc": {
     "es": "Fortalezas, leyendas y presentimientos.",
     "ru": "Крепости, легенды и предчувствия.",
-    "en": "Fortresses, legends and forebodings."
+    "en": "Fortresses, legends and forebodings.",
+    "it": "Fortezze, leggende e presentimenti."
    }
   },
   {
@@ -1201,12 +1247,14 @@ window.PORTAL={
    "name": {
     "es": "Esperanza y amanecer",
     "ru": "Надежда и рассвет",
-    "en": "Hope and sunrise"
+    "en": "Hope and sunrise",
+    "it": "Speranza e alba"
    },
    "desc": {
     "es": "Mañanas, caminos y ganas de empezar de nuevo.",
     "ru": "Утро, дороги и желание начать заново.",
-    "en": "Mornings, roads and the urge to start over."
+    "en": "Mornings, roads and the urge to start over.",
+    "it": "Mattine, strade e voglia di ricominciare."
    }
   }
  ]
