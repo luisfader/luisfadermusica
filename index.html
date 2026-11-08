@@ -82,6 +82,18 @@
   <p data-i18n="footName">Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.</p>
 </footer>
 
+<aside class="lyrics" id="lyrics" hidden aria-labelledby="ly-title">
+  <div class="ly-head">
+    <div class="ly-who">
+      <p class="ly-title" id="ly-title"></p>
+      <p class="ly-sub" id="ly-sub"></p>
+    </div>
+    <button type="button" class="ly-close" id="ly-close" data-i18n-aria="lyricsClose" aria-label="Cerrar la letra"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="ly-tabs" id="ly-tabs" role="group" hidden></div>
+  <div class="ly-body" id="ly-body" tabindex="0"></div>
+</aside>
+
 <div class="player" id="player" hidden>
   <img class="p-cover" id="p-cover" alt="">
   <div class="p-meta">
@@ -99,6 +111,7 @@
     <input type="range" id="p-seek" min="0" max="1000" value="0" data-i18n-aria="seek" aria-label="Posición en la pista">
     <span id="p-dur">0:00</span>
   </div>
+  <button type="button" class="p-ly" id="p-ly" aria-expanded="false" aria-controls="lyrics"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h11M4 10h11M4 14h7"/><circle cx="17.5" cy="17" r="2.5"/><path d="M20 17V7l-3 1"/></svg><span data-i18n="lyrics">Letra</span></button>
   <p class="p-error" id="p-error" role="status"></p>
   <audio id="audio" preload="none"></audio>
 </div>

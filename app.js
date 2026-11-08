@@ -32,6 +32,7 @@
       soundtracksH:"Las bandas sonoras",
       soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
       footName:"Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.",
+      lyrics:"Letra", lyricsClose:"Cerrar la letra", lyOrig:"Original", lyTr:"Traducción", lyInst:"Esta pista es instrumental.", lyNone:"La letra de esta canción todavía no está cargada.", lyLoading:"Cargando la letra…", lyError:"No se pudo cargar la letra. Probá de nuevo en un rato.",
       prev:"Pista anterior", next:"Pista siguiente", pause:"Pausar", play:"Reproducir", seek:"Posición en la pista",
       error:"Esta pista no se pudo cargar. Probá con otra o volvé a intentar en un rato.",
       cover:t=>"Portada de "+t,
@@ -50,6 +51,7 @@
       soundtracksH:"Саундтреки",
       soundtracksP:"Все песни каждого романа — в том порядке, в каком они звучат в книге. Нажмите на трек, чтобы слушать.",
       footName:"Луис Фадер. В русских книгах — Роберт Фадер, в итальянских — Роберто Фадер.",
+      lyrics:"Текст", lyricsClose:"Закрыть текст", lyOrig:"Оригинал", lyTr:"Перевод", lyInst:"Это инструментальный трек.", lyNone:"Текст этой песни ещё не добавлен.", lyLoading:"Загружаем текст…", lyError:"Не удалось загрузить текст. Попробуйте чуть позже.",
       prev:"Предыдущий трек", next:"Следующий трек", pause:"Пауза", play:"Воспроизвести", seek:"Позиция в треке",
       error:"Не удалось загрузить трек. Выберите другой или попробуйте позже.",
       cover:t=>"Обложка: "+t,
@@ -68,6 +70,7 @@
       soundtracksH:"The soundtracks",
       soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
       footName:"Luis Fader. Robert Fader in Russian, Roberto Fader in Italian.",
+      lyrics:"Lyrics", lyricsClose:"Close lyrics", lyOrig:"Original", lyTr:"Translation", lyInst:"This track is instrumental.", lyNone:"The lyrics for this song aren't here yet.", lyLoading:"Loading lyrics…", lyError:"Couldn't load the lyrics. Try again in a moment.",
       prev:"Previous track", next:"Next track", pause:"Pause", play:"Play", seek:"Position in track",
       error:"This track couldn't be loaded. Try another one, or try again later.",
       cover:t=>"Cover of "+t,
@@ -308,6 +311,7 @@
     playerText();
     $("#p-dur").textContent = tr.d || "0:00";
     markCurrent();
+    lyLoad();
     if("mediaSession" in navigator){
       try{
         navigator.mediaSession.metadata = new MediaMetadata({title:tr.t, artist:"Luis Fader", album:(mixOfKey(current.qk) ? tx(mixOfKey(current.qk).name) : tx(d.name)),
@@ -569,6 +573,71 @@
   window.addEventListener("resize", () => { if(!specBtn.hidden) specSize(); });
 
 
+
+  /* ---------- Letra ----------
+     Panel con la letra de lo que suena. Cada letra se carga recién al abrirla
+     (letras/<novela>/<archivo>.txt). Se desplaza sola al ritmo de la canción,
+     salvo durante unos segundos después de que la persona scrollea. */
+  const lyPanel = $("#lyrics"), lyBody = $("#ly-body"), lyBtn = $("#p-ly"), lyTabs = $("#ly-tabs");
+  const lyCache = {};
+  let lyOpen = false, lyView = "orig", lySeq = 0, lyTouched = 0;
+  const lyPath = (d, t, l) => "letras/" + d.world.id + "/" + t.src.split("/").pop().replace(/\.mp3$/i, "") + (l ? "." + l : "") + ".txt";
+  function lyMsg(text){ lyBody.innerHTML = '<p class="ly-msg">'+esc(text)+'</p>'; }
+  function lyRender(text, lang){
+    lyBody.lang = lang;
+    const line = l => /^\(.*\)$/.test(l.trim()) ? '<span class="ly-aside">'+esc(l)+'</span>' : esc(l);
+    lyBody.innerHTML = text.trim().split(/\n\s*\n/).map(st => '<p>'+st.split("\n").map(line).join("<br>")+'</p>').join("");
+    lyBody.scrollTop = 0;
+  }
+  async function lyLoad(){
+    if(!lyOpen || !current.d) return;
+    const d = current.d, t = d.tracks[current.t], seq = ++lySeq;
+    const tt = $("#ly-title"); tt.textContent = t.t; tt.lang = d.world.lang;
+    $("#ly-sub").textContent = d.world.title;
+    lyPanel.style.setProperty("--pa", d.accent);
+    const hasTr = t.ly && t.lyt && t.lyt.includes(L) && L !== d.world.lang;
+    if(!hasTr) lyView = "orig";
+    lyTabs.hidden = !hasTr;
+    if(hasTr){
+      lyTabs.setAttribute("aria-label", T.lyrics);
+      lyTabs.innerHTML = [["orig",T.lyOrig],["tr",T.lyTr]].map(([v,lab]) => '<button type="button" data-ly="'+v+'" aria-pressed="'+(v===lyView)+'">'+esc(lab)+'</button>').join("");
+    }
+    if(d.voice[current.t] !== "S") return lyMsg(T.lyInst);
+    if(!t.ly) return lyMsg(T.lyNone);
+    const path = lyPath(d, t, lyView === "tr" ? L : null);
+    if(!lyCache[path]){
+      lyMsg(T.lyLoading);
+      try{
+        const r = await fetch(path);
+        if(!r.ok) throw new Error(r.status);
+        lyCache[path] = await r.text();
+      }catch(e){ if(seq === lySeq) lyMsg(T.lyError); return; }
+    }
+    if(seq !== lySeq) return;
+    lyRender(lyCache[path], lyView === "tr" ? L : d.world.lang);
+  }
+  function lyToggle(open){
+    lyOpen = open;
+    lyPanel.hidden = !open;
+    lyBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.classList.toggle("ly-on", open);
+    if(open){ lyTouched = 0; lyLoad(); lyBody.focus({preventScroll:true}); }
+    else lyBtn.focus({preventScroll:true});
+  }
+  lyBtn.addEventListener("click", () => lyToggle(!lyOpen));
+  $("#ly-close").addEventListener("click", () => lyToggle(false));
+  document.addEventListener("keydown", e => { if(e.key === "Escape" && lyOpen) lyToggle(false); });
+  lyTabs.addEventListener("click", e => { const b = e.target.closest("button[data-ly]"); if(!b || b.dataset.ly === lyView) return; lyView = b.dataset.ly; lyLoad(); });
+  ["wheel","touchstart","pointerdown","keydown"].forEach(ev => lyBody.addEventListener(ev, () => { lyTouched = Date.now(); }, {passive:true}));
+  audio.addEventListener("timeupdate", () => {
+    if(!lyOpen || !audio.duration || Date.now() - lyTouched < 5000) return;
+    const max = lyBody.scrollHeight - lyBody.clientHeight; if(max <= 0) return;
+    /* empieza a bajar después del primer 8 % y termina un poco antes del final */
+    const p = Math.min(1, Math.max(0, (audio.currentTime/audio.duration - 0.08) / 0.82));
+    const target = p * max;
+    lyBody.scrollTop += (target - lyBody.scrollTop) * (reduceMotion ? 1 : 0.25);
+  });
+
   /* ---------- Qué escuchar: todo, canciones o instrumental ---------- */
   function renderVF(){
     document.querySelectorAll(".vf").forEach(g => {
@@ -606,7 +675,7 @@
       b.setAttribute("aria-label", w.title + (w.tr && w.tr[L] ? " ("+w.tr[L]+")" : ""));
     });
     if(cur >= 0) tune(cur, false);
-    renderWorlds(); renderMixes(); renderVF(); playerText(); specLabel();
+    renderWorlds(); renderMixes(); renderVF(); playerText(); specLabel(); lyLoad();
     if(audioFailed) $("#p-error").textContent = T.error;
     if(save){
       try{ localStorage.setItem("fader-lang", L); }catch(e){}

@@ -2,7 +2,8 @@
    Las pistas se reproducen desde el sitio de cada novela: acá no hay MP3.
    Cada disco tiene «mood»: una letra por pista (A amor, L lluvia, F lucha, M misterio, E esperanza)
    que decide en qué mezcla va.
-   «voice»: S si la pista tiene voz (canción), i si es instrumental. */
+   «voice»: S si la pista tiene voz (canción), i si es instrumental.
+   «ly»: la pista tiene letra en letras/<novela>/<archivo>.txt; «lyt»: traducciones disponibles. */
 window.PORTAL={
  "worlds": [
   {
@@ -200,21 +201,24 @@ window.PORTAL={
        "src": "https://luisfader.github.io/corazonada/audio/01-manana-siempre-es-mejor.mp3",
        "d": "4:37",
        "s": "El «Sueño Turquesa» y el concierto en la plaza",
-       "v": "Natalia"
+       "v": "Natalia",
+       "ly": 1
       },
       {
        "t": "La puerta abierta",
        "src": "https://luisfader.github.io/corazonada/audio/02-la-puerta-abierta.mp3",
        "d": "3:28",
        "s": "Desde la muralla, al atardecer",
-       "v": "Natalia"
+       "v": "Natalia",
+       "ly": 1
       },
       {
        "t": "Bajo un cielo turquesa",
        "src": "https://luisfader.github.io/corazonada/audio/03-bajo-un-cielo-turquesa.mp3",
        "d": "3:53",
        "s": "La despedida de Vika, junto al obelisco",
-       "v": "Natalia"
+       "v": "Natalia",
+       "ly": 1
       }
      ],
      "pending": 0,
@@ -238,55 +242,100 @@ window.PORTAL={
        "t": "La lucha de a dos",
        "src": "https://luisfader.github.io/corazonada/proyecto-r/audio/01-la-lucha-de-a-dos.mp3",
        "d": "3:18",
-       "s": "Dos para la esperanza"
+       "s": "Dos para la esperanza",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "en"
+       ]
       },
       {
        "t": "Nuestro San Jorge",
        "src": "https://luisfader.github.io/corazonada/proyecto-r/audio/02-nuestro-san-jorge.mp3",
        "d": "3:00",
-       "s": "El caballero de hierro contra la serpiente imperial"
+       "s": "El caballero de hierro contra la serpiente imperial",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "en"
+       ]
       },
       {
        "t": "Mi corazonada",
        "src": "https://luisfader.github.io/corazonada/proyecto-r/audio/03-mi-corazonada.mp3",
        "d": "3:43",
-       "s": "Del búnker al fogón"
+       "s": "Del búnker al fogón",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "en"
+       ]
       },
       {
        "t": "Mi corazonada (versión melódica)",
        "src": "https://luisfader.github.io/corazonada/proyecto-r/audio/04-mi-corazonada-version-melodica.mp3",
        "d": "4:00",
-       "s": "La misma búsqueda, cantada"
+       "s": "La misma búsqueda, cantada",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "en"
+       ]
       },
       {
        "t": "Rutas",
        "src": "https://luisfader.github.io/corazonada/proyecto-r/audio/05-rutas.mp3",
        "d": "3:22",
-       "s": "Los clanes y la fortaleza se dan la mano"
+       "s": "Los clanes y la fortaleza se dan la mano",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "en"
+       ]
       },
       {
        "t": "Reyes bajo tierra",
        "src": "https://luisfader.github.io/corazonada/proyecto-r/audio/06-reyes-bajo-tierra.mp3",
        "d": "3:49",
-       "s": "El palacio debajo de la arena"
+       "s": "El palacio debajo de la arena",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "en"
+       ]
       },
       {
        "t": "Humanidad",
        "src": "https://luisfader.github.io/corazonada/proyecto-r/audio/07-humanidad.mp3",
        "d": "4:20",
-       "s": "Otra vez en la misma trampa"
+       "s": "Otra vez en la misma trampa",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "en"
+       ]
       },
       {
        "t": "Al mejor postor",
        "src": "https://luisfader.github.io/corazonada/proyecto-r/audio/08-al-mejor-postor.mp3",
        "d": "3:26",
-       "s": "Para los que se venden"
+       "s": "Para los que se venden",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "en"
+       ]
       },
       {
        "t": "Mañana siempre es mejor (versión rap)",
        "src": "https://luisfader.github.io/corazonada/proyecto-r/audio/09-manana-siempre-es-mejor-version-rap.mp3",
        "d": "3:23",
-       "s": "Para vos, mi amor"
+       "s": "Para vos, mi amor",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "en"
+       ]
       },
       {
        "t": "Imperfección",
@@ -328,25 +377,29 @@ window.PORTAL={
        "t": "Dos minutos de destino",
        "src": "https://luisfader.github.io/corazonada/antitango/audio/12-dos-minutos-de-destino.mp3",
        "d": "2:51",
-       "s": "Breve eternidad de olvido"
+       "s": "Breve eternidad de olvido",
+       "ly": 1
       },
       {
        "t": "Mujer intrigadora",
        "src": "https://luisfader.github.io/corazonada/antitango/audio/13-mujer-intrigadora.mp3",
        "d": "4:04",
-       "s": "El insomnio tiene nombre de mujer"
+       "s": "El insomnio tiene nombre de mujer",
+       "ly": 1
       },
       {
        "t": "Aquella vez",
        "src": "https://luisfader.github.io/corazonada/antitango/audio/14-aquella-vez.mp3",
        "d": "3:27",
-       "s": "El primer amor"
+       "s": "El primer amor",
+       "ly": 1
       },
       {
        "t": "El tango de la confusión",
        "src": "https://luisfader.github.io/corazonada/antitango/audio/15-el-tango-de-la-confusion.mp3",
        "d": "2:46",
-       "s": "Donde el «nunca más» suena a «tal vez»"
+       "s": "Donde el «nunca más» suena a «tal vez»",
+       "ly": 1
       }
      ],
      "pending": 9,
@@ -395,63 +448,72 @@ window.PORTAL={
        "src": "https://luisfader.github.io/horizonte/audio/01-dusha-v-bunkere.mp3",
        "d": "3:09",
        "s": "Бункер",
-       "v": "Оксана"
+       "v": "Оксана",
+       "ly": 1
       },
       {
        "t": "Прощай, плохая зима",
        "src": "https://luisfader.github.io/horizonte/audio/06-proshchaj-plohaya-zima.mp3",
        "d": "2:26",
        "s": "Выход из бункера",
-       "v": "Оксана"
+       "v": "Оксана",
+       "ly": 1
       },
       {
        "t": "Дождь любви",
        "src": "https://luisfader.github.io/horizonte/audio/02-dozhd-lyubvi.mp3",
        "d": "2:38",
        "s": "Помост среди руин · фонтаны Некрологии",
-       "v": "Оксана"
+       "v": "Оксана",
+       "ly": 1
       },
       {
        "t": "Грязные грёзы",
        "src": "https://luisfader.github.io/horizonte/audio/13-gryaznye-gryozy.mp3",
        "d": "3:44",
        "s": "Конкурс на помосте среди руин",
-       "v": "Марта"
+       "v": "Марта",
+       "ly": 1
       },
       {
        "t": "Ядерный взрыв",
        "src": "https://luisfader.github.io/horizonte/audio/08-tvoya-zadnica.mp3",
        "d": "2:11",
        "s": "Конкурс на помосте среди руин",
-       "v": "Таракан"
+       "v": "Таракан",
+       "ly": 1
       },
       {
        "t": "Где кончается пустыня",
        "src": "https://luisfader.github.io/horizonte/audio/18-gde-konchaetsya-pustynya.mp3",
        "d": "3:32",
        "s": "В «Москвиче», по дороге в Некрологию",
-       "v": "Оксана"
+       "v": "Оксана",
+       "ly": 1
       },
       {
        "t": "Завтра будет лучше",
        "src": "https://luisfader.github.io/horizonte/audio/15-zavtra-budet-luchshe.mp3",
        "d": "3:48",
        "s": "Дорога через пустыню",
-       "v": "Оксана"
+       "v": "Оксана",
+       "ly": 1
       },
       {
        "t": "Пока что про себя",
        "src": "https://luisfader.github.io/horizonte/audio/11-poka-chto-pro-sebya.mp3",
        "d": "3:05",
        "s": "Тихая комната",
-       "v": "Оксана (молча)"
+       "v": "Оксана (молча)",
+       "ly": 1
       },
       {
        "t": "Положим ключи",
        "src": "https://luisfader.github.io/horizonte/audio/16-polozhim-klyuchi.mp3",
        "d": "3:58",
        "s": "Барак охладителей",
-       "v": "Тёма и охладители"
+       "v": "Тёма и охладители",
+       "ly": 1
       },
       {
        "t": "Предчувствие",
@@ -465,63 +527,72 @@ window.PORTAL={
        "src": "https://luisfader.github.io/horizonte/audio/19-ona-ne-dyshit.mp3",
        "d": "3:47",
        "s": "Площадь фонтанов, второй день",
-       "v": "Оксана"
+       "v": "Оксана",
+       "ly": 1
       },
       {
        "t": "О чём мы мечтаем",
        "src": "https://luisfader.github.io/horizonte/audio/17-o-chyom-my-mechtaem.mp3",
        "d": "3:48",
        "s": "У фонтана, вторая ночь",
-       "v": "Оксана"
+       "v": "Оксана",
+       "ly": 1
       },
       {
        "t": "Завтра будет дождь",
        "src": "https://luisfader.github.io/horizonte/audio/03-zavtra-budet-dozhd.mp3",
        "d": "4:12",
        "s": "Финал конкурса «Сияющий горизонт»",
-       "v": "Алексей и Наталья"
+       "v": "Алексей и Наталья",
+       "ly": 1
       },
       {
        "t": "Завтра будет дождь (Оксана и Наталья)",
        "src": "https://luisfader.github.io/horizonte/audio/14-zavtra-budet-dozhd-oksana.mp3",
        "d": "3:33",
        "s": "Песня для Миши — авторская версия",
-       "v": "Оксана и Наталья"
+       "v": "Оксана и Наталья",
+       "ly": 1
       },
       {
        "t": "Мир твой",
        "src": "https://luisfader.github.io/horizonte/audio/05-mir-tvoj.mp3",
        "d": "2:59",
        "s": "Дорога сквозь пепел",
-       "v": "Оксана"
+       "v": "Оксана",
+       "ly": 1
       },
       {
        "t": "Шёлковый рассвет",
        "src": "https://luisfader.github.io/horizonte/audio/09-shyolkovyj-rassvet.mp3",
        "d": "3:18",
        "s": "Осада в высохшем русле",
-       "v": "Оксана и Наталья"
+       "v": "Оксана и Наталья",
+       "ly": 1
       },
       {
        "t": "За краем тьмы",
        "src": "https://luisfader.github.io/horizonte/audio/04-za-kraem-tmy.mp3",
        "d": "3:13",
        "s": "Костёр в пустыне",
-       "v": "Оксана и Проект R"
+       "v": "Оксана и Проект R",
+       "ly": 1
       },
       {
        "t": "Акварельные облака",
        "src": "https://luisfader.github.io/horizonte/audio/07-akvarelnye-oblaka.mp3",
        "d": "2:57",
        "s": "Дорога на северо-запад",
-       "v": "Оксана"
+       "v": "Оксана",
+       "ly": 1
       },
       {
        "t": "Сияющий горизонт",
        "src": "https://luisfader.github.io/horizonte/audio/10-siyayushchij-gorizont.mp3",
        "d": "3:18",
        "s": "У ворот бирюзовой крепости",
-       "v": "Оксана"
+       "v": "Оксана",
+       "ly": 1
       }
      ],
      "pending": 0,
@@ -599,13 +670,15 @@ window.PORTAL={
        "t": "Волны любви",
        "src": "https://luisfader.github.io/volny/audio/19-volny-lyubvi-pesnya.mp3",
        "d": "3:35",
-       "s": "Волны над площадью"
+       "s": "Волны над площадью",
+       "ly": 1
       },
       {
        "t": "Судьба",
        "src": "https://luisfader.github.io/volny/audio/06-sudba.mp3",
        "d": "3:03",
-       "s": "Волны любви"
+       "s": "Волны любви",
+       "ly": 1
       },
       {
        "t": "Прикосновение истины",
@@ -617,7 +690,8 @@ window.PORTAL={
        "t": "Танцуй со мной под луной",
        "src": "https://luisfader.github.io/volny/audio/08-tancuj-so-mnoj.mp3",
        "d": "4:19",
-       "s": "Танец в гостиной"
+       "s": "Танец в гостиной",
+       "ly": 1
       },
       {
        "t": "Гимн Вердеграда",
@@ -629,31 +703,36 @@ window.PORTAL={
        "t": "Слышишь меня?",
        "src": "https://luisfader.github.io/volny/audio/10-slyshish-menya.mp3",
        "d": "4:42",
-       "s": "Мелодия, которая нашла дорогу"
+       "s": "Мелодия, которая нашла дорогу",
+       "ly": 1
       },
       {
        "t": "Помнишь?",
        "src": "https://luisfader.github.io/volny/audio/11-pomnish.mp3",
        "d": "3:30",
-       "s": "Маленькие островки"
+       "s": "Маленькие островки",
+       "ly": 1
       },
       {
        "t": "Тетрадь",
        "src": "https://luisfader.github.io/volny/audio/18-tetrad.mp3",
        "d": "4:03",
-       "s": "Тетрадь на полу"
+       "s": "Тетрадь на полу",
+       "ly": 1
       },
       {
        "t": "Моя Вселенная",
        "src": "https://luisfader.github.io/volny/audio/12-moya-vselennaya.mp3",
        "d": "2:20",
-       "s": "Прощание над тетрадью"
+       "s": "Прощание над тетрадью",
+       "ly": 1
       },
       {
        "t": "Это не прощание",
        "src": "https://luisfader.github.io/volny/audio/20-eto-ne-proshchanie.mp3",
        "d": "4:18",
-       "s": "Прощание над тетрадью"
+       "s": "Прощание над тетрадью",
+       "ly": 1
       },
       {
        "t": "Дождь",
@@ -665,7 +744,8 @@ window.PORTAL={
        "t": "Тайный дождь",
        "src": "https://luisfader.github.io/volny/audio/14-tajnyj-dozhd.mp3",
        "d": "2:43",
-       "s": "Песня из окна под дождём"
+       "s": "Песня из окна под дождём",
+       "ly": 1
       },
       {
        "t": "Глубина любви",
@@ -677,13 +757,15 @@ window.PORTAL={
        "t": "Волны остались",
        "src": "https://luisfader.github.io/volny/audio/16-volny-ostalis.mp3",
        "d": "4:33",
-       "s": "Утро. Финал"
+       "s": "Утро. Финал",
+       "ly": 1
       },
       {
        "t": "Столько любви",
        "src": "https://luisfader.github.io/volny/audio/17-stolko-lyubvi.mp3",
        "d": "3:58",
-       "s": "Вне глав"
+       "s": "Вне глав",
+       "ly": 1
       }
      ],
      "pending": 0,
@@ -798,25 +880,29 @@ window.PORTAL={
        "t": "Balla con me sotto la Luna",
        "src": "https://luisfader.github.io/ondedamore/audio/12-balla-con-me-sotto-la-luna.mp3",
        "d": "3:31",
-       "s": "Il ballo in soggiorno"
+       "s": "Il ballo in soggiorno",
+       "ly": 1
       },
       {
        "t": "Controcorrente",
        "src": "https://luisfader.github.io/ondedamore/audio/13-controcorrente.mp3",
        "d": "2:48",
-       "s": "L'autobus contro la fila dei fuggitivi"
+       "s": "L'autobus contro la fila dei fuggitivi",
+       "ly": 1
       },
       {
        "t": "Mi senti?",
        "src": "https://luisfader.github.io/ondedamore/audio/14-mi-senti.mp3",
        "d": "4:37",
-       "s": "L'autobus verso la fortezza nera"
+       "s": "L'autobus verso la fortezza nera",
+       "ly": 1
       },
       {
        "t": "Ti ricordi?",
        "src": "https://luisfader.github.io/ondedamore/audio/15-ti-ricordi.mp3",
        "d": "3:26",
-       "s": "Il quartiere vecchio si risveglia"
+       "s": "Il quartiere vecchio si risveglia",
+       "ly": 1
       },
       {
        "t": "Due parole potenti",
@@ -828,7 +914,8 @@ window.PORTAL={
        "t": "Il quaderno",
        "src": "https://luisfader.github.io/ondedamore/audio/17-il-quaderno.mp3",
        "d": "4:22",
-       "s": "Il quaderno sul pavimento"
+       "s": "Il quaderno sul pavimento",
+       "ly": 1
       },
       {
        "t": "La pioggia",
@@ -840,7 +927,8 @@ window.PORTAL={
        "t": "Pioggia segreta",
        "src": "https://luisfader.github.io/ondedamore/audio/19-pioggia-segreta.mp3",
        "d": "2:32",
-       "s": "La pioggia sulla piazza vuota"
+       "s": "La pioggia sulla piazza vuota",
+       "ly": 1
       },
       {
        "t": "La profondità dell'amore",
@@ -877,9 +965,9 @@ window.PORTAL={
     "en": "Waves of Love"
    },
    "blurb": {
-    "es": "En un café chiquito de Sinea, Luis le regala a Natalia el dibujo de un zorro, y del papel sale un zorro que habla con tonada mendocina. De ahí a la hora salvaje, a las parras de Mendoza y a una noche de tormenta. Las canciones de Natalia, esta vez en castellano.",
-    "ru": "В маленьком кафе Синеи Луис дарит Наталье рисунок лиса, и с бумаги выходит лис, который говорит с мендосским акцентом. Дальше — дикий час, виноградники Мендосы и грозовая ночь. Песни Натальи, на этот раз на испанском.",
-    "en": "In a tiny café in Sinea, Luis gives Natalia a drawing of a fox, and out of the paper steps a fox who talks with a Mendoza accent. From there to the wild hour, the vineyards of Mendoza and a stormy night. Natalia's songs, this time in Spanish."
+    "es": "En un café chiquito de Sinea, Natalia recibe un regalo de él: el dibujo de un zorro. Y del papel sale un zorro que habla con tonada mendocina. De ahí a la hora salvaje, a las parras de Mendoza y a una noche de tormenta. Las canciones de Natalia, esta vez en castellano.",
+    "ru": "В маленьком кафе Синеи Наталья получает от него подарок — рисунок лиса. И с бумаги выходит лис, который говорит с мендосским акцентом. Дальше — дикий час, виноградники Мендосы и грозовая ночь. Песни Натальи, на этот раз на испанском.",
+    "en": "In a tiny café in Sinea, Natalia gets a gift from him: a drawing of a fox. And out of the paper steps a fox who talks with a Mendoza accent. From there to the wild hour, the vineyards of Mendoza and a stormy night. Natalia's songs, this time in Spanish."
    },
    "kind": {
     "es": "Las canciones de Natalia en castellano",
@@ -899,25 +987,29 @@ window.PORTAL={
        "t": "Amor por las acequias",
        "src": "audio/ondasdeamor/amor-por-las-acequias.mp3",
        "d": "4:02",
-       "s": "La primera noche en Mendoza, con los pies en la acequia"
+       "s": "La primera noche en Mendoza, con los pies en la acequia",
+       "ly": 1
       },
       {
        "t": "Olvidar",
        "src": "audio/ondasdeamor/olvidar.mp3",
        "d": "3:51",
-       "s": "La despedida en la galería de la finca"
+       "s": "La despedida en la galería de la finca",
+       "ly": 1
       },
       {
        "t": "En medio de la tormenta",
        "src": "audio/ondasdeamor/en-medio-de-la-tormenta.mp3",
        "d": "3:27",
-       "s": "Sin colectivo, caminando bajo el chaparrón"
+       "s": "Sin colectivo, caminando bajo el chaparrón",
+       "ly": 1
       },
       {
        "t": "Lluvia secreta",
        "src": "audio/ondasdeamor/lluvia-secreta.mp3",
        "d": "4:22",
-       "s": "Sola en la plaza, frente a la torre"
+       "s": "Sola en la plaza, frente a la torre",
+       "ly": 1
       },
       {
        "t": "Lo que no pudo ser",
@@ -977,49 +1069,56 @@ window.PORTAL={
        "src": "https://luisfader.github.io/momentomusicale/audio/01-tre-fermate-dopo.mp3",
        "d": "3:18",
        "s": "La metro di Sinea",
-       "v": "Franco"
+       "v": "Franco",
+       "ly": 1
       },
       {
        "t": "L’amore è sorridere",
        "src": "https://luisfader.github.io/momentomusicale/audio/02-l-amore-e-sorridere.mp3",
        "d": "2:56",
        "s": "La riunione segreta",
-       "v": "Chiara"
+       "v": "Chiara",
+       "ly": 1
       },
       {
        "t": "Sorrido senza paura",
        "src": "https://luisfader.github.io/momentomusicale/audio/03-sorrido-senza-paura.mp3",
        "d": "2:45",
        "s": "La festa segreta",
-       "v": "Chiara"
+       "v": "Chiara",
+       "ly": 1
       },
       {
        "t": "Corsa nella notte",
        "src": "https://luisfader.github.io/momentomusicale/audio/04-corsa-nella-notte.mp3",
        "d": "2:50",
        "s": "Fuga per le strade",
-       "v": "La città triste"
+       "v": "La città triste",
+       "ly": 1
       },
       {
        "t": "Corsa nella notte (II)",
        "src": "https://luisfader.github.io/momentomusicale/audio/05-corsa-nella-notte-ii.mp3",
        "d": "3:01",
        "s": "Fuga per le strade · seconda versione",
-       "v": "La città triste"
+       "v": "La città triste",
+       "ly": 1
       },
       {
        "t": "Se si spegne, canta!",
        "src": "https://luisfader.github.io/momentomusicale/audio/06-se-si-spegne-canta.mp3",
        "d": "2:42",
        "s": "La vecchia Fiat di papà",
-       "v": "Chiara"
+       "v": "Chiara",
+       "ly": 1
       },
       {
        "t": "Inno di Sinea",
        "src": "https://luisfader.github.io/momentomusicale/audio/07-inno-di-sinea.mp3",
        "d": "2:56",
        "s": "Piazza Grande",
-       "v": "La città triste"
+       "v": "La città triste",
+       "ly": 1
       }
      ],
      "pending": 0,
