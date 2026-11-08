@@ -4,7 +4,7 @@
   const UI_LANGS = ["es","ru","en","it"];
   /* Ranking «Lo más escuchado»: dirección y clave pública (anon) del proyecto de Supabase.
      Vacío = la sección no aparece y no se cuenta nada. Ver supabase/ranking.sql */
-  const RANKING = { url: "", key: "" };
+  const RANKING = { url: "https://nvhzkbbjskibqotiwqee.supabase.co", key: "" };
   const SHORT = {misterio:"Misterio",corazonada:"Corazonada",horizonte:"Горизонт",volny:"Волны",onde:"Onde", ondas:"Ondas",momento:"Città", maschera:"Maschera"};
 
   /* Nombres de idiomas: [castellano, ruso, inglés, italiano] */
@@ -364,7 +364,9 @@
   function rpc(name, body, keepalive){
     return fetch(RANKING.url.replace(/\/$/, "") + "/rest/v1/rpc/" + name, {
       method: "POST", keepalive: !!keepalive,
-      headers: {apikey: RANKING.key, Authorization: "Bearer " + RANKING.key, "Content-Type": "application/json"},
+      /* Las claves nuevas (sb_publishable_…) van solo en apikey; las viejas (anon, eyJ…) también en Authorization */
+      headers: Object.assign({apikey: RANKING.key, "Content-Type": "application/json"},
+        RANKING.key.startsWith("sb_") ? {} : {Authorization: "Bearer " + RANKING.key}),
       body: JSON.stringify(body)
     });
   }
