@@ -1046,6 +1046,12 @@ window.PORTAL={
        "ly": 1
       },
       {
+       "t": "Te conozco de antes",
+       "src": "audio/ondasdeamor/te-conozco-de-antes.mp3",
+       "d": "3:12",
+       "s": "La foto de Mendoza en el café de la esquina"
+      },
+      {
        "t": "Lo que no pudo ser",
        "src": "audio/ondasdeamor/lo-que-no-pudo-ser.mp3",
        "d": "3:55"
@@ -1062,8 +1068,8 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "ALALLLA",
-     "voice": "SSSSSSi"
+     "mood": "ALALALLA",
+     "voice": "SSSSSSSi"
     }
    ]
   },
