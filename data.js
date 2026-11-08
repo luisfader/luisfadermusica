@@ -824,10 +824,10 @@ window.PORTAL={
     "it": "Dopo la Guerra, Natalia, esiliata, trova nel deserto il bunker di Roberto: le sue lettere legate con un nastro e il violino della piccola Lucía. Dal cielo piovono ultimatum e i vecchi nemici devono unirsi contro gli eserciti d'acciaio."
    },
    "kind": {
-    "es": "Canciones, en el orden en que suenan en la novela",
-    "ru": "Песни в том порядке, в каком они звучат в романе",
-    "en": "Songs, in the order they play in the novel",
-    "it": "Canzoni, nell'ordine in cui risuonano nel romanzo"
+    "es": "Música instrumental y canciones, en el orden en que suenan en la novela",
+    "ru": "Инструментальная музыка и песни в том порядке, в каком они звучат в романе",
+    "en": "Instrumental music and songs, in the order they play in the novel",
+    "it": "Musica strumentale e canzoni, nell'ordine in cui risuonano nel romanzo"
    },
    "discs": [
     {
@@ -916,7 +916,7 @@ window.PORTAL={
      ],
      "pending": 0,
      "mood": "MMEAMFAAAFFE",
-     "voice": "SSSSSSSSSSSS"
+     "voice": "iiiiiiSiiiii"
     }
    ],
    "tr": {
