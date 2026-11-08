@@ -876,12 +876,18 @@ window.PORTAL={
        "s": "Союз и Сила"
       },
       {
-       "t": "Романтический хаос",
-       "src": "https://luisfader.github.io/predchuvstvie/audio/07-romanticheskij-haos.mp3",
-       "d": "3:14",
+       "t": "Романтический хаос (Оксана)",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/07b-romanticheskij-haos-oksana.mp3",
+       "d": "3:20",
        "s": "Игры власти и крови",
        "v": "Оксана",
        "ly": 1
+      },
+      {
+       "t": "Романтический хаос",
+       "src": "https://luisfader.github.io/predchuvstvie/audio/07-romanticheskij-haos.mp3",
+       "d": "3:14",
+       "s": "Падший ангел"
       },
       {
        "t": "Divino encanto",
@@ -909,8 +915,8 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "MMEAMFAAFFE",
-     "voice": "SSSSSSSSSSS"
+     "mood": "MMEAMFAAAFFE",
+     "voice": "SSSSSSSSSSSS"
     }
    ],
    "tr": {
