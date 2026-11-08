@@ -2,6 +2,9 @@
   "use strict";
   const D = window.PORTAL;
   const UI_LANGS = ["es","ru","en","it"];
+  /* Ranking «Lo más escuchado»: dirección y clave pública (anon) del proyecto de Supabase.
+     Vacío = la sección no aparece y no se cuenta nada. Ver supabase/ranking.sql */
+  const RANKING = { url: "", key: "" };
   const SHORT = {misterio:"Misterio",corazonada:"Corazonada",horizonte:"Горизонт",volny:"Волны",onde:"Onde", ondas:"Ondas",momento:"Città", maschera:"Maschera"};
 
   /* Nombres de idiomas: [castellano, ruso, inglés, italiano] */
@@ -28,7 +31,7 @@
       navSections:"Secciones", navSoundtracks:"Bandas sonoras", langPick:"Idioma del sitio",
       listen:"Escuchar", seeTracks:"Ver todas las pistas", navMixes:"Mezclas",
       mixesH:"Mezclas por ánimo", mixesP:"Canciones de distintas novelas, juntas según lo que te hacen sentir. Las novelas se van alternando siempre que se puede.",
-      shuffleAll:"Todo al azar", specStyle:"Cambiar el estilo del espectro", specModes:["Barras","Ondas","Osciloscopio","Aurora"], vfLabel:"Qué escuchar", vfAll:"Todo", vfSong:"Canciones", vfInst:"Instrumental", vfNone:"No hay pistas de este tipo en este disco.", sung:"Con voz", playMix:n=>"Escuchar la mezcla «"+n+"»", novels:n=>n+(n===1?" novela":" novelas"), mixOf:(m,w)=>m+", de "+w,
+      shuffleAll:"Todo al azar", topH:"Lo más escuchado ahora", topP:"Las canciones que más están sonando en el sitio. Tocá una para escucharla.", topWeek:"Esta semana", topAll:"De siempre", topPick:"Período del ranking", topNone:"Todavía no hay escuchas en este período.", plays:n=>n+(n===1?" escucha":" escuchas"),  specStyle:"Cambiar el estilo del espectro", specModes:["Barras","Ondas","Osciloscopio","Aurora"], vfLabel:"Qué escuchar", vfAll:"Todo", vfSong:"Canciones", vfInst:"Instrumental", vfNone:"No hay pistas de este tipo en este disco.", sung:"Con voz", playMix:n=>"Escuchar la mezcla «"+n+"»", novels:n=>n+(n===1?" novela":" novelas"), mixOf:(m,w)=>m+", de "+w,
       tune:"Sintonizá una novela",
       soundtracksH:"Las bandas sonoras",
       soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
@@ -47,7 +50,7 @@
       navSections:"Разделы", navSoundtracks:"Саундтреки", langPick:"Язык сайта",
       listen:"Слушать", seeTracks:"Все треки", navMixes:"Миксы",
       mixesH:"Миксы по настроению", mixesP:"Песни из разных романов, собранные по настроению. Романы по возможности чередуются.",
-      shuffleAll:"Всё вперемешку", specStyle:"Сменить стиль спектра", specModes:["Полосы","Волны","Осциллограф","Сияние"], vfLabel:"Что слушать", vfAll:"Всё", vfSong:"Песни", vfInst:"Инструментал", vfNone:"В этом альбоме нет таких треков.", sung:"С вокалом", playMix:n=>"Слушать микс «"+n+"»", novels:n=>ruPlural(n,"роман","романа","романов"), mixOf:(m,w)=>m+": «"+w+"»",
+      shuffleAll:"Всё вперемешку", topH:"Сейчас слушают", topP:"Песни, которые чаще всего звучат на сайте. Нажмите на любую, чтобы послушать.", topWeek:"За неделю", topAll:"За всё время", topPick:"Период рейтинга", topNone:"За этот период прослушиваний пока нет.", plays:n=>ruPlural(n,"прослушивание","прослушивания","прослушиваний"),  specStyle:"Сменить стиль спектра", specModes:["Полосы","Волны","Осциллограф","Сияние"], vfLabel:"Что слушать", vfAll:"Всё", vfSong:"Песни", vfInst:"Инструментал", vfNone:"В этом альбоме нет таких треков.", sung:"С вокалом", playMix:n=>"Слушать микс «"+n+"»", novels:n=>ruPlural(n,"роман","романа","романов"), mixOf:(m,w)=>m+": «"+w+"»",
       tune:"Настройтесь на роман",
       soundtracksH:"Саундтреки",
       soundtracksP:"Все песни каждого романа — в том порядке, в каком они звучат в книге. Нажмите на трек, чтобы слушать.",
@@ -66,7 +69,7 @@
       navSections:"Sections", navSoundtracks:"Soundtracks", langPick:"Site language",
       listen:"Listen", seeTracks:"See all tracks", navMixes:"Mixes",
       mixesH:"Mood mixes", mixesP:"Songs from different novels, grouped by how they feel. The novels take turns whenever possible.",
-      shuffleAll:"Shuffle everything", specStyle:"Change the visualizer style", specModes:["Bars","Ripples","Oscilloscope","Aurora"], vfLabel:"What to play", vfAll:"Everything", vfSong:"Songs", vfInst:"Instrumental", vfNone:"No tracks of this kind on this album.", sung:"With vocals", playMix:n=>"Play the "+n+" mix", novels:n=>n+(n===1?" novel":" novels"), mixOf:(m,w)=>m+", from "+w,
+      shuffleAll:"Shuffle everything", topH:"Most played right now", topP:"The songs playing most on the site. Tap one to listen.", topWeek:"This week", topAll:"All time", topPick:"Ranking period", topNone:"No plays in this period yet.", plays:n=>n+(n===1?" play":" plays"),  specStyle:"Change the visualizer style", specModes:["Bars","Ripples","Oscilloscope","Aurora"], vfLabel:"What to play", vfAll:"Everything", vfSong:"Songs", vfInst:"Instrumental", vfNone:"No tracks of this kind on this album.", sung:"With vocals", playMix:n=>"Play the "+n+" mix", novels:n=>n+(n===1?" novel":" novels"), mixOf:(m,w)=>m+", from "+w,
       tune:"Tune in to a novel",
       soundtracksH:"The soundtracks",
       soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
@@ -85,7 +88,7 @@
       navSections:"Sezioni", navSoundtracks:"Colonne sonore", langPick:"Lingua del sito",
       listen:"Ascolta", seeTracks:"Tutti i brani", navMixes:"Mix",
       mixesH:"Mix per stato d'animo", mixesP:"Canzoni di romanzi diversi, riunite in base a quello che ti fanno provare. I romanzi si alternano ogni volta che si può.",
-      shuffleAll:"Tutto in ordine casuale", specStyle:"Cambia lo stile dello spettro", specModes:["Barre","Onde","Oscilloscopio","Aurora"], vfLabel:"Cosa ascoltare", vfAll:"Tutto", vfSong:"Canzoni", vfInst:"Strumentali", vfNone:"In questo album non ci sono brani di questo tipo.", sung:"Con la voce", playMix:n=>"Ascolta il mix «"+n+"»", novels:n=>n+(n===1?" romanzo":" romanzi"), mixOf:(m,w)=>m+", da "+w,
+      shuffleAll:"Tutto in ordine casuale", topH:"I più ascoltati del momento", topP:"Le canzoni che si ascoltano di più sul sito. Toccane una per ascoltarla.", topWeek:"Questa settimana", topAll:"Di sempre", topPick:"Periodo della classifica", topNone:"Ancora nessun ascolto in questo periodo.", plays:n=>n+(n===1?" ascolto":" ascolti"),  specStyle:"Cambia lo stile dello spettro", specModes:["Barre","Onde","Oscilloscopio","Aurora"], vfLabel:"Cosa ascoltare", vfAll:"Tutto", vfSong:"Canzoni", vfInst:"Strumentali", vfNone:"In questo album non ci sono brani di questo tipo.", sung:"Con la voce", playMix:n=>"Ascolta il mix «"+n+"»", novels:n=>n+(n===1?" romanzo":" romanzi"), mixOf:(m,w)=>m+", da "+w,
       tune:"Sintonizzati su un romanzo",
       soundtracksH:"Le colonne sonore",
       soundtracksP:"Tutte le canzoni di ogni romanzo, nell'ordine in cui risuonano nel libro. Tocca un brano per ascoltarlo.",
@@ -161,7 +164,9 @@
   const mixItems = {};
   D.mixes.forEach(m => { mixItems["m:"+m.id] = allItems().filter(it => it.d.mood[it.t] === m.code); });
   /* La lista que suena, ya filtrada; las mezclas se intercalan después de filtrar */
+  let topQ = [];
   function getQueue(key){
+    if(key === "top") return topQ.slice();
     if(mixItems[key]) return interleave(mixItems[key].filter(keep), false);
     return (queues[key] || []).filter(keep);
   }
@@ -348,6 +353,77 @@
   $("#p-toggle").addEventListener("click", toggle);
   $("#p-next").addEventListener("click", next);
   $("#p-prev").addEventListener("click", prev);
+
+  /* ---------- Lo más escuchado (Supabase) ----------
+     Una escucha cuenta después de 30 segundos sonando (o la mitad, si la pista es más corta).
+     El mismo navegador no vuelve a sumar la misma pista hasta 20 minutos después. */
+  const trackId = tr => tr.src.replace(/^https:\/\/luisfader\.github\.io\//, "");
+  const byId = new Map();
+  discs.forEach(d => d.tracks.forEach((tr, t) => byId.set(trackId(tr), {d, t})));
+  let topDays = 7, topRows = [], topLoaded = false, topEver = false;
+  function rpc(name, body, keepalive){
+    return fetch(RANKING.url.replace(/\/$/, "") + "/rest/v1/rpc/" + name, {
+      method: "POST", keepalive: !!keepalive,
+      headers: {apikey: RANKING.key, Authorization: "Bearer " + RANKING.key, "Content-Type": "application/json"},
+      body: JSON.stringify(body)
+    });
+  }
+  async function loadTop(){
+    if(!RANKING.url || !RANKING.key) return;
+    try{
+      const r = await rpc("mas_escuchadas", {p_dias: topDays || null, p_limite: 10});
+      if(!r.ok) return;
+      const rows = await r.json();
+      topRows = rows.map(x => ({it: byId.get(x.pista), n: +x.escuchas})).filter(x => x.it);
+      topLoaded = true; if(topRows.length) topEver = true;
+      const playing = current.qk === "top" ? current.q[current.i] : null;
+      topQ = topRows.map(x => x.it);
+      if(playing){ current.q = topQ.slice(); current.i = topQ.indexOf(playing); }
+      renderTop();
+    }catch(e){ /* sin conexión: la sección queda como estaba */ }
+  }
+  function renderTop(){
+    const sec = $("#ranking");
+    sec.hidden = !topLoaded || !topEver;
+    if(sec.hidden) return;
+    const g = $("#top-pick");
+    g.setAttribute("aria-label", T.topPick);
+    g.innerHTML = [[7, T.topWeek], [0, T.topAll]].map(([v, lab]) =>
+      '<button type="button" data-days="'+v+'" aria-pressed="'+(v === topDays)+'">'+esc(lab)+'</button>').join("");
+    $("#top").innerHTML = topRows.length ? '<ol>' + topRows.map((x, k) => { const t = x.it.d.tracks[x.it.t], w = x.it.d.world;
+      return '<li><button type="button" class="track" data-q="top" data-i="'+k+'" data-d="'+discs.indexOf(x.it.d)+'" data-t="'+x.it.t+'">'+
+        '<span class="n">'+(k+1)+'</span>'+
+        '<span class="tt"><span lang="'+esc(w.lang)+'">'+esc(t.t)+'</span><small class="from" style="--w:'+w.accent+'" lang="'+esc(w.lang)+'">'+esc(w.title)+'</small></span>'+
+        '<span class="du">'+esc(T.plays(x.n))+'</span></button></li>'; }).join("") + '</ol>'
+      : '<p class="pending">'+esc(T.topNone)+'</p>';
+    markCurrent();
+  }
+  $("#top-pick").addEventListener("click", e => {
+    const b = e.target.closest("button[data-days]"); if(!b || +b.dataset.days === topDays) return;
+    topDays = +b.dataset.days; loadTop();
+  });
+  let heardId = null, heard = 0, lastPos = 0, counted = false;
+  function countPlay(id){
+    if(!RANKING.url || !RANKING.key) return;
+    let seen = {};
+    try{ seen = JSON.parse(localStorage.getItem("fader-escuchas") || "{}") || {}; }catch(e){}
+    const now = Date.now();
+    if(seen[id] && now - seen[id] < 20*60*1000) return;
+    seen[id] = now;
+    Object.keys(seen).forEach(k => { if(now - seen[k] > 24*3600*1000) delete seen[k]; });
+    try{ localStorage.setItem("fader-escuchas", JSON.stringify(seen)); }catch(e){}
+    rpc("registrar_escucha", {p_pista: id}, true).then(() => setTimeout(loadTop, 1200)).catch(() => {});
+  }
+  audio.addEventListener("loadstart", () => { heardId = null; });
+  audio.addEventListener("timeupdate", () => {
+    if(!current.d) return;
+    const id = trackId(current.d.tracks[current.t]);
+    if(id !== heardId){ heardId = id; heard = 0; counted = false; lastPos = audio.currentTime; return; }
+    const dt = audio.currentTime - lastPos; lastPos = audio.currentTime;
+    if(dt > 0 && dt < 2) heard += dt;
+    const need = Math.min(30, (isFinite(audio.duration) && audio.duration ? audio.duration : 60) * 0.5);
+    if(!counted && heard >= need){ counted = true; countPlay(id); }
+  });
   audio.addEventListener("play", () => { $("#p-icon").innerHTML = ICON_PAUSE; $("#p-toggle").setAttribute("aria-label",T.pause); });
   audio.addEventListener("pause", () => { $("#p-icon").innerHTML = ICON_PLAY; $("#p-toggle").setAttribute("aria-label",T.play); });
   audio.addEventListener("ended", next);
@@ -695,7 +771,7 @@
       b.setAttribute("aria-label", w.title + (w.tr && w.tr[L] ? " ("+w.tr[L]+")" : ""));
     });
     if(cur >= 0) tune(cur, false);
-    renderWorlds(); renderMixes(); renderVF(); playerText(); specLabel(); lyLoad();
+    renderWorlds(); renderMixes(); renderVF(); renderTop(); playerText(); specLabel(); lyLoad();
     if(audioFailed) $("#p-error").textContent = T.error;
     if(save){
       try{ localStorage.setItem("fader-lang", L); }catch(e){}
@@ -712,4 +788,5 @@
   cur = -1;
   tune(fromHash >= 0 ? fromHash : 0, false);
   applyLang(L, false);
+  loadTop();
 })();

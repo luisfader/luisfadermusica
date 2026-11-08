@@ -36,3 +36,12 @@ Cada pista se reproduce desde el sitio de su novela, aunque el visitante nunca s
 - Para sumar una banda sonora nueva: agregá su entrada en `worlds` dentro de `data.js`, su portada `img/mundos/<repo>.jpg` y su fondo `img/mundos/<repo>-fondo.jpg`. Si querés que tenga estación propia en el dial, sumá un nombre corto en `SHORT` dentro de `app.js`.
 
 Sitio estático para GitHub Pages: rama `main`, carpeta raíz.
+
+## Lo más escuchado
+
+La sección «Lo más escuchado ahora» muestra el top 10 de la semana y de siempre. Las escuchas se guardan en Supabase (gratis):
+
+1. En el **SQL Editor** de Supabase, pegar y correr `supabase/ranking.sql`. Crea la tabla `escuchas`, cerrada, y dos funciones: `registrar_escucha` (suma una) y `mas_escuchadas` (devuelve el ranking).
+2. En `app.js`, completar `RANKING` con la dirección del proyecto y la clave pública (*anon*): `const RANKING = { url: "https://….supabase.co", key: "…" };`.
+
+Una escucha cuenta después de 30 segundos sonando (o la mitad, si la pista es más corta), y el mismo navegador no vuelve a sumar la misma pista hasta 20 minutos después. Solo se guarda qué pista sonó y cuándo. Con `RANKING` vacío, la sección no aparece y no se cuenta nada.

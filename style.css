@@ -77,10 +77,10 @@ button{font:inherit;color:inherit}
 
 /* Mezclas */
 .tools{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1rem;margin-top:1.25rem}
-.vf{display:inline-flex;gap:.15rem;padding:.2rem;border:1px solid var(--rule);border-radius:999px;font-family:var(--sans)}
-.vf button{border:0;background:none;color:var(--muted);font-size:1rem;padding:.45rem 1rem;border-radius:999px;cursor:pointer}
-.vf button:hover{color:var(--paper)}
-.vf button[aria-pressed="true"]{background:var(--paper);color:var(--night);font-weight:500}
+.seg,.vf{display:inline-flex;gap:.15rem;padding:.2rem;border:1px solid var(--rule);border-radius:999px;font-family:var(--sans)}
+.seg button,.vf button{border:0;background:none;color:var(--muted);font-size:1rem;padding:.45rem 1rem;border-radius:999px;cursor:pointer}
+.seg button:hover,.vf button:hover{color:var(--paper)}
+.seg button[aria-pressed="true"],.vf button[aria-pressed="true"]{background:var(--paper);color:var(--night);font-weight:500}
 .track .du{display:inline-flex;align-items:baseline;gap:.4rem}
 .voc svg{width:.85rem;height:.85rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;vertical-align:-1px;opacity:.8}
 .mix-play:disabled,.btn:disabled{opacity:.35;cursor:default;filter:none}
@@ -217,3 +217,9 @@ button{font:inherit;color:inherit}
   html{scroll-behavior:auto}
   .layer,.needle,.place,.btn.primary{transition:none}
 }
+
+/* Lo más escuchado */
+.toplist{max-width:40rem;border:1px solid var(--rule);border-radius:8px;background:rgba(255,255,255,.02)}
+.toplist ol{list-style:none;margin:0;padding:.5rem}
+.toplist li:nth-child(-n+3) .n{color:var(--paper);font-weight:700}
+.toplist .pending{padding:1rem}
