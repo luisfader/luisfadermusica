@@ -877,9 +877,9 @@ window.PORTAL={
     "en": "Waves of Love"
    },
    "blurb": {
-    "es": "En un café chiquito de Sinea, Luis le regala a Natalia el dibujo de un zorro, y del papel sale un zorro que habla con tonada mendocina. Las canciones de Natalia, esta vez en castellano. Por ahora, las dos de la noche de tormenta.",
-    "ru": "В маленьком кафе Синеи Луис дарит Наталье рисунок лиса, и с бумаги выходит лис, который говорит с мендосским акцентом. Песни Натальи, на этот раз на испанском. Пока что две песни грозовой ночи.",
-    "en": "In a tiny café in Sinea, Luis gives Natalia a drawing of a fox, and out of the paper steps a fox who talks with a Mendoza accent. Natalia's songs, this time in Spanish. For now, the two songs of the stormy night."
+    "es": "En un café chiquito de Sinea, Luis le regala a Natalia el dibujo de un zorro, y del papel sale un zorro que habla con tonada mendocina. De ahí a la hora salvaje, a las parras de Mendoza y a una noche de tormenta. Las canciones de Natalia, esta vez en castellano.",
+    "ru": "В маленьком кафе Синеи Луис дарит Наталье рисунок лиса, и с бумаги выходит лис, который говорит с мендосским акцентом. Дальше — дикий час, виноградники Мендосы и грозовая ночь. Песни Натальи, на этот раз на испанском.",
+    "en": "In a tiny café in Sinea, Luis gives Natalia a drawing of a fox, and out of the paper steps a fox who talks with a Mendoza accent. From there to the wild hour, the vineyards of Mendoza and a stormy night. Natalia's songs, this time in Spanish."
    },
    "kind": {
     "es": "Las canciones de Natalia en castellano",
@@ -894,28 +894,50 @@ window.PORTAL={
       "en": "Ondas de amor"
      },
      "cover": "img/mundos/ondasdeamor.jpg",
-     "note": {
-      "es": "Capítulo 22, «Lluvia secreta»",
-      "ru": "Глава 22, «Тайный дождь»",
-      "en": "Chapter 22, «Secret Rain»"
-     },
      "tracks": [
       {
+       "t": "Amor por las acequias",
+       "src": "audio/ondasdeamor/amor-por-las-acequias.mp3",
+       "d": "4:02",
+       "s": "La primera noche en Mendoza, con los pies en la acequia"
+      },
+      {
+       "t": "Olvidar",
+       "src": "audio/ondasdeamor/olvidar.mp3",
+       "d": "3:51",
+       "s": "La despedida en la galería de la finca"
+      },
+      {
        "t": "En medio de la tormenta",
-       "src": "audio/ondasdeamor/01-en-medio-de-la-tormenta.mp3",
+       "src": "audio/ondasdeamor/en-medio-de-la-tormenta.mp3",
        "d": "3:27",
        "s": "Sin colectivo, caminando bajo el chaparrón"
       },
       {
        "t": "Lluvia secreta",
-       "src": "audio/ondasdeamor/02-lluvia-secreta.mp3",
+       "src": "audio/ondasdeamor/lluvia-secreta.mp3",
        "d": "4:22",
        "s": "Sola en la plaza, frente a la torre"
+      },
+      {
+       "t": "Lo que no pudo ser",
+       "src": "audio/ondasdeamor/lo-que-no-pudo-ser.mp3",
+       "d": "3:55"
+      },
+      {
+       "t": "Снова осень",
+       "src": "audio/ondasdeamor/snova-osen.mp3",
+       "d": "3:11"
+      },
+      {
+       "t": "Caricias",
+       "src": "audio/ondasdeamor/caricias.mp3",
+       "d": "3:39"
       }
      ],
      "pending": 0,
-     "mood": "AL",
-     "voice": "SS"
+     "mood": "ALALLLA",
+     "voice": "SSSSSSi"
     }
    ]
   },
