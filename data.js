@@ -1169,6 +1169,144 @@ window.PORTAL={
     "ru": "Грустный город",
     "en": "The Sad City"
    }
+  },
+  {
+   "id": "maschera",
+   "repo": "mascheradivenezia",
+   "title": "Maschera di Venezia",
+   "lang": "it",
+   "author": "Roberto Fader",
+   "accent": "#7f9cf5",
+   "place": {
+    "es": "Venecia en Carnaval",
+    "ru": "Венеция во время карнавала",
+    "en": "Venice at Carnival",
+    "it": "Venezia a Carnevale"
+   },
+   "blurb": {
+    "es": "En pleno Carnaval, Roberto llega a Venecia con una teoría: la ciudad no nació sobre el agua, quedó sumergida. Entre la multitud ve a una chica de azul noche que desaparece frente a un portón antiguo. Se llama Natalia, y su góndola se mueve sin gondolero.",
+    "ru": "В разгар карнавала Роберто приезжает в Венецию со своей теорией: город не родился на воде, а ушёл под воду. В толпе он видит девушку в тёмно-синем платье, которая исчезает у старинных ворот. Её зовут Наталья, и её гондола плывёт без гондольера.",
+    "en": "In the middle of Carnival, Roberto arrives in Venice with a theory: the city wasn't born on the water, it sank. In the crowd he sees a girl in midnight blue who vanishes in front of an ancient door. Her name is Natalia, and her gondola moves without a gondolier.",
+    "it": "In pieno Carnevale, Roberto arriva a Venezia con una teoria: la città non è nata sull'acqua, è stata sommersa. Tra la folla vede una ragazza in blu notte che svanisce davanti a un portone antico. Si chiama Natalia, e la sua gondola si muove senza gondoliere."
+   },
+   "kind": {
+    "es": "Canciones en italiano, en el orden en que suenan en la novela",
+    "ru": "Песни на итальянском в том порядке, в каком они звучат в романе",
+    "en": "Songs in Italian, in the order they play in the novel",
+    "it": "Canzoni in italiano, nell'ordine in cui risuonano nel romanzo"
+   },
+   "tr": {
+    "es": "La máscara de Venecia",
+    "ru": "Венецианская маска",
+    "en": "The Mask of Venice"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "Maschera di Venezia",
+      "ru": "Maschera di Venezia",
+      "en": "Maschera di Venezia",
+      "it": "Maschera di Venezia"
+     },
+     "cover": "img/mundos/mascheradivenezia.jpg",
+     "tracks": [
+      {
+       "t": "Maschera di Venezia",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/01-maschera-di-venezia.mp3",
+       "d": "3:28",
+       "s": "Una fuga nelle calli"
+      },
+      {
+       "t": "La donna nelle ombre",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/02-la-donna-nelle-ombre.mp3",
+       "d": "3:16",
+       "s": "L'abito blu notte tra la folla"
+      },
+      {
+       "t": "Tra le Acque e il Silenzio",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/03-tra-le-acque-e-il-silenzio.mp3",
+       "d": "3:23",
+       "s": "La gondola sul Canal Grande"
+      },
+      {
+       "t": "Balla con me",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/04-balla-con-me.mp3",
+       "d": "4:09",
+       "s": "Un ballo fino a mezzanotte"
+      },
+      {
+       "t": "Notte di insonnia",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/05-notte-di-insonnia.mp3",
+       "d": "2:26",
+       "s": "Simboli sullo schermo, uno sparo nel cortile"
+      },
+      {
+       "t": "Baci fantasma",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/06-baci-fantasma.mp3",
+       "d": "3:35",
+       "s": "Il bacio sotto il Volo dell'Angelo"
+      },
+      {
+       "t": "Amore lunare",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/07-amore-lunare.mp3",
+       "d": "2:42",
+       "s": "La casa sotto il canale"
+      },
+      {
+       "t": "Cuore puro",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/08-cuore-puro.mp3",
+       "d": "2:37",
+       "s": "La prova sotto San Marco"
+      },
+      {
+       "t": "Il mate farsa",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/09-il-mate-farsa.mp3",
+       "d": "2:48",
+       "s": "Edizione straordinaria in tv"
+      },
+      {
+       "t": "Duecento anni",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/10-duecento-anni.mp3",
+       "d": "4:03",
+       "s": "Il segreto di Natalia"
+      },
+      {
+       "t": "Amare a duecento anni",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/11-amare-a-duecento-anni.mp3",
+       "d": "3:39",
+       "s": "Il risveglio e la fuga"
+      },
+      {
+       "t": "Sono il passato",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/12-sono-il-passato.mp3",
+       "d": "3:10",
+       "s": "Cena e confessioni"
+      },
+      {
+       "t": "Chi sono io",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/13-chi-sono-io.mp3",
+       "d": "3:27",
+       "s": "La Maschera si spegne"
+      },
+      {
+       "t": "Manoscritto d'acqua",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/14-manoscritto-d-acqua.mp3",
+       "d": "2:50",
+       "s": "Le acque diventano cristallo"
+      },
+      {
+       "t": "Maschera di Venezia",
+       "src": "https://luisfader.github.io/mascheradivenezia/audio/15-maschera-di-venezia-alessio.mp3",
+       "d": "2:33",
+       "s": "L'alba della libertà",
+       "o": "versione di Alessio"
+      }
+     ],
+     "pending": 0,
+     "mood": "MMLAMAAEFAALLEF",
+     "voice": "SSSSSSSSSSSSSSS"
+    }
+   ]
   }
  ],
  "mixes": [

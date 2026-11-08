@@ -2,7 +2,7 @@
   "use strict";
   const D = window.PORTAL;
   const UI_LANGS = ["es","ru","en","it"];
-  const SHORT = {misterio:"Misterio",corazonada:"Corazonada",horizonte:"Горизонт",volny:"Волны",onde:"Onde", ondas:"Ondas",momento:"Città"};
+  const SHORT = {misterio:"Misterio",corazonada:"Corazonada",horizonte:"Горизонт",volny:"Волны",onde:"Onde", ondas:"Ondas",momento:"Città", maschera:"Maschera"};
 
   /* Nombres de idiomas: [castellano, ruso, inglés, italiano] */
   const LN = {
