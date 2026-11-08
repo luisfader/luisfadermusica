@@ -19,9 +19,9 @@ window.PORTAL={
     "en": "Moscow and Mendoza"
    },
    "blurb": {
-    "es": "Luis se hace rico de golpe, lleva a Natalia de Moscú a Mendoza y esa misma noche ella sale coronada reina de la Vendimia. Un maletín con hidromiel viaja por las acequias, un zorro lo abre y las uvas empiezan a brillar.",
-    "ru": "Луис внезапно богатеет, увозит Наталью из Москвы в Мендосу, и в тот же вечер её коронуют королевой Вендимии. Чемоданчик с медовухой плывёт по арыкам, лис открывает его, и виноград начинает светиться.",
-    "en": "Luis suddenly becomes rich and takes Natalia from Moscow to Mendoza, where that same night she is crowned queen of the Vendimia, the grape harvest festival. A briefcase of mead drifts down the irrigation channels, a fox opens it and the grapes begin to glow."
+    "es": "Luis por fin lleva a Natalia de Moscú a Mendoza, y esa misma noche ella sale coronada reina de la Vendimia. Un maletín con hidromiel viaja por las acequias, un zorro lo abre y las uvas empiezan a brillar.",
+    "ru": "Луис наконец везёт Наталью из Москвы в Мендосу, и в тот же вечер её коронуют королевой Вендимии. Чемоданчик с медовухой плывёт по арыкам, лис открывает его, и виноград начинает светиться.",
+    "en": "Luis finally takes Natalia from Moscow to Mendoza, where that same night she is crowned queen of the Vendimia, the grape harvest festival. A briefcase of mead drifts down the irrigation channels, a fox opens it and the grapes begin to glow."
    },
    "kind": {
     "es": "Música instrumental, en el orden en que suena en la novela",
