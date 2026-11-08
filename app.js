@@ -27,7 +27,7 @@
       navSections:"Secciones", navSoundtracks:"Bandas sonoras", langPick:"Idioma del sitio",
       listen:"Escuchar", seeTracks:"Ver todas las pistas", navMixes:"Mezclas",
       mixesH:"Mezclas por ánimo", mixesP:"Canciones de distintas novelas, juntas según lo que te hacen sentir. Las novelas se van alternando siempre que se puede.",
-      shuffleAll:"Todo al azar", vfLabel:"Qué escuchar", vfAll:"Todo", vfSong:"Canciones", vfInst:"Instrumental", vfNone:"No hay pistas de este tipo en este disco.", sung:"Con voz", playMix:n=>"Escuchar la mezcla «"+n+"»", novels:n=>n+(n===1?" novela":" novelas"), mixOf:(m,w)=>m+", de "+w,
+      shuffleAll:"Todo al azar", specStyle:"Cambiar el estilo del espectro", specModes:["Barras","Ondas","Osciloscopio","Aurora"], vfLabel:"Qué escuchar", vfAll:"Todo", vfSong:"Canciones", vfInst:"Instrumental", vfNone:"No hay pistas de este tipo en este disco.", sung:"Con voz", playMix:n=>"Escuchar la mezcla «"+n+"»", novels:n=>n+(n===1?" novela":" novelas"), mixOf:(m,w)=>m+", de "+w,
       tune:"Sintonizá una novela",
       soundtracksH:"Las bandas sonoras",
       soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
@@ -45,7 +45,7 @@
       navSections:"Разделы", navSoundtracks:"Саундтреки", langPick:"Язык сайта",
       listen:"Слушать", seeTracks:"Все треки", navMixes:"Миксы",
       mixesH:"Миксы по настроению", mixesP:"Песни из разных романов, собранные по настроению. Романы по возможности чередуются.",
-      shuffleAll:"Всё вперемешку", vfLabel:"Что слушать", vfAll:"Всё", vfSong:"Песни", vfInst:"Инструментал", vfNone:"В этом альбоме нет таких треков.", sung:"С вокалом", playMix:n=>"Слушать микс «"+n+"»", novels:n=>ruPlural(n,"роман","романа","романов"), mixOf:(m,w)=>m+": «"+w+"»",
+      shuffleAll:"Всё вперемешку", specStyle:"Сменить стиль спектра", specModes:["Полосы","Волны","Осциллограф","Сияние"], vfLabel:"Что слушать", vfAll:"Всё", vfSong:"Песни", vfInst:"Инструментал", vfNone:"В этом альбоме нет таких треков.", sung:"С вокалом", playMix:n=>"Слушать микс «"+n+"»", novels:n=>ruPlural(n,"роман","романа","романов"), mixOf:(m,w)=>m+": «"+w+"»",
       tune:"Настройтесь на роман",
       soundtracksH:"Саундтреки",
       soundtracksP:"Все песни каждого романа — в том порядке, в каком они звучат в книге. Нажмите на трек, чтобы слушать.",
@@ -63,7 +63,7 @@
       navSections:"Sections", navSoundtracks:"Soundtracks", langPick:"Site language",
       listen:"Listen", seeTracks:"See all tracks", navMixes:"Mixes",
       mixesH:"Mood mixes", mixesP:"Songs from different novels, grouped by how they feel. The novels take turns whenever possible.",
-      shuffleAll:"Shuffle everything", vfLabel:"What to play", vfAll:"Everything", vfSong:"Songs", vfInst:"Instrumental", vfNone:"No tracks of this kind on this album.", sung:"With vocals", playMix:n=>"Play the "+n+" mix", novels:n=>n+(n===1?" novel":" novels"), mixOf:(m,w)=>m+", from "+w,
+      shuffleAll:"Shuffle everything", specStyle:"Change the visualizer style", specModes:["Bars","Ripples","Oscilloscope","Aurora"], vfLabel:"What to play", vfAll:"Everything", vfSong:"Songs", vfInst:"Instrumental", vfNone:"No tracks of this kind on this album.", sung:"With vocals", playMix:n=>"Play the "+n+" mix", novels:n=>n+(n===1?" novel":" novels"), mixOf:(m,w)=>m+", from "+w,
       tune:"Tune in to a novel",
       soundtracksH:"The soundtracks",
       soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
@@ -346,14 +346,19 @@
   window.addEventListener("resize", () => { if(!player.hidden) document.body.style.setProperty("--player-h", player.offsetHeight + "px"); });
 
 
-  /* ---------- Espectro (Web Audio, como Winamp) ----------
+  /* ---------- Espectro (Web Audio) ----------
      Analiza la música real que suena. Solo funciona si el MP3 está en el mismo
      dominio que el portal (luisfader.github.io); si no, se oculta y el audio
-     sigue sonando normal. Se dibuja solo mientras hay música. */
-  const spec = $("#p-spec"), sctx = spec.getContext("2d");
+     sigue sonando normal. Se dibuja solo mientras hay música.
+     Tocándolo cambia entre cuatro estilos: barras, ondas, osciloscopio y aurora. */
+  const specBtn = $("#p-spec-btn"), spec = $("#p-spec"), sctx = spec.getContext("2d");
   const reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-  let actx = null, analyser = null, freq = null, specOn = false, raf = 0, lastDraw = 0;
-  let bars = [], peaks = [], peakHold = [], ranges = [], grad = null, gradFor = "", specW = 0, specH = 0;
+  const MODES = ["bars","ripples","scope","aurora"];
+  let mode = "bars";
+  try{ const m = localStorage.getItem("fader-spec"); if(MODES.includes(m)) mode = m; }catch(e){}
+  let actx = null, analyser = null, freq = null, wave = null, specOn = false, raf = 0, lastDraw = 0;
+  let bars = [], peaks = [], peakHold = [], ranges = [], grad = null, gradFor = "", specW = 0, specH = 0, dpr = 1;
+  let rings = [], bassAvg = 0, lastRing = 0, labelUntil = 0;
   function specReady(){
     if(analyser) return true;
     let same = false;
@@ -368,11 +373,12 @@
       analyser.minDecibels = -88; analyser.maxDecibels = -18;
       src.connect(analyser); analyser.connect(actx.destination);
       freq = new Uint8Array(analyser.frequencyBinCount);
+      wave = new Uint8Array(analyser.fftSize);
     }catch(e){ analyser = null; return false; }
     return true;
   }
   function specSize(){
-    const r = spec.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const r = spec.getBoundingClientRect(); dpr = Math.min(window.devicePixelRatio || 1, 2);
     specW = Math.max(1, Math.round(r.width * dpr)); specH = Math.max(1, Math.round(r.height * dpr));
     spec.width = specW; spec.height = specH;
     const n = Math.max(12, Math.min(32, Math.round(r.width / 7)));
@@ -388,27 +394,20 @@
     }
     gradFor = "";
   }
+  const accentNow = () => current.d ? current.d.accent : "#d0607e";
+  function rgba(hex, a){ const n = parseInt(hex.slice(1), 16); return "rgba("+(n>>16&255)+","+(n>>8&255)+","+(n&255)+","+a+")"; }
   function specColor(){
-    const accent = current.d ? current.d.accent : "#d0607e";
+    const accent = accentNow();
     if(gradFor === accent && grad) return;
     grad = sctx.createLinearGradient(0, specH, 0, 0);
     grad.addColorStop(0, accent); grad.addColorStop(.7, accent); grad.addColorStop(1, "#f1ebdf");
     gradFor = accent;
   }
-  function specFrame(t){
-    raf = 0;
-    if(!specOn) return;
-    raf = requestAnimationFrame(specFrame);
-    if(reduceMotion && t - lastDraw < 66) return;
-    lastDraw = t;
+  /* Lee el audio y suaviza las bandas; lo usan todos los estilos */
+  function readBands(paused){
     analyser.getByteFrequencyData(freq);
-    specColor();
-    const n = bars.length, gap = Math.max(1, Math.round(specW/n*0.22)), bw = (specW - gap*(n+1)) / n;
-    const seg = Math.max(2, Math.round(specH/14)), segGap = Math.max(1, Math.round(seg/2)), step = seg + segGap;
-    const paused = audio.paused;
-    sctx.clearRect(0, 0, specW, specH);
     let alive = false;
-    for(let i = 0; i < n; i++){
+    for(let i = 0; i < bars.length; i++){
       let v = 0;
       if(!paused){ const [a,b] = ranges[i]; for(let k = a; k < b; k++) if(freq[k] > v) v = freq[k]; }
       v = v / 255;
@@ -417,27 +416,157 @@
       else if(peakHold[i] > 0) peakHold[i]--;
       else peaks[i] = Math.max(0, peaks[i] - 0.015);
       if(bars[i] > 0 || peaks[i] > 0) alive = true;
+    }
+    return alive;
+  }
+
+  /* 1. Barras segmentadas con picos que caen, como Winamp */
+  function drawBars(){
+    const n = bars.length, gap = Math.max(1, Math.round(specW/n*0.22)), bw = (specW - gap*(n+1)) / n;
+    const seg = Math.max(2, Math.round(specH/14)), segGap = Math.max(1, Math.round(seg/2)), step = seg + segGap;
+    specColor();
+    for(let i = 0; i < n; i++){
       const x = Math.round(gap + i*(bw+gap)), w = Math.max(1, Math.round(bw));
       const segs = Math.floor(bars[i] * specH / step);
       sctx.fillStyle = grad;
-      for(let s2 = 0; s2 < segs; s2++) sctx.fillRect(x, specH - (s2+1)*step + segGap, w, seg);
+      for(let k = 0; k < segs; k++) sctx.fillRect(x, specH - (k+1)*step + segGap, w, seg);
       if(peaks[i] > 0.02){
         sctx.fillStyle = "#f1ebdf";
         sctx.fillRect(x, Math.max(0, Math.round(specH - peaks[i]*specH)), w, Math.max(1, Math.round(seg/1.5)));
       }
     }
+    return false;
+  }
+
+  /* 2. Ondas: anillos que nacen con los golpes de graves, se expanden y vibran */
+  function drawRipples(t, paused){
+    const n = bars.length, q = Math.max(2, Math.round(n/4));
+    let bass = 0, all = 0;
+    for(let i = 0; i < n; i++){ all += bars[i]; if(i < q) bass += bars[i]; }
+    bass /= q; all /= n;
+    if(!paused){
+      const hit = bass > bassAvg*1.18 + 0.06 && t - lastRing > 140;
+      if(hit || (t - lastRing > 700 && all > 0.05)){ rings.push({r: 0.02, a: 0.95, w: 1 + bass*2.5}); lastRing = t; }
+      bassAvg = bassAvg*0.9 + bass*0.1;
+    }
+    const cx = specW/2, cy = specH/2, accent = accentNow();
+    const sx = specW/2, sy = specH*0.9;
+    sctx.lineCap = "round";
+    for(let k = rings.length-1; k >= 0; k--){
+      const g = rings[k];
+      g.r += 0.006 + all*0.03; g.a -= 0.011;
+      if(g.a <= 0 || g.r > 1.25){ rings.splice(k,1); continue; }
+      sctx.beginPath();
+      const steps = 72;
+      for(let j = 0; j <= steps; j++){
+        const ang = j/steps*Math.PI*2;
+        const band = bars[Math.floor((Math.abs(Math.cos(ang/2)))*(n-1))] || 0;
+        const wob = 1 + band*0.22*(1 - g.r*0.5)*Math.sin(ang*6 + t/180);
+        const x = cx + Math.cos(ang)*g.r*sx*wob, y = cy + Math.sin(ang)*g.r*sy*wob;
+        j ? sctx.lineTo(x, y) : sctx.moveTo(x, y);
+      }
+      sctx.strokeStyle = rgba(accent, g.a.toFixed(3));
+      sctx.lineWidth = g.w*dpr;
+      sctx.stroke();
+    }
+    const core = (0.12 + bass*0.5)*specH/2;
+    const rg = sctx.createRadialGradient(cx, cy, 0, cx, cy, core*2.2);
+    rg.addColorStop(0, rgba("#f1ebdf", (0.35 + bass*0.6).toFixed(3))); rg.addColorStop(.35, rgba(accent, (0.5*bass+0.15).toFixed(3))); rg.addColorStop(1, rgba(accent, 0));
+    sctx.fillStyle = rg; sctx.fillRect(0, 0, specW, specH);
+    return rings.length > 0;
+  }
+
+  /* 3. Osciloscopio: la forma de onda real, como una línea luminosa */
+  function drawScope(paused){
+    const accent = accentNow(), mid = specH/2;
+    if(!paused) analyser.getByteTimeDomainData(wave);
+    const len = paused ? 2 : wave.length, step = specW/(len-1);
+    sctx.save();
+    sctx.strokeStyle = rgba(accent, .25); sctx.lineWidth = 1*dpr;
+    sctx.beginPath(); sctx.moveTo(0, mid); sctx.lineTo(specW, mid); sctx.stroke();
+    sctx.shadowColor = accent; sctx.shadowBlur = 8*dpr;
+    sctx.strokeStyle = accent; sctx.lineWidth = 1.8*dpr; sctx.lineJoin = "round";
+    sctx.beginPath();
+    for(let i = 0; i < len; i++){
+      const v = paused ? 0 : (wave[i]-128)/128;
+      const y = mid + Math.max(-1, Math.min(1, v*1.6))*(specH/2 - 2*dpr);
+      i ? sctx.lineTo(i*step, y) : sctx.moveTo(0, y);
+    }
+    sctx.stroke();
+    sctx.restore();
+    return false;
+  }
+
+  /* 4. Aurora: el espectro como una curva suave y espejada que respira */
+  function drawAurora(){
+    const n = bars.length, accent = accentNow(), mid = specH/2;
+    const pts = bars.map((v,i) => [i/(n-1)*specW, v]);
+    const path = sign => {
+      sctx.moveTo(0, mid);
+      for(let i = 0; i < n-1; i++){
+        const [x0,v0] = pts[i], [x1,v1] = pts[i+1];
+        const y0 = mid + sign*v0*(mid-1), y1 = mid + sign*v1*(mid-1);
+        sctx.quadraticCurveTo(x0, y0, (x0+x1)/2, (y0+y1)/2);
+      }
+      sctx.lineTo(specW, mid);
+    };
+    const g = sctx.createLinearGradient(0, 0, 0, specH);
+    g.addColorStop(0, rgba("#f1ebdf", .85)); g.addColorStop(.3, rgba(accent, .9)); g.addColorStop(.5, rgba(accent, .25));
+    g.addColorStop(.7, rgba(accent, .9)); g.addColorStop(1, rgba("#f1ebdf", .85));
+    sctx.fillStyle = g;
+    sctx.beginPath(); path(-1); path(1); sctx.fill();
+    sctx.strokeStyle = rgba("#f1ebdf", .55); sctx.lineWidth = 1*dpr;
+    sctx.beginPath(); path(-1); sctx.stroke();
+    sctx.beginPath(); path(1); sctx.stroke();
+    return false;
+  }
+
+  function specFrame(t){
+    raf = 0;
+    if(!specOn) return;
+    raf = requestAnimationFrame(specFrame);
+    if(reduceMotion && t - lastDraw < 66) return;
+    lastDraw = t;
+    const paused = audio.paused;
+    let alive = readBands(paused);
+    sctx.clearRect(0, 0, specW, specH);
+    if(mode === "ripples") alive = drawRipples(t, paused) || alive;
+    else if(mode === "scope") drawScope(paused);
+    else if(mode === "aurora") drawAurora();
+    else drawBars();
+    /* al cambiar de estilo, su nombre aparece un momento */
+    if(t < labelUntil){
+      const a = Math.min(1, (labelUntil - t)/400);
+      sctx.font = "600 "+Math.round(11*dpr)+"px 'Alegreya Sans', system-ui, sans-serif";
+      sctx.textBaseline = "top";
+      const txt = T.specModes[MODES.indexOf(mode)], pad = 4*dpr, w = sctx.measureText(txt).width;
+      sctx.fillStyle = "rgba(10,8,18,"+(0.7*a).toFixed(3)+")"; sctx.fillRect(pad, pad, w + pad*2, 15*dpr);
+      sctx.fillStyle = rgba("#f1ebdf", a.toFixed(3)); sctx.fillText(txt, pad*2, pad + 1.5*dpr);
+      alive = true;
+    }
     if(paused && !alive){ specOn = false; cancelAnimationFrame(raf); raf = 0; }
   }
+  function specKick(){ specOn = true; if(!raf) raf = requestAnimationFrame(specFrame); }
   function specStart(){
-    if(!specReady()){ spec.hidden = true; return; }
-    if(spec.hidden){ spec.hidden = false; document.body.style.setProperty("--player-h", player.offsetHeight + "px"); specSize(); }
+    if(!specReady()){ specBtn.hidden = true; return; }
+    if(specBtn.hidden){ specBtn.hidden = false; document.body.style.setProperty("--player-h", player.offsetHeight + "px"); specSize(); }
     if(actx.state === "suspended") actx.resume().catch(()=>{});
-    specOn = true;
-    if(!raf) raf = requestAnimationFrame(specFrame);
+    specKick();
   }
+  function specLabel(){
+    specBtn.setAttribute("aria-label", T.specStyle + ": " + T.specModes[MODES.indexOf(mode)]);
+    specBtn.title = T.specStyle;
+  }
+  specBtn.addEventListener("click", () => {
+    mode = MODES[(MODES.indexOf(mode)+1) % MODES.length];
+    try{ localStorage.setItem("fader-spec", mode); }catch(e){}
+    rings = []; labelUntil = performance.now() + 1400;
+    specLabel();
+    if(analyser) specKick();
+  });
   audio.addEventListener("play", specStart);
-  audio.addEventListener("pause", () => { if(analyser && specOn && !raf) raf = requestAnimationFrame(specFrame); });
-  window.addEventListener("resize", () => { if(!spec.hidden) specSize(); });
+  audio.addEventListener("pause", () => { if(analyser) specKick(); });
+  window.addEventListener("resize", () => { if(!specBtn.hidden) specSize(); });
 
 
   /* ---------- Qué escuchar: todo, canciones o instrumental ---------- */
@@ -477,7 +606,7 @@
       b.setAttribute("aria-label", w.title + (w.tr && w.tr[L] ? " ("+w.tr[L]+")" : ""));
     });
     if(cur >= 0) tune(cur, false);
-    renderWorlds(); renderMixes(); renderVF(); playerText();
+    renderWorlds(); renderMixes(); renderVF(); playerText(); specLabel();
     if(audioFailed) $("#p-error").textContent = T.error;
     if(save){
       try{ localStorage.setItem("fader-lang", L); }catch(e){}
