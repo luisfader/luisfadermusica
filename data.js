@@ -1555,7 +1555,12 @@ window.PORTAL={
        "t": "Ti amo in silenzio",
        "src": "audio/tiamoinsilenzio/ti-amo-in-silenzio.mp3",
        "d": "3:14",
-       "s": "Il tema del romanzo"
+       "s": "Il tema del romanzo",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "es"
+       ]
       },
       {
        "t": "Dal finestrino",
