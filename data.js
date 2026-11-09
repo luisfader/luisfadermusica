@@ -1515,6 +1515,81 @@ window.PORTAL={
     "ru": "Человек из будущего",
     "it": "Un uomo dal futuro"
    }
+  },
+  {
+   "id": "silenzio",
+   "repo": "tiamoinsilenzio",
+   "title": "Ti amo in silenzio",
+   "lang": "it",
+   "author": "Roberto Fader",
+   "accent": "#e0483e",
+   "place": {
+    "es": "Sinea, verano de 1997",
+    "ru": "Синея, лето 1997 года",
+    "en": "Sinea, summer 1997",
+    "it": "Sinea, estate 1997"
+   },
+   "blurb": {
+    "es": "Fabrizio, dibujante de historietas de casi cincuenta años, vive en una casa llena de retratos de la misma mujer. Todo empezó en el verano de 1997, en Sinea, cuando vio a Lucia entrar a la plaza en una moto roja: para que ella lo notara aprendió a andar en moto, a hacer el café perfecto y a arreglar motores. Pero una mañana, bajo el faro, tres autos oscuros se la llevaron, y lo que ella le dijo desde la ventanilla tardó veintinueve años en llegar.",
+    "ru": "Фабрицио, художник комиксов, которому почти пятьдесят, живёт в доме, полном портретов одной и той же женщины. Всё началось летом 1997 года в Синее, когда он увидел, как Лючия въезжает на площадь на красном мотоцикле: чтобы она его заметила, он научился ездить на мотоцикле, варить идеальный кофе и чинить моторы. Но однажды утром под маяком её увезли три тёмные машины, и то, что она сказала ему через окно, шло к нему двадцать девять лет.",
+    "en": "Fabrizio, a comic-book artist of almost fifty, lives in a house full of portraits of the same woman. It all began in the summer of 1997, in Sinea, when he saw Lucia ride into the square on a red motorbike: to be noticed, he learned to ride, to make the perfect coffee and to fix engines. But one morning, under the lighthouse, three dark cars took her away, and what she told him through the car window took twenty-nine years to reach him.",
+    "it": "Fabrizio, disegnatore di fumetti di quasi cinquant'anni, vive in una casa piena di ritratti della stessa donna. Tutto cominciò nell'estate del 1997, a Sinea, quando vide Lucia entrare in piazza su una moto rossa: per farsi notare imparò ad andare in moto, a fare il caffè perfetto, a riparare motori. Ma una mattina, sotto il faro, tre macchine scure la portarono via, e quello che lei gli disse dal finestrino impiegò ventinove anni ad arrivare."
+   },
+   "kind": {
+    "es": "Canciones en italiano",
+    "ru": "Песни на итальянском",
+    "en": "Songs in Italian",
+    "it": "Canzoni in italiano"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "Ti amo in silenzio",
+      "ru": "Ti amo in silenzio",
+      "en": "Ti amo in silenzio",
+      "it": "Ti amo in silenzio"
+     },
+     "cover": "img/mundos/tiamoinsilenzio.jpg",
+     "tracks": [
+      {
+       "t": "Ti amo in silenzio",
+       "src": "audio/tiamoinsilenzio/ti-amo-in-silenzio.mp3",
+       "d": "3:14",
+       "s": "Il tema del romanzo"
+      },
+      {
+       "t": "Dal finestrino",
+       "src": "audio/tiamoinsilenzio/dal-finestrino.mp3",
+       "d": "4:18",
+       "s": "Tre macchine scure all'alba, sotto il faro",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "es"
+       ]
+      },
+      {
+       "t": "L'amore rimbomba nel tempo",
+       "src": "audio/tiamoinsilenzio/lamore-rimbomba-nel-tempo.mp3",
+       "d": "4:03",
+       "s": "Ventinove inverni dopo",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "es"
+       ]
+      }
+     ],
+     "pending": 0,
+     "mood": "ALE",
+     "voice": "SSS"
+    }
+   ],
+   "tr": {
+    "es": "Te amo en silencio",
+    "ru": "Люблю тебя молча",
+    "en": "I Love You in Silence"
+   }
   }
  ],
  "mixes": [
