@@ -818,27 +818,38 @@ window.PORTAL={
     "it": "Le Terre Desolate"
    },
    "blurb": {
-    "es": "Tras la Guerra, Natalia, desterrada, encuentra en el desierto el búnker de Roberto: sus cartas atadas con una cinta y el violín de la pequeña Lucía. Del cielo caen ultimátums y los viejos enemigos tienen que unirse contra los ejércitos de acero.",
-    "ru": "После Войны изгнанная Наталья находит в пустыне бункер Роберта: его письма, перевязанные лентой, и скрипку маленькой Люсии. С неба сыплются ультиматумы, и бывшим врагам приходится объединиться против стальных армий.",
-    "en": "After the War, the exiled Natalia finds Roberto's bunker in the desert: his letters tied with a ribbon and little Lucía's violin. Ultimatums rain from the sky, and old enemies must unite against armies of steel.",
-    "it": "Dopo la Guerra, Natalia, esiliata, trova nel deserto il bunker di Roberto: le sue lettere legate con un nastro e il violino della piccola Lucía. Dal cielo piovono ultimatum e i vecchi nemici devono unirsi contro gli eserciti d'acciaio."
+    "es": "Después de la catástrofe, Roberto recorre las ruinas en una moto vieja y levanta «Nuestra Utopía», una fortaleza donde los sobrevivientes intentan vivir sin miedo ni codicia. Temporada tras temporada, la fortaleza resiste a los salvajes, a las intrigas de Necrología, a los ejércitos de acero de las potencias que sobrevivieron a la Guerra y a los tanques que salen del mar, mientras Roberto, la violonchelista Natalia, Luis y Oxana se aman, se traicionan y vuelven a encontrarse.",
+    "ru": "После глобальной катастрофы Роберт едет на старом мотоцикле по руинам и строит «Нашу Утопию» — крепость, где выжившие пытаются жить без страха и жадности. Сезон за сезоном крепость выстаивает против дикарей, интриг Некрологии, стальных армий держав, уцелевших в Войне, и танков, выходящих из моря, а Роберт, виолончелистка Наталья, Луис и Оксана любят, предают и снова находят друг друга.",
+    "en": "After the global catastrophe, Roberto rides an old motorbike through the ruins and builds «Our Utopia», a fortress where the survivors try to live without fear or greed. Season after season, the fortress holds out against the savages, the schemes of Necrology, the steel armies of the powers that survived the War and the tanks that rise from the sea, while Roberto, the cellist Natalia, Luis and Oksana love, betray and find each other again.",
+    "it": "Dopo la catastrofe, Roberto attraversa le rovine su una vecchia moto e costruisce «La nostra Utopia», una fortezza dove i sopravvissuti cercano di vivere senza paura né avidità. Stagione dopo stagione, la fortezza resiste ai selvaggi, agli intrighi di Necrologia, agli eserciti d'acciaio delle potenze sopravvissute alla Guerra e ai carri armati che escono dal mare, mentre Roberto, la violoncellista Natalia, Luis e Oksana si amano, si tradiscono e tornano a ritrovarsi."
    },
    "kind": {
-    "es": "Música instrumental y canciones, en el orden en que suenan en la novela",
-    "ru": "Инструментальная музыка и песни в том порядке, в каком они звучат в романе",
-    "en": "Instrumental music and songs, in the order they play in the novel",
-    "it": "Musica strumentale e canzoni, nell'ordine in cui risuonano nel romanzo"
+    "es": "Música instrumental y canciones de todas las temporadas de la novela",
+    "ru": "Инструментальная музыка и песни всех сезонов романа",
+    "en": "Instrumental music and songs from every season of the novel",
+    "it": "Musica strumentale e canzoni di tutte le stagioni del romanzo"
    },
    "discs": [
     {
      "name": {
-      "es": "Предчувствие 2.2",
-      "ru": "Предчувствие 2.2",
-      "en": "Предчувствие 2.2",
-      "it": "Предчувствие 2.2"
+      "es": "Предчувствие",
+      "ru": "Предчувствие",
+      "en": "Предчувствие",
+      "it": "Предчувствие"
      },
      "cover": "img/mundos/predchuvstvie.jpg",
      "tracks": [
+      {
+       "t": "Ты — моя крепость",
+       "src": "audio/predchuvstvie/ty-moya-krepost.mp3",
+       "d": "3:34",
+       "s": "Песня Оксаны",
+       "ly": 1,
+       "lyt": [
+        "es",
+        "en"
+       ]
+      },
       {
        "t": "В пустыне",
        "src": "https://luisfader.github.io/predchuvstvie/audio/01-v-pustyne.mp3",
@@ -915,15 +926,15 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "MMEAMFAAAFFE",
-     "voice": "iiiiiiSiiiii"
+     "mood": "AMMEAMFAAAFFE",
+     "voice": "SiiiiiiSiiiii"
     }
    ],
    "tr": {
-    "es": "Presentimiento",
-    "ru": "Второй сезон",
-    "en": "Foreboding",
-    "it": "Presentimento"
+    "es": "Presentimiento · todas las temporadas",
+    "ru": "Все сезоны",
+    "en": "Foreboding · every season",
+    "it": "Presentimento · tutte le stagioni"
    }
   },
   {
