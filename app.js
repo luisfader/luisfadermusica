@@ -30,7 +30,7 @@
       skip:"Ir a las bandas sonoras", name:"Luis Fader", tagline:"bandas sonoras de sus novelas",
       navSections:"Secciones", navSoundtracks:"Bandas sonoras", langPick:"Idioma del sitio",
       listen:"Escuchar", seeTracks:"Ver todas las pistas", navMixes:"Mezclas",
-      mixesH:"Mezclas por ánimo", mixesP:"Canciones de distintas novelas, juntas según lo que te hacen sentir. Las novelas se van alternando siempre que se puede.",
+      mixesH:"Mezclas por ánimo", mixList:(n,i)=>"Canciones de «"+n+"»: "+i, mixesP:"Canciones de distintas novelas, juntas según lo que te hacen sentir. Las novelas se van alternando siempre que se puede.",
       shuffleAll:"Todo al azar", topH:"Lo más escuchado ahora", topP:"Las canciones que más están sonando en el sitio. Tocá una para escucharla.", topWeek:"Esta semana", topAll:"De siempre", topPick:"Período del ranking", topNone:"Todavía no hay escuchas en este período.", plays:n=>n+(n===1?" escucha":" escuchas"),  specStyle:"Cambiar el estilo del espectro", specModes:["Barras","Ondas","Osciloscopio","Aurora"], vfLabel:"Qué escuchar", vfAll:"Todo", vfSong:"Canciones", vfInst:"Instrumental", vfNone:"No hay pistas de este tipo en este disco.", sung:"Con voz", tagSong:"Canción", tagInst:"Instrumental", playMix:n=>"Escuchar la mezcla «"+n+"»", novels:n=>n+(n===1?" novela":" novelas"), mixOf:(m,w)=>m+", de "+w,
       tune:"Sintonizá una novela",
       soundtracksH:"Las bandas sonoras",
@@ -49,7 +49,7 @@
       skip:"К саундтрекам", name:"Луис Фадер", tagline:"саундтреки к его романам",
       navSections:"Разделы", navSoundtracks:"Саундтреки", langPick:"Язык сайта",
       listen:"Слушать", seeTracks:"Все треки", navMixes:"Миксы",
-      mixesH:"Миксы по настроению", mixesP:"Песни из разных романов, собранные по настроению. Романы по возможности чередуются.",
+      mixesH:"Миксы по настроению", mixList:(n,i)=>"Песни микса «"+n+"»: "+i, mixesP:"Песни из разных романов, собранные по настроению. Романы по возможности чередуются.",
       shuffleAll:"Всё вперемешку", topH:"Сейчас слушают", topP:"Песни, которые чаще всего звучат на сайте. Нажмите на любую, чтобы послушать.", topWeek:"За неделю", topAll:"За всё время", topPick:"Период рейтинга", topNone:"За этот период прослушиваний пока нет.", plays:n=>ruPlural(n,"прослушивание","прослушивания","прослушиваний"),  specStyle:"Сменить стиль спектра", specModes:["Полосы","Волны","Осциллограф","Сияние"], vfLabel:"Что слушать", vfAll:"Всё", vfSong:"Песни", vfInst:"Инструментал", vfNone:"В этом альбоме нет таких треков.", sung:"С вокалом", tagSong:"Песня", tagInst:"Инструментал", playMix:n=>"Слушать микс «"+n+"»", novels:n=>ruPlural(n,"роман","романа","романов"), mixOf:(m,w)=>m+": «"+w+"»",
       tune:"Настройтесь на роман",
       soundtracksH:"Саундтреки",
@@ -68,7 +68,7 @@
       skip:"Skip to the soundtracks", name:"Luis Fader", tagline:"soundtracks to his novels",
       navSections:"Sections", navSoundtracks:"Soundtracks", langPick:"Site language",
       listen:"Listen", seeTracks:"See all tracks", navMixes:"Mixes",
-      mixesH:"Mood mixes", mixesP:"Songs from different novels, grouped by how they feel. The novels take turns whenever possible.",
+      mixesH:"Mood mixes", mixList:(n,i)=>"Songs in «"+n+"»: "+i, mixesP:"Songs from different novels, grouped by how they feel. The novels take turns whenever possible.",
       shuffleAll:"Shuffle everything", topH:"Most played right now", topP:"The songs playing most on the site. Tap one to listen.", topWeek:"This week", topAll:"All time", topPick:"Ranking period", topNone:"No plays in this period yet.", plays:n=>n+(n===1?" play":" plays"),  specStyle:"Change the visualizer style", specModes:["Bars","Ripples","Oscilloscope","Aurora"], vfLabel:"What to play", vfAll:"Everything", vfSong:"Songs", vfInst:"Instrumental", vfNone:"No tracks of this kind on this album.", sung:"With vocals", tagSong:"Song", tagInst:"Instrumental", playMix:n=>"Play the "+n+" mix", novels:n=>n+(n===1?" novel":" novels"), mixOf:(m,w)=>m+", from "+w,
       tune:"Tune in to a novel",
       soundtracksH:"The soundtracks",
@@ -87,7 +87,7 @@
       skip:"Vai alle colonne sonore", name:"Luis Fader", tagline:"le colonne sonore dei suoi romanzi",
       navSections:"Sezioni", navSoundtracks:"Colonne sonore", langPick:"Lingua del sito",
       listen:"Ascolta", seeTracks:"Tutti i brani", navMixes:"Mix",
-      mixesH:"Mix per stato d'animo", mixesP:"Canzoni di romanzi diversi, riunite in base a quello che ti fanno provare. I romanzi si alternano ogni volta che si può.",
+      mixesH:"Mix per stato d'animo", mixList:(n,i)=>"Canzoni di «"+n+"»: "+i, mixesP:"Canzoni di romanzi diversi, riunite in base a quello che ti fanno provare. I romanzi si alternano ogni volta che si può.",
       shuffleAll:"Tutto in ordine casuale", topH:"I più ascoltati del momento", topP:"Le canzoni che si ascoltano di più sul sito. Toccane una per ascoltarla.", topWeek:"Questa settimana", topAll:"Di sempre", topPick:"Periodo della classifica", topNone:"Ancora nessun ascolto in questo periodo.", plays:n=>n+(n===1?" ascolto":" ascolti"),  specStyle:"Cambia lo stile dello spettro", specModes:["Barre","Onde","Oscilloscopio","Aurora"], vfLabel:"Cosa ascoltare", vfAll:"Tutto", vfSong:"Canzoni", vfInst:"Strumentali", vfNone:"In questo album non ci sono brani di questo tipo.", sung:"Con la voce", tagSong:"Canzone", tagInst:"Strumentale", playMix:n=>"Ascolta il mix «"+n+"»", novels:n=>n+(n===1?" romanzo":" romanzi"), mixOf:(m,w)=>m+", da "+w,
       tune:"Sintonizzati su un romanzo",
       soundtracksH:"Le colonne sonore",
@@ -270,29 +270,38 @@
 
   /* ---------- Mezclas ---------- */
   const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 19 12 7 19.5z"/></svg>';
+  /* Fichas compactas: tocar una pone la mezcla; abajo, una sola lista plegable con sus canciones */
+  let mixSel = D.mixes[0].id;
   function renderMixes(){
-    const open = new Set([...document.querySelectorAll("#mixes .disc[open]")].map(x => x.dataset.disc));
-    $("#mixes").innerHTML = D.mixes.map(m => {
+    const SHUF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3.5c2 0 3 1 4.5 3.5l2 3c1.5 2.5 2.5 3.5 4.5 3.5H21M3 17h3.5c1.2 0 2-.4 2.8-1.2M21 7h-3.5c-1.2 0-2 .4-2.8 1.2M18 4l3 3-3 3M18 14l3 3-3 3"/></svg>';
+    $("#mixes").innerHTML = '<button type="button" class="mix-chip shuf" data-shuffle="1" aria-pressed="'+(current.qk==="azar")+'">'+SHUF+'<span class="mc-name">'+esc(T.shuffleAll)+'</span>'+(current.qk==="azar" ? '<span class="mc-on" aria-hidden="true"></span>' : '')+'</button>' + D.mixes.map(m => {
       const key = "m:"+m.id, q = getQueue(key);
       const per = D.worlds.map(w => [w, q.filter(it => it.d.world === w).length]).filter(x => x[1]);
       const most = Math.max(1, ...per.map(x => x[1]));
       const bars = per.map(([w,n]) => '<span style="background:'+w.accent+';height:'+Math.max(18, Math.round(n/most*100))+'%"></span>').join("");
-      const info = [T.tracks(q.length), minutes(q.map(it => it.d.tracks[it.t])), T.novels(per.length)].filter(Boolean).join(", ");
-      const rows = q.map((it,k) => { const t = it.d.tracks[it.t], w = it.d.world;
+      const playing = current.qk === key;
+      return '<button type="button" class="mix-chip" style="--m:'+m.color+'" data-mix="'+m.id+'" aria-pressed="'+(m.id===mixSel && current.qk!=="azar")+'"'+(q.length?'':' disabled')+
+        ' aria-label="'+esc(T.playMix(tx(m.name)))+'" title="'+esc(tx(m.desc))+'">'+
+        '<span class="mbars" aria-hidden="true">'+bars+'</span>'+
+        '<span class="mc-name">'+esc(tx(m.name))+'</span><span class="mc-n">'+q.length+'</span>'+(playing ? '<span class="mc-on" aria-hidden="true"></span>' : '')+'</button>';
+    }).join("");
+    const m = D.mixes.find(x => x.id === mixSel), key = "m:"+m.id, q = getQueue(key);
+    const per = new Set(q.map(it => it.d.world)).size;
+    const info = [T.tracks(q.length), minutes(q.map(it => it.d.tracks[it.t])), T.novels(per)].filter(Boolean).join(", ");
+    $("#mix-list").style.setProperty("--w", m.color);
+    $("#mix-list-t").textContent = T.mixList(tx(m.name), info);
+    $("#mix-list-body").innerHTML = q.length ? '<ol>' + q.map((it,k) => { const t = it.d.tracks[it.t], w = it.d.world;
         return '<li><button type="button" class="track" data-q="'+key+'" data-i="'+k+'" data-d="'+discs.indexOf(it.d)+'" data-t="'+it.t+'">'+
           '<span class="n">'+(k+1)+'</span>'+
           '<span class="tt"><span lang="'+esc(w.lang)+'">'+esc(t.t)+'</span><small class="from" style="--w:'+w.accent+'" lang="'+esc(w.lang)+'">'+esc(w.title)+'</small>'+tag(it)+'</span>'+
-          dur(it, t)+'</button></li>'; }).join("");
-      return '<article class="mix" style="--m:'+m.color+'">'+
-        '<button type="button" class="mix-play" data-mix="'+key+'" aria-label="'+esc(T.playMix(tx(m.name)))+'"'+(q.length?'':' disabled')+'>'+PLAY_SVG+'</button>'+
-        '<details class="disc" data-disc="'+key+'"'+(open.has(key)?' open':'')+'><summary><span class="mbars" aria-hidden="true">'+bars+'</span>'+
-        '<span><span class="d-name">'+esc(tx(m.name))+'</span><span class="d-info">'+esc(tx(m.desc))+' '+esc(info)+'.</span></span></summary>'+(q.length ? '<ol>'+rows+'</ol>' : '<p class="pending">'+esc(T.vfNone)+'</p>')+'</details>'+
-        '</article>';
-    }).join("");
+          dur(it, t)+'</button></li>'; }).join("") + '</ol>' : '<p class="pending">'+esc(T.vfNone)+'</p>';
     markCurrent();
   }
-  $("#mixes").addEventListener("click", e => { const b = e.target.closest(".mix-play"); if(b) start(b.dataset.mix, 0); });
-  $("#shuffle-all").addEventListener("click", () => start("azar", 0));
+  $("#mixes").addEventListener("click", e => {
+    const b = e.target.closest(".mix-chip"); if(!b || b.disabled) return;
+    if(b.dataset.shuffle){ start("azar", 0); return; }
+    mixSel = b.dataset.mix; start("m:"+mixSel, 0);
+  });
 
   document.addEventListener("click", e => {
     const b = e.target.closest(".track"); if(!b) return;
@@ -324,6 +333,7 @@
     if(!q.length) return;
     current.qk = key; current.q = q; current.i = i;
     play();
+    if(typeof renderMixes === "function") renderMixes();
   }
   function play(){
     const it = current.q[current.i], d = it.d, t = it.t;

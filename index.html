@@ -68,12 +68,12 @@
   </section>
 
   <section class="block" id="mezclas" aria-labelledby="mezclas-t">
-    <div class="block-head">
+    <div class="mix-head">
       <h2 id="mezclas-t" data-i18n="mixesH">Mezclas por ánimo</h2>
-      <p data-i18n="mixesP">Canciones de distintas novelas, juntas según lo que te hacen sentir. Las novelas se van alternando siempre que se puede.</p>
-      <div class="tools"><div class="vf" role="group"></div><button type="button" class="btn primary shuffle" id="shuffle-all" data-i18n="shuffleAll">Todo al azar</button></div>
+      <div class="tools"><div class="vf" role="group"></div></div>
     </div>
-    <div id="mixes" class="mixes"></div>
+    <div id="mixes" class="mixes" role="group" data-i18n-aria="mixesH" aria-label="Mezclas por ánimo"></div>
+    <details class="disc mix-list" id="mix-list"><summary><span class="d-name" id="mix-list-t"></span></summary><div id="mix-list-body"></div></details>
   </section>
 
   <section class="block" id="bandas" aria-labelledby="bandas-t">
