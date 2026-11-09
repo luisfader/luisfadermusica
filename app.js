@@ -32,7 +32,7 @@
       listen:"Escuchar", seeTracks:"Ver todas las pistas", navMixes:"Mezclas",
       mixesH:"Mezclas por ánimo", mixList:(n,i)=>"Canciones de «"+n+"»: "+i, mixesP:"Canciones de distintas novelas, juntas según lo que te hacen sentir. Las novelas se van alternando siempre que se puede.",
       shuffleAll:"Todo al azar", topH:"Lo más escuchado ahora", topP:"Las canciones que más están sonando en el sitio. Tocá una para escucharla.", topWeek:"Esta semana", topAll:"De siempre", topPick:"Período del ranking", topNone:"Todavía no hay escuchas en este período.", plays:n=>n+(n===1?" escucha":" escuchas"),  specStyle:"Cambiar el estilo del espectro", specModes:["Barras","Ondas","Osciloscopio","Aurora"], vfLabel:"Qué escuchar", vfAll:"Todo", vfSong:"Canciones", vfInst:"Instrumental", vfNone:"No hay pistas de este tipo en este disco.", sung:"Con voz", tagSong:"Canción", tagInst:"Instrumental", playMix:n=>"Escuchar la mezcla «"+n+"»", novels:n=>n+(n===1?" novela":" novelas"), mixOf:(m,w)=>m+", de "+w,
-      tune:"Sintonizá una novela",
+      tune:"Deslizá el dial para sintonizar una novela",
       soundtracksH:"Las bandas sonoras",
       soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
       footName:"Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.",
@@ -51,7 +51,7 @@
       listen:"Слушать", seeTracks:"Все треки", navMixes:"Миксы",
       mixesH:"Миксы по настроению", mixList:(n,i)=>"Песни микса «"+n+"»: "+i, mixesP:"Песни из разных романов, собранные по настроению. Романы по возможности чередуются.",
       shuffleAll:"Всё вперемешку", topH:"Сейчас слушают", topP:"Песни, которые чаще всего звучат на сайте. Нажмите на любую, чтобы послушать.", topWeek:"За неделю", topAll:"За всё время", topPick:"Период рейтинга", topNone:"За этот период прослушиваний пока нет.", plays:n=>ruPlural(n,"прослушивание","прослушивания","прослушиваний"),  specStyle:"Сменить стиль спектра", specModes:["Полосы","Волны","Осциллограф","Сияние"], vfLabel:"Что слушать", vfAll:"Всё", vfSong:"Песни", vfInst:"Инструментал", vfNone:"В этом альбоме нет таких треков.", sung:"С вокалом", tagSong:"Песня", tagInst:"Инструментал", playMix:n=>"Слушать микс «"+n+"»", novels:n=>ruPlural(n,"роман","романа","романов"), mixOf:(m,w)=>m+": «"+w+"»",
-      tune:"Настройтесь на роман",
+      tune:"Покрутите шкалу, чтобы настроиться на роман",
       soundtracksH:"Саундтреки",
       soundtracksP:"Все песни каждого романа — в том порядке, в каком они звучат в книге. Нажмите на трек, чтобы слушать.",
       footName:"Луис Фадер. В русских книгах — Роберт Фадер, в итальянских — Роберто Фадер.",
@@ -70,7 +70,7 @@
       listen:"Listen", seeTracks:"See all tracks", navMixes:"Mixes",
       mixesH:"Mood mixes", mixList:(n,i)=>"Songs in «"+n+"»: "+i, mixesP:"Songs from different novels, grouped by how they feel. The novels take turns whenever possible.",
       shuffleAll:"Shuffle everything", topH:"Most played right now", topP:"The songs playing most on the site. Tap one to listen.", topWeek:"This week", topAll:"All time", topPick:"Ranking period", topNone:"No plays in this period yet.", plays:n=>n+(n===1?" play":" plays"),  specStyle:"Change the visualizer style", specModes:["Bars","Ripples","Oscilloscope","Aurora"], vfLabel:"What to play", vfAll:"Everything", vfSong:"Songs", vfInst:"Instrumental", vfNone:"No tracks of this kind on this album.", sung:"With vocals", tagSong:"Song", tagInst:"Instrumental", playMix:n=>"Play the "+n+" mix", novels:n=>n+(n===1?" novel":" novels"), mixOf:(m,w)=>m+", from "+w,
-      tune:"Tune in to a novel",
+      tune:"Slide the dial to tune in to a novel",
       soundtracksH:"The soundtracks",
       soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
       footName:"Luis Fader. Robert Fader in Russian, Roberto Fader in Italian.",
@@ -89,7 +89,7 @@
       listen:"Ascolta", seeTracks:"Tutti i brani", navMixes:"Mix",
       mixesH:"Mix per stato d'animo", mixList:(n,i)=>"Canzoni di «"+n+"»: "+i, mixesP:"Canzoni di romanzi diversi, riunite in base a quello che ti fanno provare. I romanzi si alternano ogni volta che si può.",
       shuffleAll:"Tutto in ordine casuale", topH:"I più ascoltati del momento", topP:"Le canzoni che si ascoltano di più sul sito. Toccane una per ascoltarla.", topWeek:"Questa settimana", topAll:"Di sempre", topPick:"Periodo della classifica", topNone:"Ancora nessun ascolto in questo periodo.", plays:n=>n+(n===1?" ascolto":" ascolti"),  specStyle:"Cambia lo stile dello spettro", specModes:["Barre","Onde","Oscilloscopio","Aurora"], vfLabel:"Cosa ascoltare", vfAll:"Tutto", vfSong:"Canzoni", vfInst:"Strumentali", vfNone:"In questo album non ci sono brani di questo tipo.", sung:"Con la voce", tagSong:"Canzone", tagInst:"Strumentale", playMix:n=>"Ascolta il mix «"+n+"»", novels:n=>n+(n===1?" romanzo":" romanzi"), mixOf:(m,w)=>m+", da "+w,
-      tune:"Sintonizzati su un romanzo",
+      tune:"Fai scorrere la manopola per sintonizzarti su un romanzo",
       soundtracksH:"Le colonne sonore",
       soundtracksP:"Tutte le canzoni di ogni romanzo, nell'ordine in cui risuonano nel libro. Tocca un brano per ascoltarlo.",
       footName:"Luis Fader. Robert Fader in russo, Roberto Fader in italiano.",
@@ -178,29 +178,72 @@
   const mixOfKey = k => k && k.startsWith("m:") ? D.mixes.find(m => "m:"+m.id === k) : null;
 
   /* ---------- Dial ---------- */
-  const dial = $("#dial"), needle = dial.querySelector(".needle");
+  /* La aguja queda fija en el centro y la escala se desliza debajo:
+     con el dedo (scroll nativo con imán), arrastrando con el mouse, con la rueda
+     horizontal del trackpad o con las flechas. La novela que queda bajo la aguja
+     se sintoniza cuando el dial se detiene. */
+  const dial = $("#dial"), track = $("#dial-track");
   const layers = document.querySelectorAll(".layer");
-  let cur = -1, layerOn = 0;
-  dial.style.setProperty("--n", D.worlds.length);
+  const reduceDial = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let cur = -1, layerOn = 0, dragMoved = false;
   D.worlds.forEach((w,i) => {
     const b = document.createElement("button");
     b.type = "button"; b.className = "station"; b.setAttribute("role","radio");
     b.setAttribute("aria-checked","false"); b.tabIndex = -1;
     b.innerHTML = '<span lang="'+w.lang+'">'+esc(SHORT[w.id] || w.title)+'</span><small></small>';
-    b.addEventListener("click", () => tune(i, true));
-    dial.appendChild(b);
+    b.addEventListener("click", e => { if(dragMoved){ e.preventDefault(); return; } centerOn(i, true); });
+    track.appendChild(b);
   });
-  const stations = () => dial.querySelectorAll(".station");
+  const stations = () => track.querySelectorAll(".station");
+  const offsetFor = i => { const b = stations()[i]; return b.offsetLeft + b.offsetWidth/2 - dial.clientWidth/2; };
+  function nearest(){
+    const mid = dial.scrollLeft + dial.clientWidth/2; let best = 0, bd = Infinity;
+    stations().forEach((b,k) => { const d = Math.abs(b.offsetLeft + b.offsetWidth/2 - mid); if(d < bd){ bd = d; best = k; } });
+    return best;
+  }
+  function centerOn(i, smooth){ dial.scrollTo({left: offsetFor(i), behavior: smooth && !reduceDial ? "smooth" : "auto"}); }
+  function markNear(i){ stations().forEach((b,k) => b.classList.toggle("near", k === i)); }
+  let settleT = 0, dragging = false;
+  function settle(){
+    if(dragging) return;
+    const i = nearest();
+    if(Math.abs(dial.scrollLeft - offsetFor(i)) > 2) centerOn(i, true);
+    if(i !== cur) tune(i, true, true);
+  }
+  dial.addEventListener("scroll", () => {
+    markNear(nearest());
+    clearTimeout(settleT); settleT = setTimeout(settle, 140);
+  }, {passive:true});
+  /* Arrastre con el mouse (en pantallas táctiles el dedo ya desliza solo) */
+  let dragX = 0, dragLeft = 0;
+  dial.addEventListener("pointerdown", e => {
+    if(e.pointerType !== "mouse" || e.button !== 0) return;
+    dragging = true; dragMoved = false; dragX = e.clientX; dragLeft = dial.scrollLeft;
+  });
+  window.addEventListener("pointermove", e => {
+    if(!dragging) return;
+    const dx = e.clientX - dragX;
+    if(!dragMoved && Math.abs(dx) < 5) return;
+    if(!dragMoved){ dragMoved = true; dial.classList.add("dragging"); }
+    dial.scrollLeft = dragLeft - dx;
+  });
+  window.addEventListener("pointerup", () => {
+    if(!dragging) return;
+    dragging = false; dial.classList.remove("dragging");
+    settle();
+    setTimeout(() => { dragMoved = false; }, 0);
+  });
+  window.addEventListener("resize", () => { if(cur >= 0) centerOn(cur, false); });
   dial.addEventListener("keydown", e => {
     const k = e.key, n = D.worlds.length;
     let j = null;
     if(k==="ArrowRight"||k==="ArrowDown") j = (cur+1)%n;
     else if(k==="ArrowLeft"||k==="ArrowUp") j = (cur-1+n)%n;
     else if(k==="Home") j = 0; else if(k==="End") j = n-1;
-    if(j!==null){ e.preventDefault(); tune(j, true); stations()[j].focus(); }
+    if(j!==null){ e.preventDefault(); tune(j, true); stations()[j].focus({preventScroll:true}); }
   });
 
-  function tune(i, fromUser){
+  function tune(i, fromUser, fromDial){
     const changed = i !== cur;
     cur = i;
     const w = D.worlds[i];
@@ -209,8 +252,9 @@
       const next = layers[1-layerOn];
       next.style.backgroundImage = "url('img/mundos/"+w.repo+"-fondo.jpg')";
       next.classList.add("on"); layers[layerOn].classList.remove("on"); layerOn = 1-layerOn;
-      needle.style.setProperty("--x", ((i+.5)/D.worlds.length*100)+"%");
       stations().forEach((b,k) => { b.setAttribute("aria-checked", k===i ? "true" : "false"); b.tabIndex = k===i ? 0 : -1; });
+      markNear(i);
+      if(!fromDial) centerOn(i, fromUser);
     }
     $("#hero-place").textContent = tx(w.place);
     const h = $("#hero-title"); h.textContent = w.title; h.lang = w.lang;

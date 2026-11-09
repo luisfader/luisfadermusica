@@ -58,15 +58,21 @@ button{font:inherit;color:inherit}
 /* El dial de la radio */
 .radio{padding:0 clamp(1rem,6vw,5rem) 2.5rem}
 .radio-hint{font-family:var(--sans);font-size:.9rem;color:var(--muted);margin:0 0 .4rem}
-.dial{position:relative;display:grid;grid-template-columns:repeat(var(--n,6),1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:rgba(25,21,39,.55);backdrop-filter:blur(6px);border-radius:4px}
-.scale{position:absolute;inset:0 0 auto 0;height:14px;pointer-events:none;
-  background:repeating-linear-gradient(90deg,rgba(241,235,223,.35) 0 1px,transparent 1px 12px),
-             repeating-linear-gradient(90deg,rgba(241,235,223,.6) 0 1px,transparent 1px 60px);
-  background-size:100% 7px,100% 14px;background-repeat:no-repeat}
-.needle{position:absolute;top:-6px;bottom:-6px;width:2px;left:var(--x,8%);background:var(--accent);box-shadow:0 0 14px var(--accent),0 0 2px var(--accent);transition:left .7s cubic-bezier(.65,0,.25,1),background .6s,box-shadow .6s;pointer-events:none}
-.station{position:relative;border:0;background:none;padding:1.4rem .5rem .9rem;text-align:center;cursor:pointer;color:var(--muted);font-family:var(--serif);font-size:1.05rem;line-height:1.2;min-height:4.5rem}
+.dial{--sw:9.5rem;position:relative;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:rgba(25,21,39,.55);backdrop-filter:blur(6px);border-radius:4px}
+.dial-strip{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.dial-strip::-webkit-scrollbar{display:none}
+.dial-strip.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.dial-strip.dragging .station{pointer-events:none}
+.dial-track{display:flex;width:max-content;padding-inline:calc(50% - var(--sw)/2);background-origin:content-box;background-clip:content-box;background-repeat:repeat-x;
+  background-image:linear-gradient(90deg,transparent calc(50% - 1px),rgba(241,235,223,.7) calc(50% - 1px),rgba(241,235,223,.7) calc(50% + 1px),transparent calc(50% + 1px)),
+                   repeating-linear-gradient(90deg,rgba(241,235,223,.3) 0 1px,transparent 1px calc(var(--sw)/8));
+  background-size:var(--sw) 14px,var(--sw) 7px;background-position:0 0,0 0}
+.needle{position:absolute;top:-6px;bottom:-6px;left:50%;width:2px;margin-left:-1px;background:var(--accent);box-shadow:0 0 14px var(--accent),0 0 2px var(--accent);transition:background .6s,box-shadow .6s;pointer-events:none}
+.needle::before{content:"";position:absolute;top:-5px;left:50%;margin-left:-5px;border:5px solid transparent;border-top-color:var(--accent);border-bottom:0}
+.station{flex:none;width:var(--sw);scroll-snap-align:center;position:relative;border:0;background:none;padding:1.4rem .5rem .9rem;text-align:center;cursor:pointer;color:var(--muted);font-family:var(--serif);font-size:1.05rem;line-height:1.2;min-height:4.5rem}
 .station small{display:block;font-family:var(--sans);font-size:.75rem;margin-top:.2rem;opacity:.75}
 .station:hover{color:var(--paper)}
+.station.near{color:var(--paper)}
 .station[aria-checked="true"]{color:var(--paper);font-weight:700}
 
 /* Secciones */
@@ -212,7 +218,8 @@ button{font:inherit;color:inherit}
   .world{grid-template-rows:none;row-gap:1rem}
   .world-cover{grid-row:auto}
   .world .desc,.world .discs{grid-column:1/-1}
-  .station{font-size:.9rem;padding:1.3rem .15rem .8rem}
+  .dial{--sw:7rem}
+  .station{font-size:.95rem;padding:1.3rem .15rem .8rem}
   .station small{display:none}
   .player{grid-template-columns:auto minmax(0,1fr) auto;row-gap:.4rem}
   .p-controls{grid-column:3}
@@ -228,7 +235,8 @@ button{font:inherit;color:inherit}
   .mix-chip{flex:none}
   .disc summary{gap:.75rem;padding:.7rem .75rem}
   .hero-inner{padding-top:11.5rem}
-  .station{font-size:.72rem;min-height:4rem;padding-inline:.05rem}
+  .dial{--sw:6.2rem}
+  .station{font-size:.9rem;min-height:4rem;padding-inline:.1rem}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
