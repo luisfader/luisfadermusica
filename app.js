@@ -32,7 +32,7 @@
       listen:"Escuchar", seeTracks:"Ver todas las pistas", navMixes:"Mezclas",
       mixesH:"Mezclas por ánimo", mixList:(n,i)=>"Canciones de «"+n+"»: "+i, mixesP:"Canciones de distintas novelas, juntas según lo que te hacen sentir. Las novelas se van alternando siempre que se puede.",
       shuffleAll:"Todo al azar", topH:"Lo más escuchado ahora", topP:"Las canciones que más están sonando en el sitio. Tocá una para escucharla.", topWeek:"Esta semana", topAll:"De siempre", topPick:"Período del ranking", topNone:"Todavía no hay escuchas en este período.", plays:n=>n+(n===1?" escucha":" escuchas"),  specStyle:"Cambiar el estilo del espectro", specModes:["Barras","Ondas","Osciloscopio","Aurora"], vfLabel:"Qué escuchar", vfAll:"Todo", vfSong:"Canciones", vfInst:"Instrumental", vfNone:"No hay pistas de este tipo en este disco.", sung:"Con voz", tagSong:"Canción", tagInst:"Instrumental", playMix:n=>"Escuchar la mezcla «"+n+"»", novels:n=>n+(n===1?" novela":" novelas"), mixOf:(m,w)=>m+", de "+w,
-      tune:"Deslizá el dial para sintonizar una novela",
+      tune:"Girá el dial para sintonizar una novela",
       soundtracksH:"Las bandas sonoras",
       soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
       footName:"Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.",
@@ -70,7 +70,7 @@
       listen:"Listen", seeTracks:"See all tracks", navMixes:"Mixes",
       mixesH:"Mood mixes", mixList:(n,i)=>"Songs in «"+n+"»: "+i, mixesP:"Songs from different novels, grouped by how they feel. The novels take turns whenever possible.",
       shuffleAll:"Shuffle everything", topH:"Most played right now", topP:"The songs playing most on the site. Tap one to listen.", topWeek:"This week", topAll:"All time", topPick:"Ranking period", topNone:"No plays in this period yet.", plays:n=>n+(n===1?" play":" plays"),  specStyle:"Change the visualizer style", specModes:["Bars","Ripples","Oscilloscope","Aurora"], vfLabel:"What to play", vfAll:"Everything", vfSong:"Songs", vfInst:"Instrumental", vfNone:"No tracks of this kind on this album.", sung:"With vocals", tagSong:"Song", tagInst:"Instrumental", playMix:n=>"Play the "+n+" mix", novels:n=>n+(n===1?" novel":" novels"), mixOf:(m,w)=>m+", from "+w,
-      tune:"Slide the dial to tune in to a novel",
+      tune:"Spin the dial to tune in to a novel",
       soundtracksH:"The soundtracks",
       soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
       footName:"Luis Fader. Robert Fader in Russian, Roberto Fader in Italian.",
@@ -89,7 +89,7 @@
       listen:"Ascolta", seeTracks:"Tutti i brani", navMixes:"Mix",
       mixesH:"Mix per stato d'animo", mixList:(n,i)=>"Canzoni di «"+n+"»: "+i, mixesP:"Canzoni di romanzi diversi, riunite in base a quello che ti fanno provare. I romanzi si alternano ogni volta che si può.",
       shuffleAll:"Tutto in ordine casuale", topH:"I più ascoltati del momento", topP:"Le canzoni che si ascoltano di più sul sito. Toccane una per ascoltarla.", topWeek:"Questa settimana", topAll:"Di sempre", topPick:"Periodo della classifica", topNone:"Ancora nessun ascolto in questo periodo.", plays:n=>n+(n===1?" ascolto":" ascolti"),  specStyle:"Cambia lo stile dello spettro", specModes:["Barre","Onde","Oscilloscopio","Aurora"], vfLabel:"Cosa ascoltare", vfAll:"Tutto", vfSong:"Canzoni", vfInst:"Strumentali", vfNone:"In questo album non ci sono brani di questo tipo.", sung:"Con la voce", tagSong:"Canzone", tagInst:"Strumentale", playMix:n=>"Ascolta il mix «"+n+"»", novels:n=>n+(n===1?" romanzo":" romanzi"), mixOf:(m,w)=>m+", da "+w,
-      tune:"Fai scorrere la manopola per sintonizzarti su un romanzo",
+      tune:"Gira la manopola per sintonizzarti su un romanzo",
       soundtracksH:"Le colonne sonore",
       soundtracksP:"Tutte le canzoni di ogni romanzo, nell'ordine in cui risuonano nel libro. Tocca un brano per ascoltarlo.",
       footName:"Luis Fader. Robert Fader in russo, Roberto Fader in italiano.",
@@ -178,46 +178,86 @@
   const mixOfKey = k => k && k.startsWith("m:") ? D.mixes.find(m => "m:"+m.id === k) : null;
 
   /* ---------- Dial ---------- */
-  /* La aguja queda fija en el centro y la escala se desliza debajo:
+  /* Una rueda sin fin: la aguja queda fija en el centro y la escala gira debajo,
      con el dedo (scroll nativo con imán), arrastrando con el mouse, con la rueda
-     horizontal del trackpad o con las flechas. La novela que queda bajo la aguja
-     se sintoniza cuando el dial se detiene. */
+     del mouse o del trackpad, o con las flechas. Para que nunca se acabe, la escala
+     se dibuja tres veces seguidas y, cuando se detiene, salta sin que se note a la
+     copia del medio. La novela que queda bajo la aguja se sintoniza al detenerse. */
   const dial = $("#dial"), track = $("#dial-track");
   const layers = document.querySelectorAll(".layer");
   const reduceDial = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const N = D.worlds.length, COPIES = 3;
   let cur = -1, layerOn = 0, dragMoved = false;
-  D.worlds.forEach((w,i) => {
+  for(let c = 0; c < COPIES; c++) D.worlds.forEach((w,i) => {
+    const k = c*N + i, main = c === 1;
     const b = document.createElement("button");
-    b.type = "button"; b.className = "station"; b.setAttribute("role","radio");
-    b.setAttribute("aria-checked","false"); b.tabIndex = -1;
+    b.type = "button"; b.className = "station"; b.tabIndex = -1;
+    if(main){ b.setAttribute("role","radio"); b.setAttribute("aria-checked","false"); }
+    else b.setAttribute("aria-hidden","true");
     b.innerHTML = '<span lang="'+w.lang+'">'+esc(SHORT[w.id] || w.title)+'</span><small></small>';
-    b.addEventListener("click", e => { if(dragMoved){ e.preventDefault(); return; } centerOn(i, true); });
+    b.addEventListener("click", e => { if(dragMoved){ e.preventDefault(); return; } centerAt(k, true); });
     track.appendChild(b);
   });
-  const stations = () => track.querySelectorAll(".station");
-  const offsetFor = i => { const b = stations()[i]; return b.offsetLeft + b.offsetWidth/2 - dial.clientWidth/2; };
-  function nearest(){
+  const all = [...track.querySelectorAll(".station")];
+  const stations = () => all.slice(N, 2*N);          // la copia del medio, la "real"
+  const posOf = k => all[k].offsetLeft + all[k].offsetWidth/2 - dial.clientWidth/2;
+  const setW = () => all[N].offsetLeft - all[0].offsetLeft;
+  const offsetFor = i => posOf(N + i);
+  function nearestK(){
     const mid = dial.scrollLeft + dial.clientWidth/2; let best = 0, bd = Infinity;
-    stations().forEach((b,k) => { const d = Math.abs(b.offsetLeft + b.offsetWidth/2 - mid); if(d < bd){ bd = d; best = k; } });
+    all.forEach((b,k) => { const d = Math.abs(b.offsetLeft + b.offsetWidth/2 - mid); if(d < bd){ bd = d; best = k; } });
     return best;
   }
-  function centerOn(i, smooth){ dial.scrollTo({left: offsetFor(i), behavior: smooth && !reduceDial ? "smooth" : "auto"}); }
-  function markNear(i){ stations().forEach((b,k) => b.classList.toggle("near", k === i)); }
-  let settleT = 0, dragging = false;
+  const nearest = () => nearestK() % N;
+  function centerAt(k, smooth){ dial.scrollTo({left: posOf(k), behavior: smooth && !reduceDial ? "smooth" : "auto"}); }
+  function centerOn(i, smooth){
+    /* si ya estamos en otra copia, girar por el camino más corto */
+    const here = nearestK(); let k = N + i;
+    if(smooth){ const base = here - here % N; k = base + i;
+      if(k - here > N/2) k -= N; else if(here - k > N/2) k += N;
+      k = Math.max(0, Math.min(all.length-1, k)); }
+    centerAt(k, smooth);
+  }
+  /* Volver a la copia del medio sin movimiento visible */
+  function recenter(){
+    const k = nearestK(), c = Math.floor(k / N);
+    if(c !== 1){ const sb = dial.style.scrollSnapType; dial.style.scrollSnapType = "none";
+      dial.scrollLeft += (1 - c) * setW(); dial.style.scrollSnapType = sb; }
+  }
+  function markNear(i){ all.forEach((b,k) => b.classList.toggle("near", k % N === i)); }
+  /* Curvatura de tambor: las novelas se inclinan y achican hacia los bordes */
+  let drumRaf = 0;
+  function drum(){
+    drumRaf = 0;
+    if(reduceDial) return;
+    const half = dial.clientWidth/2, mid = dial.scrollLeft + half;
+    all.forEach(b => {
+      const c = b.offsetLeft + b.offsetWidth/2;
+      if(Math.abs(c - mid) > half + b.offsetWidth){ if(b.style.transform) b.style.transform = ""; return; }
+      const d = Math.max(-1, Math.min(1, (c - mid) / half));
+      b.style.transform = "perspective(600px) rotateY(" + (d*38).toFixed(1) + "deg) scale(" + (1 - .14*Math.abs(d)).toFixed(3) + ")";
+    });
+  }
+  const queueDrum = () => { if(!drumRaf) drumRaf = requestAnimationFrame(drum); };
+  let settleT = 0, dragging = false, wheelK = null;
   function settle(){
     if(dragging) return;
-    const i = nearest();
-    if(Math.abs(dial.scrollLeft - offsetFor(i)) > 2) centerOn(i, true);
+    wheelK = null;
+    recenter();
+    const k = nearestK(), i = k % N;
+    if(Math.abs(dial.scrollLeft - posOf(k)) > 2) centerAt(k, true);
     if(i !== cur) tune(i, true, true);
+    queueDrum();
   }
   dial.addEventListener("scroll", () => {
-    markNear(nearest());
+    markNear(nearest()); queueDrum();
     clearTimeout(settleT); settleT = setTimeout(settle, 140);
   }, {passive:true});
   /* Arrastre con el mouse (en pantallas táctiles el dedo ya desliza solo) */
   let dragX = 0, dragLeft = 0;
   dial.addEventListener("pointerdown", e => {
     if(e.pointerType !== "mouse" || e.button !== 0) return;
+    recenter();
     dragging = true; dragMoved = false; dragX = e.clientX; dragLeft = dial.scrollLeft;
   });
   window.addEventListener("pointermove", e => {
@@ -225,7 +265,10 @@
     const dx = e.clientX - dragX;
     if(!dragMoved && Math.abs(dx) < 5) return;
     if(!dragMoved){ dragMoved = true; dial.classList.add("dragging"); }
-    dial.scrollLeft = dragLeft - dx;
+    let left = dragLeft - dx;
+    const w = setW(), lo = posOf(0) + w*.5, hi = posOf(N-1) + w*1.5;
+    if(left < lo){ dragLeft += w; left += w; } else if(left > hi){ dragLeft -= w; left -= w; }
+    dial.scrollLeft = left;
   });
   window.addEventListener("pointerup", () => {
     if(!dragging) return;
@@ -233,9 +276,33 @@
     settle();
     setTimeout(() => { dragMoved = false; }, 0);
   });
-  window.addEventListener("resize", () => { if(cur >= 0) centerOn(cur, false); });
+  /* La rueda del mouse (vertical u horizontal) hace girar el dial una novela por golpe */
+  let wheelAcc = 0, wheelT = 0;
+  dial.addEventListener("wheel", e => {
+    const dlt = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if(!dlt) return;
+    e.preventDefault();
+    const unit = e.deltaMode === 1 ? 33 : e.deltaMode === 2 ? 300 : 1;
+    wheelAcc += dlt * unit;
+    clearTimeout(wheelT); wheelT = setTimeout(() => { wheelAcc = 0; }, 200);
+    const STEP = 60;
+    if(Math.abs(wheelAcc) < STEP) return;
+    const dir = Math.sign(wheelAcc); wheelAcc = 0;
+    if(wheelK === null){ recenter(); wheelK = nearestK(); }
+    wheelK += dir;
+    /* si nos acercamos al borde de las copias, saltar una vuelta entera sin que se note */
+    if(wheelK < N/2 || wheelK >= 2*N + N/2){
+      const shift = wheelK < N/2 ? 1 : -1;
+      dial.style.scrollSnapType = "none";
+      dial.scrollTo({left: dial.scrollLeft + shift*setW(), behavior:"auto"});
+      dial.style.scrollSnapType = "";
+      wheelK += shift*N;
+    }
+    centerAt(wheelK, true);
+  }, {passive:false});
+  window.addEventListener("resize", () => { if(cur >= 0) centerOn(cur, false); queueDrum(); });
   dial.addEventListener("keydown", e => {
-    const k = e.key, n = D.worlds.length;
+    const k = e.key, n = N;
     let j = null;
     if(k==="ArrowRight"||k==="ArrowDown") j = (cur+1)%n;
     else if(k==="ArrowLeft"||k==="ArrowUp") j = (cur-1+n)%n;
@@ -253,6 +320,7 @@
       next.style.backgroundImage = "url('img/mundos/"+w.repo+"-fondo.jpg')";
       next.classList.add("on"); layers[layerOn].classList.remove("on"); layerOn = 1-layerOn;
       stations().forEach((b,k) => { b.setAttribute("aria-checked", k===i ? "true" : "false"); b.tabIndex = k===i ? 0 : -1; });
+      queueDrum();
       markNear(i);
       if(!fromDial) centerOn(i, fromUser);
     }
@@ -825,10 +893,10 @@
     document.querySelectorAll("[data-i18n]").forEach(el => { const v = T[el.dataset.i18n]; if(typeof v === "string") el.textContent = v; });
     document.querySelectorAll("[data-i18n-aria]").forEach(el => { const v = T[el.dataset.i18nAria]; if(typeof v === "string") el.setAttribute("aria-label", v); });
     document.querySelectorAll("#langs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.ui===L ? "true" : "false"));
-    stations().forEach((b,k) => {
-      const w = D.worlds[k];
+    all.forEach((b,k) => {
+      const w = D.worlds[k % N];
       b.querySelector("small").textContent = langName(w.lang);
-      b.setAttribute("aria-label", w.title + (w.tr && w.tr[L] ? " ("+w.tr[L]+")" : ""));
+      if(b.getAttribute("role") === "radio") b.setAttribute("aria-label", w.title + (w.tr && w.tr[L] ? " ("+w.tr[L]+")" : ""));
     });
     if(cur >= 0) tune(cur, false);
     renderWorlds(); renderMixes(); renderVF(); renderTop(); playerText(); specLabel(); lyLoad();
