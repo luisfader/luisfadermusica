@@ -1648,8 +1648,8 @@ window.PORTAL={
      "cover": "img/mundos/zvezdnyj.jpg",
      "tracks": [
       {
-       "t": "Sueños de cristal",
-       "src": "audio/zvezdnyj/suenos-de-cristal.mp3",
+       "t": "Хрустальные сны",
+       "src": "audio/zvezdnyj/khrustalnye-sny.mp3",
        "d": "3:49"
       },
       {
