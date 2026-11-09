@@ -1435,6 +1435,86 @@ window.PORTAL={
      "voice": "SSSSSSSSSSSSSSS"
     }
    ]
+  },
+  {
+   "id": "future",
+   "repo": "amanfromthefuture",
+   "title": "A Man from the Future",
+   "lang": "en",
+   "author": "Luis Fader",
+   "accent": "#c77dff",
+   "place": {
+    "es": "Moscú, del año 3024 al 2024",
+    "ru": "Москва, из 3024 года в 2024-й",
+    "en": "Moscow, from 3024 to 2024",
+    "it": "Mosca, dal 3024 al 2024"
+   },
+   "blurb": {
+    "es": "Alex vive en la Moscú del año 3024, en un mundo sin mujeres, y sueña con encontrar el amor. Una máquina del tiempo lo trae a la Moscú de 2024, donde hasta un café es una aventura. Con una frase de película vieja en el bolsillo, aprende por las malas que un «no» es un «no»… y que alguien lo espera a la una.",
+    "ru": "Алекс живёт в Москве 3024 года, в мире без женщин, и мечтает найти любовь. Машина времени переносит его в Москву 2024 года, где даже чашка кофе — приключение. С фразой из старого фильма в кармане он на собственном опыте узнаёт, что «нет» значит «нет»… и что кто-то ждёт его в час дня.",
+    "en": "Alex lives in Moscow in the year 3024, in a world without women, and dreams of finding love. A time machine takes him to Moscow in 2024, where even a cup of coffee is an adventure. Armed with a line from an old film, he learns the hard way that “no” means “no”… and that somebody is waiting for him at one o'clock.",
+    "it": "Alex vive nella Mosca dell'anno 3024, in un mondo senza donne, e sogna di trovare l'amore. Una macchina del tempo lo porta nella Mosca del 2024, dove anche un caffè è un'avventura. Con una battuta da vecchio film in tasca, impara a sue spese che un «no» è un «no»… e che qualcuno lo aspetta all'una."
+   },
+   "kind": {
+    "es": "Canciones en inglés de la serie",
+    "ru": "Песни на английском из серии",
+    "en": "Songs from the series",
+    "it": "Canzoni in inglese della serie"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "A Man from the Future",
+      "ru": "A Man from the Future",
+      "en": "A Man from the Future",
+      "it": "A Man from the Future"
+     },
+     "cover": "img/mundos/amanfromthefuture.jpg",
+     "tracks": [
+      {
+       "t": "Come with me to the future, baby!",
+       "src": "audio/amanfromthefuture/come-with-me-to-the-future-baby.mp3",
+       "d": "3:27",
+       "s": "His first morning in Moscow, 2024",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "es"
+       ]
+      },
+      {
+       "t": "Come with me to the future, baby!",
+       "src": "audio/amanfromthefuture/come-with-me-to-the-future-baby-studio.mp3",
+       "d": "3:11",
+       "o": "Studio version",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "es"
+       ]
+      },
+      {
+       "t": "Are You Available?",
+       "src": "audio/amanfromthefuture/are-you-available.mp3",
+       "d": "3:33",
+       "s": "Three thousand men in silver suits",
+       "ly": 1,
+       "lyt": [
+        "ru",
+        "es"
+       ]
+      }
+     ],
+     "pending": 0,
+     "mood": "AEE",
+     "voice": "SSS"
+    }
+   ],
+   "tr": {
+    "es": "Un hombre del futuro",
+    "ru": "Человек из будущего",
+    "it": "Un uomo dal futuro"
+   }
   }
  ],
  "mixes": [
