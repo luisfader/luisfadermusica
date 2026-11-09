@@ -1494,17 +1494,6 @@ window.PORTAL={
        ]
       },
       {
-       "t": "Come with me to the future, baby!",
-       "src": "audio/amanfromthefuture/come-with-me-to-the-future-baby-studio.mp3",
-       "d": "3:11",
-       "o": "Studio version",
-       "ly": 1,
-       "lyt": [
-        "ru",
-        "es"
-       ]
-      },
-      {
        "t": "Are You Available?",
        "src": "audio/amanfromthefuture/are-you-available.mp3",
        "d": "3:33",
@@ -1517,8 +1506,8 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "AEE",
-     "voice": "SSS"
+     "mood": "AE",
+     "voice": "SS"
     }
    ],
    "tr": {
