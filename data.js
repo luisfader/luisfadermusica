@@ -1606,6 +1606,68 @@ window.PORTAL={
     "ru": "Люблю тебя молча",
     "en": "I Love You in Silence"
    }
+  },
+  {
+   "id": "zvezdy",
+   "repo": "zvezdnyj",
+   "title": "Звёздный роман",
+   "lang": "ru",
+   "author": "Роберт Фадер",
+   "accent": "#9fe8ff",
+   "place": {
+    "es": "Una aldea y la Atlántida",
+    "ru": "Деревня и Атлантида",
+    "en": "A village and Atlantis",
+    "it": "Un villaggio e Atlantide"
+   },
+   "tr": {
+    "es": "Amor estelar",
+    "en": "Star Romance",
+    "it": "Amore stellare"
+   },
+   "blurb": {
+    "es": "Laura llega a una aldea tranquila para esconderse un tiempo de su pasado, pero una estrella que cae lo cambia todo. Del bosque sale Luciano, un desconocido ligado a la Atlántida desaparecida, y con él, una fuerza antigua que Laura despierta.",
+    "ru": "Лаура приезжает в тихую деревню, чтобы ненадолго спрятаться от прошлого, но одна упавшая звезда меняет всё. Из леса приходит Лусиано — прекрасный незнакомец, связанный с исчезнувшей Атлантидой и древней силой, которую пробуждает сама Лаура.",
+    "en": "Laura comes to a quiet village to hide from her past for a while, but one falling star changes everything. Out of the forest steps Luciano, a stranger bound to vanished Atlantis and to an ancient power that Laura herself awakens.",
+    "it": "Laura arriva in un villaggio tranquillo per nascondersi per un po’ dal suo passato, ma una stella cadente cambia tutto. Dal bosco esce Luciano, uno sconosciuto legato all’Atlantide scomparsa e a una forza antica che proprio Laura risveglia."
+   },
+   "kind": {
+    "es": "Canciones de la primera parte",
+    "ru": "Песни первой части",
+    "en": "Songs from the first part",
+    "it": "Canzoni della prima parte"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "Звёздный роман",
+      "ru": "Звёздный роман",
+      "en": "Звёздный роман",
+      "it": "Звёздный роман"
+     },
+     "cover": "img/mundos/zvezdnyj.jpg",
+     "tracks": [
+      {
+       "t": "Sueños de cristal",
+       "src": "audio/zvezdnyj/suenos-de-cristal.mp3",
+       "d": "3:49"
+      },
+      {
+       "t": "Звёздные чувства",
+       "src": "audio/zvezdnyj/zvyozdnye-chuvstva.mp3",
+       "d": "3:32"
+      },
+      {
+       "t": "Звёздная любовь",
+       "src": "audio/zvezdnyj/zvyozdnaya-lyubov.mp3",
+       "d": "2:24"
+      }
+     ],
+     "pending": 0,
+     "mood": "MAA",
+     "voice": "SSS"
+    }
+   ]
   }
  ],
  "mixes": [

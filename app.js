@@ -5,7 +5,7 @@
   /* Ranking «Lo más escuchado»: dirección y clave pública (anon) del proyecto de Supabase.
      Vacío = la sección no aparece y no se cuenta nada. Ver supabase/ranking.sql */
   const RANKING = { url: "https://nvhzkbbjskibqotiwqee.supabase.co", key: "sb_publishable_kn8ScAq4TfpjyNsYh0gUdA_Wgp5LsOo" };
-  const SHORT = {misterio:"Misterio",corazonada:"Corazonada",horizonte:"Горизонт",volny:"Волны",predchuvstvie:"Предчувствие",onde:"Onde", ondas:"Ondas",momento:"Città", maschera:"Maschera", future:"Future", silenzio:"Silenzio"};
+  const SHORT = {misterio:"Misterio",corazonada:"Corazonada",horizonte:"Горизонт",volny:"Волны",predchuvstvie:"Предчувствие",onde:"Onde", ondas:"Ondas", zvezdy:"Звёзды",momento:"Città", maschera:"Maschera", future:"Future", silenzio:"Silenzio"};
 
   /* Nombres de idiomas: [castellano, ruso, inglés, italiano] */
   const LN = {
