@@ -810,11 +810,17 @@ window.PORTAL={
        "src": "https://luisfader.github.io/litmir/novels/volny-lyubvi-gorod-bez-ulybok/music/01-tri-noty.mp3",
        "d": "3:47",
        "ly": 1
+      },
+      {
+       "t": "Улыбнись",
+       "src": "https://luisfader.github.io/litmir/novels/volny-lyubvi-gorod-bez-ulybok/music/02-ulybnis.mp3",
+       "d": "4:18",
+       "ly": 1
       }
      ],
      "pending": 0,
-     "mood": "L",
-     "voice": "S"
+     "mood": "LE",
+     "voice": "SS"
     }
    ],
    "tr": {
