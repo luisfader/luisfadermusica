@@ -816,11 +816,17 @@ window.PORTAL={
        "src": "https://luisfader.github.io/litmir/novels/volny-lyubvi-gorod-bez-ulybok/music/02-ulybnis.mp3",
        "d": "4:18",
        "ly": 1
+      },
+      {
+       "t": "Город без улыбок",
+       "src": "audio/volny-gorod-bez-ulybok/03-gorod-bez-ulybok.mp3",
+       "d": "2:31",
+       "ly": 1
       }
      ],
      "pending": 0,
-     "mood": "LE",
-     "voice": "SS"
+     "mood": "LEE",
+     "voice": "SSS"
     }
    ],
    "tr": {
