@@ -1709,10 +1709,10 @@ window.PORTAL={
     "it": "Una notte Roman, violinista, sente in sogno una melodia fredda, bellissima e triste che torna di continuo e lo chiama verso nord. Lontano da lui vive Sofia, la cui vita è legata alla stessa musica. Quando le loro strade si incroceranno, scopriranno che una melodia può unire due cuori oltre il tempo e la distanza, ma che ogni melodia ha la sua ombra."
    },
    "kind": {
-    "es": "Banda sonora de la novela",
-    "ru": "Саундтрек к роману",
-    "en": "The novel's soundtrack",
-    "it": "La colonna sonora del romanzo"
+    "es": "Música instrumental de la novela",
+    "ru": "Инструментальная музыка к роману",
+    "en": "Instrumental music from the novel",
+    "it": "Musica strumentale del romanzo"
    },
    "discs": [
     {
@@ -1772,7 +1772,7 @@ window.PORTAL={
      ],
      "pending": 0,
      "mood": "ALFMLAMMA",
-     "voice": "iSSiiiiSS"
+     "voice": "iiiiiiiii"
     }
    ]
   }
