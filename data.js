@@ -1647,10 +1647,10 @@ window.PORTAL={
     "it": "Laura arriva in un villaggio tranquillo per nascondersi per un po’ dal suo passato, ma una stella cadente cambia tutto. Dal bosco esce Luciano, uno sconosciuto legato all’Atlantide scomparsa e a una forza antica che proprio Laura risveglia."
    },
    "kind": {
-    "es": "Canciones de la primera parte",
-    "ru": "Песни первой части",
-    "en": "Songs from the first part",
-    "it": "Canzoni della prima parte"
+    "es": "Música de la primera parte",
+    "ru": "Музыка первой части",
+    "en": "Music from the first part",
+    "it": "Musica della prima parte"
    },
    "discs": [
     {
@@ -1680,7 +1680,7 @@ window.PORTAL={
      ],
      "pending": 0,
      "mood": "MAA",
-     "voice": "SSS"
+     "voice": "iii"
     }
    ]
   },
