@@ -1657,6 +1657,78 @@ window.PORTAL={
      "voice": "SSS"
     }
    ]
+  },
+  {
+   "id": "severnaya",
+   "repo": "severnaya-lyubov",
+   "title": "Северная любовь",
+   "lang": "ru",
+   "author": "Роберт Фадер",
+   "accent": "#7ccfa8",
+   "place": {
+    "es": "Una ciudad y una isla del norte",
+    "ru": "Город и северный остров",
+    "en": "A city and a northern island",
+    "it": "Una città e un'isola del nord"
+   },
+   "tr": {
+    "es": "Amor del norte",
+    "en": "Northern Love",
+    "it": "Amore del nord"
+   },
+   "blurb": {
+    "es": "Una noche, Román, violinista, oye en sueños una melodía fría, hermosa y triste que vuelve una y otra vez y lo llama hacia el norte. Lejos de él vive Sofía, cuya vida está unida a esa misma música. Cuando sus caminos se crucen, descubrirán que una melodía puede unir dos corazones más allá del tiempo y la distancia, pero que cada melodía tiene su sombra.",
+    "ru": "Однажды ночью скрипач Роман слышит во сне мелодию — холодную, прекрасную и печальную. Она возвращается снова и снова и зовёт его на север. Далеко от него живёт София, чья жизнь тоже связана с этой музыкой. Когда их пути пересекутся, они узнают, что мелодия может соединить сердца сильнее времени и расстояния. Но у каждой мелодии есть тень.",
+    "en": "One night Roman, a violinist, hears a melody in his dreams, cold, beautiful and sad, that keeps returning and calling him north. Far away lives Sofia, whose life is bound to the same music. When their paths cross, they will learn that a melody can join two hearts beyond time and distance, but that every melody casts a shadow.",
+    "it": "Una notte Roman, violinista, sente in sogno una melodia fredda, bellissima e triste che torna di continuo e lo chiama verso nord. Lontano da lui vive Sofia, la cui vita è legata alla stessa musica. Quando le loro strade si incroceranno, scopriranno che una melodia può unire due cuori oltre il tempo e la distanza, ma che ogni melodia ha la sua ombra."
+   },
+   "kind": {
+    "es": "Banda sonora de la novela",
+    "ru": "Саундтрек к роману",
+    "en": "The novel's soundtrack",
+    "it": "La colonna sonora del romanzo"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "Северная любовь",
+      "ru": "Северная любовь",
+      "en": "Северная любовь",
+      "it": "Северная любовь"
+     },
+     "cover": "img/mundos/severnaya-lyubov.jpg",
+     "tracks": [
+      {
+       "t": "Северная любовь",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/01.mp3",
+       "d": "3:16"
+      },
+      {
+       "t": "La mujer que espera",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/02.mp3",
+       "d": "4:20"
+      },
+      {
+       "t": "Ледяной путь",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/03.mp3",
+       "d": "3:12"
+      },
+      {
+       "t": "Северный остров",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/04.mp3",
+       "d": "2:34"
+      },
+      {
+       "t": "Статуя плачет",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/05.mp3",
+       "d": "2:29"
+      }
+     ],
+     "pending": 0,
+     "mood": "ALFML",
+     "voice": "iSSii"
+    }
+   ]
   }
  ],
  "mixes": [
