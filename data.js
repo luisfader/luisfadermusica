@@ -1722,11 +1722,31 @@ window.PORTAL={
        "t": "Статуя плачет",
        "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/05.mp3",
        "d": "2:29"
+      },
+      {
+       "t": "Под луной",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/06.mp3",
+       "d": "3:20"
+      },
+      {
+       "t": "Ледяные объятия",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/07.mp3",
+       "d": "2:15"
+      },
+      {
+       "t": "Мелодия-призрак",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/08.mp3",
+       "d": "3:29"
+      },
+      {
+       "t": "Твой Зов",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/09.mp3",
+       "d": "3:01"
       }
      ],
      "pending": 0,
-     "mood": "ALFML",
-     "voice": "iSSii"
+     "mood": "ALFMLAMMA",
+     "voice": "iSSiiiiSS"
     }
    ]
   }
