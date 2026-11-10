@@ -18,7 +18,7 @@ Cada pista se reproduce desde el sitio de su novela, aunque el visitante nunca s
 | La Corazonada (con Proyecto R y Antitango) | castellano | [corazonada](https://luisfader.github.io/corazonada/) |
 | Сияющий горизонт | ruso | [horizonte](https://luisfader.github.io/horizonte/) |
 | Волны любви. Крепость в полумраке | ruso | [volny](https://luisfader.github.io/volny/) |
-| Волны любви III. Город без улыбок | ruso | [litmir](https://luisfader.github.io/litmir/) (`novels/volny-lyubvi-gorod-bez-ulybok/music/`) |
+| Волны любви. Город без улыбок | ruso | [litmir](https://luisfader.github.io/litmir/) (`novels/volny-lyubvi-gorod-bez-ulybok/music/`) |
 | Предчувствие (todas las temporadas) | ruso | [predchuvstvie](https://luisfader.github.io/predchuvstvie/); «Ты — моя крепость» vive en este portal (`audio/predchuvstvie/`) |
 | Onde d'amore | italiano | [ondedamore](https://luisfader.github.io/ondedamore/) |
 | Ondas de amor | castellano | en este mismo portal (`audio/ondasdeamor/`) |
