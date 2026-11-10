@@ -673,6 +673,12 @@ window.PORTAL={
        "s": "Легенда о старой крепости"
       },
       {
+       "t": "Крепость в полумраке",
+       "src": "https://luisfader.github.io/volny/audio/03-krepost-v-polumrake.mp3",
+       "d": "2:57",
+       "s": "Просьба Натальи"
+      },
+      {
        "t": "Таинственный полумрак",
        "src": "https://luisfader.github.io/volny/audio/04-tainstvennyj-polumrak.mp3",
        "d": "2:58",
@@ -787,8 +793,8 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "EMMAAMMAFMLLLLLLAEA",
-     "voice": "iiiiSSiSiSSSSSiSiSS"
+     "mood": "EMMMAAMMAFMLLLLLLAEA",
+     "voice": "iiiiiSSiSiSSSSSiSiSS"
     },
     {
      "name": {
