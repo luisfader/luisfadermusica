@@ -795,6 +795,26 @@ window.PORTAL={
      "pending": 0,
      "mood": "EMMMAAMMAFMLLLLLLAEA",
      "voice": "iiiiiSSiSiSSSSSiSiSS"
+    },
+    {
+     "name": {
+      "es": "Волны любви III. Город без улыбок",
+      "ru": "Волны любви III. Город без улыбок",
+      "en": "Волны любви III. Город без улыбок",
+      "it": "Волны любви III. Город без улыбок"
+     },
+     "cover": "img/mundos/volny-gorod-bez-ulybok.jpg",
+     "tracks": [
+      {
+       "t": "Три ноты",
+       "src": "https://luisfader.github.io/litmir/novels/volny-lyubvi-gorod-bez-ulybok/music/01-tri-noty.mp3",
+       "d": "3:47",
+       "ly": 1
+      }
+     ],
+     "pending": 0,
+     "mood": "L",
+     "voice": "S"
     }
    ],
    "tr": {
