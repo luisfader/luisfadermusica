@@ -822,11 +822,17 @@ window.PORTAL={
        "src": "audio/volny-gorod-bez-ulybok/03-gorod-bez-ulybok.mp3",
        "d": "2:31",
        "ly": 1
+      },
+      {
+       "t": "Русалка в обелиске",
+       "src": "audio/volny-gorod-bez-ulybok/04-rusalka-v-obeliske.mp3",
+       "d": "3:29",
+       "ly": 1
       }
      ],
      "pending": 0,
-     "mood": "LEE",
-     "voice": "SSS"
+     "mood": "LEEM",
+     "voice": "SSSS"
     }
    ],
    "tr": {
