@@ -17,7 +17,7 @@ Cada pista se reproduce desde el sitio de su novela, aunque el visitante nunca s
 | El misterio de los Fader | castellano | [misteriofader](https://luisfader.github.io/misteriofader/) |
 | La Corazonada (con Proyecto R y Antitango) | castellano | [corazonada](https://luisfader.github.io/corazonada/) |
 | Сияющий горизонт | ruso | [horizonte](https://luisfader.github.io/horizonte/) |
-| Волны любви (trilogía): 1. Волны любви | ruso | [volny](https://luisfader.github.io/volny/) («Волны любви», «Судьба», «Дождь», «Глубина любви») |
+| Волны любви (trilogía): 1. Волны любви | ruso | [volny](https://luisfader.github.io/volny/) («Глубина любви», «Дождь», «Волны любви», «Судьба») |
 | Волны любви: 2. Крепость в полумраке | ruso | [volny](https://luisfader.github.io/volny/) |
 | Волны любви: 3. Город без улыбок | ruso | [litmir](https://luisfader.github.io/litmir/) (`novels/volny-lyubvi-gorod-bez-ulybok/music/`); «Город без улыбок» y «Русалка в обелиске» viven en este portal (`audio/volny-gorod-bez-ulybok/`) |
 | Предчувствие (todas las temporadas) | ruso | [predchuvstvie](https://luisfader.github.io/predchuvstvie/); «Ты — моя крепость» vive en este portal (`audio/predchuvstvie/`) |
