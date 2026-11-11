@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&family=Alegreya+Sans:wght@400;500;700&display=swap&subset=cyrillic" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261111">
+<link rel="stylesheet" href="style.css?v=20261111b">
 </head>
 <body>
 <a class="skip" href="#bandas" data-i18n="skip">Ir a las bandas sonoras</a>
@@ -104,6 +104,11 @@
   <div class="ly-body" id="ly-body" tabindex="0"></div>
 </aside>
 
+<dialog class="cover-view" id="cover-view">
+  <img id="cv-img" alt="">
+  <button type="button" class="ly-close cv-close" id="cv-close" data-i18n-aria="coverClose" aria-label="Cerrar la imagen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</dialog>
+
 <aside class="queue" id="queue" hidden aria-labelledby="q-title">
   <div class="ly-head">
     <div class="ly-who">
@@ -116,7 +121,7 @@
 </aside>
 
 <div class="player" id="player" hidden>
-  <img class="p-cover" id="p-cover" alt="">
+  <img class="p-cover" id="p-cover" alt="" role="button" tabindex="0">
   <div class="p-meta">
     <button type="button" class="p-title" id="p-title" aria-expanded="false" aria-controls="queue"></button>
     <p class="p-sub" id="p-sub"></p>
@@ -137,7 +142,7 @@
   <audio id="audio" preload="none"></audio>
 </div>
 
-<script src="data.js?v=20261111"></script>
-<script src="app.js?v=20261111"></script>
+<script src="data.js?v=20261111b"></script>
+<script src="app.js?v=20261111b"></script>
 </body>
 </html>

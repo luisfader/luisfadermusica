@@ -36,7 +36,7 @@
       soundtracksH:"Las bandas sonoras",
       soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
       footName:"Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.",
-      lyrics:"Letra", lyricsClose:"Cerrar la letra", queueOpen:"Ver la lista completa", queueClose:"Cerrar la lista", lyOrig:"Original", lyTr:"Traducción", lyInst:"Esta pista es instrumental.", lyNone:"La letra de esta canción todavía no está cargada.", lyLoading:"Cargando la letra…", lyError:"No se pudo cargar la letra. Probá de nuevo en un rato.",
+      lyrics:"Letra", lyricsClose:"Cerrar la letra", queueOpen:"Ver la lista completa", queueClose:"Cerrar la lista", coverOpen:"Ver la portada", coverClose:"Cerrar la imagen", lyOrig:"Original", lyTr:"Traducción", lyInst:"Esta pista es instrumental.", lyNone:"La letra de esta canción todavía no está cargada.", lyLoading:"Cargando la letra…", lyError:"No se pudo cargar la letra. Probá de nuevo en un rato.",
       prev:"Pista anterior", next:"Pista siguiente", pause:"Pausar", play:"Reproducir", seek:"Posición en la pista",
       error:"Esta pista no se pudo cargar. Probá con otra o volvé a intentar en un rato.",
       cover:t=>"Portada de "+t,
@@ -55,7 +55,7 @@
       soundtracksH:"Саундтреки",
       soundtracksP:"Все песни каждого романа — в том порядке, в каком они звучат в книге. Нажмите на трек, чтобы слушать.",
       footName:"Луис Фадер. В русских книгах — Роберт Фадер, в итальянских — Роберто Фадер.",
-      lyrics:"Текст", queueOpen:"Показать весь список", queueClose:"Закрыть список", lyricsClose:"Закрыть текст", lyOrig:"Оригинал", lyTr:"Перевод", lyInst:"Это инструментальный трек.", lyNone:"Текст этой песни ещё не добавлен.", lyLoading:"Загружаем текст…", lyError:"Не удалось загрузить текст. Попробуйте чуть позже.",
+      lyrics:"Текст", queueOpen:"Показать весь список", queueClose:"Закрыть список", coverOpen:"Открыть обложку", coverClose:"Закрыть изображение", lyricsClose:"Закрыть текст", lyOrig:"Оригинал", lyTr:"Перевод", lyInst:"Это инструментальный трек.", lyNone:"Текст этой песни ещё не добавлен.", lyLoading:"Загружаем текст…", lyError:"Не удалось загрузить текст. Попробуйте чуть позже.",
       prev:"Предыдущий трек", next:"Следующий трек", pause:"Пауза", play:"Воспроизвести", seek:"Позиция в треке",
       error:"Не удалось загрузить трек. Выберите другой или попробуйте позже.",
       cover:t=>"Обложка: "+t,
@@ -74,7 +74,7 @@
       soundtracksH:"The soundtracks",
       soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
       footName:"Luis Fader. Robert Fader in Russian, Roberto Fader in Italian.",
-      lyrics:"Lyrics", lyricsClose:"Close lyrics", queueOpen:"Show the full list", queueClose:"Close the list", lyOrig:"Original", lyTr:"Translation", lyInst:"This track is instrumental.", lyNone:"The lyrics for this song aren't here yet.", lyLoading:"Loading lyrics…", lyError:"Couldn't load the lyrics. Try again in a moment.",
+      lyrics:"Lyrics", lyricsClose:"Close lyrics", queueOpen:"Show the full list", queueClose:"Close the list", coverOpen:"View the cover", coverClose:"Close the image", lyOrig:"Original", lyTr:"Translation", lyInst:"This track is instrumental.", lyNone:"The lyrics for this song aren't here yet.", lyLoading:"Loading lyrics…", lyError:"Couldn't load the lyrics. Try again in a moment.",
       prev:"Previous track", next:"Next track", pause:"Pause", play:"Play", seek:"Position in track",
       error:"This track couldn't be loaded. Try another one, or try again later.",
       cover:t=>"Cover of "+t,
@@ -93,7 +93,7 @@
       soundtracksH:"Le colonne sonore",
       soundtracksP:"Tutte le canzoni di ogni romanzo, nell'ordine in cui risuonano nel libro. Tocca un brano per ascoltarlo.",
       footName:"Luis Fader. Robert Fader in russo, Roberto Fader in italiano.",
-      lyrics:"Testo", lyricsClose:"Chiudi il testo", queueOpen:"Mostra l'elenco completo", queueClose:"Chiudi l'elenco", lyOrig:"Originale", lyTr:"Traduzione", lyInst:"Questo brano è strumentale.", lyNone:"Il testo di questa canzone non è ancora disponibile.", lyLoading:"Caricamento del testo…", lyError:"Non è stato possibile caricare il testo. Riprova tra poco.",
+      lyrics:"Testo", lyricsClose:"Chiudi il testo", queueOpen:"Mostra l'elenco completo", queueClose:"Chiudi l'elenco", coverOpen:"Vedi la copertina", coverClose:"Chiudi l'immagine", lyOrig:"Originale", lyTr:"Traduzione", lyInst:"Questo brano è strumentale.", lyNone:"Il testo di questa canzone non è ancora disponibile.", lyLoading:"Caricamento del testo…", lyError:"Non è stato possibile caricare il testo. Riprova tra poco.",
       prev:"Brano precedente", next:"Brano successivo", pause:"Pausa", play:"Riproduci", seek:"Posizione nel brano",
       error:"Non è stato possibile caricare questo brano. Provane un altro o riprova più tardi.",
       cover:t=>"Copertina di "+t,
@@ -799,6 +799,26 @@
 
 
 
+  /* ---------- Portada en grande ----------
+     Tocar la portada (en el reproductor o en la ficha de la novela) la abre
+     a pantalla completa; se cierra con la cruz, tocando afuera o con Escape. */
+  const cv = $("#cover-view"), cvImg = $("#cv-img");
+  function coverOpen(src, alt){
+    cvImg.src = src; cvImg.alt = alt || "";
+    if(typeof cv.showModal === "function") cv.showModal(); else cv.setAttribute("open","");
+  }
+  function coverClose(){ if(typeof cv.close === "function") cv.close(); else cv.removeAttribute("open"); }
+  $("#cv-close").addEventListener("click", coverClose);
+  cv.addEventListener("click", e => { if(e.target === cv) coverClose(); });
+  const pCover = $("#p-cover");
+  const pCoverOpen = () => { if(current.d) coverOpen(current.d.cover, T.cover(tx(current.d.name))); };
+  pCover.addEventListener("click", pCoverOpen);
+  pCover.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); pCoverOpen(); } });
+  document.addEventListener("click", e => {
+    const img = e.target.closest(".world-cover"); if(!img) return;
+    coverOpen(img.currentSrc || img.src, img.alt);
+  });
+
   /* ---------- Lista de lo que suena ----------
      Tocar el nombre de la canción en el reproductor abre la lista entera
      (el disco o la mezcla que está sonando) para elegir cualquier pista. */
@@ -806,7 +826,7 @@
   let qOpen = false;
   const narrow = () => window.matchMedia("(max-width:820px)").matches;
   function qRender(){
-    qBtn.title = T.queueOpen;
+    qBtn.title = T.queueOpen; $("#p-cover").title = T.coverOpen; $("#p-cover").setAttribute("aria-label", T.coverOpen);
     if(!qOpen || !current.q) return;
     const d = current.d, m = mixOfKey(current.qk), multi = !!m || current.qk === "azar" || current.qk === "top";
     $("#q-title").textContent = m ? tx(m.name) : current.qk === "azar" ? T.shuffleAll : current.qk === "top" ? T.topH : tx(d.name);
