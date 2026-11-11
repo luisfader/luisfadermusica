@@ -633,30 +633,65 @@ window.PORTAL={
    "author": "Роберт Фадер",
    "accent": "#c99ae0",
    "place": {
-    "es": "Verdegrado",
-    "ru": "Вердеград",
-    "en": "Verdegrad",
-    "it": "Verdegrado"
+    "es": "Sinea y Verdegrado",
+    "ru": "Синея и Вердеград",
+    "en": "Sinea and Verdegrad",
+    "it": "Sinea e Verdegrado"
    },
    "blurb": {
-    "es": "Luis viaja por primera vez a casa de Natalia, en la vieja y tranquila Verdegrado. Calles verdes, la leyenda de una fortaleza antigua y una música que acompaña cada capítulo.",
-    "ru": "Луис впервые едет к Наталье домой, в тихий старинный Вердеград. Прогулки по зелёным улицам, легенда о древней крепости и музыка, которая звучит в каждой главе.",
-    "en": "Luis travels to Natalia's home for the first time, in quiet old Verdegrad. Green streets, the legend of an ancient fortress and music that accompanies every chapter.",
-    "it": "Luis va per la prima volta a casa di Natalia, nella vecchia e tranquilla Verdegrado. Strade verdi, la leggenda di un'antica fortezza e una musica che accompagna ogni capitolo."
+    "es": "Tres novelas y su música. En «Волны любви», todo empieza con un encuentro en un café de Sinea, y de un simple dibujo sale un zorro que vuelve el mundo un poco mágico. En «Крепость в полумраке», Luis viaja por primera vez a casa de Natalia, en la vieja Verdegrado, donde una fortaleza antigua despierta entre sombras. En «Город без улыбок», Natalia vuelve a Sinea y encuentra un pueblo donde está prohibido sonreír.",
+    "ru": "Три романа и их музыка. В «Волнах любви» всё начинается со встречи в маленьком кафе Синеи, а из простого рисунка появляется лис, и мир становится чуть волшебнее. В «Крепости в полумраке» Луис впервые едет к Наталье домой, в старинный Вердеград, где в тенях просыпается древняя крепость. В «Городе без улыбок» Наталья возвращается в Синею и находит город, в котором запрещено улыбаться.",
+    "en": "Three novels and their music. In «Волны любви» it all begins with a meeting in a small café in Sinea, and a fox steps out of a simple drawing and makes the world a little magical. In «Крепость в полумраке» Luis travels to Natalia's home for the first time, in old Verdegrad, where an ancient fortress wakes among the shadows. In «Город без улыбок» Natalia returns to Sinea and finds a town where smiling is forbidden.",
+    "it": "Tre romanzi e la loro musica. In «Волны любви» tutto comincia con un incontro in un piccolo caffè di Sinea, e da un semplice disegno esce una volpe che rende il mondo un po' magico. In «Крепость в полумраке» Luis va per la prima volta a casa di Natalia, nella vecchia Verdegrado, dove un'antica fortezza si risveglia tra le ombre. In «Город без улыбок» Natalia torna a Sinea e trova una città dove è vietato sorridere."
    },
    "kind": {
-    "es": "Música y canciones, con la escena de cada pista",
-    "ru": "Музыка и песни со сценой к каждому треку",
-    "en": "Music and songs, with the scene behind each track",
-    "it": "Musica e canzoni, con la scena di ogni brano"
+    "es": "Música y canciones de las tres novelas",
+    "ru": "Музыка и песни всех трёх романов",
+    "en": "Music and songs from all three novels",
+    "it": "Musica e canzoni dei tre romanzi"
    },
    "discs": [
     {
      "name": {
-      "es": "Волны любви. Крепость в полумраке",
-      "ru": "Волны любви. Крепость в полумраке",
-      "en": "Волны любви. Крепость в полумраке",
-      "it": "Волны любви. Крепость в полумраке"
+      "es": "Волны любви",
+      "ru": "Волны любви",
+      "en": "Волны любви",
+      "it": "Волны любви"
+     },
+     "cover": "img/mundos/volny-lyubvi.jpg",
+     "tracks": [
+      {
+       "t": "Волны любви",
+       "src": "https://luisfader.github.io/volny/audio/05-volny-lyubvi.mp3",
+       "d": "2:34"
+      },
+      {
+       "t": "Судьба",
+       "src": "https://luisfader.github.io/volny/audio/06-sudba.mp3",
+       "d": "3:03",
+       "ly": 1
+      },
+      {
+       "t": "Дождь",
+       "src": "https://luisfader.github.io/volny/audio/13-dozhd.mp3",
+       "d": "2:56"
+      },
+      {
+       "t": "Глубина любви",
+       "src": "https://luisfader.github.io/volny/audio/15-glubina-lyubvi.mp3",
+       "d": "3:05"
+      }
+     ],
+     "pending": 0,
+     "mood": "AMLA",
+     "voice": "iSii"
+    },
+    {
+     "name": {
+      "es": "Крепость в полумраке",
+      "ru": "Крепость в полумраке",
+      "en": "Крепость в полумраке",
+      "it": "Крепость в полумраке"
      },
      "cover": "img/mundos/volny.jpg",
      "tracks": [
@@ -686,22 +721,9 @@ window.PORTAL={
       },
       {
        "t": "Волны любви",
-       "src": "https://luisfader.github.io/volny/audio/05-volny-lyubvi.mp3",
-       "d": "2:34",
-       "s": "Мелодия, которая идёт волнами"
-      },
-      {
-       "t": "Волны любви",
        "src": "https://luisfader.github.io/volny/audio/19-volny-lyubvi-pesnya.mp3",
        "d": "3:35",
        "s": "Волны над площадью",
-       "ly": 1
-      },
-      {
-       "t": "Судьба",
-       "src": "https://luisfader.github.io/volny/audio/06-sudba.mp3",
-       "d": "3:03",
-       "s": "Волны любви",
        "ly": 1
       },
       {
@@ -759,23 +781,11 @@ window.PORTAL={
        "ly": 1
       },
       {
-       "t": "Дождь",
-       "src": "https://luisfader.github.io/volny/audio/13-dozhd.mp3",
-       "d": "2:56",
-       "s": "Вопросы на площади"
-      },
-      {
        "t": "Тайный дождь",
        "src": "https://luisfader.github.io/volny/audio/14-tajnyj-dozhd.mp3",
        "d": "2:43",
        "s": "Песня из окна под дождём",
        "ly": 1
-      },
-      {
-       "t": "Глубина любви",
-       "src": "https://luisfader.github.io/volny/audio/15-glubina-lyubvi.mp3",
-       "d": "3:05",
-       "s": "Два года спустя"
       },
       {
        "t": "Волны остались",
@@ -793,15 +803,15 @@ window.PORTAL={
       }
      ],
      "pending": 0,
-     "mood": "EMMMAAMMAFMLLLLLLAEA",
-     "voice": "iiiiiSSiSiSSSSSiSiSS"
+     "mood": "EMMMAMAFMLLLLLEA",
+     "voice": "iiiiSiSiSSSSSSSS"
     },
     {
      "name": {
-      "es": "Волны любви. Город без улыбок",
-      "ru": "Волны любви. Город без улыбок",
-      "en": "Волны любви. Город без улыбок",
-      "it": "Волны любви. Город без улыбок"
+      "es": "Город без улыбок",
+      "ru": "Город без улыбок",
+      "en": "Город без улыбок",
+      "it": "Город без улыбок"
      },
      "cover": "img/mundos/volny-gorod-bez-ulybok.jpg",
      "tracks": [
@@ -836,10 +846,10 @@ window.PORTAL={
     }
    ],
    "tr": {
-    "es": "Olas de amor: la fortaleza en penumbra",
-    "ru": "Крепость в полумраке",
-    "en": "Waves of Love: The Fortress in Twilight",
-    "it": "Onde d'amore: la fortezza nella penombra"
+    "es": "Olas de amor · la trilogía",
+    "ru": "Трилогия",
+    "en": "Waves of Love · the trilogy",
+    "it": "Onde d'amore · la trilogia"
    }
   },
   {
