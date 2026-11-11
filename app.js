@@ -36,7 +36,7 @@
       soundtracksH:"Las bandas sonoras",
       soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
       footName:"Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.",
-      lyrics:"Letra", lyricsClose:"Cerrar la letra", lyOrig:"Original", lyTr:"Traducción", lyInst:"Esta pista es instrumental.", lyNone:"La letra de esta canción todavía no está cargada.", lyLoading:"Cargando la letra…", lyError:"No se pudo cargar la letra. Probá de nuevo en un rato.",
+      lyrics:"Letra", lyricsClose:"Cerrar la letra", queueOpen:"Ver la lista completa", queueClose:"Cerrar la lista", lyOrig:"Original", lyTr:"Traducción", lyInst:"Esta pista es instrumental.", lyNone:"La letra de esta canción todavía no está cargada.", lyLoading:"Cargando la letra…", lyError:"No se pudo cargar la letra. Probá de nuevo en un rato.",
       prev:"Pista anterior", next:"Pista siguiente", pause:"Pausar", play:"Reproducir", seek:"Posición en la pista",
       error:"Esta pista no se pudo cargar. Probá con otra o volvé a intentar en un rato.",
       cover:t=>"Portada de "+t,
@@ -55,7 +55,7 @@
       soundtracksH:"Саундтреки",
       soundtracksP:"Все песни каждого романа — в том порядке, в каком они звучат в книге. Нажмите на трек, чтобы слушать.",
       footName:"Луис Фадер. В русских книгах — Роберт Фадер, в итальянских — Роберто Фадер.",
-      lyrics:"Текст", lyricsClose:"Закрыть текст", lyOrig:"Оригинал", lyTr:"Перевод", lyInst:"Это инструментальный трек.", lyNone:"Текст этой песни ещё не добавлен.", lyLoading:"Загружаем текст…", lyError:"Не удалось загрузить текст. Попробуйте чуть позже.",
+      lyrics:"Текст", queueOpen:"Показать весь список", queueClose:"Закрыть список", lyricsClose:"Закрыть текст", lyOrig:"Оригинал", lyTr:"Перевод", lyInst:"Это инструментальный трек.", lyNone:"Текст этой песни ещё не добавлен.", lyLoading:"Загружаем текст…", lyError:"Не удалось загрузить текст. Попробуйте чуть позже.",
       prev:"Предыдущий трек", next:"Следующий трек", pause:"Пауза", play:"Воспроизвести", seek:"Позиция в треке",
       error:"Не удалось загрузить трек. Выберите другой или попробуйте позже.",
       cover:t=>"Обложка: "+t,
@@ -74,7 +74,7 @@
       soundtracksH:"The soundtracks",
       soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
       footName:"Luis Fader. Robert Fader in Russian, Roberto Fader in Italian.",
-      lyrics:"Lyrics", lyricsClose:"Close lyrics", lyOrig:"Original", lyTr:"Translation", lyInst:"This track is instrumental.", lyNone:"The lyrics for this song aren't here yet.", lyLoading:"Loading lyrics…", lyError:"Couldn't load the lyrics. Try again in a moment.",
+      lyrics:"Lyrics", lyricsClose:"Close lyrics", queueOpen:"Show the full list", queueClose:"Close the list", lyOrig:"Original", lyTr:"Translation", lyInst:"This track is instrumental.", lyNone:"The lyrics for this song aren't here yet.", lyLoading:"Loading lyrics…", lyError:"Couldn't load the lyrics. Try again in a moment.",
       prev:"Previous track", next:"Next track", pause:"Pause", play:"Play", seek:"Position in track",
       error:"This track couldn't be loaded. Try another one, or try again later.",
       cover:t=>"Cover of "+t,
@@ -93,7 +93,7 @@
       soundtracksH:"Le colonne sonore",
       soundtracksP:"Tutte le canzoni di ogni romanzo, nell'ordine in cui risuonano nel libro. Tocca un brano per ascoltarlo.",
       footName:"Luis Fader. Robert Fader in russo, Roberto Fader in italiano.",
-      lyrics:"Testo", lyricsClose:"Chiudi il testo", lyOrig:"Originale", lyTr:"Traduzione", lyInst:"Questo brano è strumentale.", lyNone:"Il testo di questa canzone non è ancora disponibile.", lyLoading:"Caricamento del testo…", lyError:"Non è stato possibile caricare il testo. Riprova tra poco.",
+      lyrics:"Testo", lyricsClose:"Chiudi il testo", queueOpen:"Mostra l'elenco completo", queueClose:"Chiudi l'elenco", lyOrig:"Originale", lyTr:"Traduzione", lyInst:"Questo brano è strumentale.", lyNone:"Il testo di questa canzone non è ancora disponibile.", lyLoading:"Caricamento del testo…", lyError:"Non è stato possibile caricare il testo. Riprova tra poco.",
       prev:"Brano precedente", next:"Brano successivo", pause:"Pausa", play:"Riproduci", seek:"Posizione nel brano",
       error:"Non è stato possibile caricare questo brano. Provane un altro o riprova più tardi.",
       cover:t=>"Copertina di "+t,
@@ -463,6 +463,7 @@
     $("#p-dur").textContent = tr.d || "0:00";
     markCurrent();
     lyLoad();
+    qRender();
     if("mediaSession" in navigator){
       try{
         navigator.mediaSession.metadata = new MediaMetadata({title:tr.t, artist:"Luis Fader", album:(mixOfKey(current.qk) ? tx(mixOfKey(current.qk).name) : tx(d.name)),
@@ -798,6 +799,44 @@
 
 
 
+  /* ---------- Lista de lo que suena ----------
+     Tocar el nombre de la canción en el reproductor abre la lista entera
+     (el disco o la mezcla que está sonando) para elegir cualquier pista. */
+  const qPanel = $("#queue"), qBody = $("#q-body"), qBtn = $("#p-title");
+  let qOpen = false;
+  const narrow = () => window.matchMedia("(max-width:820px)").matches;
+  function qRender(){
+    qBtn.title = T.queueOpen;
+    if(!qOpen || !current.q) return;
+    const d = current.d, m = mixOfKey(current.qk), multi = !!m || current.qk === "azar" || current.qk === "top";
+    $("#q-title").textContent = m ? tx(m.name) : current.qk === "azar" ? T.shuffleAll : current.qk === "top" ? T.topH : tx(d.name);
+    $("#q-sub").textContent = multi ? "" : d.world.title;
+    qPanel.style.setProperty("--pa", d.accent);
+    qBody.innerHTML = current.q.map((it,k) => { const t = it.d.tracks[it.t], w = it.d.world;
+      return '<li><button type="button" class="q-item" data-k="'+k+'"'+(k===current.i?' aria-current="true"':'')+'>'+
+        '<span class="n">'+(k===current.i ? '♪' : k+1)+'</span>'+
+        '<span class="tt"><span lang="'+esc(w.lang)+'">'+esc(t.t)+'</span>'+(multi ? '<small class="from" style="--w:'+w.accent+'" lang="'+esc(w.lang)+'">'+esc(w.title)+'</small>' : (t.o||t.s ? '<small>'+esc(t.o||t.s)+'</small>' : ''))+'</span>'+
+        '<span class="du">'+esc(t.d||"")+'</span></button></li>'; }).join("");
+    const on = qBody.querySelector('[aria-current]'); if(on) on.scrollIntoView({block:"nearest"});
+  }
+  function qToggle(open){
+    if(open && lyOpen && narrow()) lyToggle(false);
+    qOpen = open;
+    qPanel.hidden = !open;
+    qBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    if(open){ qRender(); const on = qBody.querySelector('[aria-current]'); (on || $("#q-close")).focus({preventScroll:true}); }
+    else qBtn.focus({preventScroll:true});
+  }
+  qBtn.addEventListener("click", () => qToggle(!qOpen));
+  $("#q-close").addEventListener("click", () => qToggle(false));
+  document.addEventListener("keydown", e => { if(e.key === "Escape" && qOpen) qToggle(false); });
+  qBody.addEventListener("click", e => {
+    const b = e.target.closest(".q-item"); if(!b) return;
+    const k = +b.dataset.k;
+    if(k === current.i){ toggle(); return; }
+    current.i = k; play();
+  });
+
   /* ---------- Letra ----------
      Panel con la letra de lo que suena. Cada letra se carga recién al abrirla
      (letras/<novela>/<archivo>.txt). Se desplaza sola al ritmo de la canción,
@@ -841,6 +880,7 @@
     lyRender(lyCache[path], lyView === "tr" ? L : d.world.lang);
   }
   function lyToggle(open){
+    if(open && qOpen && narrow()) qToggle(false);
     lyOpen = open;
     lyPanel.hidden = !open;
     lyBtn.setAttribute("aria-expanded", open ? "true" : "false");
@@ -899,7 +939,7 @@
       if(b.getAttribute("role") === "radio") b.setAttribute("aria-label", w.title + (w.tr && w.tr[L] ? " ("+w.tr[L]+")" : ""));
     });
     if(cur >= 0) tune(cur, false);
-    renderWorlds(); renderMixes(); renderVF(); renderTop(); playerText(); specLabel(); lyLoad();
+    renderWorlds(); renderMixes(); renderVF(); renderTop(); playerText(); specLabel(); lyLoad(); qRender();
     if(audioFailed) $("#p-error").textContent = T.error;
     if(save){
       try{ localStorage.setItem("fader-lang", L); }catch(e){}
