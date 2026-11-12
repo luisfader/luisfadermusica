@@ -1433,7 +1433,8 @@ window.PORTAL={
        "t": "Tra le Acque e il Silenzio",
        "src": "https://luisfader.github.io/mascheradivenezia/audio/03-tra-le-acque-e-il-silenzio.mp3",
        "d": "3:23",
-       "s": "La gondola sul Canal Grande"
+       "s": "La gondola sul Canal Grande",
+       "ly": 1
       },
       {
        "t": "Balla con me",
@@ -1451,7 +1452,8 @@ window.PORTAL={
        "t": "Baci fantasma",
        "src": "https://luisfader.github.io/mascheradivenezia/audio/06-baci-fantasma.mp3",
        "d": "3:35",
-       "s": "Il bacio sotto il Volo dell'Angelo"
+       "s": "Il bacio sotto il Volo dell'Angelo",
+       "ly": 1
       },
       {
        "t": "Amore lunare",
