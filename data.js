@@ -842,11 +842,17 @@ window.PORTAL={
        "src": "audio/volny-gorod-bez-ulybok/04-rusalka-v-obeliske.mp3",
        "d": "3:29",
        "ly": 1
+      },
+      {
+       "t": "Доброе утро, Синея",
+       "src": "audio/volny-gorod-bez-ulybok/05-dobroe-utro-sineya.mp3",
+       "d": "3:21",
+       "ly": 1
       }
      ],
      "pending": 0,
-     "mood": "LEEM",
-     "voice": "SSSS"
+     "mood": "LEEME",
+     "voice": "SSSSS"
     }
    ],
    "tr": {
