@@ -19,7 +19,7 @@ Cada pista se reproduce desde el sitio de su novela, aunque el visitante nunca s
 | Сияющий горизонт | ruso | [horizonte](https://luisfader.github.io/horizonte/) |
 | Волны любви (trilogía): 1. Волны любви | ruso | [volny](https://luisfader.github.io/volny/) («Глубина любви», «Дождь», «Волны любви», «Судьба») |
 | Волны любви: 2. Крепость в полумраке | ruso | [volny](https://luisfader.github.io/volny/) |
-| Волны любви: 3. Город без улыбок | ruso | [litmir](https://luisfader.github.io/litmir/) (`novels/volny-lyubvi-gorod-bez-ulybok/music/`); «Город без улыбок», «Русалка в обелиске» y «Доброе утро, Синея» viven en este portal (`audio/volny-gorod-bez-ulybok/`) |
+| Волны любви: 3. Город без улыбок | ruso | [litmir](https://luisfader.github.io/litmir/) (`novels/volny-lyubvi-gorod-bez-ulybok/music/`); «Город без улыбок», «Русалка в обелиске», «Доброе утро, Синея» y «Улыбаюсь без страха» viven en este portal (`audio/volny-gorod-bez-ulybok/`) |
 | Предчувствие (todas las temporadas) | ruso | [predchuvstvie](https://luisfader.github.io/predchuvstvie/); «Ты — моя крепость» y las dos versiones de «Страсти» viven en este portal (`audio/predchuvstvie/`) |
 | Onde d'amore | italiano | [ondedamore](https://luisfader.github.io/ondedamore/) |
 | Ondas de amor | castellano | en este mismo portal (`audio/ondasdeamor/`) |

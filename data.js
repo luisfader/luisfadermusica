@@ -848,11 +848,17 @@ window.PORTAL={
        "src": "audio/volny-gorod-bez-ulybok/05-dobroe-utro-sineya.mp3",
        "d": "3:21",
        "ly": 1
+      },
+      {
+       "t": "Улыбаюсь без страха",
+       "src": "audio/volny-gorod-bez-ulybok/06-ulybayus-bez-strakha.mp3",
+       "d": "2:47",
+       "ly": 1
       }
      ],
      "pending": 0,
-     "mood": "LEEME",
-     "voice": "SSSSS"
+     "mood": "LEEMEE",
+     "voice": "SSSSSS"
     }
    ],
    "tr": {
