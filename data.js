@@ -1460,7 +1460,8 @@ window.PORTAL={
        "t": "Amore lunare",
        "src": "https://luisfader.github.io/mascheradivenezia/audio/07-amore-lunare.mp3",
        "d": "2:42",
-       "s": "La casa sotto il canale"
+       "s": "La casa sotto il canale",
+       "ly": 1
       },
       {
        "t": "Cuore puro",
