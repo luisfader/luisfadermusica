@@ -981,11 +981,21 @@ window.PORTAL={
        "src": "https://luisfader.github.io/predchuvstvie/audio/11-empezar-de-nuevo.mp3",
        "d": "3:54",
        "s": "Последний Совет"
+      },
+      {
+       "t": "Страсти",
+       "src": "audio/predchuvstvie/strasti.mp3",
+       "d": "2:53"
+      },
+      {
+       "t": "Страсти (Versión de combate)",
+       "src": "audio/predchuvstvie/strasti-version-de-combate.mp3",
+       "d": "2:18"
       }
      ],
      "pending": 0,
-     "mood": "AMMEAMFAAAFFE",
-     "voice": "SiiiiiiSiiiii"
+     "mood": "AMMEAMFAAAFFEAF",
+     "voice": "SiiiiiiSiiiiiii"
     }
    ],
    "tr": {
@@ -1807,7 +1817,59 @@ window.PORTAL={
      "voice": "iiiiiiiii"
     }
    ]
-  }
+  },
+ {
+  "id": "rezonans",
+  "repo": "rezonans-lyubvi",
+  "title": "Резонанс любви",
+  "lang": "ru",
+  "author": "Роберт Фадер",
+  "accent": "#e88fb0",
+  "place": {
+   "es": "San Petersburgo",
+   "ru": "Санкт-Петербург",
+   "en": "Saint Petersburg",
+   "it": "San Pietroburgo"
+  },
+  "tr": {
+   "es": "Resonancia de amor",
+   "en": "Love Resonance",
+   "it": "Risonanza d'amore"
+  },
+  "blurb": {
+   "es": "Una magia extraña cubre San Petersburgo: los monumentos cobran vida, las esfinges pasean por la avenida Nevski y los atlantes cobran peaje para llegar a la plaza del Palacio. Un grupo de agentes de asuntos celestiales llega para eliminar la anomalía, pero un encuentro casual con una moscovita de vacaciones lo cambia todo, y la resonancia entre los dos puede salvar la ciudad.",
+   "ru": "Странная магия окутывает Санкт-Петербург: памятники оживают, сфинксы гуляют по Невскому, а атланты берут плату за проход к Дворцовой площади. В город прибывают агенты по небесным делам, чтобы устранить аномалию, но случайная встреча с москвичкой, приехавшей отдохнуть на несколько дней, переворачивает всё. И странный резонанс между двумя людьми может спасти Петербург.",
+   "en": "A strange magic settles over Saint Petersburg: monuments come alive, sphinxes stroll down Nevsky Prospect and the Atlantes charge a toll to reach Palace Square. A team of agents for celestial affairs arrives to remove the anomaly, but a chance meeting with a Muscovite on a short holiday turns everything upside down, and the resonance between the two of them may save the city.",
+   "it": "Una strana magia avvolge San Pietroburgo: i monumenti prendono vita, le sfingi passeggiano sulla Prospettiva Nevskij e gli atlanti fanno pagare il pedaggio per arrivare alla piazza del Palazzo. Un gruppo di agenti per gli affari celesti arriva per eliminare l'anomalia, ma un incontro casuale con una moscovita in vacanza per pochi giorni cambia tutto, e la risonanza tra i due può salvare la città."
+  },
+  "kind": {
+   "es": "Música de la novela",
+   "ru": "Музыка к роману",
+   "en": "Music from the novel",
+   "it": "Musica del romanzo"
+  },
+  "discs": [
+   {
+    "name": {
+     "es": "Резонанс любви",
+     "ru": "Резонанс любви",
+     "en": "Резонанс любви",
+     "it": "Резонанс любви"
+    },
+    "cover": "img/mundos/rezonans-lyubvi.jpg",
+    "tracks": [
+     {
+      "t": "Резонанс любви",
+      "src": "audio/rezonans/rezonans-lyubvi.mp3",
+      "d": "2:57"
+     }
+    ],
+    "pending": 0,
+    "mood": "A",
+    "voice": "i"
+   }
+  ]
+ }
  ],
  "mixes": [
   {
