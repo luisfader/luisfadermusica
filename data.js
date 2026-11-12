@@ -1421,7 +1421,8 @@ window.PORTAL={
        "t": "Maschera di Venezia",
        "src": "https://luisfader.github.io/mascheradivenezia/audio/01-maschera-di-venezia.mp3",
        "d": "3:28",
-       "s": "Una fuga nelle calli"
+       "s": "Una fuga nelle calli",
+       "ly": 1
       },
       {
        "t": "La donna nelle ombre",
