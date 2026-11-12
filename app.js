@@ -165,6 +165,7 @@
   D.mixes.forEach(m => { mixItems["m:"+m.id] = allItems().filter(it => it.d.mood[it.t] === m.code); });
   /* La lista que suena, ya filtrada; las mezclas se intercalan después de filtrar */
   let topQ = [];
+  const MOBILE = window.matchMedia("(pointer: coarse)").matches || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   function getQueue(key){
     if(key === "top") return topQ.slice();
     if(mixItems[key]) return interleave(mixItems[key].filter(keep), false);
@@ -426,6 +427,7 @@
   /* ---------- Reproductor ---------- */
   const audio = $("#audio"), player = $("#player"), seek = $("#p-seek");
   const current = {d:null, t:-1, qk:null, q:null, i:-1};
+  let retried = false;
   const ICON_PAUSE = '<path d="M8 5v14M16 5v14"/>', ICON_PLAY = '<path d="M7 4.5 19 12 7 19.5z"/>';
 
   function markCurrent(){
@@ -447,13 +449,18 @@
     play();
     if(typeof renderMixes === "function") renderMixes();
   }
-  function play(){
+  function play(auto = true, startAt = 0){
     const it = current.q[current.i], d = it.d, t = it.t;
     current.d = d; current.t = t;
     const tr = d.tracks[t];
     $("#p-error").textContent = "";
+    retried = false;
     audio.src = tr.src;
-    audio.play().catch(() => {});
+    if(startAt > 0){
+      audio.addEventListener("loadedmetadata", () => { try{ audio.currentTime = startAt; }catch(e){} }, {once:true});
+      $("#p-cur").textContent = clock(startAt);
+    }
+    if(auto) audio.play().catch(() => {});
     player.hidden = false;
     document.body.style.setProperty("--player-h", player.offsetHeight + "px");
     player.style.setProperty("--pa", d.accent);
@@ -564,6 +571,15 @@
   let audioFailed = false;
   audio.addEventListener("error", () => {
     if(!current.d) return;
+    /* un corte de red (frecuente con la pantalla bloqueada): se reintenta una vez desde donde iba */
+    if(!retried && audio.error && audio.error.code !== 4){
+      retried = true;
+      const at = audio.currentTime || 0;
+      audio.load();
+      if(at > 0) audio.addEventListener("loadedmetadata", () => { try{ audio.currentTime = at; }catch(e){} }, {once:true});
+      audio.play().catch(() => {});
+      return;
+    }
     audioFailed = true;
     $("#p-error").textContent = T.error;
     document.body.style.setProperty("--player-h", player.offsetHeight + "px");
@@ -573,6 +589,61 @@
   seek.addEventListener("input", () => { seeking = true; if(audio.duration) $("#p-cur").textContent = clock(seek.value/1000*audio.duration); });
   seek.addEventListener("change", () => { if(audio.duration) audio.currentTime = seek.value/1000*audio.duration; seeking = false; });
   window.addEventListener("resize", () => { if(!player.hidden) document.body.style.setProperty("--player-h", player.offsetHeight + "px"); });
+
+  /* ---------- Segundo plano ----------
+     Controles completos en la pantalla bloqueada y en los auriculares, y memoria de lo que
+     sonaba: si el celular cierra la página para liberar memoria, al volver el reproductor
+     queda listo en la misma canción y el mismo segundo. */
+  const MS = "mediaSession" in navigator ? navigator.mediaSession : null;
+  if(MS){
+    const h = (a, f) => { try{ MS.setActionHandler(a, f); }catch(e){} };
+    h("play", () => { if(current.d) audio.play().catch(()=>{}); });
+    h("pause", () => audio.pause());
+    h("stop", () => audio.pause());
+    h("previoustrack", () => prev());
+    h("nexttrack", () => next());
+    h("seekto", e => { if(e.seekTime != null && isFinite(e.seekTime)) audio.currentTime = e.seekTime; posState(); });
+    h("seekbackward", e => { audio.currentTime = Math.max(0, audio.currentTime - (e.seekOffset || 10)); posState(); });
+    h("seekforward", e => { audio.currentTime = Math.min(audio.duration || 1e9, audio.currentTime + (e.seekOffset || 10)); posState(); });
+  }
+  function posState(){
+    if(!MS || !MS.setPositionState || !isFinite(audio.duration) || !audio.duration) return;
+    try{ MS.setPositionState({duration: audio.duration, playbackRate: audio.playbackRate || 1, position: Math.min(audio.currentTime, audio.duration)}); }catch(e){}
+  }
+  const SAVE = "fader-sonando";
+  let lastSave = 0;
+  function saveState(){
+    if(!current.d) return;
+    try{ localStorage.setItem(SAVE, JSON.stringify({qk: current.qk, src: current.d.tracks[current.t].src, time: audio.currentTime || 0, at: Date.now()})); }catch(e){}
+  }
+  audio.addEventListener("play", () => { if(MS) MS.playbackState = "playing"; posState(); });
+  audio.addEventListener("pause", () => { if(MS) MS.playbackState = "paused"; posState(); saveState(); });
+  ["loadedmetadata","seeked","ratechange"].forEach(ev => audio.addEventListener(ev, posState));
+  audio.addEventListener("timeupdate", () => {
+    const now = Date.now();
+    if(now - lastSave > 5000){ lastSave = now; saveState(); posState(); }
+  });
+  window.addEventListener("pagehide", saveState);
+  document.addEventListener("visibilitychange", () => { if(document.hidden) saveState(); });
+  function restoreState(){
+    let s = null;
+    try{ s = JSON.parse(localStorage.getItem(SAVE) || "null"); }catch(e){}
+    if(!s || !s.src || Date.now() - s.at > 12*3600*1000) return;
+    let key = s.qk, q = key && key !== "azar" && key !== "top" ? getQueue(key) : [];
+    let i = q.findIndex(it => it.d.tracks[it.t].src === s.src);
+    if(i < 0){
+      for(let k = 0; k < discs.length; k++){
+        const t = discs[k].tracks.findIndex(tr => tr.src === s.src);
+        if(t < 0) continue;
+        key = "d"+k; q = getQueue(key); i = q.findIndex(it => it.d === discs[k] && it.t === t);
+        if(i < 0){ q = discs[k].tracks.map((_, n) => ({d: discs[k], t: n})); i = t; }
+        break;
+      }
+    }
+    if(i < 0) return;
+    current.qk = key; current.q = q; current.i = i;
+    play(false, s.time > 3 ? s.time : 0);
+  }
 
 
   /* ---------- Espectro (Web Audio) ----------
@@ -593,9 +664,12 @@
     let same = false;
     try{ same = new URL(audio.src, location.href).origin === location.origin; }catch(e){}
     const AC = window.AudioContext || window.webkitAudioContext;
-    if(!same || !AC) return false;
+    /* En el celular el audio no pasa por Web Audio: con la pantalla bloqueada o en segundo plano
+       el sistema congela el AudioContext y la música que pasa por él se corta. */
+    if(!same || !AC || MOBILE) return false;
     try{
       actx = new AC();
+      actx.addEventListener("statechange", () => { if(actx.state !== "running" && !audio.paused) actx.resume().catch(()=>{}); });
       const src = actx.createMediaElementSource(audio);
       analyser = actx.createAnalyser();
       analyser.fftSize = 1024; analyser.smoothingTimeConstant = .72;
@@ -976,5 +1050,6 @@
   cur = -1;
   tune(fromHash >= 0 ? fromHash : 0, false);
   applyLang(L, false);
+  restoreState();
   loadTop();
 })();
