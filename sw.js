@@ -3,7 +3,7 @@
    datos, portadas y letras), así arranca rápido y no depende de la red para mostrarse.
    La música NO pasa por acá: los mp3 los pide el navegador directamente, con sus pedidos
    por partes (Range), que es lo que permite adelantar y seguir sonando en segundo plano. */
-const VERSION = "fader-app-2026-11-13";
+const VERSION = "fader-app-2026-11-13b";
 const SHELL = ["./", "index.html", "style.css", "app.js", "data.js", "manifest.webmanifest",
   "img/app/icon-192.png", "img/app/icon-512.png", "img/app/apple-touch-icon.png"];
 

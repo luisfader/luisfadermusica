@@ -138,11 +138,11 @@
   /* ---------- Listas de reproducción ----------
      Cada disco es una lista; cada mezcla junta pistas de varias novelas.
      En las mezclas nunca suenan dos seguidas de la misma novela. */
-  /* Qué escuchar: "all" (todo), "song" (solo canciones con voz) o "inst" (solo instrumental) */
-  let VF = "all";
-  try{ const v = localStorage.getItem("fader-voice"); if(["all","song","inst"].includes(v)) VF = v; }catch(e){}
+  /* Siempre se escucha todo lo que tiene cada disco, canciones e instrumentales juntos
+     (el filtro «canciones / instrumental» confundía: parecía que faltaba música). */
+  try{ localStorage.removeItem("fader-voice"); }catch(e){}
   const isSong = it => it.d.voice[it.t] === "S";
-  const keep = it => VF === "all" || (VF === "song") === isSong(it);
+  const keep = () => true;
   const queues = {};
   discs.forEach((d,k) => queues["d"+k] = d.tracks.map((_,t) => ({d, t})));
   function interleave(items, random){
@@ -355,7 +355,7 @@
       '<span class="n">'+(k+1)+'</span>'+
       '<span class="tt" lang="'+esc(d.world.lang)+'">'+esc(t.t)+(t.o||t.s ? '<small>'+esc(t.o || t.s)+'</small>' : '')+tag(it)+'</span>'+
       dur(it, t)+'</button></li>'; }).join("") + '</ol>' +
-      (d.pending && VF !== "inst" ? '<p class="pending">'+esc(T.pending(d.pending))+'</p>' : '');
+      (d.pending ? '<p class="pending">'+esc(T.pending(d.pending))+'</p>' : '');
   };
   const discBlock = (d, open) => {
     const q = getQueue("d"+discs.indexOf(d)), tracks = q.map(it => d.tracks[it.t]);
@@ -996,28 +996,6 @@
     lyBody.scrollTop += (target - lyBody.scrollTop) * (reduceMotion ? 1 : 0.25);
   });
 
-  /* ---------- Qué escuchar: todo, canciones o instrumental ---------- */
-  function renderVF(){
-    document.querySelectorAll(".vf").forEach(g => {
-      g.setAttribute("aria-label", T.vfLabel);
-      g.innerHTML = [["all",T.vfAll],["song",T.vfSong],["inst",T.vfInst]].map(([v,lab]) =>
-        '<button type="button" data-vf="'+v+'" aria-pressed="'+(v===VF)+'">'+esc(lab)+'</button>').join("");
-    });
-  }
-  document.addEventListener("click", e => {
-    const b = e.target.closest(".vf button"); if(!b || b.dataset.vf === VF) return;
-    VF = b.dataset.vf;
-    try{ localStorage.setItem("fader-voice", VF); }catch(e){}
-    renderWorlds(); renderMixes(); renderVF(); heroState();
-    /* La lista que está sonando se rearma con el nuevo filtro; la canción actual termina normal */
-    if(current.qk){
-      const q = current.qk === "azar" ? current.q.filter(keep) : getQueue(current.qk);
-      const i = q.findIndex(it => it.d === current.d && it.t === current.t);
-      current.q = q; current.i = i >= 0 ? i : -1;
-      markCurrent();
-    }
-  });
-
   /* ---------- Aplicar idioma ---------- */
   function applyLang(l, save){
     L = l; T = S[L];
@@ -1033,7 +1011,7 @@
       if(b.getAttribute("role") === "radio") b.setAttribute("aria-label", w.title + (w.tr && w.tr[L] ? " ("+w.tr[L]+")" : ""));
     });
     if(cur >= 0) tune(cur, false);
-    renderWorlds(); renderMixes(); renderVF(); renderTop(); playerText(); specLabel(); lyLoad(); qRender();
+    renderWorlds(); renderMixes(); renderTop(); playerText(); specLabel(); lyLoad(); qRender();
     if(audioFailed) $("#p-error").textContent = T.error;
     if(save){
       try{ localStorage.setItem("fader-lang", L); }catch(e){}
