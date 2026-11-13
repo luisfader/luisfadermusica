@@ -36,7 +36,7 @@
       soundtracksH:"Las bandas sonoras",
       soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
       footName:"Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.",
-      lyrics:"Letra", lyricsClose:"Cerrar la letra", queueOpen:"Ver la lista completa", queueClose:"Cerrar la lista", coverOpen:"Ver la portada", coverClose:"Cerrar la imagen", lyOrig:"Original", lyTr:"Traducción", lyInst:"Esta pista es instrumental.", lyNone:"La letra de esta canción todavía no está cargada.", lyLoading:"Cargando la letra…", lyError:"No se pudo cargar la letra. Probá de nuevo en un rato.",
+      lyrics:"Letra", lyricsClose:"Cerrar la letra", queueOpen:"Ver la lista completa", queueClose:"Cerrar la lista", coverOpen:"Ver la portada", coverClose:"Cerrar la imagen", install:"Instalar la app", installTitle:"Instalar la aplicación", installIOS:"En el iPhone: tocá el botón Compartir de Safari (el cuadrado con la flecha) y elegí «Agregar a inicio». La app queda en tu pantalla con su ícono.", installOk:"Entendido", lyOrig:"Original", lyTr:"Traducción", lyInst:"Esta pista es instrumental.", lyNone:"La letra de esta canción todavía no está cargada.", lyLoading:"Cargando la letra…", lyError:"No se pudo cargar la letra. Probá de nuevo en un rato.",
       prev:"Pista anterior", next:"Pista siguiente", pause:"Pausar", play:"Reproducir", seek:"Posición en la pista",
       error:"Esta pista no se pudo cargar. Probá con otra o volvé a intentar en un rato.",
       cover:t=>"Portada de "+t,
@@ -55,7 +55,7 @@
       soundtracksH:"Саундтреки",
       soundtracksP:"Все песни каждого романа — в том порядке, в каком они звучат в книге. Нажмите на трек, чтобы слушать.",
       footName:"Луис Фадер. В русских книгах — Роберт Фадер, в итальянских — Роберто Фадер.",
-      lyrics:"Текст", queueOpen:"Показать весь список", queueClose:"Закрыть список", coverOpen:"Открыть обложку", coverClose:"Закрыть изображение", lyricsClose:"Закрыть текст", lyOrig:"Оригинал", lyTr:"Перевод", lyInst:"Это инструментальный трек.", lyNone:"Текст этой песни ещё не добавлен.", lyLoading:"Загружаем текст…", lyError:"Не удалось загрузить текст. Попробуйте чуть позже.",
+      lyrics:"Текст", queueOpen:"Показать весь список", queueClose:"Закрыть список", coverOpen:"Открыть обложку", coverClose:"Закрыть изображение", install:"Установить приложение", installTitle:"Установить приложение", installIOS:"На iPhone: нажмите в Safari кнопку «Поделиться» (квадрат со стрелкой) и выберите «На экран «Домой»». Приложение появится на экране со своим значком.", installOk:"Понятно", lyricsClose:"Закрыть текст", lyOrig:"Оригинал", lyTr:"Перевод", lyInst:"Это инструментальный трек.", lyNone:"Текст этой песни ещё не добавлен.", lyLoading:"Загружаем текст…", lyError:"Не удалось загрузить текст. Попробуйте чуть позже.",
       prev:"Предыдущий трек", next:"Следующий трек", pause:"Пауза", play:"Воспроизвести", seek:"Позиция в треке",
       error:"Не удалось загрузить трек. Выберите другой или попробуйте позже.",
       cover:t=>"Обложка: "+t,
@@ -74,7 +74,7 @@
       soundtracksH:"The soundtracks",
       soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
       footName:"Luis Fader. Robert Fader in Russian, Roberto Fader in Italian.",
-      lyrics:"Lyrics", lyricsClose:"Close lyrics", queueOpen:"Show the full list", queueClose:"Close the list", coverOpen:"View the cover", coverClose:"Close the image", lyOrig:"Original", lyTr:"Translation", lyInst:"This track is instrumental.", lyNone:"The lyrics for this song aren't here yet.", lyLoading:"Loading lyrics…", lyError:"Couldn't load the lyrics. Try again in a moment.",
+      lyrics:"Lyrics", lyricsClose:"Close lyrics", queueOpen:"Show the full list", queueClose:"Close the list", coverOpen:"View the cover", coverClose:"Close the image", install:"Install the app", installTitle:"Install the app", installIOS:"On iPhone: tap Safari's Share button (the square with the arrow) and choose «Add to Home Screen». The app will appear on your screen with its own icon.", installOk:"Got it", lyOrig:"Original", lyTr:"Translation", lyInst:"This track is instrumental.", lyNone:"The lyrics for this song aren't here yet.", lyLoading:"Loading lyrics…", lyError:"Couldn't load the lyrics. Try again in a moment.",
       prev:"Previous track", next:"Next track", pause:"Pause", play:"Play", seek:"Position in track",
       error:"This track couldn't be loaded. Try another one, or try again later.",
       cover:t=>"Cover of "+t,
@@ -93,7 +93,7 @@
       soundtracksH:"Le colonne sonore",
       soundtracksP:"Tutte le canzoni di ogni romanzo, nell'ordine in cui risuonano nel libro. Tocca un brano per ascoltarlo.",
       footName:"Luis Fader. Robert Fader in russo, Roberto Fader in italiano.",
-      lyrics:"Testo", lyricsClose:"Chiudi il testo", queueOpen:"Mostra l'elenco completo", queueClose:"Chiudi l'elenco", coverOpen:"Vedi la copertina", coverClose:"Chiudi l'immagine", lyOrig:"Originale", lyTr:"Traduzione", lyInst:"Questo brano è strumentale.", lyNone:"Il testo di questa canzone non è ancora disponibile.", lyLoading:"Caricamento del testo…", lyError:"Non è stato possibile caricare il testo. Riprova tra poco.",
+      lyrics:"Testo", lyricsClose:"Chiudi il testo", queueOpen:"Mostra l'elenco completo", queueClose:"Chiudi l'elenco", coverOpen:"Vedi la copertina", coverClose:"Chiudi l'immagine", install:"Installa l'app", installTitle:"Installa l'applicazione", installIOS:"Su iPhone: tocca il pulsante Condividi di Safari (il quadrato con la freccia) e scegli «Aggiungi alla schermata Home». L'app comparirà sullo schermo con la sua icona.", installOk:"Capito", lyOrig:"Originale", lyTr:"Traduzione", lyInst:"Questo brano è strumentale.", lyNone:"Il testo di questa canzone non è ancora disponibile.", lyLoading:"Caricamento del testo…", lyError:"Non è stato possibile caricare il testo. Riprova tra poco.",
       prev:"Brano precedente", next:"Brano successivo", pause:"Pausa", play:"Riproduci", seek:"Posizione nel brano",
       error:"Non è stato possibile caricare questo brano. Provane un altro o riprova più tardi.",
       cover:t=>"Copertina di "+t,
@@ -1051,5 +1051,22 @@
   tune(fromHash >= 0 ? fromHash : 0, false);
   applyLang(L, false);
   restoreState();
+
+  /* ---------- Aplicación instalable ----------
+     En Android/Chrome aparece «Instalar la app»; en el iPhone, el mismo botón explica
+     cómo agregarla a la pantalla de inicio. Una vez instalada, el botón no se muestra. */
+  if("serviceWorker" in navigator) window.addEventListener("load", () => { navigator.serviceWorker.register("sw.js").catch(() => {}); });
+  const installBtn = $("#install"), installHelp = $("#install-help");
+  const standalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  let installEvt = null;
+  window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEvt = e; if(!standalone) installBtn.hidden = false; });
+  window.addEventListener("appinstalled", () => { installBtn.hidden = true; installEvt = null; });
+  if(isIOS && !standalone) installBtn.hidden = false;
+  installBtn.addEventListener("click", async () => {
+    if(installEvt){ installEvt.prompt(); try{ await installEvt.userChoice; }catch(e){} installEvt = null; installBtn.hidden = true; return; }
+    if(typeof installHelp.showModal === "function") installHelp.showModal(); else installHelp.setAttribute("open","");
+  });
+  $("#install-ok").addEventListener("click", () => { if(typeof installHelp.close === "function") installHelp.close(); else installHelp.removeAttribute("open"); });
   loadTop();
 })();

@@ -276,3 +276,12 @@ button{font:inherit;color:inherit}
 .cover-view::backdrop{background:rgba(10,8,18,.88);backdrop-filter:blur(6px)}
 .cover-view img{max-width:min(92vw,900px);max-height:88vh;object-fit:contain;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 .cv-close{position:fixed;top:1rem;right:1rem;background:rgba(25,21,39,.8);color:var(--paper)}
+
+/* Botón para instalar la aplicación */
+.install{font:inherit;font-size:.85rem;font-weight:700;padding:.35rem .8rem;border-radius:999px;border:1px solid var(--accent);background:none;color:var(--paper);cursor:pointer;white-space:nowrap}
+.install:hover{background:var(--accent);color:#191527}
+.install[hidden]{display:none}
+.install-help .ih-box{max-width:min(26rem,90vw);padding:1.4rem 1.5rem;border-radius:12px;background:#221d33;color:var(--paper);font-family:var(--sans);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.install-help .ih-title{margin:0 0 .5rem;font-family:var(--serif);font-weight:700;font-size:1.2rem}
+.install-help .ih-ok{margin-top:1rem}
+@media (display-mode: standalone){ .install{display:none} }

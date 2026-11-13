@@ -52,3 +52,12 @@ La sección «Lo más escuchado ahora» muestra el top 10 de la semana y de siem
 2. En `app.js`, completar `RANKING` con la dirección del proyecto y la clave pública (*anon*): `const RANKING = { url: "https://….supabase.co", key: "…" };`.
 
 Una escucha cuenta después de 30 segundos sonando (o la mitad, si la pista es más corta), y el mismo navegador no vuelve a sumar la misma pista hasta 20 minutos después. Solo se guarda qué pista sonó y cuándo. Con `RANKING` vacío, la sección no aparece y no se cuenta nada.
+
+## Aplicación
+
+El portal se puede instalar en el teléfono como aplicación (PWA), sin tiendas:
+
+- **Android (Chrome):** botón «Instalar la app» arriba, o menú ⋮ → «Instalar aplicación».
+- **iPhone (Safari):** botón «Compartir» → «Agregar a inicio». El botón «Instalar la app» del portal muestra estas instrucciones.
+
+Archivos: `manifest.webmanifest` (nombre, colores e íconos en `img/app/`) y `sw.js` (service worker). El service worker guarda en el teléfono la página, los estilos, el código, `data.js`, portadas y letras, para que la app abra rápido y aunque falle la red; los **mp3 no pasan por él** (los pide el navegador directo, con pedidos por partes), para que la música se pueda adelantar y siga sonando en segundo plano. Al cambiar algo importante de la app conviene subir `VERSION` en `sw.js`.

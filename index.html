@@ -9,11 +9,17 @@
 <meta property="og:description" content="Sintonizá una novela y escuchá su música. Настройтесь на роман и слушайте его музыку. Tune in to a novel and hear its music.">
 <meta property="og:image" content="img/mundos/misteriofader-fondo.jpg">
 <meta name="theme-color" content="#191527">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="img/app/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Fader Música">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23191527'/%3E%3Cpath d='M6 22h20M9 22V12M13 22V8M17 22v-9M21 22V10' stroke='%23f1ebdf' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&family=Alegreya+Sans:wght@400;500;700&display=swap&subset=cyrillic" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261112">
+<link rel="stylesheet" href="style.css?v=20261113">
 </head>
 <body>
 <a class="skip" href="#bandas" data-i18n="skip">Ir a las bandas sonoras</a>
@@ -25,6 +31,7 @@
       <a href="#mezclas" data-i18n="navMixes">Mezclas</a>
       <a href="#bandas" data-i18n="navSoundtracks">Bandas sonoras</a>
     </nav>
+    <button type="button" class="install" id="install" hidden data-i18n="install">Instalar la app</button>
     <div class="langs" role="group" data-i18n-aria="langPick" aria-label="Idioma del sitio" id="langs">
       <button type="button" data-ui="es" lang="es" aria-pressed="true">Español</button>
       <button type="button" data-ui="ru" lang="ru" aria-pressed="false">Русский</button>
@@ -109,6 +116,14 @@
   <button type="button" class="ly-close cv-close" id="cv-close" data-i18n-aria="coverClose" aria-label="Cerrar la imagen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
 </dialog>
 
+<dialog class="cover-view install-help" id="install-help">
+  <div class="ih-box">
+    <p class="ih-title" data-i18n="installTitle">Instalar la aplicación</p>
+    <p data-i18n="installIOS">En el iPhone: tocá el botón Compartir de Safari y elegí «Agregar a inicio».</p>
+    <button type="button" class="btn ih-ok" id="install-ok" data-i18n="installOk">Entendido</button>
+  </div>
+</dialog>
+
 <aside class="queue" id="queue" hidden aria-labelledby="q-title">
   <div class="ly-head">
     <div class="ly-who">
@@ -142,7 +157,7 @@
   <audio id="audio" preload="none"></audio>
 </div>
 
-<script src="data.js?v=20261112"></script>
-<script src="app.js?v=20261112"></script>
+<script src="data.js?v=20261113"></script>
+<script src="app.js?v=20261113"></script>
 </body>
 </html>
