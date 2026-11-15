@@ -585,6 +585,37 @@
     document.body.style.setProperty("--player-h", player.offsetHeight + "px");
   });
   audio.addEventListener("loadstart", () => { audioFailed = false; });
+
+  /* ---------- Rescate de trabas ----------
+     Si la conexión queda colgada a mitad de canción, el navegador no da error: se queda
+     esperando para siempre. Acá se vigila que el tiempo avance; si está quieto más de 10 s
+     sin pausa, se abre una conexión nueva desde el mismo segundo. Hasta 4 intentos por pista;
+     si no hay caso, pasa a la siguiente. */
+  let lastMoveT = -1, lastMoveAt = Date.now(), rescues = 0, rescueSrc = "";
+  const markMove = () => { lastMoveAt = Date.now(); };
+  audio.addEventListener("timeupdate", () => {
+    if(audio.currentTime !== lastMoveT){ lastMoveT = audio.currentTime; markMove(); }
+  });
+  ["play","seeking","loadstart","pause"].forEach(ev => audio.addEventListener(ev, markMove));
+  function rescue(){
+    if(!current.d || audio.paused || audio.ended || audioFailed) return;
+    const src = current.d.tracks[current.t].src;
+    if(rescueSrc !== src){ rescueSrc = src; rescues = 0; }
+    if(rescues >= 4){ rescues = 0; next(); return; }
+    rescues++;
+    const at = audio.currentTime || 0;
+    markMove();
+    /* misma dirección con una marca distinta: obliga a abrir una conexión nueva */
+    audio.src = new URL(src, location.href).href.split("#")[0] + (src.includes("?") ? "&" : "?") + "r=" + Date.now();
+    if(at > 0) audio.addEventListener("loadedmetadata", () => { try{ audio.currentTime = at; }catch(e){} }, {once:true});
+    audio.play().catch(() => {});
+  }
+  setInterval(() => {
+    if(!current.d || audio.paused || audio.ended) return;
+    if(navigator.onLine === false) { markMove(); return; }
+    if(Date.now() - lastMoveAt > 10000) rescue();
+  }, 2000);
+  window.addEventListener("online", () => { if(current.d && !audio.paused && Date.now() - lastMoveAt > 3000) rescue(); });
   let seeking = false;
   seek.addEventListener("input", () => { seeking = true; if(audio.duration) $("#p-cur").textContent = clock(seek.value/1000*audio.duration); });
   seek.addEventListener("change", () => { if(audio.duration) audio.currentTime = seek.value/1000*audio.duration; seeking = false; });
