@@ -140,6 +140,18 @@ button{font:inherit;color:inherit}
 .disc summary::after{content:"";margin-left:auto;flex:none;width:.6rem;height:.6rem;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg) translateY(-2px);transition:transform .2s}
 .disc[open] summary::after{transform:rotate(225deg) translateY(-2px)}
 .disc ol{list-style:none;margin:0;padding:0 .5rem .5rem;border-top:1px solid var(--rule)}
+/* Guardar disco en el dispositivo */
+.d-save{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem .75rem;padding:.6rem 1rem;border-top:1px solid var(--rule);font-family:var(--sans);font-size:.88rem;color:var(--muted)}
+.d-save svg{width:1rem;height:1rem;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ds-btn{display:inline-flex;align-items:center;gap:.4rem;font:inherit;color:var(--muted);background:none;border:1px solid var(--rule);border-radius:999px;padding:.35rem .8rem;cursor:pointer}
+.ds-btn:hover{color:inherit;border-color:var(--muted)}
+.ds-btn.main{color:var(--w);border-color:color-mix(in srgb,var(--w) 45%,transparent)}
+.ds-txt{display:inline-flex;align-items:center;gap:.4rem}
+.ds-txt.ok{color:var(--w)}
+.ds-txt.err{color:#e59a8f}
+.ds-bar{flex:1 1 6rem;max-width:12rem;height:4px;border-radius:2px;background:var(--rule);overflow:hidden}
+.ds-bar i{display:block;height:100%;background:var(--w);transition:width .3s}
+.d-save + ol{border-top:0}
 .track{width:100%;display:grid;grid-template-columns:2.25rem minmax(0,1fr) auto;align-items:baseline;gap:.75rem;text-align:left;background:none;border:0;border-radius:6px;padding:.55rem .5rem;cursor:pointer}
 .track:hover{background:rgba(241,235,223,.06)}
 .track .n{font-family:var(--sans);font-size:.9rem;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}

@@ -38,6 +38,7 @@
       footName:"Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.",
       lyrics:"Letra", lyricsClose:"Cerrar la letra", queueOpen:"Ver la lista completa", queueClose:"Cerrar la lista", coverOpen:"Ver la portada", coverClose:"Cerrar la imagen", install:"Instalar la app", installTitle:"Instalar la aplicación", installIOS:"En el iPhone: tocá el botón Compartir de Safari (el cuadrado con la flecha) y elegí «Agregar a inicio». La app queda en tu pantalla con su ícono.", installOk:"Entendido", lyOrig:"Original", lyTr:"Traducción", lyInst:"Esta pista es instrumental.", lyNone:"La letra de esta canción todavía no está cargada.", lyLoading:"Cargando la letra…", lyError:"No se pudo cargar la letra. Probá de nuevo en un rato.",
       prev:"Pista anterior", next:"Pista siguiente", pause:"Pausar", play:"Reproducir", seek:"Posición en la pista",
+      saveDisc:"Guardar disco para escuchar sin internet", saving:(a,b)=>"Guardando… "+a+" de "+b, saved:"Disco guardado en este dispositivo", unsave:"Quitar", saveFail:"No se pudo guardar todo. Volvé a intentar con mejor conexión.", saveRetry:"Reintentar",
       error:"Esta pista no se pudo cargar. Probá con otra o volvé a intentar en un rato.",
       cover:t=>"Portada de "+t,
       tracks:n=>n+(n===1?" pista":" pistas"), min:"min",
@@ -57,6 +58,7 @@
       footName:"Луис Фадер. В русских книгах — Роберт Фадер, в итальянских — Роберто Фадер.",
       lyrics:"Текст", queueOpen:"Показать весь список", queueClose:"Закрыть список", coverOpen:"Открыть обложку", coverClose:"Закрыть изображение", install:"Установить приложение", installTitle:"Установить приложение", installIOS:"На iPhone: нажмите в Safari кнопку «Поделиться» (квадрат со стрелкой) и выберите «На экран «Домой»». Приложение появится на экране со своим значком.", installOk:"Понятно", lyricsClose:"Закрыть текст", lyOrig:"Оригинал", lyTr:"Перевод", lyInst:"Это инструментальный трек.", lyNone:"Текст этой песни ещё не добавлен.", lyLoading:"Загружаем текст…", lyError:"Не удалось загрузить текст. Попробуйте чуть позже.",
       prev:"Предыдущий трек", next:"Следующий трек", pause:"Пауза", play:"Воспроизвести", seek:"Позиция в треке",
+      saveDisc:"Сохранить альбом, чтобы слушать без интернета", saving:(a,b)=>"Сохраняем… "+a+" из "+b, saved:"Альбом сохранён на этом устройстве", unsave:"Удалить", saveFail:"Не удалось сохранить всё. Попробуйте ещё раз при хорошем соединении.", saveRetry:"Повторить",
       error:"Не удалось загрузить трек. Выберите другой или попробуйте позже.",
       cover:t=>"Обложка: "+t,
       tracks:n=>ruPlural(n,"трек","трека","треков"), min:"мин",
@@ -76,6 +78,7 @@
       footName:"Luis Fader. Robert Fader in Russian, Roberto Fader in Italian.",
       lyrics:"Lyrics", lyricsClose:"Close lyrics", queueOpen:"Show the full list", queueClose:"Close the list", coverOpen:"View the cover", coverClose:"Close the image", install:"Install the app", installTitle:"Install the app", installIOS:"On iPhone: tap Safari's Share button (the square with the arrow) and choose «Add to Home Screen». The app will appear on your screen with its own icon.", installOk:"Got it", lyOrig:"Original", lyTr:"Translation", lyInst:"This track is instrumental.", lyNone:"The lyrics for this song aren't here yet.", lyLoading:"Loading lyrics…", lyError:"Couldn't load the lyrics. Try again in a moment.",
       prev:"Previous track", next:"Next track", pause:"Pause", play:"Play", seek:"Position in track",
+      saveDisc:"Save album to listen offline", saving:(a,b)=>"Saving… "+a+" of "+b, saved:"Album saved on this device", unsave:"Remove", saveFail:"Couldn't save everything. Try again with a better connection.", saveRetry:"Try again",
       error:"This track couldn't be loaded. Try another one, or try again later.",
       cover:t=>"Cover of "+t,
       tracks:n=>n+(n===1?" track":" tracks"), min:"min",
@@ -95,6 +98,7 @@
       footName:"Luis Fader. Robert Fader in russo, Roberto Fader in italiano.",
       lyrics:"Testo", lyricsClose:"Chiudi il testo", queueOpen:"Mostra l'elenco completo", queueClose:"Chiudi l'elenco", coverOpen:"Vedi la copertina", coverClose:"Chiudi l'immagine", install:"Installa l'app", installTitle:"Installa l'applicazione", installIOS:"Su iPhone: tocca il pulsante Condividi di Safari (il quadrato con la freccia) e scegli «Aggiungi alla schermata Home». L'app comparirà sullo schermo con la sua icona.", installOk:"Capito", lyOrig:"Originale", lyTr:"Traduzione", lyInst:"Questo brano è strumentale.", lyNone:"Il testo di questa canzone non è ancora disponibile.", lyLoading:"Caricamento del testo…", lyError:"Non è stato possibile caricare il testo. Riprova tra poco.",
       prev:"Brano precedente", next:"Brano successivo", pause:"Pausa", play:"Riproduci", seek:"Posizione nel brano",
+      saveDisc:"Salva l'album per ascoltarlo senza internet", saving:(a,b)=>"Salvataggio… "+a+" di "+b, saved:"Album salvato su questo dispositivo", unsave:"Rimuovi", saveFail:"Non è stato possibile salvare tutto. Riprova con una connessione migliore.", saveRetry:"Riprova",
       error:"Non è stato possibile caricare questo brano. Provane un altro o riprova più tardi.",
       cover:t=>"Copertina di "+t,
       tracks:n=>n+(n===1?" brano":" brani"), min:"min",
@@ -347,6 +351,95 @@
   const tag = it => isSong(it)
       ? '<span class="tag song" title="'+esc(T.sung)+'">'+MIC+esc(T.tagSong)+'</span>'
       : '<span class="tag inst">'+NOTE+esc(T.tagInst)+'</span>';
+  /* ---------- Canciones guardadas en el dispositivo ----------
+     Caché «fader-audio» (la sirve sw.js cuando la página pide la canción con «?fc=1»). Dos usos:
+     - «Guardar disco»: baja el disco entero y queda guardado hasta que se lo quite.
+     - Automático: mientras suena una canción, se baja la siguiente de la lista, así el cambio
+       es instantáneo y no se traba. De esas se guardan como mucho AUTO_MAX (unos 200 MB) y se
+       van borrando las más viejas. */
+  const AC_NAME = "fader-audio", AUTO_MAX = 40;
+  const canCache = "caches" in window && "serviceWorker" in navigator;
+  const absU = src => { try{ const u = new URL(src, location.href); return u.origin + u.pathname; }catch(e){ return src; } };
+  const dkey = d => d.world.id + "/" + d.world.discs.indexOf(d);
+  let aMeta = {};
+  try{ aMeta = JSON.parse(localStorage.getItem("fader-audio-meta") || "{}") || {}; }catch(e){}
+  const aSave = () => { try{ localStorage.setItem("fader-audio-meta", JSON.stringify(aMeta)); }catch(e){} };
+  const isSaved = src => !!aMeta[absU(src)];
+  const srcFor = src => canCache && navigator.serviceWorker.controller && isSaved(src) ? absU(src) + "?fc=1" : src;
+  const touch = src => { const m = aMeta[absU(src)]; if(m){ m.t = Date.now(); aSave(); } };
+  const discSaved = d => d.tracks.length > 0 && d.tracks.every(t => { const m = aMeta[absU(t.src)]; return m && m.k && m.k.includes(dkey(d)); });
+  const inflight = new Map(), saving = new Map();
+  function cacheTrack(src){
+    const u = absU(src);
+    if(aMeta[u]) return Promise.resolve(true);
+    if(inflight.has(u)) return inflight.get(u);
+    const p = fetch(u).then(r => { if(r.status !== 200) throw new Error(r.status); return caches.open(AC_NAME).then(c => c.put(u, r)); })
+      .then(() => { aMeta[u] = aMeta[u] || {t: Date.now()}; aSave(); return true; })
+      .catch(() => false).finally(() => inflight.delete(u));
+    inflight.set(u, p); return p;
+  }
+  function prune(){
+    const playing = current.d ? absU(current.d.tracks[current.t].src) : "";
+    const auto = Object.entries(aMeta).filter(([u,m]) => !m.k && u !== playing).sort((a,b) => a[1].t - b[1].t);
+    const extra = auto.length - AUTO_MAX;
+    if(extra <= 0) return;
+    caches.open(AC_NAME).then(c => Promise.all(auto.slice(0, extra).map(([u]) => { delete aMeta[u]; return c.delete(u); })))
+      .then(aSave).catch(() => {});
+  }
+  const DL_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></svg>';
+  const OK_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  function saveRow(d){
+    if(!canCache || !d.tracks.length) return "";
+    const st = saving.get(dkey(d)), di = discs.indexOf(d);
+    let inner;
+    if(st && !st.fail) inner = '<span class="ds-txt">'+esc(T.saving(st.done, st.total))+'</span><span class="ds-bar" aria-hidden="true"><i style="width:'+Math.round(st.done/st.total*100)+'%"></i></span>';
+    else if(discSaved(d)) inner = '<span class="ds-txt ok">'+OK_SVG+esc(T.saved)+'</span><button type="button" class="ds-btn" data-unsave="'+di+'">'+esc(T.unsave)+'</button>';
+    else if(st && st.fail) inner = '<span class="ds-txt err">'+esc(T.saveFail)+'</span><button type="button" class="ds-btn" data-save="'+di+'">'+esc(T.saveRetry)+'</button>';
+    else inner = '<button type="button" class="ds-btn main" data-save="'+di+'">'+DL_SVG+esc(T.saveDisc)+'</button>';
+    return '<div class="d-save" data-dsave="'+di+'">'+inner+'</div>';
+  }
+  function saveRowsRefresh(){ document.querySelectorAll(".d-save").forEach(el => { el.outerHTML = saveRow(discs[+el.dataset.dsave]); }); }
+  async function saveDisc(d){
+    const dk = dkey(d);
+    if(saving.has(dk) && !saving.get(dk).fail) return;
+    try{ if(navigator.storage && navigator.storage.persist) navigator.storage.persist(); }catch(e){}
+    const st = {done: 0, total: d.tracks.length, fail: false};
+    saving.set(dk, st); saveRowsRefresh();
+    for(const t of d.tracks){
+      if(!await cacheTrack(t.src)){ st.fail = true; break; }
+      const m = aMeta[absU(t.src)]; m.k = [...new Set([...(m.k || []), dk])]; aSave();
+      st.done++; saveRowsRefresh();
+    }
+    if(!st.fail) saving.delete(dk);
+    saveRowsRefresh();
+  }
+  async function unsaveDisc(d){
+    const dk = dkey(d), playing = current.d ? absU(current.d.tracks[current.t].src) : "";
+    let c = null; try{ c = await caches.open(AC_NAME); }catch(e){}
+    for(const t of d.tracks){
+      const u = absU(t.src), m = aMeta[u];
+      if(!m || !m.k) continue;
+      m.k = m.k.filter(x => x !== dk);
+      if(m.k.length) continue;
+      delete m.k;
+      if(u !== playing){ delete aMeta[u]; if(c) await c.delete(u).catch(() => {}); }
+    }
+    aSave(); saveRowsRefresh();
+  }
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-save],[data-unsave]"); if(!b) return;
+    const d = discs[+(b.dataset.save || b.dataset.unsave)]; if(!d) return;
+    b.dataset.save !== undefined ? saveDisc(d) : unsaveDisc(d);
+  });
+  /* el sistema puede haber borrado lo guardado (pasa en el iPhone): se pone al día la lista */
+  if(canCache) caches.open(AC_NAME).then(c => c.keys()).then(ks => {
+    const have = new Set(ks.map(r => absU(r.url)));
+    let ch = false;
+    Object.keys(aMeta).forEach(u => { if(!have.has(u)){ delete aMeta[u]; ch = true; } });
+    have.forEach(u => { if(!aMeta[u]){ aMeta[u] = {t: Date.now()}; ch = true; } });
+    if(ch){ aSave(); saveRowsRefresh(); }
+  }).catch(() => {});
+
   const trackList = d => {
     const key = "d"+discs.indexOf(d), q = getQueue(key);
     if(!q.length) return '<p class="pending">'+esc(T.vfNone)+'</p>';
@@ -362,7 +455,7 @@
     const info = [T.tracks(tracks.length), minutes(tracks)].filter(Boolean).join(", ");
     const name = tx(d.name);
     return '<details class="disc" data-disc="'+discs.indexOf(d)+'"'+(open?' open':'')+'><summary><img src="'+esc(d.cover)+'" alt="" loading="lazy" width="48" height="48">'+
-      '<span><span class="d-name">'+esc(name)+'</span><span class="d-info">'+esc(info)+(d.note ? '. '+esc(tx(d.note)) : '')+'</span></span></summary>'+trackList(d)+'</details>';
+      '<span><span class="d-name">'+esc(name)+'</span><span class="d-info">'+esc(info)+(d.note ? '. '+esc(tx(d.note)) : '')+'</span></span></summary>'+saveRow(d)+trackList(d)+'</details>';
   };
 
   function renderWorlds(){
@@ -455,7 +548,8 @@
     const tr = d.tracks[t];
     $("#p-error").textContent = "";
     retried = false;
-    audio.src = tr.src;
+    audio.src = srcFor(tr.src);
+    touch(tr.src);
     if(startAt > 0){
       audio.addEventListener("loadedmetadata", () => { try{ audio.currentTime = startAt; }catch(e){} }, {once:true});
       $("#p-cur").textContent = clock(startAt);
@@ -606,7 +700,8 @@
     const at = audio.currentTime || 0;
     markMove();
     /* misma dirección con una marca distinta: obliga a abrir una conexión nueva */
-    audio.src = new URL(src, location.href).href.split("#")[0] + (src.includes("?") ? "&" : "?") + "r=" + Date.now();
+    const base = new URL(srcFor(src), location.href).href.split("#")[0];
+    audio.src = base + (base.includes("?") ? "&" : "?") + "r=" + Date.now();
     if(at > 0) audio.addEventListener("loadedmetadata", () => { try{ audio.currentTime = at; }catch(e){} }, {once:true});
     audio.play().catch(() => {});
   }
@@ -616,6 +711,25 @@
     if(Date.now() - lastMoveAt > 10000) rescue();
   }, 2000);
   window.addEventListener("online", () => { if(current.d && !audio.paused && Date.now() - lastMoveAt > 3000) rescue(); });
+
+  /* Bajar de antemano la siguiente de la lista cuando la que suena ya llegó entera (o ya suena
+     hace rato), para no quitarle velocidad. Con «ahorro de datos» activado no se hace. */
+  function fullyBuffered(){
+    const b = audio.buffered, d = audio.duration;
+    return isFinite(d) && d > 0 && b.length > 0 && b.start(0) <= 1 && b.end(b.length - 1) >= d - 1;
+  }
+  function maybePrefetch(){
+    if(!canCache || !current.d || !current.q || current.q.length < 2) return;
+    const c = navigator.connection; if(c && c.saveData) return;
+    const cur = current.d.tracks[current.t].src;
+    if(!(isSaved(cur) || fullyBuffered() || (audio.currentTime > 45 && audio.readyState >= 3))) return;
+    const it = current.q[(current.i + 1) % current.q.length], n = it.d.tracks[it.t].src;
+    if(!isSaved(n) && !inflight.has(absU(n))) cacheTrack(n).then(ok => { if(ok) prune(); });
+  }
+  audio.addEventListener("progress", maybePrefetch);
+  audio.addEventListener("playing", maybePrefetch);
+  setInterval(() => { if(current.d && !audio.paused) maybePrefetch(); }, 5000);
+
   let seeking = false;
   seek.addEventListener("input", () => { seeking = true; if(audio.duration) $("#p-cur").textContent = clock(seek.value/1000*audio.duration); });
   seek.addEventListener("change", () => { if(audio.duration) audio.currentTime = seek.value/1000*audio.duration; seeking = false; });
