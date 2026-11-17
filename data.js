@@ -1775,16 +1775,16 @@ window.PORTAL={
     "it": "Amore del nord"
    },
    "blurb": {
-    "es": "Una noche, Román, violinista, oye en sueños una melodía fría, hermosa y triste que vuelve una y otra vez y lo llama hacia el norte. Lejos de él vive Sofía, cuya vida está unida a esa misma música. Cuando sus caminos se crucen, descubrirán que una melodía puede unir dos corazones más allá del tiempo y la distancia, pero que cada melodía tiene su sombra.",
-    "ru": "Однажды ночью скрипач Роман слышит во сне мелодию — холодную, прекрасную и печальную. Она возвращается снова и снова и зовёт его на север. Далеко от него живёт София, чья жизнь тоже связана с этой музыкой. Когда их пути пересекутся, они узнают, что мелодия может соединить сердца сильнее времени и расстояния. Но у каждой мелодии есть тень.",
-    "en": "One night Roman, a violinist, hears a melody in his dreams, cold, beautiful and sad, that keeps returning and calling him north. Far away lives Sofia, whose life is bound to the same music. When their paths cross, they will learn that a melody can join two hearts beyond time and distance, but that every melody casts a shadow.",
-    "it": "Una notte Roman, violinista, sente in sogno una melodia fredda, bellissima e triste che torna di continuo e lo chiama verso nord. Lontano da lui vive Sofia, la cui vita è legata alla stessa musica. Quando le loro strade si incroceranno, scopriranno che una melodia può unire due cuori oltre il tempo e la distanza, ma che ogni melodia ha la sua ombra."
+    "es": "Una noche, Román, violinista, oye en sueños una melodía fría, hermosa y triste que vuelve una y otra vez y lo llama hacia el norte. Lejos de él vive Sofía, cuya vida está unida a esa misma música. Cuando sus caminos se crucen, descubrirán que una melodía puede unir dos corazones más allá del tiempo y la distancia, pero que cada melodía tiene su sombra. En «Плач с севера», dos años después, Román y Sofía viven en su palacio de hielo, hasta que una nueva melodía, simple y triste, los despierta a los dos de noche, y la aurora boreal empieza a moverse a su ritmo.",
+    "ru": "Однажды ночью скрипач Роман слышит во сне мелодию — холодную, прекрасную и печальную. Она возвращается снова и снова и зовёт его на север. Далеко от него живёт София, чья жизнь тоже связана с этой музыкой. Когда их пути пересекутся, они узнают, что мелодия может соединить сердца сильнее времени и расстояния. Но у каждой мелодии есть тень. В «Плаче с севера», два года спустя, Роман и София живут в своём ледяном дворце, пока однажды ночью их обоих не будит новая мелодия — простая и печальная, — а северное сияние не начинает двигаться в её ритме.",
+    "en": "One night Roman, a violinist, hears a melody in his dreams, cold, beautiful and sad, that keeps returning and calling him north. Far away lives Sofia, whose life is bound to the same music. When their paths cross, they will learn that a melody can join two hearts beyond time and distance, but that every melody casts a shadow. In «Плач с севера», two years later, Roman and Sofia live in their ice palace, until a new melody, simple and sad, wakes them both one night and the northern lights begin to move to its rhythm.",
+    "it": "Una notte Roman, violinista, sente in sogno una melodia fredda, bellissima e triste che torna di continuo e lo chiama verso nord. Lontano da lui vive Sofia, la cui vita è legata alla stessa musica. Quando le loro strade si incroceranno, scopriranno che una melodia può unire due cuori oltre il tempo e la distanza, ma che ogni melodia ha la sua ombra. In «Плач с севера», due anni dopo, Roman e Sofia vivono nel loro palazzo di ghiaccio, finché una nuova melodia, semplice e triste, li sveglia entrambi di notte e l'aurora boreale comincia a muoversi al suo ritmo."
    },
    "kind": {
-    "es": "Música instrumental de la novela",
-    "ru": "Инструментальная музыка к роману",
-    "en": "Instrumental music from the novel",
-    "it": "Musica strumentale del romanzo"
+    "es": "Música instrumental de las dos novelas",
+    "ru": "Инструментальная музыка к обоим романам",
+    "en": "Instrumental music from both novels",
+    "it": "Musica strumentale dei due romanzi"
    },
    "discs": [
     {
@@ -1845,6 +1845,25 @@ window.PORTAL={
      "pending": 0,
      "mood": "ALFMLAMMA",
      "voice": "iiiiiiiii"
+    },
+    {
+     "name": {
+      "es": "Плач с севера",
+      "ru": "Плач с севера",
+      "en": "Плач с севера",
+      "it": "Плач с севера"
+     },
+     "cover": "img/mundos/severnaya-lyubov-2.jpg",
+     "tracks": [
+      {
+       "t": "Плач с севера",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/01.mp3",
+       "d": "3:02"
+      }
+     ],
+     "pending": 0,
+     "mood": "L",
+     "voice": "i"
     }
    ]
   },
