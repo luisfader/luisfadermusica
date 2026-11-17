@@ -1899,6 +1899,64 @@ window.PORTAL={
      "voice": "i"
     }
    ]
+  },
+  {
+   "id": "retrato",
+   "repo": "la-chica-del-retrato",
+   "title": "La chica del retrato",
+   "lang": "es",
+   "author": "Luis Fader",
+   "accent": "#4ee07a",
+   "place": {
+    "es": "Sinea, llena de pantallas",
+    "ru": "Синея, полная экранов",
+    "en": "Sinea, full of screens",
+    "it": "Sinea, piena di schermi"
+   },
+   "tr": {
+    "ru": "Девушка с портрета",
+    "en": "The Girl in the Portrait",
+    "it": "La ragazza del ritratto"
+   },
+   "blurb": {
+    "es": "Tatiana tiene veinticinco años, trabaja en una tienda de deportes en Sinea y sube sus fotos a las redes. Una mañana la policía golpea su puerta: alguien atacó la página de un banco y dejó en la pantalla un retrato de ella. Los ataques se multiplican, la ciudad se queda a oscuras y una voz misteriosa dice estar enamorada de «la chica del retrato». Con la agente Laura Rivera, Tatiana tendrá que descubrir quién se esconde detrás, aunque la verdad esté más cerca de lo que imagina.",
+    "ru": "Татьяне двадцать пять, она работает в спортивном магазине в Синее и выкладывает свои фотографии в соцсети. Однажды утром к ней приходит полиция: кто-то взломал сайт банка и оставил на экране её портрет. Атаки следуют одна за другой, город погружается во тьму, а таинственный голос признаётся в любви «девушке с портрета». Вместе с агентом Лаурой Риверой Татьяне предстоит узнать, кто за этим стоит, даже если правда окажется ближе, чем она думает.",
+    "en": "Tatiana is twenty-five, works at a sports shop in Sinea and posts her photos online. One morning the police knock on her door: someone has hacked a bank's website and left a portrait of her on the screen. The attacks multiply, the city goes dark and a mysterious voice claims to be in love with «the girl in the portrait». With Agent Laura Rivera, Tatiana must find out who is hiding behind it all, even if the truth is closer than she imagines.",
+    "it": "Tatiana ha venticinque anni, lavora in un negozio di articoli sportivi a Sinea e pubblica le sue foto sui social. Una mattina la polizia bussa alla sua porta: qualcuno ha attaccato il sito di una banca e ha lasciato sullo schermo un suo ritratto. Gli attacchi si moltiplicano, la città resta al buio e una voce misteriosa dice di essere innamorata della «ragazza del ritratto». Con l'agente Laura Rivera, Tatiana dovrà scoprire chi si nasconde dietro, anche se la verità è più vicina di quanto immagini."
+   },
+   "kind": {
+    "es": "Canciones de la novela",
+    "ru": "Песни из романа",
+    "en": "Songs from the novel",
+    "it": "Canzoni del romanzo"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "La chica del retrato",
+      "ru": "La chica del retrato",
+      "en": "La chica del retrato",
+      "it": "La chica del retrato"
+     },
+     "cover": "img/mundos/la-chica-del-retrato.jpg",
+     "tracks": [
+      {
+       "t": "Canción del retrato",
+       "src": "https://luisfader.github.io/litmir/novels/la-chica-del-retrato/cancion-del-retrato.mp3",
+       "d": "4:34"
+      },
+      {
+       "t": "El espejo",
+       "src": "https://luisfader.github.io/litmir/novels/la-chica-del-retrato/el-espejo.mp3",
+       "d": "3:38",
+       "ly": 1
+      }
+     ],
+     "pending": 0,
+     "mood": "MM",
+     "voice": "SS"
+    }
+   ]
   }
  ],
  "mixes": [
