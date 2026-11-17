@@ -684,11 +684,26 @@ window.PORTAL={
        "d": "3:03",
        "s": "Башня любви",
        "ly": 1
+      },
+      {
+       "t": "Misterio en tus lágrimas",
+       "src": "audio/volny-lyubvi/misterio-en-tus-lagrimas.mp3",
+       "d": "3:09"
+      },
+      {
+       "t": "Noche profunda",
+       "src": "audio/volny-lyubvi/noche-profunda.mp3",
+       "d": "4:25"
+      },
+      {
+       "t": "Abrazos de cristal",
+       "src": "audio/volny-lyubvi/abrazos-de-cristal.mp3",
+       "d": "2:50"
       }
      ],
      "pending": 0,
-     "mood": "ALAM",
-     "voice": "iiiS"
+     "mood": "ALAMMLA",
+     "voice": "iiiSiii"
     },
     {
      "name": {
@@ -854,11 +869,16 @@ window.PORTAL={
        "src": "audio/volny-gorod-bez-ulybok/06-ulybayus-bez-strakha.mp3",
        "d": "2:47",
        "ly": 1
+      },
+      {
+       "t": "Подарок",
+       "src": "audio/volny-gorod-bez-ulybok/07-podarok.mp3",
+       "d": "2:45"
       }
      ],
      "pending": 0,
-     "mood": "LEEMEE",
-     "voice": "SSSSSS"
+     "mood": "LEEMEEA",
+     "voice": "SSSSSSS"
     }
    ],
    "tr": {
