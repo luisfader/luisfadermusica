@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&family=Alegreya+Sans:wght@400;500;700&display=swap&subset=cyrillic" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261113b">
+<link rel="stylesheet" href="style.css?v=20261118c">
 </head>
 <body>
 <a class="skip" href="#bandas" data-i18n="skip">Ir a las bandas sonoras</a>
@@ -50,7 +50,7 @@
     <p class="blurb" id="hero-blurb"></p>
     <div class="actions">
       <button class="btn primary" id="hero-play" type="button" data-i18n="listen">Escuchar</button>
-      <a class="btn" id="hero-tracks" href="#bandas" data-i18n="seeTracks">Ver todas las pistas</a>
+      <a class="btn" id="hero-tracks" href="#bandas" data-i18n="seeTracks">Abrir el disco</a>
     </div>
     <p class="count" id="hero-count"></p>
   </div>
@@ -85,13 +85,15 @@
   <section class="block" id="bandas" aria-labelledby="bandas-t">
     <div class="block-head">
       <h2 id="bandas-t" data-i18n="soundtracksH">Las bandas sonoras</h2>
-      <p data-i18n="soundtracksP">Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.</p>
+      <p data-i18n="soundtracksP">Elegí un disco para ver sus canciones y escucharlo.</p>
     </div>
     <div id="worlds"></div>
   </section>
 
 
 </main>
+
+<section class="album-view" id="album" hidden aria-labelledby="av-title"></section>
 
 <footer class="foot">
   <p data-i18n="footName">Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.</p>
@@ -155,7 +157,7 @@
   <audio id="audio" preload="none"></audio>
 </div>
 
-<script src="data.js?v=20261113b"></script>
-<script src="app.js?v=20261113b"></script>
+<script src="data.js?v=20261118c"></script>
+<script src="app.js?v=20261118c"></script>
 </body>
 </html>

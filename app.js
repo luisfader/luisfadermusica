@@ -29,12 +29,13 @@
       desc:"Las bandas sonoras de las novelas de Luis Fader en un solo lugar: Mendoza, la fortaleza turquesa, el horizonte después de la catástrofe, Verdegrado y Sinea.",
       skip:"Ir a las bandas sonoras", name:"Luis Fader", tagline:"bandas sonoras de sus novelas",
       navSections:"Secciones", navSoundtracks:"Bandas sonoras", langPick:"Idioma del sitio",
-      listen:"Escuchar", seeTracks:"Ver todas las pistas", navMixes:"Mezclas",
+      listen:"Escuchar", seeTracks:"Abrir el disco", navMixes:"Mezclas",
       mixesH:"Mezclas por ánimo", mixList:(n,i)=>"Canciones de «"+n+"»: "+i, mixesP:"Canciones de distintas novelas, juntas según lo que te hacen sentir. Las novelas se van alternando siempre que se puede.",
       shuffleAll:"Todo al azar", topH:"Lo más escuchado ahora", topP:"Las canciones que más están sonando en el sitio. Tocá una para escucharla.", topWeek:"Esta semana", topAll:"De siempre", topPick:"Período del ranking", topNone:"Todavía no hay escuchas en este período.", plays:n=>n+(n===1?" escucha":" escuchas"),  specStyle:"Cambiar el estilo del espectro", specModes:["Barras","Ondas","Osciloscopio","Aurora"], vfLabel:"Qué escuchar", vfAll:"Todo", vfSong:"Canciones", vfInst:"Instrumental", vfNone:"No hay pistas de este tipo en este disco.", sung:"Con voz", tagSong:"Canción", tagInst:"Instrumental", playMix:n=>"Escuchar la mezcla «"+n+"»", novels:n=>n+(n===1?" novela":" novelas"), mixOf:(m,w)=>m+", de "+w,
+      back:"Volver a los discos", albumOf:n=>"Banda sonora de «"+n+"»", moreDiscs:"Otros discos de esta novela", openAlbum:n=>"Abrir «"+n+"»", playN:n=>"Escuchar «"+n+"»",
       tune:"Girá el dial para sintonizar una novela",
       soundtracksH:"Las bandas sonoras",
-      soundtracksP:"Todas las canciones de cada novela, en el orden en que suenan en el libro. Tocá una pista para escucharla.",
+      soundtracksP:"Elegí un disco para ver sus canciones y escucharlo.",
       footName:"Luis Fader. Robert Fader en ruso, Roberto Fader en italiano.",
       lyrics:"Letra", lyricsClose:"Cerrar la letra", queueOpen:"Ver la lista completa", queueClose:"Cerrar la lista", coverOpen:"Ver la portada", coverClose:"Cerrar la imagen", install:"Instalar la app", installTitle:"Instalar la aplicación", installIOS:"En el iPhone: tocá el botón Compartir de Safari (el cuadrado con la flecha) y elegí «Agregar a inicio». La app queda en tu pantalla con su ícono.", installOk:"Entendido", lyOrig:"Original", lyTr:"Traducción", lyInst:"Esta pista es instrumental.", lyNone:"La letra de esta canción todavía no está cargada.", lyLoading:"Cargando la letra…", lyError:"No se pudo cargar la letra. Probá de nuevo en un rato.",
       prev:"Pista anterior", next:"Pista siguiente", pause:"Pausar", play:"Reproducir", seek:"Posición en la pista",
@@ -49,12 +50,13 @@
       desc:"Саундтреки к романам Луиса Фадера в одном месте: Мендоса, бирюзовая крепость, горизонт после катастрофы, Вердеград и Синея.",
       skip:"К саундтрекам", name:"Луис Фадер", tagline:"саундтреки к его романам",
       navSections:"Разделы", navSoundtracks:"Саундтреки", langPick:"Язык сайта",
-      listen:"Слушать", seeTracks:"Все треки", navMixes:"Миксы",
+      listen:"Слушать", seeTracks:"Открыть альбом", navMixes:"Миксы",
       mixesH:"Миксы по настроению", mixList:(n,i)=>"Песни микса «"+n+"»: "+i, mixesP:"Песни из разных романов, собранные по настроению. Романы по возможности чередуются.",
       shuffleAll:"Всё вперемешку", topH:"Сейчас слушают", topP:"Песни, которые чаще всего звучат на сайте. Нажмите на любую, чтобы послушать.", topWeek:"За неделю", topAll:"За всё время", topPick:"Период рейтинга", topNone:"За этот период прослушиваний пока нет.", plays:n=>ruPlural(n,"прослушивание","прослушивания","прослушиваний"),  specStyle:"Сменить стиль спектра", specModes:["Полосы","Волны","Осциллограф","Сияние"], vfLabel:"Что слушать", vfAll:"Всё", vfSong:"Песни", vfInst:"Инструментал", vfNone:"В этом альбоме нет таких треков.", sung:"С вокалом", tagSong:"Песня", tagInst:"Инструментал", playMix:n=>"Слушать микс «"+n+"»", novels:n=>ruPlural(n,"роман","романа","романов"), mixOf:(m,w)=>m+": «"+w+"»",
+      back:"Назад к альбомам", albumOf:n=>"Саундтрек к роману «"+n+"»", moreDiscs:"Другие альбомы этого романа", openAlbum:n=>"Открыть «"+n+"»", playN:n=>"Слушать «"+n+"»",
       tune:"Покрутите шкалу, чтобы настроиться на роман",
       soundtracksH:"Саундтреки",
-      soundtracksP:"Все песни каждого романа — в том порядке, в каком они звучат в книге. Нажмите на трек, чтобы слушать.",
+      soundtracksP:"Выберите альбом, чтобы увидеть его песни и послушать.",
       footName:"Луис Фадер. В русских книгах — Роберт Фадер, в итальянских — Роберто Фадер.",
       lyrics:"Текст", queueOpen:"Показать весь список", queueClose:"Закрыть список", coverOpen:"Открыть обложку", coverClose:"Закрыть изображение", install:"Установить приложение", installTitle:"Установить приложение", installIOS:"На iPhone: нажмите в Safari кнопку «Поделиться» (квадрат со стрелкой) и выберите «На экран «Домой»». Приложение появится на экране со своим значком.", installOk:"Понятно", lyricsClose:"Закрыть текст", lyOrig:"Оригинал", lyTr:"Перевод", lyInst:"Это инструментальный трек.", lyNone:"Текст этой песни ещё не добавлен.", lyLoading:"Загружаем текст…", lyError:"Не удалось загрузить текст. Попробуйте чуть позже.",
       prev:"Предыдущий трек", next:"Следующий трек", pause:"Пауза", play:"Воспроизвести", seek:"Позиция в треке",
@@ -69,12 +71,13 @@
       desc:"The soundtracks to Luis Fader's novels in one place: Mendoza, the turquoise fortress, the horizon after the catastrophe, Verdegrad and Sinea.",
       skip:"Skip to the soundtracks", name:"Luis Fader", tagline:"soundtracks to his novels",
       navSections:"Sections", navSoundtracks:"Soundtracks", langPick:"Site language",
-      listen:"Listen", seeTracks:"See all tracks", navMixes:"Mixes",
+      listen:"Listen", seeTracks:"Open the album", navMixes:"Mixes",
       mixesH:"Mood mixes", mixList:(n,i)=>"Songs in «"+n+"»: "+i, mixesP:"Songs from different novels, grouped by how they feel. The novels take turns whenever possible.",
       shuffleAll:"Shuffle everything", topH:"Most played right now", topP:"The songs playing most on the site. Tap one to listen.", topWeek:"This week", topAll:"All time", topPick:"Ranking period", topNone:"No plays in this period yet.", plays:n=>n+(n===1?" play":" plays"),  specStyle:"Change the visualizer style", specModes:["Bars","Ripples","Oscilloscope","Aurora"], vfLabel:"What to play", vfAll:"Everything", vfSong:"Songs", vfInst:"Instrumental", vfNone:"No tracks of this kind on this album.", sung:"With vocals", tagSong:"Song", tagInst:"Instrumental", playMix:n=>"Play the "+n+" mix", novels:n=>n+(n===1?" novel":" novels"), mixOf:(m,w)=>m+", from "+w,
+      back:"Back to the albums", albumOf:n=>"Soundtrack to «"+n+"»", moreDiscs:"More albums from this novel", openAlbum:n=>"Open «"+n+"»", playN:n=>"Play «"+n+"»",
       tune:"Spin the dial to tune in to a novel",
       soundtracksH:"The soundtracks",
-      soundtracksP:"Every song from each novel, in the order it plays in the book. Tap a track to listen.",
+      soundtracksP:"Pick an album to see its songs and listen.",
       footName:"Luis Fader. Robert Fader in Russian, Roberto Fader in Italian.",
       lyrics:"Lyrics", lyricsClose:"Close lyrics", queueOpen:"Show the full list", queueClose:"Close the list", coverOpen:"View the cover", coverClose:"Close the image", install:"Install the app", installTitle:"Install the app", installIOS:"On iPhone: tap Safari's Share button (the square with the arrow) and choose «Add to Home Screen». The app will appear on your screen with its own icon.", installOk:"Got it", lyOrig:"Original", lyTr:"Translation", lyInst:"This track is instrumental.", lyNone:"The lyrics for this song aren't here yet.", lyLoading:"Loading lyrics…", lyError:"Couldn't load the lyrics. Try again in a moment.",
       prev:"Previous track", next:"Next track", pause:"Pause", play:"Play", seek:"Position in track",
@@ -89,12 +92,13 @@
       desc:"Le colonne sonore dei romanzi di Luis Fader in un solo posto: Mendoza, la fortezza turchese, l'orizzonte dopo la catastrofe, Verdegrado e Sinea.",
       skip:"Vai alle colonne sonore", name:"Luis Fader", tagline:"le colonne sonore dei suoi romanzi",
       navSections:"Sezioni", navSoundtracks:"Colonne sonore", langPick:"Lingua del sito",
-      listen:"Ascolta", seeTracks:"Tutti i brani", navMixes:"Mix",
+      listen:"Ascolta", seeTracks:"Apri l'album", navMixes:"Mix",
       mixesH:"Mix per stato d'animo", mixList:(n,i)=>"Canzoni di «"+n+"»: "+i, mixesP:"Canzoni di romanzi diversi, riunite in base a quello che ti fanno provare. I romanzi si alternano ogni volta che si può.",
       shuffleAll:"Tutto in ordine casuale", topH:"I più ascoltati del momento", topP:"Le canzoni che si ascoltano di più sul sito. Toccane una per ascoltarla.", topWeek:"Questa settimana", topAll:"Di sempre", topPick:"Periodo della classifica", topNone:"Ancora nessun ascolto in questo periodo.", plays:n=>n+(n===1?" ascolto":" ascolti"),  specStyle:"Cambia lo stile dello spettro", specModes:["Barre","Onde","Oscilloscopio","Aurora"], vfLabel:"Cosa ascoltare", vfAll:"Tutto", vfSong:"Canzoni", vfInst:"Strumentali", vfNone:"In questo album non ci sono brani di questo tipo.", sung:"Con la voce", tagSong:"Canzone", tagInst:"Strumentale", playMix:n=>"Ascolta il mix «"+n+"»", novels:n=>n+(n===1?" romanzo":" romanzi"), mixOf:(m,w)=>m+", da "+w,
+      back:"Torna agli album", albumOf:n=>"Colonna sonora di «"+n+"»", moreDiscs:"Altri album di questo romanzo", openAlbum:n=>"Apri «"+n+"»", playN:n=>"Ascolta «"+n+"»",
       tune:"Gira la manopola per sintonizzarti su un romanzo",
       soundtracksH:"Le colonne sonore",
-      soundtracksP:"Tutte le canzoni di ogni romanzo, nell'ordine in cui risuonano nel libro. Tocca un brano per ascoltarlo.",
+      soundtracksP:"Scegli un album per vedere le sue canzoni e ascoltarlo.",
       footName:"Luis Fader. Robert Fader in russo, Roberto Fader in italiano.",
       lyrics:"Testo", lyricsClose:"Chiudi il testo", queueOpen:"Mostra l'elenco completo", queueClose:"Chiudi l'elenco", coverOpen:"Vedi la copertina", coverClose:"Chiudi l'immagine", install:"Installa l'app", installTitle:"Installa l'applicazione", installIOS:"Su iPhone: tocca il pulsante Condividi di Safari (il quadrato con la freccia) e scegli «Aggiungi alla schermata Home». L'app comparirà sullo schermo con la sua icona.", installOk:"Capito", lyOrig:"Originale", lyTr:"Traduzione", lyInst:"Questo brano è strumentale.", lyNone:"Il testo di questa canzone non è ancora disponibile.", lyLoading:"Caricamento del testo…", lyError:"Non è stato possibile caricare il testo. Riprova tra poco.",
       prev:"Brano precedente", next:"Brano successivo", pause:"Pausa", play:"Riproduci", seek:"Posizione nel brano",
@@ -333,7 +337,7 @@
     const h = $("#hero-title"); h.textContent = w.title; h.lang = w.lang;
     $("#hero-tr").textContent = tx(w.tr && w.tr[L]);
     $("#hero-blurb").textContent = tx(w.blurb);
-    $("#hero-tracks").href = "#m-" + w.id;
+    $("#hero-tracks").href = albumHash(w.discs[0]);
     $("#hero-count").textContent = tx(w.kind) + ". " + T.tracks(countTracks(w)) + ", " + inLang(w.lang) + ".";
     heroState();
     if(fromUser){ try{ history.replaceState(null,"",location.search+"#"+w.id); }catch(e){} }
@@ -341,8 +345,8 @@
   const heroDisc = () => D.worlds[cur].discs.find(d => getQueue("d"+discs.indexOf(d)).length);
   $("#hero-play").addEventListener("click", () => { const d = heroDisc(); if(d) start("d"+discs.indexOf(d), 0); });
   function heroState(){ $("#hero-play").disabled = !heroDisc(); }
-  /* «Ver todas las pistas» baja a la novela sintonizada y abre su primer disco */
-  $("#hero-tracks").addEventListener("click", () => { const d = document.querySelector("#m-"+D.worlds[cur].id+" .disc"); if(d) d.open = true; });
+  /* «Abrir el disco» abre la página del primer disco de la novela sintonizada */
+  $("#hero-tracks").addEventListener("click", e => { e.preventDefault(); openAlbum(discs.indexOf(D.worlds[cur].discs[0])); });
 
   /* ---------- Mundos ---------- */
   const NOTE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>';
@@ -458,19 +462,93 @@
       '<span><span class="d-name">'+esc(name)+'</span><span class="d-info">'+esc(info)+(d.note ? '. '+esc(tx(d.note)) : '')+'</span></span></summary>'+saveRow(d)+trackList(d)+'</details>';
   };
 
+  /* ---------- Discos en cuadrícula ----------
+     Cada disco es un cuadrado; al tocarlo se abre su página, con la portada, la
+     información y todas sus pistas. La página del disco tiene su propia dirección
+     (#disco-<novela>-<n>), así el botón «atrás» del teléfono la cierra. */
+  const PLAY_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5 19 12 7 19.5z"/></svg>';
+  const albumHash = d => "#disco-" + d.world.id + "-" + (d.world.discs.indexOf(d) + 1);
+  const albumFromHash = h => { const m = /^#disco-(.+)-(\d+)$/.exec(h || ""); if(!m) return -1;
+    const w = D.worlds.find(x => x.id === m[1]); const d = w && w.discs[+m[2]-1]; return d ? discs.indexOf(d) : -1; };
+  const discInfo = d => { const tracks = getQueue("d"+discs.indexOf(d)).map(it => d.tracks[it.t]); return [T.tracks(tracks.length), minutes(tracks)].filter(Boolean).join(", "); };
+  const card = d => {
+    const di = discs.indexOf(d), w = d.world, name = tx(d.name);
+    return '<div class="al-card" data-card="'+di+'" style="--w:'+w.accent+'">'+
+      '<a class="al-link" href="'+albumHash(d)+'" data-album="'+di+'" aria-label="'+esc(T.openAlbum(name))+'">'+
+        '<span class="al-img"><img src="'+esc(d.cover)+'" alt="" loading="lazy" width="560" height="560"></span>'+
+        '<span class="al-name" lang="'+esc(w.lang)+'">'+esc(name)+'</span>'+
+        '<span class="al-sub">'+(name !== w.title ? '<span lang="'+esc(w.lang)+'">'+esc(w.title)+'</span> · ' : '')+esc(T.tracks(d.tracks.length))+'</span>'+
+      '</a>'+
+      '<span class="al-sq"><button type="button" class="al-play" data-playdisc="'+di+'" aria-label="'+esc(T.playN(name))+'">'+PLAY_ICON+'</button></span>'+
+    '</div>';
+  };
+  let albumOpen = -1, albumPushed = false;
+  const albumEl = $("#album");
+  function renderAlbum(){
+    if(albumOpen < 0){ albumEl.innerHTML = ""; return; }
+    const d = discs[albumOpen], w = d.world, di = albumOpen, name = tx(d.name), tr = w.tr && w.tr[L];
+    albumEl.style.setProperty("--w", w.accent);
+    albumEl.style.setProperty("--fondo", "url('img/mundos/"+w.repo+"-fondo.jpg')");
+    const others = w.discs.filter(x => x !== d);
+    albumEl.innerHTML =
+      '<div class="av-bar"><button type="button" class="av-back" id="av-back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span>'+esc(T.back)+'</span></button></div>'+
+      '<div class="av-inner">'+
+        '<div class="av-head">'+
+          '<img class="world-cover av-cover" src="'+esc(d.cover)+'" alt="'+esc(T.cover(name))+'" width="560" height="840">'+
+          '<div class="av-text">'+
+            '<p class="av-kicker">'+esc(T.albumOf(w.title))+'</p>'+
+            '<h2 id="av-title" lang="'+esc(w.lang)+'">'+esc(name)+'</h2>'+
+            (tr && name === w.title ? '<p class="av-tr">'+esc(tr)+'</p>' : '')+
+            '<p class="av-meta"><b>'+esc(tx(w.place))+'</b>. '+esc(w.author)+', '+esc(inLang(w.lang))+'. '+esc(discInfo(d))+(d.note ? '. '+esc(tx(d.note)) : '')+'.</p>'+
+            '<p class="av-desc">'+esc(tx(w.blurb))+'</p>'+
+            '<div class="av-actions"><button type="button" class="btn primary" data-playdisc="'+di+'"'+(getQueue("d"+di).length ? '' : ' disabled')+'>'+esc(T.listen)+'</button></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="disc av-tracks">'+saveRow(d)+trackList(d)+'</div>'+
+        (others.length ? '<h3 class="av-more">'+esc(T.moreDiscs)+'</h3><div class="albums small">'+others.map(card).join("")+'</div>' : '')+
+      '</div>';
+    $("#av-back").addEventListener("click", closeAlbum);
+    markCurrent();
+  }
+  function openAlbum(di, push = true){
+    if(!discs[di]) return;
+    const wasOpen = albumOpen >= 0;
+    albumOpen = di;
+    renderAlbum();
+    albumEl.hidden = false; albumEl.scrollTop = 0;
+    document.documentElement.classList.add("album-open");
+    if(push){ try{ const h = albumHash(discs[di]);
+      if(wasOpen) history.replaceState({album:di},"",location.search+h);
+      else { history.pushState({album:di},"",location.search+h); albumPushed = true; } }catch(e){} }
+    const t = $("#av-title"); if(t){ t.tabIndex = -1; t.focus({preventScroll:true}); }
+  }
+  function hideAlbum(){
+    if(albumOpen < 0) return;
+    const di = albumOpen;
+    albumOpen = -1; albumEl.hidden = true; albumEl.innerHTML = "";
+    document.documentElement.classList.remove("album-open");
+    const c = document.querySelector('#worlds .al-card[data-card="'+di+'"] .al-link'); if(c) c.focus({preventScroll:true});
+  }
+  function closeAlbum(){
+    if(albumPushed){ albumPushed = false; history.back(); return; }   // popstate la cierra
+    hideAlbum();
+    try{ history.replaceState(null,"",location.search+(cur >= 0 ? "#"+D.worlds[cur].id : "")); }catch(e){}
+  }
+  window.addEventListener("popstate", () => {
+    const di = albumFromHash(location.hash);
+    if(di >= 0) openAlbum(di, false); else { albumPushed = false; hideAlbum(); }
+  });
+  document.addEventListener("keydown", e => { if(e.key === "Escape" && albumOpen >= 0 && !lyOpen && !qOpen && !(cv && cv.open)) closeAlbum(); });
+  document.addEventListener("click", e => {
+    const a = e.target.closest("[data-album]");
+    if(a){ if(e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); openAlbum(+a.dataset.album); return; }
+    const p = e.target.closest("[data-playdisc]");
+    if(p && !p.disabled){ const k = "d"+p.dataset.playdisc; if(current.qk === k){ toggle(); return; } start(k, 0); }
+  });
+
   function renderWorlds(){
-    const open = new Set([...document.querySelectorAll(".disc[open]")].map(x => x.dataset.disc));
-    $("#worlds").innerHTML = D.worlds.map(w => {
-      const tr = w.tr && w.tr[L];
-      return '<article class="world" id="m-'+w.id+'" style="--w:'+w.accent+'">'+
-        '<img class="world-cover" src="'+esc(w.discs[0].cover)+'" alt="'+esc(T.cover(w.title))+'" loading="lazy" width="560" height="840">'+
-        '<div class="w-head"><h3 lang="'+w.lang+'">'+esc(w.title)+'</h3>'+
-        (tr ? '<p class="es">'+esc(tr)+'</p>' : '')+
-        '<p class="meta"><b>'+esc(tx(w.place))+'</b>. '+esc(w.author)+', '+esc(inLang(w.lang))+'. '+esc(T.tracks(w.discs.reduce((a,d)=>a+getQueue("d"+discs.indexOf(d)).length,0)))+'.</p></div>'+
-        '<p class="desc">'+esc(tx(w.blurb))+'</p>'+
-        '<div class="discs">'+w.discs.map(d=>discBlock(d, open.has(String(discs.indexOf(d))))).join("")+'</div>'+
-        '</article>';
-    }).join("");
+    $("#worlds").innerHTML = '<div class="albums">'+discs.map(card).join("")+'</div>';
+    renderAlbum();
     markCurrent();
   }
 
@@ -526,6 +604,7 @@
   function markCurrent(){
     document.querySelectorAll('.track[aria-current]').forEach(b => b.removeAttribute("aria-current"));
     if(current.d) document.querySelectorAll('.track[data-d="'+discs.indexOf(current.d)+'"][data-t="'+current.t+'"]').forEach(b => b.setAttribute("aria-current","true"));
+    document.querySelectorAll(".al-card").forEach(c => c.classList.toggle("playing", !!current.d && +c.dataset.card === discs.indexOf(current.d)));
   }
   function playerText(){
     if(!current.d) return;
@@ -1169,10 +1248,12 @@
   });
 
   /* Arranque: la estación del enlace, o la primera */
-  const fromHash = D.worlds.findIndex(w => "#"+w.id === location.hash);
+  const fromAlbum = albumFromHash(location.hash);
+  const fromHash = fromAlbum >= 0 ? D.worlds.indexOf(discs[fromAlbum].world) : D.worlds.findIndex(w => "#"+w.id === location.hash);
   cur = -1;
   tune(fromHash >= 0 ? fromHash : 0, false);
   applyLang(L, false);
+  if(fromAlbum >= 0) openAlbum(fromAlbum, false);
   restoreState();
 
   /* ---------- Aplicación instalable ----------
