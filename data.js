@@ -1859,11 +1859,61 @@ window.PORTAL={
        "t": "Плач с севера",
        "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/01.mp3",
        "d": "3:02"
+      },
+      {
+       "t": "Мелодия той ночи",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/melodiya-nebesnaya.mp3",
+       "d": "0:28"
+      },
+      {
+       "t": "Плач с севера (для фортепиано)",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/02-dlya-fortepiano.mp3",
+       "d": "0:25"
+      },
+      {
+       "t": "Фатерпедия",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/03-faterpediya.mp3",
+       "d": "0:39"
+      },
+      {
+       "t": "Дорога единорогов",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/04-doroga-edinorogov.mp3",
+       "d": "0:31"
+      },
+      {
+       "t": "Невидимая волна",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/05-nevidimaya-volna.mp3",
+       "d": "0:18"
+      },
+      {
+       "t": "Колыбельная Софии",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/06-kolybelnaya.mp3",
+       "d": "0:46"
+      },
+      {
+       "t": "Хранительница мелодии",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/07-hranitelnitsa.mp3",
+       "d": "0:53"
+      },
+      {
+       "t": "Скрипка и щит",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/08-skripka-i-shchit.mp3",
+       "d": "0:38"
+      },
+      {
+       "t": "Света",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/09-sveta.mp3",
+       "d": "0:49"
+      },
+      {
+       "t": "Северное сияние",
+       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/10-severnoe-siyanie.mp3",
+       "d": "1:15"
       }
      ],
      "pending": 0,
-     "mood": "L",
-     "voice": "i"
+     "mood": "LMLMEFAMFLE",
+     "voice": "iiiiiiiiiii"
     }
    ]
   },
