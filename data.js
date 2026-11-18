@@ -1893,7 +1893,7 @@ window.PORTAL={
       {
        "t": "Хранительница мелодии",
        "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/07-hranitelnitsa.mp3",
-       "d": "0:53"
+       "d": "0:54"
       },
       {
        "t": "Скрипка и щит",
