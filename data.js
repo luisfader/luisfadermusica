@@ -836,13 +836,13 @@ window.PORTAL={
      "tracks": [
       {
        "t": "Три ноты",
-       "src": "https://luisfader.github.io/litmir/novels/volny-lyubvi-gorod-bez-ulybok/music/01-tri-noty.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/volny-lyubvi-gorod-bez-ulybok/music/01-tri-noty.mp3",
        "d": "3:47",
        "ly": 1
       },
       {
        "t": "Улыбнись",
-       "src": "https://luisfader.github.io/litmir/novels/volny-lyubvi-gorod-bez-ulybok/music/02-ulybnis.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/volny-lyubvi-gorod-bez-ulybok/music/02-ulybnis.mp3",
        "d": "4:18",
        "ly": 1
       },
@@ -1798,47 +1798,47 @@ window.PORTAL={
      "tracks": [
       {
        "t": "Северная любовь",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/01.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov/music/01.mp3",
        "d": "3:16"
       },
       {
        "t": "La mujer que espera",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/02.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov/music/02.mp3",
        "d": "4:20"
       },
       {
        "t": "Ледяной путь",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/03.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov/music/03.mp3",
        "d": "3:12"
       },
       {
        "t": "Северный остров",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/04.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov/music/04.mp3",
        "d": "2:34"
       },
       {
        "t": "Статуя плачет",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/05.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov/music/05.mp3",
        "d": "2:29"
       },
       {
        "t": "Под луной",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/06.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov/music/06.mp3",
        "d": "3:20"
       },
       {
        "t": "Ледяные объятия",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/07.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov/music/07.mp3",
        "d": "2:15"
       },
       {
        "t": "Мелодия-призрак",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/08.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov/music/08.mp3",
        "d": "3:29"
       },
       {
        "t": "Твой Зов",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov/music/09.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov/music/09.mp3",
        "d": "3:01"
       }
      ],
@@ -1857,57 +1857,57 @@ window.PORTAL={
      "tracks": [
       {
        "t": "Плач с севера",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/01.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/01.mp3",
        "d": "3:02"
       },
       {
        "t": "Мелодия той ночи",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/melodiya-nebesnaya.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/melodiya-nebesnaya.mp3",
        "d": "0:28"
       },
       {
        "t": "Плач с севера (для фортепиано)",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/02-dlya-fortepiano.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/02-dlya-fortepiano.mp3",
        "d": "0:25"
       },
       {
        "t": "Фатерпедия",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/03-faterpediya.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/03-faterpediya.mp3",
        "d": "0:39"
       },
       {
        "t": "Дорога единорогов",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/04-doroga-edinorogov.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/04-doroga-edinorogov.mp3",
        "d": "0:31"
       },
       {
        "t": "Невидимая волна",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/05-nevidimaya-volna.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/05-nevidimaya-volna.mp3",
        "d": "0:18"
       },
       {
        "t": "Колыбельная Софии",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/06-kolybelnaya.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/06-kolybelnaya.mp3",
        "d": "0:46"
       },
       {
        "t": "Хранительница мелодии",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/07-hranitelnitsa.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/07-hranitelnitsa.mp3",
        "d": "0:54"
       },
       {
        "t": "Скрипка и щит",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/08-skripka-i-shchit.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/08-skripka-i-shchit.mp3",
        "d": "0:38"
       },
       {
        "t": "Света",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/09-sveta.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/09-sveta.mp3",
        "d": "0:49"
       },
       {
        "t": "Северное сияние",
-       "src": "https://luisfader.github.io/litmir/novels/severnaya-lyubov-2/music/10-severnoe-siyanie.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/10-severnoe-siyanie.mp3",
        "d": "1:15"
       }
      ],
@@ -2011,12 +2011,12 @@ window.PORTAL={
      "tracks": [
       {
        "t": "Canción del retrato",
-       "src": "https://luisfader.github.io/litmir/novels/la-chica-del-retrato/cancion-del-retrato.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/la-chica-del-retrato/cancion-del-retrato.mp3",
        "d": "4:34"
       },
       {
        "t": "El espejo",
-       "src": "https://luisfader.github.io/litmir/novels/la-chica-del-retrato/el-espejo.mp3",
+       "src": "https://luisfader.github.io/podcasts/novels/la-chica-del-retrato/el-espejo.mp3",
        "d": "3:38",
        "ly": 1
       }
