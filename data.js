@@ -1868,7 +1868,7 @@ window.PORTAL={
       {
        "t": "Плач с севера (для фортепиано)",
        "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov-2/music/02-dlya-fortepiano.mp3",
-       "d": "0:25"
+       "d": "2:56"
       },
       {
        "t": "Фатерпедия",
