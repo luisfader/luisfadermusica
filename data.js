@@ -2052,10 +2052,10 @@ window.PORTAL={
     "it": "Sopra un mare di nuvole lilla fluttuano castelli volanti. In uno vive la custode Nata con il suo draghetto: piccolo, spinoso, con le squame cosparse di stelle, matto per la bibita al dragoncello e sempre pronto a volare dai vicini a prendere il sale. Ma Rob, cacciatore di draghi del mercato nero, lo tiene d'occhio. Quando il draghetto, in pericolo, si trasforma in un drago enorme e terribile, il cacciatore indossa una parrucca bionda e decide di conquistare il cuore della sua padrona. Di chi sarà il cuore conquistato, però, è tutto da vedere."
    },
    "kind": {
-    "es": "Canciones de la novela",
-    "ru": "Песни из романа",
-    "en": "Songs from the novel",
-    "it": "Canzoni del romanzo"
+    "es": "Música instrumental de la novela",
+    "ru": "Инструментальная музыка к роману",
+    "en": "Instrumental music from the novel",
+    "it": "Musica strumentale del romanzo"
    },
    "discs": [
     {
@@ -2095,7 +2095,7 @@ window.PORTAL={
      ],
      "pending": 0,
      "mood": "MEAAE",
-     "voice": "SSSSS"
+     "voice": "iiiii"
     }
    ]
   }
