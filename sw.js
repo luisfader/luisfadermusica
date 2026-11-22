@@ -5,7 +5,7 @@
    pedidos por partes (Range), que es lo que permite adelantar y seguir sonando en segundo plano.
    La excepción son las canciones ya guardadas en el teléfono (caché «fader-audio»): la página
    las pide con «?fc=1» y acá se sirven desde lo guardado, también por partes. */
-const VERSION = "fader-app-2026-11-19a";
+const VERSION = "fader-app-2026-11-22a";
 const AUDIO = "fader-audio";
 const SHELL = ["./", "index.html", "style.css", "app.js", "data.js", "manifest.webmanifest",
   "img/app/icon-192.png", "img/app/icon-512.png", "img/app/apple-touch-icon.png"];

@@ -2026,6 +2026,78 @@ window.PORTAL={
      "voice": "SS"
     }
    ]
+  },
+  {
+   "id": "drakon",
+   "repo": "serdce-drakona",
+   "title": "Сердце дракона",
+   "lang": "ru",
+   "author": "Роберт Фадер",
+   "accent": "#9d86ff",
+   "place": {
+    "es": "Castillos voladores sobre un mar de nubes lilas",
+    "ru": "Летающие замки над сиреневым морем облаков",
+    "en": "Flying castles above a sea of lilac clouds",
+    "it": "Castelli volanti sopra un mare di nuvole lilla"
+   },
+   "tr": {
+    "es": "Corazón de dragón",
+    "en": "Dragon's Heart",
+    "it": "Cuore di drago"
+   },
+   "blurb": {
+    "es": "Sobre un mar de nubes lilas flotan castillos voladores. En uno vive la guardiana Nata con su dragoncito: chiquito, espinoso, con las escamas salpicadas de estrellas, loco por el tarjún y siempre listo para ir a lo de los vecinos a buscar sal. Pero Rob, cazador de dragones del mercado negro, lo tiene en la mira: cuando ve que el dragoncito, en peligro, se convierte en un dragón enorme, se pone una peluca rubia y decide conquistar el corazón de su dueña. Lo que no sabe es qué corazón va a terminar conquistado.",
+    "ru": "Над сиреневым морем облаков плывут летающие замки. В одном из них живёт хранительница Ната со своим дракончиком — маленьким, колючим, с чешуёй, усыпанной звёздами. Он обожает тархун и всегда готов слетать к соседям за солью. Но за ним уже следит Роб — ловец драконов с чёрного рынка. Похитить малыша силой не вышло: в минуту опасности дракончик превращается в огромного грозного дракона. Тогда охотник надевает светлый парик и решает завоевать сердце его хозяйки. И чьё сердце окажется завоёванным, ещё большой вопрос.",
+    "en": "Flying castles drift above a sea of lilac clouds. In one of them lives the guardian Nata with her little dragon: tiny, spiky, his scales sprinkled with stars, mad about tarragon soda and always ready to fly next door for salt. But Rob, a dragon hunter from the black market, has his eye on him. When the little dragon turns into a huge, fearsome beast at the first sign of danger, the hunter puts on a blond wig and sets out to win his owner's heart instead. Whose heart ends up won is another question.",
+    "it": "Sopra un mare di nuvole lilla fluttuano castelli volanti. In uno vive la custode Nata con il suo draghetto: piccolo, spinoso, con le squame cosparse di stelle, matto per la bibita al dragoncello e sempre pronto a volare dai vicini a prendere il sale. Ma Rob, cacciatore di draghi del mercato nero, lo tiene d'occhio. Quando il draghetto, in pericolo, si trasforma in un drago enorme e terribile, il cacciatore indossa una parrucca bionda e decide di conquistare il cuore della sua padrona. Di chi sarà il cuore conquistato, però, è tutto da vedere."
+   },
+   "kind": {
+    "es": "Canciones de la novela",
+    "ru": "Песни из романа",
+    "en": "Songs from the novel",
+    "it": "Canzoni del romanzo"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "Corazón de dragón",
+      "ru": "Сердце дракона",
+      "en": "Dragon's Heart",
+      "it": "Cuore di drago"
+     },
+     "cover": "img/mundos/serdce-drakona.jpg",
+     "tracks": [
+      {
+       "t": "Сердце дракона",
+       "src": "https://luisfader.github.io/podcasts/novels/serdce-drakona/music/01-serdce-drakona.mp3",
+       "d": "2:54"
+      },
+      {
+       "t": "Лети",
+       "src": "https://luisfader.github.io/podcasts/novels/serdce-drakona/music/02-leti.mp3",
+       "d": "2:39"
+      },
+      {
+       "t": "Огненный поцелуй",
+       "src": "https://luisfader.github.io/podcasts/novels/serdce-drakona/music/03-ognennyj-poceluj.mp3",
+       "d": "2:07"
+      },
+      {
+       "t": "Любовь дракона",
+       "src": "https://luisfader.github.io/podcasts/novels/serdce-drakona/music/04-lyubov-drakona.mp3",
+       "d": "3:41"
+      },
+      {
+       "t": "Исцелённое сердце",
+       "src": "https://luisfader.github.io/podcasts/novels/serdce-drakona/music/05-iscelennoe-serdce.mp3",
+       "d": "3:19"
+      }
+     ],
+     "pending": 0,
+     "mood": "MEAAE",
+     "voice": "SSSSS"
+    }
+   ]
   }
  ],
  "mixes": [
