@@ -892,11 +892,17 @@ window.PORTAL={
        "src": "audio/volny-gorod-bez-ulybok/10-zvon-bez-kolokolov.mp3",
        "d": "3:28",
        "ly": 1
+      },
+      {
+       "t": "Золотая нить",
+       "src": "audio/volny-gorod-bez-ulybok/11-zolotaya-nit.mp3",
+       "d": "3:49",
+       "ly": 1
       }
      ],
      "pending": 0,
-     "mood": "LEELMELAEE",
-     "voice": "SSSSSSSiSS"
+     "mood": "LEELMELAEEA",
+     "voice": "SSSSSSSiSSS"
     }
    ],
    "tr": {
