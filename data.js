@@ -2122,6 +2122,59 @@ window.PORTAL={
      "voice": "iiiii"
     }
    ]
+  },
+  {
+   "id": "maska",
+   "repo": "venecianskaya-maska",
+   "title": "Венецианская маска",
+   "lang": "ru",
+   "author": "Роберт Фадер",
+   "accent": "#e0b456",
+   "place": {
+    "es": "Venecia y la ciudad hundida bajo sus aguas",
+    "ru": "Венеция и затерянный город под её водами",
+    "en": "Venice and the lost city beneath its waters",
+    "it": "Venezia e la città perduta sotto le sue acque"
+   },
+   "tr": {
+    "es": "La máscara veneciana",
+    "en": "The Venetian Mask",
+    "it": "La maschera veneziana"
+   },
+   "blurb": {
+    "es": "Venecia esconde su secreto más oscuro en sus propias aguas: una ciudad perdida y una máscara de poder sin límites. Mientras una verdad incómoda amenaza con salir a la superficie, fuerzas oscuras conspiran para enterrarla para siempre. Un arqueólogo, una mujer de intenciones misteriosas y un grupo de amigos imprevisibles quedan atrapados en una cacería peligrosa que enseguida se convierte en una lucha por sobrevivir.",
+    "ru": "Венеция скрывает свою самую тёмную тайну в собственных водах: затерянный город и маску с безграничной силой. Пока неудобная истина грозит всплыть на поверхность, тёмные силы плетут заговор, чтобы навсегда похоронить её. Археолог, женщина с загадочными намерениями и группа непредсказуемых друзей оказываются втянутыми в опасную охоту, которая быстро превращается в борьбу за выживание.",
+    "en": "Venice hides its darkest secret in its own waters: a lost city and a mask of limitless power. As an inconvenient truth threatens to surface, dark forces plot to bury it forever. An archaeologist, a woman with mysterious intentions and a group of unpredictable friends are drawn into a dangerous hunt that quickly becomes a fight for survival.",
+    "it": "Venezia nasconde il suo segreto più oscuro nelle proprie acque: una città perduta e una maschera dal potere sconfinato. Mentre una verità scomoda minaccia di riaffiorare, forze oscure tramano per seppellirla per sempre. Un archeologo, una donna dalle intenzioni misteriose e un gruppo di amici imprevedibili finiscono in una caccia pericolosa che si trasforma presto in una lotta per la sopravvivenza."
+   },
+   "kind": {
+    "es": "Canciones en italiano de la novela",
+    "ru": "Песни на итальянском к роману",
+    "en": "Songs in Italian from the novel",
+    "it": "Canzoni in italiano del romanzo"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "Венецианская маска",
+      "ru": "Венецианская маска",
+      "en": "Венецианская маска",
+      "it": "Венецианская маска"
+     },
+     "cover": "img/mundos/venecianskaya-maska.jpg",
+     "tracks": [
+      {
+       "t": "Maschera di Venezia",
+       "src": "audio/venecianskaya-maska/01-maschera-di-venezia.mp3",
+       "d": "3:43",
+       "ly": 1
+      }
+     ],
+     "pending": 0,
+     "mood": "M",
+     "voice": "S"
+    }
+   ]
   }
  ],
  "mixes": [
