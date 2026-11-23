@@ -890,7 +890,7 @@ window.PORTAL={
      ],
      "pending": 0,
      "mood": "LEEMEEALL",
-     "voice": "SSSSSSSSS"
+     "voice": "SSSSSSiSS"
     }
    ],
    "tr": {
