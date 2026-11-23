@@ -874,11 +874,17 @@ window.PORTAL={
        "t": "Подарок",
        "src": "audio/volny-gorod-bez-ulybok/07-podarok.mp3",
        "d": "2:45"
+      },
+      {
+       "t": "Я твоя",
+       "src": "audio/volny-gorod-bez-ulybok/08-ya-tvoya.mp3",
+       "d": "4:17",
+       "ly": 1
       }
      ],
-     "pending": 1,
-     "mood": "LEEMEEA",
-     "voice": "SSSSSSS"
+     "pending": 0,
+     "mood": "LEEMEEAL",
+     "voice": "SSSSSSSS"
     }
    ],
    "tr": {
