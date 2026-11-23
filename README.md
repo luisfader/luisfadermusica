@@ -6,7 +6,7 @@ Arriba hay un dial: cada estación es una novela, y al sintonizarla la página t
 
 El sitio está en castellano, ruso, inglés e italiano. El idioma se elige arriba a la derecha y queda guardado; también se puede abrir directo con `?lang=es`, `?lang=ru`, `?lang=en` o `?lang=it`. Sin elección previa, toma el idioma del navegador.
 
-Dirección: https://luisfader.github.io/luisfadermusica/ (se puede entrar directo a una novela con `#misterio`, `#corazonada`, `#horizonte`, `#volny`, `#predchuvstvie`, `#onde`, `#momento`, `#maschera`, `#future`, `#silenzio`, `#zvezdy`, `#severnaya`, `#rezonans`, `#retrato`, `#drakon` o `#maska`).
+Dirección: https://luisfader.github.io/luisfadermusica/ (se puede entrar directo a una novela con `#misterio`, `#corazonada`, `#horizonte`, `#volny`, `#predchuvstvie`, `#onde`, `#momento`, `#maschera`, `#future`, `#silenzio`, `#zvezdy`, `#severnaya`, `#rezonans`, `#retrato`, `#drakon`, `#maska` o `#golos`).
 
 ## De dónde sale la música
 
@@ -33,6 +33,7 @@ Cada pista se reproduce desde el sitio de su novela, aunque el visitante nunca s
 | La chica del retrato | castellano | [litmir](https://luisfader.github.io/litmir/) (`novels/la-chica-del-retrato/`) |
 | Сердце дракона (álbum «Corazón de dragón») | ruso | [podcasts](https://luisfader.github.io/podcasts/) (`novels/serdce-drakona/music/`) |
 | Венецианская маска (no confundir con *Maschera di Venezia*: son novelas distintas) | ruso | en este mismo portal (`audio/venecianskaya-maska/`) |
+| Голос | ruso | [litmir](https://luisfader.github.io/litmir/) (`novels/golos/music/`) |
 
 ## Cómo funciona
 

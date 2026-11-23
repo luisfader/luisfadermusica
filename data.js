@@ -2181,6 +2181,67 @@ window.PORTAL={
      "voice": "SS"
     }
    ]
+  },
+  {
+   "id": "golos",
+   "repo": "golos",
+   "title": "Голос",
+   "lang": "ru",
+   "author": "Роберт Фадер",
+   "accent": "#4fb3e0",
+   "place": {
+    "es": "Sinea, aislada del mundo en una sola noche",
+    "ru": "Синея, за одну ночь отрезанная от мира",
+    "en": "Sinea, cut off from the world in a single night",
+    "it": "Sinea, isolata dal mondo in una sola notte"
+   },
+   "tr": {
+    "es": "La voz",
+    "en": "The Voice",
+    "it": "La voce"
+   },
+   "blurb": {
+    "es": "En una sola noche, Sinea queda aislada del mundo: las autoridades huyen y de las viejas leyendas salen sombras, léshie y espíritus deformados que se alimentan del miedo. Sasha, cansada de su vida gris, oye una voz que la llama hacia el mar; su amiga Oxana, que no cree en nada de eso, termina arrastrada a la huida, y el estudiante Dima recibe un mensaje extraño en el teléfono. Delfines, una grieta antigua bajo la ciudad y una canción capaz de vencer a la oscuridad.",
+    "ru": "Город Синея за одну ночь оказывается отрезанным от мира: власти бегут, а из старых легенд выходят тени — лешие и искажённые духи, питающиеся страхом. Саша, уставшая от серой жизни, слышит голос, который зовёт её к морю; её подруга Оксана, не верящая в мистику, оказывается втянута в бегство, а студент Дима получает странное сообщение. Дельфины, древний разлом под городом и песня, способная победить тьму.",
+    "en": "In a single night Sinea is cut off from the world: the authorities flee, and out of old legends come shadows, leshies and twisted spirits that feed on fear. Sasha, tired of her grey life, hears a voice calling her to the sea; her friend Oxana, who believes in none of it, is dragged into the escape, and the student Dima gets a strange message on his phone. Dolphins, an ancient rift beneath the city and a song that can defeat the darkness.",
+    "it": "In una sola notte Sinea resta isolata dal mondo: le autorità fuggono e dalle vecchie leggende escono ombre, leshie e spiriti deformati che si nutrono di paura. Sasha, stanca della sua vita grigia, sente una voce che la chiama verso il mare; la sua amica Oxana, che non crede a niente di tutto questo, viene trascinata nella fuga, e lo studente Dima riceve uno strano messaggio sul telefono. Delfini, un'antica frattura sotto la città e una canzone capace di vincere il buio."
+   },
+   "kind": {
+    "es": "Música de la novela",
+    "ru": "Музыка к роману",
+    "en": "Music from the novel",
+    "it": "Musica del romanzo"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "Голос",
+      "ru": "Голос",
+      "en": "Голос",
+      "it": "Голос"
+     },
+     "cover": "img/mundos/golos.jpg",
+     "tracks": [
+      {
+       "t": "La ciudad acechada",
+       "src": "https://luisfader.github.io/litmir/novels/golos/music/01-la-ciudad-acechada.mp3",
+       "d": "3:28",
+       "s": "Те, кто пришли без шума"
+      },
+      {
+       "t": "Там, где поёт вода",
+       "src": "https://luisfader.github.io/litmir/novels/golos/music/02-tam-gde-poyot-voda.mp3",
+       "d": "3:58",
+       "s": "Песнь освобождения",
+       "v": "Саша",
+       "ly": 1
+      }
+     ],
+     "pending": 0,
+     "mood": "ME",
+     "voice": "SS"
+    }
+   ]
   }
  ],
  "mixes": [
