@@ -2168,11 +2168,17 @@ window.PORTAL={
        "src": "audio/venecianskaya-maska/01-maschera-di-venezia.mp3",
        "d": "3:43",
        "ly": 1
+      },
+      {
+       "t": "Gondola senza gondoliere",
+       "src": "audio/venecianskaya-maska/02-gondola-senza-gondoliere.mp3",
+       "d": "3:56",
+       "ly": 1
       }
      ],
      "pending": 0,
-     "mood": "M",
-     "voice": "S"
+     "mood": "MA",
+     "voice": "SS"
     }
    ]
   }
