@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&family=Alegreya+Sans:wght@400;500;700&display=swap&subset=cyrillic" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261123e">
+<link rel="stylesheet" href="style.css?v=20261124d">
 </head>
 <body>
 <a class="skip" href="#bandas" data-i18n="skip">Ir a las bandas sonoras</a>
@@ -30,6 +30,7 @@
     <nav data-i18n-aria="navSections" aria-label="Secciones">
       <a href="#mezclas" data-i18n="navMixes">Mezclas</a>
       <a href="#bandas" data-i18n="navSoundtracks">Bandas sonoras</a>
+      <a href="#donar" data-i18n="navDonate">Donar</a>
     </nav>
     <button type="button" class="install" id="install" hidden data-i18n="install">Instalar la app</button>
     <div class="langs" role="group" data-i18n-aria="langPick" aria-label="Idioma del sitio" id="langs">
@@ -91,6 +92,14 @@
   </section>
 
 
+  <section class="block donate" id="donar" aria-labelledby="donar-t">
+    <div class="dn-box">
+      <h2 id="donar-t" data-i18n="donateH">Apoyá la música</h2>
+      <p data-i18n="donateP">Toda la música del sitio se escucha gratis. Si querés apoyar a Luis Fader y ayudar a que salgan nuevas canciones y bandas sonoras, podés enviar una donación.</p>
+      <a class="btn dn-btn" href="https://boosty.to/fader26/donate" target="_blank" rel="noopener">♥ <span data-i18n="donateBtn">Apoyar al autor</span></a>
+      <div class="dn-qr"><img src="img/app/donate-qr.png" alt="QR" width="140" height="140" loading="lazy"><span data-i18n="donateQr">O escaneá el código QR</span></div>
+    </div>
+  </section>
 </main>
 
 <section class="album-view" id="album" hidden aria-labelledby="av-title"></section>
@@ -157,7 +166,7 @@
   <audio id="audio" preload="none"></audio>
 </div>
 
-<script src="data.js?v=20261123e"></script>
-<script src="app.js?v=20261123e"></script>
+<script src="data.js?v=20261124d"></script>
+<script src="app.js?v=20261124d"></script>
 </body>
 </html>

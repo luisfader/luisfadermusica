@@ -35,6 +35,10 @@ Cada pista se reproduce desde el sitio de su novela, aunque el visitante nunca s
 | Венецианская маска (no confundir con *Maschera di Venezia*: son novelas distintas) | ruso | en este mismo portal (`audio/venecianskaya-maska/`) |
 | Голос | ruso | [litmir](https://luisfader.github.io/litmir/) (`novels/golos/music/`) |
 
+## Donaciones
+
+La única salida del portal es la de donaciones: «Donar» en el menú de arriba lleva a la sección `#donar`, al final de la página, con un botón a https://boosty.to/fader26/donate y el código QR (`img/app/donate-qr.png`). Los textos están en `app.js` (`navDonate`, `donateH`, `donateP`, `donateBtn`, `donateQr`) en los cuatro idiomas.
+
 ## Cómo funciona
 
 - Las bandas sonoras se muestran como una cuadrícula de discos (un cuadrado por disco). Al tocar uno se abre su página, con la portada, la información de la novela, el botón «Escuchar», «Guardar disco» y todas las pistas; abajo aparecen los otros discos de la misma novela. Cada disco tiene su dirección (`#disco-<novela>-<n>`, por ejemplo `#disco-corazonada-2`), y se cierra con «Volver a los discos», con el botón atrás o con Escape. El botón de reproducción sobre cada cuadrado hace sonar el disco sin abrirlo.

@@ -354,3 +354,11 @@ html.album-open{overflow:hidden}
 .install-help .ih-title{margin:0 0 .5rem;font-family:var(--serif);font-weight:700;font-size:1.2rem}
 .install-help .ih-ok{margin-top:1rem}
 @media (display-mode: standalone){ .install{display:none} }
+
+/* Donaciones */
+.donate .dn-box{max-width:40rem;margin:0 auto;text-align:center;border:1px solid var(--rule);border-radius:1.2rem;padding:2rem 1.5rem;background:rgba(241,235,223,.04)}
+.donate h2{font-size:clamp(1.8rem,4vw,2.5rem);line-height:1.1;margin:0 0 .75rem;font-weight:800}
+.donate p{color:var(--muted);margin:0 auto 1.4rem;max-width:32rem}
+.donate .dn-btn{background:var(--accent);border-color:var(--accent);color:var(--night);font-weight:700}
+.donate .dn-qr{margin-top:1.4rem;font-family:var(--sans);font-size:.9rem;color:var(--muted)}
+.donate .dn-qr img{display:block;margin:0 auto .5rem;width:140px;height:140px;background:#fff;padding:8px;border-radius:10px;image-rendering:pixelated}
