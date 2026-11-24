@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&family=Alegreya+Sans:wght@400;500;700&display=swap&subset=cyrillic" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261124d">
+<link rel="stylesheet" href="style.css?v=20261124e">
 </head>
 <body>
 <a class="skip" href="#bandas" data-i18n="skip">Ir a las bandas sonoras</a>
@@ -28,6 +28,7 @@
   <a class="brand" href="#"><b data-i18n="name">Luis Fader</b> <span data-i18n="tagline">bandas sonoras de sus novelas</span></a>
   <div class="top-right">
     <nav data-i18n-aria="navSections" aria-label="Secciones">
+      <a href="#canal" id="nav-canal" data-i18n="navCanal" hidden>Canal</a>
       <a href="#mezclas" data-i18n="navMixes">Mezclas</a>
       <a href="#bandas" data-i18n="navSoundtracks">Bandas sonoras</a>
       <a href="#donar" data-i18n="navDonate">Donar</a>
@@ -66,6 +67,15 @@
 </section>
 
 <main>
+  <section class="block canal" id="canal" aria-labelledby="canal-t" hidden>
+    <div class="block-head">
+      <h2 id="canal-t" data-i18n="chanH">Música nueva</h2>
+      <p data-i18n="chanP">Canciones e instrumentales que van saliendo de a una, de las novelas o de cualquier otra cosa.</p>
+    </div>
+    <div class="feed" id="feed"></div>
+    <button type="button" class="btn feed-more" id="feed-more" hidden>Ver publicaciones anteriores</button>
+  </section>
+
   <section class="block" id="ranking" aria-labelledby="ranking-t" hidden>
     <div class="block-head">
       <h2 id="ranking-t" data-i18n="topH">Lo más escuchado ahora</h2>
@@ -166,7 +176,8 @@
   <audio id="audio" preload="none"></audio>
 </div>
 
-<script src="data.js?v=20261124d"></script>
-<script src="app.js?v=20261124d"></script>
+<script src="canal/posts.js"></script>
+<script src="data.js?v=20261124e"></script>
+<script src="app.js?v=20261124e"></script>
 </body>
 </html>

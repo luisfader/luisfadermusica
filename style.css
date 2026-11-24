@@ -362,3 +362,45 @@ html.album-open{overflow:hidden}
 .donate .dn-btn{background:var(--accent);border-color:var(--accent);color:var(--night);font-weight:700}
 .donate .dn-qr{margin-top:1.4rem;font-family:var(--sans);font-size:.9rem;color:var(--muted)}
 .donate .dn-qr img{display:block;margin:0 auto .5rem;width:140px;height:140px;background:#fff;padding:8px;border-radius:10px;image-rendering:pixelated}
+
+/* Canal: música nueva, como un canal de Telegram */
+.canal .block-head{margin-bottom:2rem}
+.feed{display:flex;flex-direction:column;gap:2rem;max-width:40rem}
+.post{--w:#e3a857;background:var(--night-2);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.post-img{width:100%;max-height:34rem;object-fit:cover;cursor:zoom-in;background:#000}
+.post-body{padding:1.1rem 1.25rem 1.2rem}
+.post-date{margin:0;font-family:var(--sans);font-size:.85rem;color:var(--muted);letter-spacing:.02em}
+.post h3{margin:.15rem 0 .5rem;font-size:1.5rem;line-height:1.2;font-weight:700}
+.post-text{color:var(--paper)}
+.post-text p{margin:0 0 .75rem}
+.post-text a{color:var(--w);text-underline-offset:.15em;word-break:break-word}
+.post-play{grid-template-columns:auto minmax(0,1fr) auto;align-items:center;margin-top:.5rem;padding:.6rem .75rem;border:1px solid var(--rule);background:rgba(241,235,223,.03);border-radius:10px}
+.post-play .pp{width:2.6rem;height:2.6rem;border-radius:50%;background:var(--w);color:var(--night);display:grid;place-items:center;flex:none}
+.post-play .pp svg{width:1.15rem;height:1.15rem;fill:currentColor;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.post-play .pp .i-pause{display:none;fill:none}
+.post-play[aria-current="true"] .pp .i-play{display:none}
+.post-play[aria-current="true"] .pp .i-pause{display:block}
+.is-paused .post-play[aria-current="true"] .pp .i-play{display:block}
+.is-paused .post-play[aria-current="true"] .pp .i-pause{display:none}
+.post-play .tt{display:flex;flex-direction:column;align-items:flex-start}
+.post-play[aria-current="true"] .tt{color:var(--w)}
+.post-tools{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:.5rem 1rem;margin-top:.75rem;font-family:var(--sans);font-size:.95rem}
+.post-tools svg{width:1.05rem;height:1.05rem;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.post-ly{flex:1 1 auto;min-width:0}
+.post-ly summary{display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;color:var(--muted);list-style:none}
+.post-ly summary::-webkit-details-marker{display:none}
+.post-ly summary:hover,.post-ly[open] summary{color:var(--paper)}
+.post-ly-body{margin-top:.75rem;padding:.9rem 1rem;border-left:2px solid var(--w);background:rgba(241,235,223,.03);font-family:var(--serif);font-size:1.05rem}
+.post-ly-body p{margin:0 0 .9rem}
+.post-ly-body .ly-msg{color:var(--muted);font-family:var(--sans)}
+.post-share{display:inline-flex;align-items:center;gap:.4rem;margin-left:auto;background:none;border:0;padding:0;color:var(--muted);cursor:pointer}
+.post-share:hover{color:var(--paper)}
+.feed-more{margin-top:1.5rem}
+@media (max-width:600px){
+  .feed{gap:1.25rem}
+  .post-body{padding:.95rem 1rem 1rem}
+  .post h3{font-size:1.3rem}
+}
+
+.feed-more[hidden]{display:none}
+.post-img.world-cover{border-radius:0;box-shadow:none;margin:0;aspect-ratio:auto;height:auto}

@@ -25,6 +25,7 @@
 
   const S = {
     es:{
+      navCanal:"Canal", chanH:"Música nueva", chanP:"Canciones e instrumentales que van saliendo de a una, de las novelas o de cualquier otra cosa.", chanFrom:"Canal de Luis Fader", chanMore:"Ver publicaciones anteriores", chanShare:"Compartir", chanCopied:"Enlace copiado", chanLyrics:"Ver la letra",
       title:"Luis Fader — bandas sonoras de sus novelas",
       desc:"Las bandas sonoras de las novelas de Luis Fader en un solo lugar: Mendoza, la fortaleza turquesa, el horizonte después de la catástrofe, Verdegrado y Sinea.",
       skip:"Ir a las bandas sonoras", name:"Luis Fader", tagline:"bandas sonoras de sus novelas",
@@ -47,6 +48,7 @@
       pending:n=>(n===1?"Una canción más todavía sin grabar.":n+" canciones más todavía sin grabar.")+" Sus letras ya están en el sitio."
     },
     ru:{
+      navCanal:"Канал", chanH:"Новая музыка", chanP:"Песни и инструментальные треки, которые выходят по одному: из романов и не только.", chanFrom:"Канал Луиса Фадера", chanMore:"Показать предыдущие публикации", chanShare:"Поделиться", chanCopied:"Ссылка скопирована", chanLyrics:"Показать текст",
       title:"Луис Фадер — саундтреки к его романам",
       desc:"Саундтреки к романам Луиса Фадера в одном месте: Мендоса, бирюзовая крепость, горизонт после катастрофы, Вердеград и Синея.",
       skip:"К саундтрекам", name:"Луис Фадер", tagline:"саундтреки к его романам",
@@ -69,6 +71,7 @@
       pending:n=>"Ещё "+ruPlural(n,"песня пока не записана","песни пока не записаны","песен пока не записаны")+". Их тексты уже есть на сайте."
     },
     en:{
+      navCanal:"Channel", chanH:"New music", chanP:"Songs and instrumentals released one at a time, from the novels or from anywhere else.", chanFrom:"Luis Fader's channel", chanMore:"Show earlier posts", chanShare:"Share", chanCopied:"Link copied", chanLyrics:"Show the lyrics",
       title:"Luis Fader — soundtracks to his novels",
       desc:"The soundtracks to Luis Fader's novels in one place: Mendoza, the turquoise fortress, the horizon after the catastrophe, Verdegrad and Sinea.",
       skip:"Skip to the soundtracks", name:"Luis Fader", tagline:"soundtracks to his novels",
@@ -91,6 +94,7 @@
       pending:n=>(n===1?"One more song":n+" more songs")+" not recorded yet. The lyrics are already on the site."
     },
     it:{
+      navCanal:"Canale", chanH:"Musica nuova", chanP:"Canzoni e brani strumentali che escono uno alla volta, dai romanzi o da qualsiasi altra cosa.", chanFrom:"Il canale di Luis Fader", chanMore:"Mostra i post precedenti", chanShare:"Condividi", chanCopied:"Link copiato", chanLyrics:"Mostra il testo",
       title:"Luis Fader — le colonne sonore dei suoi romanzi",
       desc:"Le colonne sonore dei romanzi di Luis Fader in un solo posto: Mendoza, la fortezza turchese, l'orizzonte dopo la catastrofe, Verdegrado e Sinea.",
       skip:"Vai alle colonne sonore", name:"Luis Fader", tagline:"le colonne sonore dei suoi romanzi",
@@ -147,6 +151,23 @@
   const discs = [];
   D.worlds.forEach(w => w.discs.forEach(d => { d.world = w; d.accent = w.accent; discs.push(d); }));
 
+  /* ---------- Canal: música suelta ----------
+     Las publicaciones están en canal/posts.js (las escribe publicar.html). Cada una se vuelve un
+     disco de una sola pista, con su imagen como portada, así el reproductor, las letras, el ranking
+     y «Guardar» funcionan igual que con las bandas sonoras. Las de fecha futura (programadas) no
+     aparecen hasta que llega su momento. */
+  const CANAL_W = {id:"canal", repo:"luisfadermusica", lang:"es", author:"Luis Fader", accent:"#e3a857", canal:true, discs:[]};
+  Object.defineProperty(CANAL_W, "title", {get: () => T.chanFrom});
+  (Array.isArray(window.CANAL) ? window.CANAL : [])
+    .filter(p => p && p.id && p.mp3 && !(p.fecha && Date.parse(p.fecha) > Date.now()))
+    .sort((a,b) => (Date.parse(b.fecha) || 0) - (Date.parse(a.fecha) || 0))
+    .forEach(p => {
+      const d = {name: p.titulo, cover: p.img || "img/app/icon-512.png", post: p, world: CANAL_W, accent: CANAL_W.accent,
+        tracks: [{t: p.titulo, src: p.mp3, d: p.dur || "", ly: !!p.letra}],
+        voice: p.voz ? "S" : "i", mood: p.animo || "-"};
+      CANAL_W.discs.push(d); discs.push(d);
+    });
+
   /* ---------- Listas de reproducción ----------
      Cada disco es una lista; cada mezcla junta pistas de varias novelas.
      En las mezclas nunca suenan dos seguidas de la misma novela. */
@@ -157,6 +178,7 @@
   const keep = () => true;
   const queues = {};
   discs.forEach((d,k) => queues["d"+k] = d.tracks.map((_,t) => ({d, t})));
+  queues.canal = CANAL_W.discs.map(d => ({d, t: 0}));
   function interleave(items, random){
     const groups = new Map();
     items.forEach(it => { const id = it.d.world.id; if(!groups.has(id)) groups.set(id, []); groups.get(id).push(it); });
@@ -551,7 +573,7 @@
   });
 
   function renderWorlds(){
-    $("#worlds").innerHTML = '<div class="albums">'+discs.map(card).join("")+'</div>';
+    $("#worlds").innerHTML = '<div class="albums">'+discs.filter(d => !d.world.canal).map(card).join("")+'</div>';
     renderAlbum();
     markCurrent();
   }
@@ -564,7 +586,7 @@
     const SHUF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h3.5c2 0 3 1 4.5 3.5l2 3c1.5 2.5 2.5 3.5 4.5 3.5H21M3 17h3.5c1.2 0 2-.4 2.8-1.2M21 7h-3.5c-1.2 0-2 .4-2.8 1.2M18 4l3 3-3 3M18 14l3 3-3 3"/></svg>';
     $("#mixes").innerHTML = '<button type="button" class="mix-chip shuf" data-shuffle="1" aria-pressed="'+(current.qk==="azar")+'">'+SHUF+'<span class="mc-name">'+esc(T.shuffleAll)+'</span>'+(current.qk==="azar" ? '<span class="mc-on" aria-hidden="true"></span>' : '')+'</button>' + D.mixes.map(m => {
       const key = "m:"+m.id, q = getQueue(key);
-      const per = D.worlds.map(w => [w, q.filter(it => it.d.world === w).length]).filter(x => x[1]);
+      const per = [...D.worlds, CANAL_W].map(w => [w, q.filter(it => it.d.world === w).length]).filter(x => x[1]);
       const most = Math.max(1, ...per.map(x => x[1]));
       const bars = per.map(([w,n]) => '<span style="background:'+w.accent+';height:'+Math.max(18, Math.round(n/most*100))+'%"></span>').join("");
       const playing = current.qk === key;
@@ -615,6 +637,7 @@
     const d = current.d, name = tx(d.name), m = mixOfKey(current.qk);
     $("#p-sub").textContent = m ? T.mixOf(tx(m.name), d.world.title)
       : current.qk === "azar" ? T.mixOf(T.shuffleAll, d.world.title)
+      : d.world.canal ? T.chanFrom + (d.post.fecha ? " · " + fmtDate(d.post.fecha) : "")
       : name + (name !== d.world.title ? ", " + d.world.title : "");
     $("#p-toggle").setAttribute("aria-label", audio.paused ? T.play : T.pause);
   }
@@ -650,7 +673,7 @@
     qRender();
     if("mediaSession" in navigator){
       try{
-        navigator.mediaSession.metadata = new MediaMetadata({title:tr.t, artist:"Luis Fader", album:(mixOfKey(current.qk) ? tx(mixOfKey(current.qk).name) : tx(d.name)),
+        navigator.mediaSession.metadata = new MediaMetadata({title:tr.t, artist:"Luis Fader", album:(mixOfKey(current.qk) ? tx(mixOfKey(current.qk).name) : d.world.canal ? T.chanFrom : tx(d.name)),
           artwork:[{src:new URL(d.cover, location.href).href, sizes:"560x560", type:"image/jpeg"}]});
         navigator.mediaSession.setActionHandler("previoustrack", prev);
         navigator.mediaSession.setActionHandler("nexttrack", next);
@@ -737,6 +760,8 @@
     const need = Math.min(30, (isFinite(audio.duration) && audio.duration ? audio.duration : 60) * 0.5);
     if(!counted && heard >= need){ counted = true; countPlay(id); }
   });
+  audio.addEventListener("play", () => document.documentElement.classList.remove("is-paused"));
+  audio.addEventListener("pause", () => document.documentElement.classList.add("is-paused"));
   audio.addEventListener("play", () => { $("#p-icon").innerHTML = ICON_PAUSE; $("#p-toggle").setAttribute("aria-label",T.pause); });
   audio.addEventListener("pause", () => { $("#p-icon").innerHTML = ICON_PLAY; $("#p-toggle").setAttribute("aria-label",T.play); });
   audio.addEventListener("ended", next);
@@ -1131,8 +1156,8 @@
     qBtn.title = T.queueOpen; $("#p-cover").title = T.coverOpen; $("#p-cover").setAttribute("aria-label", T.coverOpen);
     if(!qOpen || !current.q) return;
     const d = current.d, m = mixOfKey(current.qk), multi = !!m || current.qk === "azar" || current.qk === "top";
-    $("#q-title").textContent = m ? tx(m.name) : current.qk === "azar" ? T.shuffleAll : current.qk === "top" ? T.topH : tx(d.name);
-    $("#q-sub").textContent = multi ? "" : d.world.title;
+    $("#q-title").textContent = m ? tx(m.name) : current.qk === "azar" ? T.shuffleAll : current.qk === "top" ? T.topH : current.qk === "canal" ? T.chanH : tx(d.name);
+    $("#q-sub").textContent = multi || current.qk === "canal" ? "" : d.world.title;
     qPanel.style.setProperty("--pa", d.accent);
     qBody.innerHTML = current.q.map((it,k) => { const t = it.d.tracks[it.t], w = it.d.world;
       return '<li><button type="button" class="q-item" data-k="'+k+'"'+(k===current.i?' aria-current="true"':'')+'>'+
@@ -1224,6 +1249,78 @@
     lyBody.scrollTop += (target - lyBody.scrollTop) * (reduceMotion ? 1 : 0.25);
   });
 
+  /* ---------- Canal: el feed ----------
+     Como un canal de Telegram: la más nueva arriba, con su imagen, el texto y la canción.
+     Cada publicación tiene su dirección (#post-<id>) para compartirla. */
+  const CANAL_STEP = 5;
+  let canalShown = CANAL_STEP;
+  const linkify = h => h.replace(/(https?:\/\/[^\s<]+[^\s<.,;:!?)»"'])/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  const paras = s => String(s || "").trim().split(/\n\s*\n/).filter(Boolean).map(p => '<p>'+linkify(esc(p)).replace(/\n/g, "<br>")+'</p>').join("");
+  const PP_SVG = '<svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5 18.5 12 8 18.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5.5v13M15.5 5.5v13"/></svg>';
+  const SHARE_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M7.5 8.5 12 4l4.5 4.5M5 13v5.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V13"/></svg>';
+  const LY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h11M4 10h11M4 14h7"/><circle cx="17.5" cy="17" r="2.5"/><path d="M20 17V7l-3 1"/></svg>';
+  function renderCanal(){
+    const list = CANAL_W.discs, sec = $("#canal");
+    sec.hidden = !list.length; $("#nav-canal").hidden = !list.length;
+    if(!list.length) return;
+    $("#feed").innerHTML = list.slice(0, canalShown).map((d, k) => {
+      const p = d.post, t = d.tracks[0], it = {d, t: 0}, pl = esc(p.lang || "es"), txt = tx(p.texto);
+      return '<article class="post" id="post-'+esc(p.id)+'">'+
+        (p.img ? '<img class="post-img world-cover" src="'+esc(p.img)+'" alt="'+esc(T.cover(p.titulo))+'" loading="lazy">' : '')+
+        '<div class="post-body">'+
+          '<p class="post-date"><time datetime="'+esc(p.fecha || "")+'">'+esc(fmtDate(p.fecha))+'</time></p>'+
+          '<h3 lang="'+pl+'">'+esc(p.titulo)+'</h3>'+
+          (txt ? '<div class="post-text" lang="'+pl+'">'+paras(txt)+'</div>' : '')+
+          '<button type="button" class="track post-play" data-q="canal" data-i="'+k+'" data-d="'+discs.indexOf(d)+'" data-t="0" aria-label="'+esc(T.playN(p.titulo))+'">'+
+            '<span class="pp">'+PP_SVG+'</span>'+
+            '<span class="tt"><span lang="'+pl+'">'+esc(p.titulo)+'</span>'+tag(it)+'</span>'+
+            '<span class="du">'+esc(t.d || "")+'</span></button>'+
+          '<div class="post-tools">'+
+            (p.voz && p.letra ? '<details class="post-ly"><summary>'+LY_SVG+esc(T.chanLyrics)+'</summary><div class="post-ly-body" data-path="'+esc(lyPath(d, t, null))+'" lang="'+pl+'"></div></details>' : '')+
+            '<button type="button" class="post-share" data-share="'+esc(p.id)+'">'+SHARE_SVG+'<span>'+esc(T.chanShare)+'</span></button>'+
+          '</div>'+
+        '</div></article>';
+    }).join("");
+    const more = $("#feed-more");
+    more.hidden = list.length <= canalShown;
+    more.textContent = T.chanMore;
+    markCurrent();
+  }
+  function fmtDate(s){
+    const t = Date.parse(s); if(!t) return "";
+    try{ return new Intl.DateTimeFormat(L === "es" ? "es-AR" : L, {day: "numeric", month: "long", year: "numeric"}).format(new Date(t)); }
+    catch(e){ return new Date(t).toISOString().slice(0, 10); }
+  }
+  $("#feed-more").addEventListener("click", () => { canalShown += CANAL_STEP; renderCanal(); });
+  $("#feed").addEventListener("toggle", async e => {
+    const det = e.target; if(!det.classList || !det.classList.contains("post-ly") || !det.open) return;
+    const box = det.querySelector(".post-ly-body"); if(box.dataset.done) return;
+    box.innerHTML = '<p class="ly-msg">'+esc(T.lyLoading)+'</p>';
+    try{
+      const r = await fetch(box.dataset.path); if(!r.ok) throw new Error(r.status);
+      const text = await r.text();
+      box.innerHTML = text.trim().split(/\n\s*\n/).map(st => '<p>'+esc(st).replace(/\n/g, "<br>")+'</p>').join("");
+      box.dataset.done = "1";
+    }catch(err){ box.innerHTML = '<p class="ly-msg">'+esc(T.lyError)+'</p>'; }
+  }, true);
+  $("#feed").addEventListener("click", async e => {
+    const b = e.target.closest("[data-share]"); if(!b) return;
+    const d = CANAL_W.discs.find(x => x.post.id === b.dataset.share); if(!d) return;
+    const u = new URL(location.href); u.hash = "post-" + d.post.id;
+    const url = u.href;
+    if(navigator.share){ try{ await navigator.share({title: d.post.titulo + " — Luis Fader", url}); return; }catch(err){ if(err && err.name === "AbortError") return; } }
+    try{ await navigator.clipboard.writeText(url); }catch(err){ prompt("", url); return; }
+    const s = b.querySelector("span"); s.textContent = T.chanCopied; setTimeout(() => { s.textContent = T.chanShare; }, 2200);
+  });
+  /* Si se entra con #post-<id>, se muestra esa publicación */
+  function canalFromHash(){
+    const m = /^#post-(.+)$/.exec(location.hash || ""); if(!m) return;
+    const k = CANAL_W.discs.findIndex(d => d.post.id === decodeURIComponent(m[1])); if(k < 0) return;
+    if(k >= canalShown){ canalShown = k + 1; renderCanal(); }
+    const el = document.getElementById("post-" + CANAL_W.discs[k].post.id);
+    if(el) setTimeout(() => el.scrollIntoView({block: "start"}), 60);
+  }
+
   /* ---------- Aplicar idioma ---------- */
   function applyLang(l, save){
     L = l; T = S[L];
@@ -1239,7 +1336,7 @@
       if(b.getAttribute("role") === "radio") b.setAttribute("aria-label", w.title + (w.tr && w.tr[L] ? " ("+w.tr[L]+")" : ""));
     });
     if(cur >= 0) tune(cur, false);
-    renderWorlds(); renderMixes(); renderTop(); playerText(); specLabel(); lyLoad(); qRender();
+    renderWorlds(); renderMixes(); renderTop(); renderCanal(); playerText(); specLabel(); lyLoad(); qRender();
     if(audioFailed) $("#p-error").textContent = T.error;
     if(save){
       try{ localStorage.setItem("fader-lang", L); }catch(e){}
@@ -1258,6 +1355,7 @@
   tune(fromHash >= 0 ? fromHash : 0, false);
   applyLang(L, false);
   if(fromAlbum >= 0) openAlbum(fromAlbum, false);
+  canalFromHash();
   restoreState();
 
   /* ---------- Aplicación instalable ----------

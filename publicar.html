@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Publicar en el canal — Luis Fader</title>
+<meta name="theme-color" content="#191527">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23191527'/%3E%3Cpath d='M16 8v16M8 16h16' stroke='%23e3a857' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--night:#191527;--night-2:#221d35;--night-3:#2c2643;--paper:#f1ebdf;--muted:#b6aec8;--rule:rgba(241,235,223,.16);--w:#e3a857;--ok:#8fd19e;--err:#ff8f8f;
+  --sans:"Alegreya Sans","Segoe UI",system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--paper);font-family:var(--sans);font-size:1.05rem;line-height:1.5}
+main{max-width:42rem;margin:0 auto;padding:1.5rem 1rem 6rem}
+h1{font-size:1.8rem;margin:.5rem 0 .25rem;line-height:1.15}
+h2{font-size:1.25rem;margin:2.5rem 0 1rem}
+.lead{color:var(--muted);margin:0 0 1.5rem}
+a{color:var(--w)}
+.card{background:var(--night-2);border:1px solid var(--rule);border-radius:14px;padding:1.1rem 1.1rem 1.25rem}
+label,.lab{display:block;font-weight:600;margin:1.1rem 0 .35rem}
+.card > label:first-child,.card > .lab:first-child{margin-top:0}
+.hint{display:block;font-weight:400;color:var(--muted);font-size:.9rem}
+input[type=text],input[type=password],input[type=datetime-local],textarea,select{width:100%;font:inherit;color:var(--paper);background:var(--night-3);border:1px solid var(--rule);border-radius:9px;padding:.6rem .75rem}
+textarea{min-height:7rem;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--w);outline-offset:1px}
+.pick{position:relative;display:flex;align-items:center;gap:.9rem;min-height:4.5rem;border:1.5px dashed rgba(241,235,223,.3);border-radius:12px;padding:.75rem;cursor:pointer;background:rgba(241,235,223,.02)}
+.pick:hover,.pick:focus-within{border-color:var(--w)}
+.pick input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.pick .ph{width:4.2rem;height:4.2rem;border-radius:9px;background:var(--night-3);display:grid;place-items:center;flex:none;overflow:hidden;color:var(--muted);font-size:1.6rem}
+.pick .ph img{width:100%;height:100%;object-fit:cover}
+.pick .pt{min-width:0}
+.pick .pt b{display:block;overflow-wrap:anywhere}
+.pick .pt span{color:var(--muted);font-size:.9rem}
+.pick.has{border-style:solid;border-color:rgba(227,168,87,.6)}
+audio{width:100%;margin-top:.6rem}
+.seg{display:flex;flex-wrap:wrap;gap:.4rem}
+.seg label{margin:0;font-weight:500;display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--rule);border-radius:999px;padding:.4rem .85rem;cursor:pointer}
+.seg input{accent-color:var(--w)}
+.seg label:has(input:checked){border-color:var(--w);background:rgba(227,168,87,.12)}
+.row{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:.5rem}
+.row input[type=datetime-local]{flex:1 1 14rem;width:auto}
+button{font:inherit;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;border-radius:999px;border:1px solid rgba(241,235,223,.4);background:none;color:var(--paper);padding:.55rem 1.05rem;font-weight:500}
+.btn:hover{border-color:var(--paper)}
+.btn.main{background:var(--w);border-color:var(--w);color:var(--night);font-weight:700;font-size:1.1rem;padding:.8rem 1.6rem}
+.btn.small{font-size:.9rem;padding:.35rem .8rem}
+.btn.danger{border-color:rgba(255,143,143,.5);color:var(--err)}
+.btn:disabled{opacity:.45;cursor:default}
+.actions{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-top:1.5rem}
+.log{margin-top:1rem;padding:.75rem 1rem;border-radius:10px;background:var(--night-3);font-size:.95rem;white-space:pre-wrap}
+.log:empty{display:none}
+.log .ok{color:var(--ok)} .log .err{color:var(--err)}
+.bar{height:6px;border-radius:3px;background:rgba(241,235,223,.12);overflow:hidden;margin-top:.5rem}
+.bar i{display:block;height:100%;width:0;background:var(--w);transition:width .3s}
+.posts{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.6rem}
+.posts li{display:grid;grid-template-columns:3.4rem minmax(0,1fr);gap:.4rem .8rem;align-items:center;background:var(--night-2);border:1px solid var(--rule);border-radius:12px;padding:.6rem}
+.posts img{width:3.4rem;height:3.4rem;object-fit:cover;border-radius:8px;background:var(--night-3);grid-row:span 2}
+.posts .t{font-weight:700;overflow-wrap:anywhere}
+.posts .m{color:var(--muted);font-size:.88rem}
+.posts .m .soon{color:var(--w)}
+.posts .b{grid-column:2;display:flex;gap:.4rem;flex-wrap:wrap}
+.empty{color:var(--muted)}
+details.key summary{cursor:pointer;color:var(--muted)}
+details.key[open] summary{color:var(--paper);margin-bottom:.75rem}
+ol.steps{padding-left:1.3rem;margin:.25rem 0 1rem;color:var(--muted)}
+ol.steps b{color:var(--paper)}
+.editing{display:flex;justify-content:space-between;align-items:center;gap:.75rem;background:rgba(227,168,87,.14);border:1px solid rgba(227,168,87,.5);border-radius:10px;padding:.5rem .8rem;margin-bottom:1rem}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+  <p class="lead" style="margin:0"><a href="./">← Volver al portal</a></p>
+  <h1>Publicar en el canal</h1>
+  <p class="lead">Una imagen, la canción y unas palabras. Aparece arriba de todo en «Música nueva», en el portal.</p>
+
+  <!-- La clave de GitHub (se guarda solo en este dispositivo) -->
+  <section id="key-box" class="card" hidden>
+    <p style="margin-top:0"><b>Primero, la clave.</b> El portal vive en GitHub, y para subir archivos desde acá esta página necesita una clave de acceso tuya. Se hace una sola vez en cada dispositivo y queda guardada solo en este navegador.</p>
+    <ol class="steps">
+      <li>Abrí <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com → nueva clave</a> (con tu cuenta de GitHub).</li>
+      <li>Nombre: <b>Canal</b>. Vencimiento: el más largo que te deje.</li>
+      <li>En <b>Repository access</b> elegí <b>Only select repositories</b> → <b>luisfadermusica</b>.</li>
+      <li>En <b>Permissions → Repository permissions → Contents</b> elegí <b>Read and write</b>.</li>
+      <li>Tocá <b>Generate token</b>, copiá la clave (empieza con <code>github_pat_</code>) y pegala acá.</li>
+    </ol>
+    <label for="key">Clave de GitHub</label>
+    <input type="password" id="key" autocomplete="off" spellcheck="false" placeholder="github_pat_…">
+    <div class="actions"><button type="button" class="btn main" id="key-save">Guardar la clave</button></div>
+    <div class="log" id="key-log"></div>
+  </section>
+
+  <div id="app" hidden>
+    <form id="form" class="card" novalidate>
+      <div class="editing" id="editing" hidden><span>Estás editando <b id="editing-t"></b></span><button type="button" class="btn small" id="edit-cancel">Cancelar</button></div>
+
+      <span class="lab">Imagen <span class="hint">Se achica sola para que cargue rápido.</span></span>
+      <div class="pick" id="img-pick"><input type="file" id="img" accept="image/*"><span class="ph" id="img-ph">🖼</span><span class="pt"><b id="img-name">Elegir imagen</b><span id="img-info">JPG, PNG o WEBP</span></span></div>
+
+      <span class="lab">Canción</span>
+      <div class="pick" id="mp3-pick"><input type="file" id="mp3" accept="audio/mpeg,.mp3"><span class="ph">♪</span><span class="pt"><b id="mp3-name">Elegir el MP3</b><span id="mp3-info">Archivo .mp3</span></span></div>
+      <audio id="mp3-prev" controls preload="metadata" hidden></audio>
+
+      <label for="titulo">Título</label>
+      <input type="text" id="titulo" maxlength="120" required autocomplete="off">
+
+      <label for="texto">Texto de la publicación <span class="hint">Opcional. Una línea en blanco separa párrafos; los enlaces se pueden tocar.</span></label>
+      <textarea id="texto"></textarea>
+
+      <span class="lab">¿Qué es?</span>
+      <div class="seg" role="radiogroup">
+        <label><input type="radio" name="voz" value="S" checked> Canción (con voz)</label>
+        <label><input type="radio" name="voz" value="i"> Instrumental</label>
+      </div>
+
+      <div id="letra-box">
+        <label for="letra">Letra <span class="hint">Opcional. Se lee en el reproductor («Letra») y debajo de la publicación.</span></label>
+        <textarea id="letra"></textarea>
+      </div>
+
+      <label for="lang">Idioma de la canción</label>
+      <select id="lang">
+        <option value="es">Castellano</option><option value="ru">Ruso</option><option value="it">Italiano</option>
+        <option value="en">Inglés</option><option value="pt">Portugués</option><option value="sr">Serbio</option><option value="ro">Rumano</option>
+        <option value="">Sin idioma / instrumental</option>
+      </select>
+
+      <label for="animo">¿En qué mezcla por ánimo entra? <span class="hint">Opcional. Si elegís una, también suena en esa mezcla.</span></label>
+      <select id="animo">
+        <option value="">En ninguna</option><option value="A">Amor</option><option value="L">Lluvia y nostalgia</option>
+        <option value="F">Lucha y adrenalina</option><option value="M">Misterio y penumbra</option><option value="E">Esperanza y amanecer</option>
+      </select>
+
+      <span class="lab">¿Cuándo sale?</span>
+      <div class="seg" role="radiogroup">
+        <label><input type="radio" name="cuando" value="ya" checked> Ahora</label>
+        <label><input type="radio" name="cuando" value="prog"> Programar</label>
+      </div>
+      <div class="row" id="prog-box" hidden>
+        <input type="datetime-local" id="fecha">
+        <button type="button" class="btn small" id="next-free">Próximo día libre</button>
+      </div>
+      <span class="hint" id="prog-hint" hidden>Queda guardada y aparece sola en el portal ese día y a esa hora (hora de este dispositivo).</span>
+
+      <div class="actions">
+        <button type="submit" class="btn main" id="go">Publicar</button>
+      </div>
+      <div class="log" id="log"></div>
+      <div class="bar" id="bar" hidden><i></i></div>
+    </form>
+
+    <h2>Tus publicaciones</h2>
+    <ul class="posts" id="list"><li class="empty" style="display:block">Cargando…</li></ul>
+
+    <details class="key" style="margin-top:3rem"><summary>La clave de GitHub</summary>
+      <p class="hint">Está guardada en este navegador. Si la cambiaste en GitHub o venció, olvidala y pegá la nueva.</p>
+      <button type="button" class="btn small danger" id="key-forget">Olvidar la clave en este dispositivo</button>
+    </details>
+  </div>
+</main>
+
+<script>
+(function(){
+  "use strict";
+  /* Dónde vive el portal */
+  const OWNER = "luisfader", REPO = "luisfadermusica", BRANCH = "main";
+  const API = "https://api.github.com/repos/" + OWNER + "/" + REPO;
+  const POSTS = "canal/posts.js";
+  const KEY = "fader-canal-token";
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  let token = ""; try{ token = localStorage.getItem(KEY) || ""; }catch(e){}
+  let posts = [], editing = null, imgFile = null, mp3File = null, mp3Dur = "";
+
+  /* ---------- GitHub ---------- */
+  async function gh(path, opt = {}){
+    const r = await fetch(path.startsWith("http") ? path : API + path, Object.assign({cache: "no-store"}, opt, {
+      headers: Object.assign({Authorization: "Bearer " + token, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}, opt.headers || {})
+    }));
+    if(!r.ok){
+      let msg = ""; try{ msg = (await r.json()).message || ""; }catch(e){}
+      const err = new Error(r.status + (msg ? " " + msg : "")); err.status = r.status; throw err;
+    }
+    return opt.raw ? r.text() : r.json();
+  }
+  const post = (path, body, method = "POST") => gh(path, {method, body: JSON.stringify(body), headers: {"Content-Type": "application/json"}});
+  function parsePosts(text){
+    const m = /window\.CANAL\s*=\s*([\s\S]*?);?\s*$/.exec(text.replace(/\/\*[\s\S]*?\*\//g, "").trim());
+    if(!m) throw new Error("canal/posts.js no tiene el formato esperado");
+    const a = JSON.parse(m[1]); if(!Array.isArray(a)) throw new Error("canal/posts.js no es una lista");
+    return a;
+  }
+  const HEADER = "/* Publicaciones del canal «Música nueva». Este archivo lo escribe publicar.html.\n   Si se edita a mano, la lista tiene que seguir siendo JSON válido. */\n";
+  const writePosts = a => HEADER + "window.CANAL = " + JSON.stringify(a, null, 1) + ";\n";
+  async function loadPosts(ref){
+    try{ return parsePosts(await gh("/contents/" + POSTS + "?ref=" + (ref || BRANCH), {raw: true, headers: {Accept: "application/vnd.github.raw+json"}})); }
+    catch(e){ if(e.status === 404) return []; throw e; }
+  }
+  /* Un solo commit con todos los archivos nuevos o borrados y la lista de publicaciones al día.
+     files: [{path, b64}] o [{path, text}] o [{path, del:true}]. change(lista) devuelve la lista nueva. */
+  async function commit(message, files, change, progress){
+    const blobs = {};
+    let done = 0; const up = files.filter(f => !f.del);
+    for(const f of up){
+      const b = await post("/git/blobs", f.b64 != null ? {content: f.b64, encoding: "base64"} : {content: f.text, encoding: "utf-8"});
+      blobs[f.path] = b.sha; done++; progress && progress(done / (up.length + 1));
+    }
+    for(let attempt = 0; attempt < 3; attempt++){
+      const ref = await gh("/git/ref/heads/" + BRANCH);
+      const head = ref.object.sha;
+      const base = await gh("/git/commits/" + head);
+      const now = await loadPosts(head);
+      const next = change(now);
+      const pb = await post("/git/blobs", {content: writePosts(next), encoding: "utf-8"});
+      const tree = files.map(f => f.del ? {path: f.path, mode: "100644", type: "blob", sha: null} : {path: f.path, mode: "100644", type: "blob", sha: blobs[f.path]});
+      tree.push({path: POSTS, mode: "100644", type: "blob", sha: pb.sha});
+      const t = await post("/git/trees", {base_tree: base.tree.sha, tree});
+      const c = await post("/git/commits", {message, tree: t.sha, parents: [head]});
+      try{
+        await post("/git/refs/heads/" + BRANCH, {sha: c.sha, force: false}, "PATCH");
+        progress && progress(1);
+        return next;
+      }catch(e){ if(e.status !== 422 || attempt === 2) throw e; }   // alguien cambió algo justo ahora: se reintenta
+    }
+  }
+
+  /* ---------- Clave ---------- */
+  function showApp(){ $("#key-box").hidden = !!token; $("#app").hidden = !token; if(token) refresh(); }
+  $("#key-save").addEventListener("click", async () => {
+    const v = $("#key").value.trim(); const log = $("#key-log");
+    if(!v){ log.innerHTML = '<span class="err">Pegá la clave primero.</span>'; return; }
+    token = v; log.textContent = "Probando la clave…";
+    try{
+      const r = await gh("");
+      if(r.permissions && !r.permissions.push) throw new Error("La clave puede leer pero no escribir. En «Contents» tiene que decir «Read and write».");
+      try{ localStorage.setItem(KEY, token); }catch(e){}
+      log.textContent = ""; $("#key").value = ""; showApp();
+    }catch(e){
+      token = "";
+      log.innerHTML = '<span class="err">' + esc(e.status === 401 ? "GitHub no reconoce esa clave. Revisá que esté completa." : e.status === 404 ? "La clave no tiene acceso al repositorio luisfadermusica." : e.message) + '</span>';
+    }
+  });
+  $("#key-forget").addEventListener("click", () => { try{ localStorage.removeItem(KEY); }catch(e){} token = ""; showApp(); });
+
+  /* ---------- Archivos ---------- */
+  const toB64 = blob => new Promise((ok, ko) => { const r = new FileReader(); r.onload = () => ok(String(r.result).split(",")[1]); r.onerror = () => ko(r.error); r.readAsDataURL(blob); });
+  const clock = t => { t = Math.max(0, Math.round(t || 0)); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); };
+  const mb = n => (n / 1048576).toFixed(1).replace(".", ",") + " MB";
+  /* La imagen se achica a 1400 px de lado como máximo y se guarda en JPG */
+  function shrink(file){
+    return new Promise((ok, ko) => {
+      const img = new Image(), u = URL.createObjectURL(file);
+      img.onload = () => {
+        const max = 1400, k = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+        const c = document.createElement("canvas");
+        c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
+        const x = c.getContext("2d"); x.fillStyle = "#191527"; x.fillRect(0, 0, c.width, c.height);
+        x.drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(u);
+        c.toBlob(b => b ? ok(b) : ko(new Error("No se pudo procesar la imagen")), "image/jpeg", 0.86);
+      };
+      img.onerror = () => { URL.revokeObjectURL(u); ko(new Error("Ese archivo no parece una imagen")); };
+      img.src = u;
+    });
+  }
+  $("#img").addEventListener("change", () => {
+    const f = $("#img").files[0]; imgFile = f || null;
+    $("#img-pick").classList.toggle("has", !!f);
+    $("#img-name").textContent = f ? f.name : "Elegir imagen";
+    $("#img-info").textContent = f ? mb(f.size) : "JPG, PNG o WEBP";
+    $("#img-ph").innerHTML = f ? '<img alt="" src="' + URL.createObjectURL(f) + '">' : "🖼";
+  });
+  $("#mp3").addEventListener("change", () => {
+    const f = $("#mp3").files[0]; mp3File = f || null; mp3Dur = "";
+    $("#mp3-pick").classList.toggle("has", !!f);
+    $("#mp3-name").textContent = f ? f.name : "Elegir el MP3";
+    $("#mp3-info").textContent = f ? mb(f.size) : "Archivo .mp3";
+    const a = $("#mp3-prev");
+    if(!f){ a.hidden = true; a.removeAttribute("src"); return; }
+    a.src = URL.createObjectURL(f); a.hidden = false;
+    a.onloadedmetadata = () => { if(isFinite(a.duration)){ mp3Dur = clock(a.duration); $("#mp3-info").textContent = mb(f.size) + " · " + mp3Dur; } };
+    if(!$("#titulo").value.trim()) $("#titulo").value = f.name.replace(/\.mp3$/i, "").replace(/^\d+[\s._-]*/, "").replace(/[_]+/g, " ").trim();
+    if(f.size > 95 * 1048576) say("Ese MP3 pesa más de 95 MB: GitHub no lo va a aceptar. Exportalo con menos calidad (192 kbps alcanza).", "err");
+  });
+  const vozVal = () => document.querySelector('input[name=voz]:checked').value;
+  const syncVoz = () => { $("#letra-box").hidden = vozVal() !== "S"; };
+  document.querySelectorAll('input[name=voz]').forEach(r => r.addEventListener("change", syncVoz));
+  const cuandoVal = () => document.querySelector('input[name=cuando]:checked').value;
+  const syncCuando = () => { const p = cuandoVal() === "prog"; $("#prog-box").hidden = !p; $("#prog-hint").hidden = !p; if(p && !$("#fecha").value) nextFree(); };
+  document.querySelectorAll('input[name=cuando]').forEach(r => r.addEventListener("change", syncCuando));
+
+  /* Fechas: en el archivo van en UTC; en el formulario, en la hora de este dispositivo */
+  const pad = n => String(n).padStart(2, "0");
+  const toLocalInput = d => d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) + "T" + pad(d.getHours()) + ":" + pad(d.getMinutes());
+  const localDay = d => d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+  /* El día siguiente a la última publicación (o mañana), a la misma hora que la última programada, o a las 12 */
+  function nextFree(){
+    const last = posts.map(p => new Date(p.fecha)).filter(d => !isNaN(d)).sort((a, b) => b - a)[0];
+    const now = new Date();
+    let d = last && last > now ? new Date(last) : new Date(now);
+    if(!(last && last > now)) d.setHours(12, 0, 0, 0);
+    d.setDate(d.getDate() + 1);
+    $("#fecha").value = toLocalInput(d);
+  }
+  $("#next-free").addEventListener("click", nextFree);
+
+  const TR = {"а":"a","б":"b","в":"v","г":"g","д":"d","е":"e","ё":"yo","ж":"zh","з":"z","и":"i","й":"j","к":"k","л":"l","м":"m","н":"n","о":"o","п":"p","р":"r","с":"s","т":"t","у":"u","ф":"f","х":"h","ц":"c","ч":"ch","ш":"sh","щ":"shch","ъ":"","ы":"y","ь":"","э":"e","ю":"yu","я":"ya","ђ":"dj","ј":"j","љ":"lj","њ":"nj","ћ":"c","џ":"dz","ș":"s","ț":"t"};
+  const slug = s => [...String(s).toLowerCase()].map(c => TR[c] != null ? TR[c] : c).join("").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 48).replace(/-+$/, "") || "cancion";
+  const lyFor = mp3 => "letras/canal/" + mp3.split("/").pop().replace(/\.mp3$/i, "") + ".txt";
+  const stamp = () => Date.now().toString(36).slice(-5);
+
+  /* ---------- Mensajes ---------- */
+  function say(msg, cls){ $("#log").innerHTML = cls ? '<span class="' + cls + '">' + esc(msg) + '</span>' : esc(msg); }
+  function bar(p){ const b = $("#bar"); b.hidden = p == null; if(p != null) b.firstElementChild.style.width = Math.round(p * 100) + "%"; }
+
+  /* ---------- Publicar o guardar cambios ---------- */
+  $("#form").addEventListener("submit", async e => {
+    e.preventDefault();
+    const titulo = $("#titulo").value.trim();
+    if(!editing && !mp3File) return say("Falta elegir el MP3.", "err");
+    if(!titulo) return say("Falta el título.", "err");
+    if(mp3File && !/\.mp3$/i.test(mp3File.name) && mp3File.type !== "audio/mpeg") return say("La canción tiene que ser un archivo .mp3.", "err");
+    let fecha;
+    if(cuandoVal() === "prog"){
+      const d = new Date($("#fecha").value);
+      if(isNaN(d)) return say("Elegí el día y la hora en que tiene que salir.", "err");
+      fecha = d.toISOString();
+    }else fecha = editing && Date.parse(editing.fecha) <= Date.now() ? editing.fecha : new Date().toISOString();
+
+    const voz = vozVal() === "S", letra = voz ? $("#letra").value.trim() : "";
+    const go = $("#go"); go.disabled = true;
+    try{
+      const files = [];
+      const id = editing ? editing.id : (() => {
+        const base = localDay(new Date(fecha)) + "-" + slug(titulo); let id = base, n = 2;
+        while(posts.some(p => p.id === id)) id = base + "-" + n++;
+        return id;
+      })();
+      const p = Object.assign({}, editing || {}, {id, fecha, titulo, texto: $("#texto").value.trim(), lang: $("#lang").value, voz, animo: $("#animo").value});
+      if(!p.animo) delete p.animo;
+      if(!p.texto) delete p.texto;
+      if(imgFile){
+        say("Preparando la imagen…");
+        const small = await shrink(imgFile);
+        p.img = "canal/img/" + id + (editing ? "-" + stamp() : "") + ".jpg";
+        files.push({path: p.img, b64: await toB64(small)});
+        if(editing && editing.img) files.push({path: editing.img, del: true});
+      }
+      if(mp3File){
+        say("Leyendo la canción…");
+        p.mp3 = "canal/audio/" + id + (editing ? "-" + stamp() : "") + ".mp3";
+        p.dur = mp3Dur || p.dur || "";
+        files.push({path: p.mp3, b64: await toB64(mp3File)});
+        if(editing && editing.mp3) files.push({path: editing.mp3, del: true});
+      }
+      if(!p.dur) delete p.dur;
+      /* la letra va en letras/canal/<mismo nombre que el mp3>.txt */
+      if(editing && editing.letra && (lyFor(editing.mp3) !== lyFor(p.mp3) || !letra)) files.push({path: lyFor(editing.mp3), del: true});
+      if(letra){ files.push({path: lyFor(p.mp3), text: letra + "\n"}); p.letra = true; } else delete p.letra;
+
+      say("Subiendo a GitHub… (con un MP3 grande puede tardar un poco)"); bar(0);
+      const wasEditing = editing;
+      posts = await commit((wasEditing ? "Canal: cambios en «" : "Canal: «") + titulo + "»", files,
+        list => { const i = list.findIndex(x => x.id === p.id); if(i >= 0) list[i] = p; else list.push(p); return list; },
+        bar);
+      const prog = Date.parse(fecha) > Date.now();
+      say(wasEditing ? "Listo, cambios guardados. En un minuto se ven en el portal."
+        : prog ? "Listo. Queda programada para el " + new Date(fecha).toLocaleString("es-AR", {dateStyle: "long", timeStyle: "short"})
+        : "¡Publicada! En uno o dos minutos aparece en el portal (GitHub tarda un poquito en actualizar la página).", "ok");
+      resetForm(true);
+      renderList();
+    }catch(err){
+      bar(null);
+      say(err.status === 401 ? "GitHub rechazó la clave (¿venció?). Olvidala abajo de todo y pegá una nueva."
+        : err.status === 403 || err.status === 404 ? "La clave no tiene permiso para escribir en luisfadermusica. Revisá que en «Contents» diga «Read and write»."
+        : err.status === 422 && mp3File && mp3File.size > 50 * 1048576 ? "GitHub no aceptó el MP3, seguramente por el tamaño. Probá exportarlo a 192 kbps."
+        : "No se pudo publicar: " + err.message + ". Probá de nuevo; si sigue, avisame.", "err");
+    }finally{ go.disabled = false; }
+  });
+
+  function resetForm(keepLog){
+    editing = null; imgFile = null; mp3File = null; mp3Dur = "";
+    $("#form").reset(); $("#img").dispatchEvent(new Event("change")); $("#mp3").dispatchEvent(new Event("change"));
+    $("#editing").hidden = true; $("#go").textContent = "Publicar"; $("#fecha").value = "";
+    syncVoz(); syncCuando();
+    if(!keepLog){ say(""); bar(null); } else setTimeout(() => bar(null), 1500);
+  }
+  $("#edit-cancel").addEventListener("click", () => resetForm(false));
+
+  /* ---------- Lista de publicaciones ---------- */
+  const raw = path => "https://raw.githubusercontent.com/" + OWNER + "/" + REPO + "/" + BRANCH + "/" + path;
+  async function refresh(){
+    try{ posts = await loadPosts(); renderList(); }
+    catch(e){
+      $("#list").innerHTML = '<li class="empty" style="display:block">No se pudo leer la lista (' + esc(e.message) + ').</li>';
+      if(e.status === 401){ say("GitHub rechazó la clave (¿venció?). Olvidala abajo de todo y pegá una nueva.", "err"); }
+    }
+  }
+  function renderList(){
+    const now = Date.now();
+    const a = posts.slice().sort((x, y) => (Date.parse(y.fecha) || 0) - (Date.parse(x.fecha) || 0));
+    $("#list").innerHTML = a.length ? a.map(p => {
+      const t = Date.parse(p.fecha), soon = t > now;
+      const when = isNaN(t) ? "" : new Date(t).toLocaleString("es-AR", {dateStyle: "medium", timeStyle: "short"});
+      return '<li>' + (p.img ? '<img alt="" loading="lazy" src="' + esc(raw(p.img)) + '">' : '<img alt="">') +
+        '<div><div class="t">' + esc(p.titulo) + '</div><div class="m">' + (soon ? '<span class="soon">Programada · ' + esc(when) + '</span>' : esc(when)) +
+        ' · ' + (p.voz ? "canción" : "instrumental") + (p.dur ? " · " + esc(p.dur) : "") + '</div></div>' +
+        '<div class="b"><button type="button" class="btn small" data-edit="' + esc(p.id) + '">Editar</button>' +
+        '<button type="button" class="btn small danger" data-del="' + esc(p.id) + '">Borrar</button>' +
+        (soon ? '' : '<a class="btn small" href="./#post-' + encodeURIComponent(p.id) + '" target="_blank" rel="noopener">Ver</a>') + '</div></li>';
+    }).join("") : '<li class="empty" style="display:block">Todavía no hay publicaciones. La primera la hacés con el formulario de arriba.</li>';
+  }
+  $("#list").addEventListener("click", async e => {
+    const ed = e.target.closest("[data-edit]"), del = e.target.closest("[data-del]");
+    if(ed){
+      const p = posts.find(x => x.id === ed.dataset.edit); if(!p) return;
+      resetForm(false); editing = p;
+      $("#editing").hidden = false; $("#editing-t").textContent = "«" + p.titulo + "»"; $("#go").textContent = "Guardar cambios";
+      $("#titulo").value = p.titulo || ""; $("#texto").value = typeof p.texto === "string" ? p.texto : (p.texto && p.texto.es) || "";
+      $("#lang").value = p.lang != null ? p.lang : "es"; $("#animo").value = p.animo || "";
+      document.querySelector('input[name=voz][value="' + (p.voz ? "S" : "i") + '"]').checked = true; syncVoz();
+      const soon = Date.parse(p.fecha) > Date.now();
+      document.querySelector('input[name=cuando][value="' + (soon ? "prog" : "ya") + '"]').checked = true;
+      if(soon) $("#fecha").value = toLocalInput(new Date(p.fecha));
+      syncCuando();
+      $("#img-name").textContent = "Dejar la imagen actual"; $("#img-info").textContent = "o elegir otra";
+      if(p.img) $("#img-ph").innerHTML = '<img alt="" src="' + esc(raw(p.img)) + '">';
+      $("#mp3-name").textContent = "Dejar la canción actual"; $("#mp3-info").textContent = "o elegir otro MP3";
+      if(p.letra){
+        $("#letra").value = "Cargando la letra…";
+        gh("/contents/" + lyFor(p.mp3) + "?ref=" + BRANCH, {raw: true, headers: {Accept: "application/vnd.github.raw+json"}})
+          .then(t => { if(editing === p) $("#letra").value = t.trim(); }).catch(() => { if(editing === p) $("#letra").value = ""; });
+      }
+      $("#form").scrollIntoView({behavior: "smooth", block: "start"});
+      return;
+    }
+    if(del){
+      const p = posts.find(x => x.id === del.dataset.del); if(!p) return;
+      if(!confirm("¿Borrar «" + p.titulo + "»? Se quitan del portal la publicación, la imagen y la canción.")) return;
+      del.disabled = true; say("Borrando «" + p.titulo + "»…");
+      try{
+        const files = [p.img, p.mp3, p.letra ? lyFor(p.mp3) : null].filter(Boolean).map(path => ({path, del: true}));
+        posts = await commit("Canal: se quita «" + p.titulo + "»", files, list => list.filter(x => x.id !== p.id));
+        if(editing && editing.id === p.id) resetForm(true);
+        say("Borrada.", "ok"); renderList();
+      }catch(err){ del.disabled = false; say("No se pudo borrar: " + err.message, "err"); }
+    }
+  });
+
+  syncVoz(); syncCuando(); showApp();
+})();
+</script>
+</body>
+</html>
