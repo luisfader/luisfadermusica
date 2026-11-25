@@ -2148,10 +2148,10 @@ window.PORTAL={
     "it": "Venezia nasconde il suo segreto più oscuro nelle proprie acque: una città perduta e una maschera dal potere sconfinato. Mentre una verità scomoda minaccia di riaffiorare, forze oscure tramano per seppellirla per sempre. Un archeologo, una donna dalle intenzioni misteriose e un gruppo di amici imprevedibili finiscono in una caccia pericolosa che si trasforma presto in una lotta per la sopravvivenza."
    },
    "kind": {
-    "es": "Canciones en italiano de la novela",
-    "ru": "Песни на итальянском к роману",
-    "en": "Songs in Italian from the novel",
-    "it": "Canzoni in italiano del romanzo"
+    "es": "Canciones de la novela, en italiano y en castellano",
+    "ru": "Песни к роману на итальянском и испанском",
+    "en": "Songs from the novel, in Italian and Spanish",
+    "it": "Canzoni del romanzo, in italiano e in spagnolo"
    },
    "discs": [
     {
@@ -2174,11 +2174,17 @@ window.PORTAL={
        "src": "audio/venecianskaya-maska/02-gondola-senza-gondoliere.mp3",
        "d": "3:56",
        "ly": 1
+      },
+      {
+       "t": "Matevirus",
+       "src": "audio/venecianskaya-maska/03-matevirus.mp3",
+       "d": "3:51",
+       "ly": 1
       }
      ],
      "pending": 0,
-     "mood": "MA",
-     "voice": "SS"
+     "mood": "MAF",
+     "voice": "SSS"
     }
    ]
   },
