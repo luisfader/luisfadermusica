@@ -1985,11 +1985,16 @@ window.PORTAL={
        "t": "Резонанс любви",
        "src": "audio/rezonans/rezonans-lyubvi.mp3",
        "d": "2:57"
+      },
+      {
+       "t": "Я по тебе скучаю",
+       "src": "audio/rezonans/ya-po-tebe-skuchayu.mp3",
+       "d": "3:52"
       }
      ],
      "pending": 0,
-     "mood": "A",
-     "voice": "i"
+     "mood": "AL",
+     "voice": "iS"
     }
    ]
   },
