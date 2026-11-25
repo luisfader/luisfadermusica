@@ -1864,11 +1864,16 @@ window.PORTAL={
        "t": "Твой Зов",
        "src": "https://luisfader.github.io/podcasts/novels/severnaya-lyubov/music/09.mp3",
        "d": "3:01"
+      },
+      {
+       "t": "Уголок в твоём сердце",
+       "src": "audio/severnaya-lyubov/ugolok-v-tvoyom-serdce.mp3",
+       "d": "4:19"
       }
      ],
      "pending": 0,
-     "mood": "ALFMLAMMA",
-     "voice": "iiiiiiiii"
+     "mood": "ALFMLAMMAA",
+     "voice": "iiiiiiiiii"
     },
     {
      "name": {
