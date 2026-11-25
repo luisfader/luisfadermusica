@@ -2253,6 +2253,73 @@ window.PORTAL={
      "voice": "iS"
     }
    ]
+  },
+  {
+   "id": "piramidy",
+   "repo": "dikij-chas-tajna-piramid",
+   "title": "Дикий час: Тайна пирамид",
+   "lang": "ru",
+   "author": "Роберт Фадер",
+   "accent": "#f0913c",
+   "place": {
+    "es": "Belgrado y las pirámides de Visoko",
+    "ru": "Белград и пирамиды Високо",
+    "en": "Belgrade and the pyramids of Visoko",
+    "it": "Belgrado e le piramidi di Visoko"
+   },
+   "tr": {
+    "es": "La hora salvaje: El secreto de las pirámides",
+    "en": "The Wild Hour: The Secret of the Pyramids",
+    "it": "L'ora selvaggia: Il segreto delle piramidi"
+   },
+   "blurb": {
+    "es": "En un balcón de Belgrado, frente al Danubio, Luis y Natasha por fin se dan una tarde de calma. Pero en un despacho sin nombre ya hay una carpeta con el nombre de ella, y en las montañas de Bosnia empiezan a despertar las antiguas pirámides de Visoko. Su energía no obedece a la ciencia ni a las armas: solo responde a un sentimiento tan fuerte que pueda unir corazones, almas y la realidad misma.",
+    "ru": "На балконе в Белграде, над Дунаем, Луис и Наташа наконец позволяют себе спокойный вечер. Но в кабинете без вывески уже лежит папка с её именем, а в горах Боснии начинают пробуждаться древние пирамиды Високо. Их энергия не подчиняется науке и не слушается оружия — она откликается только на чувства, настолько сильные, что способны соединить сердца, души и саму реальность.",
+    "en": "On a balcony in Belgrade, above the Danube, Luis and Natasha finally allow themselves a quiet evening. But in an office with no sign on the door a file with her name is already waiting, and in the mountains of Bosnia the ancient pyramids of Visoko begin to awaken. Their energy obeys neither science nor weapons: it answers only to feelings strong enough to join hearts, souls and reality itself.",
+    "it": "Su un balcone di Belgrado, sopra il Danubio, Luis e Natasha si concedono finalmente una sera tranquilla. Ma in un ufficio senza insegna c'è già una cartella con il nome di lei, e sulle montagne della Bosnia le antiche piramidi di Visoko cominciano a risvegliarsi. La loro energia non obbedisce né alla scienza né alle armi: risponde solo a sentimenti così forti da unire cuori, anime e la realtà stessa."
+   },
+   "kind": {
+    "es": "Música de la novela",
+    "ru": "Музыка к роману",
+    "en": "Music from the novel",
+    "it": "Musica del romanzo"
+   },
+   "discs": [
+    {
+     "name": {
+      "es": "Дикий час: Тайна пирамид",
+      "ru": "Дикий час: Тайна пирамид",
+      "en": "Дикий час: Тайна пирамид",
+      "it": "Дикий час: Тайна пирамид"
+     },
+     "cover": "img/mundos/dikij-chas-tajna-piramid.jpg",
+     "tracks": [
+      {
+       "t": "Эпический поцелуй",
+       "src": "audio/dikij-chas-tajna-piramid/01-epicheskij-poceluj.mp3",
+       "d": "3:33"
+      },
+      {
+       "t": "Огненная игра",
+       "src": "audio/dikij-chas-tajna-piramid/02-ognennaya-igra.mp3",
+       "d": "2:31"
+      },
+      {
+       "t": "Кралица",
+       "src": "audio/dikij-chas-tajna-piramid/03-kralica.mp3",
+       "d": "2:42"
+      },
+      {
+       "t": "Пробуждение любви",
+       "src": "audio/dikij-chas-tajna-piramid/04-probuzhdenie-lyubvi.mp3",
+       "d": "3:53"
+      }
+     ],
+     "pending": 0,
+     "mood": "AFAA",
+     "voice": "SSSS"
+    }
+   ]
   }
  ],
  "mixes": [
