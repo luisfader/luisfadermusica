@@ -354,11 +354,18 @@ window.PORTAL={
        "src": "https://luisfader.github.io/corazonada/proyecto-r/audio/10-imperfeccion.mp3",
        "d": "3:55",
        "s": "Lo que no se puede arreglar"
+      },
+      {
+       "t": "Los que sí sueñan",
+       "src": "audio/corazonada/11-los-que-si-suenan.mp3",
+       "d": "4:02",
+       "s": "Una semilla en la ceniza",
+       "ly": 1
       }
      ],
      "pending": 0,
-     "mood": "AFFEEFFFAL",
-     "voice": "SSSSSSSSSS"
+     "mood": "AFFEEFFFALE",
+     "voice": "SSSSSSSSSSS"
     },
     {
      "name": {
