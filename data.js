@@ -646,16 +646,16 @@ window.PORTAL={
     "it": "Sinea e Verdegrado"
    },
    "blurb": {
-    "es": "Tres novelas y su música. En «Волны любви», todo empieza con un encuentro en un café de Sinea, y de un simple dibujo sale un zorro que vuelve el mundo un poco mágico. En «Крепость в полумраке», Luis viaja por primera vez a casa de Natalia, en la vieja Verdegrado, donde una fortaleza antigua despierta entre sombras. En «Город без улыбок», Natalia vuelve a Sinea y encuentra un pueblo donde está prohibido sonreír.",
-    "ru": "Три романа и их музыка. В «Волнах любви» всё начинается со встречи в маленьком кафе Синеи, а из простого рисунка появляется лис, и мир становится чуть волшебнее. В «Крепости в полумраке» Луис впервые едет к Наталье домой, в старинный Вердеград, где в тенях просыпается древняя крепость. В «Городе без улыбок» Наталья возвращается в Синею и находит город, в котором запрещено улыбаться.",
-    "en": "Three novels and their music. In «Волны любви» it all begins with a meeting in a small café in Sinea, and a fox steps out of a simple drawing and makes the world a little magical. In «Крепость в полумраке» Luis travels to Natalia's home for the first time, in old Verdegrad, where an ancient fortress wakes among the shadows. In «Город без улыбок» Natalia returns to Sinea and finds a town where smiling is forbidden.",
-    "it": "Tre romanzi e la loro musica. In «Волны любви» tutto comincia con un incontro in un piccolo caffè di Sinea, e da un semplice disegno esce una volpe che rende il mondo un po' magico. In «Крепость в полумраке» Luis va per la prima volta a casa di Natalia, nella vecchia Verdegrado, dove un'antica fortezza si risveglia tra le ombre. In «Город без улыбок» Natalia torna a Sinea e trova una città dove è vietato sorridere."
+    "es": "Cuatro novelas y su música. En «Волны любви», todo empieza con un encuentro en un café de Sinea, y de un simple dibujo sale un zorro que vuelve el mundo un poco mágico. En «Крепость в полумраке», Luis viaja por primera vez a casa de Natalia, en la vieja Verdegrado, donde una fortaleza antigua despierta entre sombras. En «Город без улыбок», Natalia vuelve a Sinea y encuentra un pueblo donde está prohibido sonreír. En «В четыре руки», durante el carnaval de Madrid, a las tres de la mañana un piano empieza a sonar a cuatro manos, y al lado de Natalia está sentado Luis, vivo, mientras ella lleve puesta la máscara.",
+    "ru": "Четыре романа и их музыка. В «Волнах любви» всё начинается со встречи в маленьком кафе Синеи, а из простого рисунка появляется лис, и мир становится чуть волшебнее. В «Крепости в полумраке» Луис впервые едет к Наталье домой, в старинный Вердеград, где в тенях просыпается древняя крепость. В «Городе без улыбок» Наталья возвращается в Синею и находит город, в котором запрещено улыбаться. В «В четыре руки», в карнавальную ночь в Мадриде, в три часа рояль начинает звучать в четыре руки, и рядом с Натальей сидит Луис — живой, пока на ней маска.",
+    "en": "Four novels and their music. In «Волны любви» it all begins with a meeting in a small café in Sinea, and a fox steps out of a simple drawing and makes the world a little magical. In «Крепость в полумраке» Luis travels to Natalia's home for the first time, in old Verdegrad, where an ancient fortress wakes among the shadows. In «Город без улыбок» Natalia returns to Sinea and finds a town where smiling is forbidden. In «В четыре руки», on a carnival night in Madrid, at three in the morning a piano starts playing four-handed, and Luis is sitting beside Natalia, alive, for as long as she wears the mask.",
+    "it": "Quattro romanzi e la loro musica. In «Волны любви» tutto comincia con un incontro in un piccolo caffè di Sinea, e da un semplice disegno esce una volpe che rende il mondo un po' magico. In «Крепость в полумраке» Luis va per la prima volta a casa di Natalia, nella vecchia Verdegrado, dove un'antica fortezza si risveglia tra le ombre. In «Город без улыбок» Natalia torna a Sinea e trova una città dove è vietato sorridere. In «В четыре руки», in una notte di carnevale a Madrid, alle tre un pianoforte comincia a suonare a quattro mani, e accanto a Natalia siede Luis, vivo, finché lei porta la maschera."
    },
    "kind": {
-    "es": "Música y canciones de las tres novelas",
-    "ru": "Музыка и песни всех трёх романов",
-    "en": "Music and songs from all three novels",
-    "it": "Musica e canzoni dei tre romanzi"
+    "es": "Música y canciones de las cuatro novelas",
+    "ru": "Музыка и песни всех четырёх романов",
+    "en": "Music and songs from all four novels",
+    "it": "Musica e canzoni dei quattro romanzi"
    },
    "discs": [
     {
@@ -910,13 +910,33 @@ window.PORTAL={
      "pending": 0,
      "mood": "LEELMELAEEA",
      "voice": "SSSSSSSiSSS"
+    },
+    {
+     "name": {
+      "es": "В четыре руки",
+      "ru": "В четыре руки",
+      "en": "В четыре руки",
+      "it": "В четыре руки"
+     },
+     "cover": "img/mundos/volny-v-chetyre-ruki.jpg",
+     "tracks": [
+      {
+       "t": "В четыре руки",
+       "src": "audio/volny-v-chetyre-ruki/01-v-chetyre-ruki.mp3",
+       "d": "3:33",
+       "ly": 1
+      }
+     ],
+     "pending": 0,
+     "mood": "A",
+     "voice": "S"
     }
    ],
    "tr": {
-    "es": "Olas de amor · la trilogía",
-    "ru": "Трилогия",
-    "en": "Waves of Love · the trilogy",
-    "it": "Onde d'amore · la trilogia"
+    "es": "Olas de amor · la saga",
+    "ru": "Цикл романов",
+    "en": "Waves of Love · the saga",
+    "it": "Onde d'amore · la saga"
    }
   },
   {
